@@ -78,7 +78,7 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_username.setBorder(null);
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
         
-        main_Admin.panelImage2.setVisible(true);
+        main_Admin.jPanel2.setVisible(true);
     }
     
     public static void forModifyAdmin( Admin adm ){
@@ -144,7 +144,7 @@ public class DAO_Admin {
         
         if( chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkSingdate && chkAvatar ){
             adm = new Admin(singletonU.PATH_formAdm, born, main_Admin.txtf_formAdm_dni.getText(), main_Admin.txtf_formAdm_email.getText(), main_Admin.txtf_formAdm_phone.getText(), main_Admin.txtf_formAdm_name.getText(), main_Admin.txtf_formAdm_lastname.getText(), singletonU.passwd_formAdm, ((String)main_Admin.CB_formAdm_state.getSelectedItem()), main_Admin.txtf_formAdm_username.getText() , Integer.parseInt(main_Admin.txt_formAdm_activity.getText()), sing);
-            main_Admin.lbl_show.setText("Admin creation succesfully");
+            main_Admin.lblMainform.setText("Admin creation succesfully");
             singletonAdmin.ephemeralAdmin = adm;
             valid = true;
         }

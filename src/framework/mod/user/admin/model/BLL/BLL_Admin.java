@@ -161,7 +161,7 @@ public class BLL_Admin {
             singletonU.Alist_adm.add(singletonAdmin.ephemeralAdmin);
             valid = true;
         } else {
-            main_Admin.lbl_show.setText("Dni already exist");
+            //main_Admin..setText("Dni already exist");
             valid = false;
         }
         return valid;
