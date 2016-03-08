@@ -7,6 +7,7 @@ package framework.mod.settings.model.clss;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.mod.settings.model.tools.LooknFeel;
+import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.model.clss.singletonU;
 import java.io.Serializable;
 import java.util.Locale;
@@ -71,7 +72,7 @@ public class Settings implements Serializable {
             //LooknFeel.LookFeel();
             //Language.getInstance();
             singletonU.loadSingletonU();
-            //BLL_user.loadArrays();
+            BLL_Admin.loadArray();
         }
         return instance;
     }

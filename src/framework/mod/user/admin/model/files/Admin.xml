@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <Admin>
+    <age>29</age>
+    <avataring>/home/user</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>5</day>
+      <month>5</month>
+      <year>1986</year>
+      <sdate>05/05/1986</sdate>
+    </born__date>
+    <dni>53382477-Y</dni>
+    <email>osblue@gmail.com</email>
+    <movile>669554383</movile>
+    <name>Oscar</name>
+    <lastname>Otero</lastname>
+    <password>oreto_05OT</password>
+    <state>Online</state>
+    <user>osblue</user>
+    <benefit>25.4</benefit>
+    <activity>254</activity>
+    <antiqueness>4</antiqueness>
+    <contract__data>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>10</day>
+      <month>9</month>
+      <year>2015</year>
+      <sdate>10/09/2015</sdate>
+    </contract__data>
+    <salary>1121.0</salary>
+  </Admin>
+</list>

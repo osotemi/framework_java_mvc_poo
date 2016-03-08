@@ -10,6 +10,7 @@ import framework.mod.nav.model.tools.menu_gen;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.view.main_Admin;
 import framework.mod.user.model.clss.singletonU;
 import java.awt.Color;
@@ -225,4 +226,8 @@ public class BLL_Admin {
 
         return pos;
     }
+    
+    public static void loadArray(){
+		json.AdminJson_Autoload();
+	}
 }

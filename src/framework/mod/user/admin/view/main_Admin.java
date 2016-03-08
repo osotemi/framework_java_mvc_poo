@@ -59,6 +59,7 @@ public class main_Admin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         DC_formAdm_singdate = new com.toedter.calendar.JDateChooser();
         lbl_formAdm_nameERR = new javax.swing.JLabel();
@@ -329,6 +330,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtf_formAdm_emailFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtf_formAdm_emailFocusLost(evt);
+            }
         });
         txtf_formAdm_email.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -375,6 +379,9 @@ public class main_Admin extends javax.swing.JFrame {
         JPF_fromAdm_pass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 JPF_fromAdm_passFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JPF_fromAdm_passFocusLost(evt);
             }
         });
         JPF_fromAdm_pass.addActionListener(new java.awt.event.ActionListener() {
@@ -515,6 +522,9 @@ public class main_Admin extends javax.swing.JFrame {
         txtf_formAdm_dni.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtf_formAdm_dniFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtf_formAdm_dniFocusLost(evt);
             }
         });
         txtf_formAdm_dni.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -778,23 +788,20 @@ public class main_Admin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(18, 18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jScrollPane1.setViewportView(jPanel2);
 
         javax.swing.GroupLayout panelImage2Layout = new javax.swing.GroupLayout(panelImage2);
         panelImage2.setLayout(panelImage2Layout);
         panelImage2Layout.setHorizontalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
         panelImage2Layout.setVerticalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage2Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
-                .addGap(229, 229, 229))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         getContentPane().add(panelImage2, java.awt.BorderLayout.CENTER);
@@ -1193,6 +1200,18 @@ public class main_Admin extends javax.swing.JFrame {
         pagina.initLinkBox();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void txtf_formAdm_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusLost
+        BLL_Admin.BLL_txtEmail();
+    }//GEN-LAST:event_txtf_formAdm_emailFocusLost
+
+    private void txtf_formAdm_dniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusLost
+        BLL_Admin.BLL_txtDNI();
+    }//GEN-LAST:event_txtf_formAdm_dniFocusLost
+
+    private void JPF_fromAdm_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusLost
+        BLL_Admin.BLL_JPF_Password();
+    }//GEN-LAST:event_JPF_fromAdm_passFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
@@ -1241,6 +1260,7 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JPanel jPanel6;
     public static javax.swing.JPanel jPanel7;
+    public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JLabel lblMainform;
     public static javax.swing.JLabel lbl_formAdm_activityERR;

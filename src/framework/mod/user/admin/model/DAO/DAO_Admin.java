@@ -123,7 +123,7 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_username.setBorder(null);
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
         
-        main_Admin.panelImage2.setVisible(true);
+        main_Admin.jPanel2.setVisible(true);
         
     }
 
@@ -133,22 +133,27 @@ public class DAO_Admin {
      */
     public static boolean createAdmin(){
         Admin adm = new Admin();
-        DateO born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
-        DateO sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
+        DateO born = new DateO();
+        DateO sing = new DateO();
         boolean valid = false;
         boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername() ,chkPhone = askPhone() , chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail() , chkActivity = askActivity() , chkBorndate = askBorndate() , chkSingdate = askSingDate(), chkAvatar = false;
         
         if( !singletonU.PATH_formAdm.equals("")){
             chkAvatar = true;
         }
-        
+                
         if( chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkSingdate && chkAvatar ){
+            born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
+            sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
             adm = new Admin(singletonU.PATH_formAdm, born, main_Admin.txtf_formAdm_dni.getText(), main_Admin.txtf_formAdm_email.getText(), main_Admin.txtf_formAdm_phone.getText(), main_Admin.txtf_formAdm_name.getText(), main_Admin.txtf_formAdm_lastname.getText(), singletonU.passwd_formAdm, ((String)main_Admin.CB_formAdm_state.getSelectedItem()), main_Admin.txtf_formAdm_username.getText() , Integer.parseInt(main_Admin.txt_formAdm_activity.getText()), sing);
+            main_Admin.lblMainform.setOpaque(true);
+            main_Admin.lblMainform.setBackground(Color.green);
             main_Admin.lblMainform.setText("Admin creation succesfully");
             singletonAdmin.ephemeralAdmin = adm;
             valid = true;
         }
         else{
+            main_Admin.lblMainform.setOpaque(true);
             main_Admin.lblMainform.setBackground(Color.red);
             main_Admin.lblMainform.setText("Admin creation fail");
         }
@@ -231,6 +236,7 @@ public class DAO_Admin {
             main_Admin.txtf_formAdm_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Admin.lbl_formAdm_lusernameERR.setText("Sólo letras");
+             main_Admin.lbl_formAdm_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_lusernameERR.setForeground(Color.red);
         } else {
             main_Admin.txtf_formAdm_username.setBorder(null);
@@ -477,7 +483,7 @@ public class DAO_Admin {
     }
     
     public static void DAO_FA_hideFormPanel(){
-        main_Admin.panelImage2.setVisible(false);
+        main_Admin.jPanel2.setVisible(false);
     }
     
     /**
