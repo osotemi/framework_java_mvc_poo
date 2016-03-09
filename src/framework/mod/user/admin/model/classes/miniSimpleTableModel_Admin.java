@@ -9,6 +9,7 @@ import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.clss.DateO;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.model.clss.singletonU;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -64,7 +65,6 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
             case 3:
                 dev = fila.getActivity();
                 break;
-
         }
         return dev;
     }
@@ -101,8 +101,8 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
         fireTableCellUpdated(row, col);
     }
 
-    public void addRow(Admin usu) {
-        data.add(usu);
+    public void addRow(Admin adm) {
+        data.add(adm);
         fireTableDataChanged();
     }
 
@@ -112,13 +112,14 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
         
         Admin _adm = null;
         java.util.Date date= new java.util.Date();
-        for(int i=1;i<=singletonAdmin.AdminTableArray.size();i++) {
+        singletonAdmin.AdminTableArray = singletonU.Alist_adm;
+        for(int i=1; i<singletonAdmin.AdminTableArray.size(); i++) {
             _adm = singletonAdmin.AdminTableArray.get(i);
             addRow(_adm);
             datosaux.add(_adm);
             
             try {
-                Thread.sleep(1); //1 milliseconds
+                //Thread.sleep(1); //1 milliseconds
             } catch (Exception e) {
               System.out.println(e);
             }

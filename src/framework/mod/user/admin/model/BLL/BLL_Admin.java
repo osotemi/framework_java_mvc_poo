@@ -5,10 +5,10 @@
  */
 package framework.mod.user.admin.model.BLL;
 
-
 import framework.mod.nav.model.tools.menu_gen;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
+import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.view.main_Admin;
@@ -22,55 +22,53 @@ import javax.swing.JOptionPane;
  */
 public class BLL_Admin {
 
-
     public static void BLL_Adm_form() {
         DAO_Admin.formNew();
     }
 
-    public static void BLL_FA_mainBack(){
+    public static void BLL_FA_mainBack() {
         DAO_Admin.DAO_FA_mainBack();
     }
-    
-    public static void BLL_FA_HideNewFormPanel(){
+
+    public static void BLL_FA_HideNewFormPanel() {
         DAO_Admin.DAO_FA_hideFormPanel();
     }
-    
-    public static void BLL_FA_CleanName(){
+
+    public static void BLL_FA_CleanName() {
         DAO_Admin.DAO_cfName();
     }
-    
-    public static void BLL_FA_CleanLastName(){
+
+    public static void BLL_FA_CleanLastName() {
         DAO_Admin.DAO_cfLastName();
     }
-    
-    public static void BLL_FA_CleanUserName(){
+
+    public static void BLL_FA_CleanUserName() {
         DAO_Admin.DAO_cfUserName();
     }
-    
-    public static void BLL_FA_CleanPhone(){
+
+    public static void BLL_FA_CleanPhone() {
         DAO_Admin.DAO_cfPhone();
     }
-    
-    public static void BLL_FA_CleanEmail(){
+
+    public static void BLL_FA_CleanEmail() {
         DAO_Admin.DAO_cfEmail();
     }
-    
-    public static void BLL_FA_CleanDNI(){
+
+    public static void BLL_FA_CleanDNI() {
         DAO_Admin.DAO_cfDNI();
     }
-    
-    public static void BLL_FA_CreateAdmin(){
-        if(DAO_Admin.createAdmin()){
-            if(createUser_onAL()){
+
+    public static void BLL_FA_CreateAdmin() {
+        if (DAO_Admin.createAdmin()) {
+            if (createUser_onAL()) {
                 //Guardar en JSON
                 //settext
                 //verd
                 //sleep 3000
-                
+
                 //dispose
                 //pager
-            }
-            else{
+            } else {
                 //settext
                 //roig
                 //sleep 3000
@@ -79,13 +77,12 @@ public class BLL_Admin {
             JOptionPane.showMessageDialog(null, singletonU.Alist_adm.get(0));
             main_Admin.lblMainform.setBackground(Color.green);
             main_Admin.lblMainform.setText("Admin creation succesfully");
+        } else {
+
         }
-        else{
-            
-        }
-        
+
     }
-    
+
     public static void BLL_txtName() {
         DAO_Admin.askName();
     }
@@ -136,12 +133,15 @@ public class BLL_Admin {
     }
 
     public static void BLL_ModifyAdm() {
-        if(singletonU.Alist_adm.isEmpty()){
+        int ALpos = -1;
+        if (singletonU.Alist_adm.isEmpty()) {
             main_Admin.lblMainform.setText("No hay ningún Administrador cargado");
-        }
-        else{
-            singletonAdmin.ephemeralAdmin = singletonU.Alist_adm.get(searchALcombo());
-            DAO_Admin.forModifyAdmin(singletonAdmin.ephemeralAdmin);
+        } else {
+            ALpos=searchALcombo();
+            if(ALpos>=0){
+                singletonAdmin.ephemeralAdmin = singletonU.Alist_adm.get(ALpos);
+                DAO_Admin.forModifyAdmin(singletonAdmin.ephemeralAdmin);
+            }
         }
     }
 
@@ -160,6 +160,7 @@ public class BLL_Admin {
         pos = searchAL();
         if (pos == -1) {
             singletonU.Alist_adm.add(singletonAdmin.ephemeralAdmin);
+            ((miniSimpleTableModel_Admin)main_Admin.TABLA.getModel()).cargar();
             valid = true;
         } else {
             //main_Admin..setText("Dni already exist");
@@ -192,7 +193,6 @@ public class BLL_Admin {
      * @return int position or -1 if the newuser is not on the array or -2 if
      * select Cancel option
      */
-
     public static int searchALcombo() {
         Admin adm = new Admin();
         String sltUser = "", dni = "";
@@ -226,8 +226,9 @@ public class BLL_Admin {
 
         return pos;
     }
-    
-    public static void loadArray(){
-		json.AdminJson_Autoload();
-	}
+
+    public static void loadArray() {
+        json.AdminJson_Autoload();
+        singletonAdmin.AdminTableArray = singletonU.Alist_adm;
+    }
 }
