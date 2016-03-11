@@ -6,6 +6,10 @@
 package framework.mod.nav.view;
 
 import framework.mod.user.admin.view.main_Admin;
+import static framework.mod.user.admin.view.main_Admin.DC_formAdm_borndate;
+import static framework.mod.user.admin.view.main_Admin.DC_formAdm_singdate;
+import static framework.mod.user.admin.view.main_Admin.jPanel2;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,11 +22,20 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
-        
+        run();
         //
         ///
     }
-
+    private void run(){
+                
+        this.setTitle("Servicios farmaceúticos");
+	this.setLocationRelativeTo(null);//centrado
+	//this.setSize(525,425);//ancho x alto
+	//this.setResizable(false);
+	//Image icono=Toolkit.getDefaultToolkit().getImage("p1.jpg");
+	//this.setIconImage(icono);
+	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,12 +76,11 @@ public class main extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1370, 780));
         setSize(new java.awt.Dimension(1370, 780));
         getContentPane().setLayout(new java.awt.BorderLayout(1, 0));
 
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/portada-servicios.jpg"))); // NOI18N
-        panelImage1.setPreferredSize(new java.awt.Dimension(0, 100));
+        panelImage1.setPreferredSize(new java.awt.Dimension(0, 70));
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -78,7 +90,7 @@ public class main extends javax.swing.JFrame {
         );
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
         getContentPane().add(panelImage1, java.awt.BorderLayout.NORTH);
@@ -128,7 +140,7 @@ public class main extends javax.swing.JFrame {
                 .addGroup(panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
 
         jButton1.getAccessibleContext().setAccessibleDescription("");
@@ -199,7 +211,7 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelImage5, java.awt.BorderLayout.EAST);

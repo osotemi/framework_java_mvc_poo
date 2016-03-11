@@ -8,29 +8,32 @@ package framework.mod.user.admin.model.tools.autoComplete;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 /**
  *
  * @author yomogan
  */
-public class StringSearchable implements Searchable<String,String>{
-	private List<String> terms = new ArrayList<String>();
+public class StringSearchable implements Searchable<String, String> {
 
-	/**
-	 * Constructs a new object based upon the parameter terms. 
-	 * @param terms The inventory of terms to search.
-	 */
+    private List<String> terms = new ArrayList<String>();
 
-	public StringSearchable(List<String> terms){
-            this.terms.addAll(terms);
-	}
+    /**
+     * Constructs a new object based upon the parameter terms.
+     *
+     * @param terms The inventory of terms to search.
+     */
+    public StringSearchable(List<String> terms) {
+        this.terms.addAll(terms);
+    }
 
-	@Override
-	public Collection<String> search(String value) {
-            List<String> founds = new ArrayList<String>();
-            for ( String s : terms ){
-		if ( s.indexOf(value) == 0 )
-                    founds.add(s);
+    @Override
+    public Collection<String> search(String value) {
+        List<String> founds = new ArrayList<String>();
+        for (String s : terms) {
+            if (s.indexOf(value) == 0) {
+                founds.add(s);
             }
-            return founds;
-	}
+        }
+        return founds;
+    }
 }

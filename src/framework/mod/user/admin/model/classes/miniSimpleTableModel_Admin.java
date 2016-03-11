@@ -9,6 +9,7 @@ import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.clss.DateO;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.admin.view.main_Admin;
 import framework.mod.user.model.clss.singletonU;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -126,45 +127,46 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
         }
     }
 
-    /*public void filtrar() {
+    public void filtrar() {
         data.clear();
         int cont=0;
         
-        String nom=(String) ((JComboBox)combo).getSelectedItem();   
+        String nom=(String) ((JComboBox)main_Admin.combo).getSelectedItem();
+        //nom.charAt(0) = nom.charAt(0);
         if(nom!=null){
             for(int i=0;i<datosaux.size();i++) {
                 //if(datosaux.get(i).getFirst_name().contains(nom)){
-                if(datosaux.get(i).getFirst_name().toLowerCase().startsWith(nom.toLowerCase())){
+                if(datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())){
                     addRow(datosaux.get(i));
                     cont++;
                 }
             }
-            interfaz_actor.jLabel3.setText(String.valueOf(cont));
+            main_Admin.jLabel13.setText(String.valueOf(cont));
             System.out.println("word selected: " + nom);
             pagina.initLinkBox();
         }
     }
 
-    public actor buscar(String u) {
+    public Admin buscar(String adm) {
         data.clear();
         cargar();
 
         String res;
         for (int i = 0; i < data.size(); i++) {
             res = data.get(i).toString();
-            if (res.contains(u)) {
+            if (res.contains(adm)) {
                 return data.get(i);
             }
         }
         return null;
     }
 
-    public int buscaUsuario(actor u) {
+    public int buscaUsuario(Admin adm) {
         data.clear();
         cargar();
 
         for (int i = 0; i < data.size(); i++) {
-            if (data.get(i).equals(u)) {
+            if (data.get(i).equals(adm)) {
                 return i;
             }
         }
@@ -174,5 +176,5 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
     public void removeRow(int fila) {
         data.remove(fila);
         fireTableDataChanged();
-    }*/
+    }
 }
