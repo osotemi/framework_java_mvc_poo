@@ -15,4 +15,5 @@ public class singletonAdmin {
     
     public static ArrayList<Admin> AdminTableArray;
     public static Admin ephemeralAdmin;
+    public static String currentForm;
 }

@@ -41,15 +41,7 @@ public class main_Admin extends javax.swing.JFrame {
         
         run();
         ///
-        TABLA.setModel( new miniSimpleTableModel_Admin() );
-        ((miniSimpleTableModel_Admin)TABLA.getModel()).cargar();
-        TABLA.setFillsViewportHeight(true);
-        TABLA.setRowSorter(sorter);
-
-        pagina.inicializa();
-        pagina.initLinkBox();
-        
-        jLabel13.setText(String.valueOf(singletonAdmin.AdminTableArray.size()));
+        runTABLE();
         
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -59,18 +51,7 @@ public class main_Admin extends javax.swing.JFrame {
                 BLL_Admin.BLL_FA_mainBack();
             }
         });
-        //combo lineas
-        List<String> myWords = new ArrayList<String>();
-        for(int i=0;i<=singletonAdmin.AdminTableArray.size()-1;i++) {
-            myWords.add(singletonAdmin.AdminTableArray.get(i).getName().toLowerCase());
-            myWords.add(singletonAdmin.AdminTableArray.get(i).getName());
-        }
-
-	StringSearchable searchable = new StringSearchable(myWords);
-	combo = new AutocompleteJComboBox(searchable);
-        //JPanel5 se utiliza solamente para que JPanel3 que contendrÃ¡ combo, no se redimensione
-        jPanel5.setLayout(new java.awt.BorderLayout());
-        jPanel5.add(combo);
+        
         
         combo.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -94,6 +75,30 @@ public class main_Admin extends javax.swing.JFrame {
 	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
+    public static void runTABLE(){
+        TABLA.setModel( new miniSimpleTableModel_Admin() );
+        ((miniSimpleTableModel_Admin)TABLA.getModel()).cargar();
+        TABLA.setFillsViewportHeight(true);
+        TABLA.setRowSorter(sorter);
+
+        pagina.inicializa();
+        pagina.initLinkBox();
+        
+        jLabel13.setText(String.valueOf(singletonAdmin.AdminTableArray.size()));
+        
+        //combo lineas
+        List<String> myWords = new ArrayList<String>();
+        for(int i=0;i<=singletonAdmin.AdminTableArray.size()-1;i++) {
+            myWords.add(singletonAdmin.AdminTableArray.get(i).getName().toLowerCase());
+            myWords.add(singletonAdmin.AdminTableArray.get(i).getName());
+        }
+
+	StringSearchable searchable = new StringSearchable(myWords);
+	combo = new AutocompleteJComboBox(searchable);
+        //JPanel5 se utiliza solamente para que JPanel3 que contendrÃ¡ combo, no se redimensione
+        jPanel5.setLayout(new java.awt.BorderLayout());
+        jPanel5.add(combo);
+    }
     public static void comboActionPerformed(java.awt.event.ActionEvent evt) {                                            
         pagina.currentPageIndex = 1;
         ((miniSimpleTableModel_Admin)TABLA.getModel()).filtrar();
@@ -248,6 +253,11 @@ public class main_Admin extends javax.swing.JFrame {
 
         buttonAero3.setBackground(new java.awt.Color(153, 255, 102));
         buttonAero3.setText("Borrar");
+        buttonAero3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAero3ActionPerformed(evt);
+            }
+        });
 
         btn_saveJSON.setBackground(new java.awt.Color(51, 255, 204));
         btn_saveJSON.setText("JSON");
@@ -384,7 +394,7 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_lastnameERR.setText(" ");
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Confirmar ContraseÃ±a");
+        jLabel6.setText("Confirmar Contraseña");
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Fecha de nacimiento");
@@ -569,7 +579,7 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("ContraseÃ±a");
+        jLabel9.setText("Contraseña");
 
         lbl_formAdm_passconfERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_passconfERR.setText(" ");
@@ -586,7 +596,7 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_singdateERR.setText(" ");
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel17.setText("Fecha de contrataciÃ³n");
+        jLabel17.setText("Fecha de contratación");
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel19.setText("Imagen de perfil");
@@ -603,7 +613,7 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_emailERR.setText(" ");
 
         lblphoneAdm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblphoneAdm.setText("TelÃ©fono");
+        lblphoneAdm.setText("Teléfono");
 
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel26.setText("Estado");
@@ -637,7 +647,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_phone.setText("TelÃ©fono...");
+        txtf_formAdm_phone.setText("Teléfono...");
         txtf_formAdm_phone.setBorder(null);
         txtf_formAdm_phone.setNextFocusableComponent(txtf_formAdm_dni);
         txtf_formAdm_phone.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1098,6 +1108,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAero2ActionPerformed
 
     private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
+
         BLL_Admin.BLL_Adm_form();
     }//GEN-LAST:event_buttonAero1ActionPerformed
 
@@ -1324,6 +1335,10 @@ public class main_Admin extends javax.swing.JFrame {
     private void btn_saveJSONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveJSONActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_saveJSONActionPerformed
+
+    private void buttonAero3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero3ActionPerformed
+        BLL_Admin.deleteAdmnAL();
+    }//GEN-LAST:event_buttonAero3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;

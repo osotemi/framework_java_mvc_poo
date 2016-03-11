@@ -66,6 +66,10 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
             case 3:
                 dev = fila.getActivity();
                 break;
+            
+            case 4:
+                dev = fila.getDni();
+                break;
         }
         return dev;
     }

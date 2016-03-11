@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 public class BLL_Admin {
 
     public static void BLL_Adm_form() {
+        singletonAdmin.currentForm = "create";
         DAO_Admin.formNew();
     }
 
@@ -59,28 +60,33 @@ public class BLL_Admin {
     }
 
     public static void BLL_FA_CreateAdmin() {
-        if (DAO_Admin.createAdmin()) {
-            if (createUser_onAL()) {
-                //Guardar en JSON
-                //settext
-                //verd
-                //sleep 3000
+        switch (singletonAdmin.currentForm){
+            case "create":
+                if (DAO_Admin.createAdmin()) {
+                    if (createAdmAL()) {
+                        //Guardar en JSON
+                        //settext
+                        //verd
+                        //sleep 3000
 
-                //dispose
-                //pager
-            } else {
-                //settext
-                //roig
-                //sleep 3000
-                //errro
-            }
-            JOptionPane.showMessageDialog(null, singletonU.Alist_adm.get(0));
-            main_Admin.lblMainform.setBackground(Color.green);
-            main_Admin.lblMainform.setText("Admin creation succesfully");
-        } else {
+                        //dispose
+                        //pager
+                    } else {
+                        //settext
+                        //roig
+                        //sleep 3000
+                        //errro
+                    }
+                    JOptionPane.showMessageDialog(null, singletonU.Alist_adm.get(0));
+                    main_Admin.lblMainform.setBackground(Color.green);
+                    main_Admin.lblMainform.setText("Admin creation succesfully");
+                } else {
 
+                }
+                break;
+            case "modify":
+                break;
         }
-
     }
 
     public static void BLL_txtName() {
@@ -133,6 +139,7 @@ public class BLL_Admin {
     }
 
     public static void BLL_ModifyAdm() {
+        singletonAdmin.currentForm ="modify";
         int ALpos = -1;
         if (singletonU.Alist_adm.isEmpty()) {
             main_Admin.lblMainform.setText("No hay ningÃºn Administrador cargado");
@@ -151,8 +158,9 @@ public class BLL_Admin {
      * @param int optfull -> if == 1-> create full object else -> creates a PK
      * object
      */
-    public static boolean createUser_onAL() {
+    public static boolean createAdmAL() {
         String tryagain[] = {"Try again", "Exit"};
+        String dni="";
         int pos = 0, opt_tryagain = 0;
         boolean valid = false;
 
@@ -163,12 +171,47 @@ public class BLL_Admin {
             ((miniSimpleTableModel_Admin)main_Admin.TABLA.getModel()).cargar();
             valid = true;
         } else {
-            //main_Admin..setText("Dni already exist");
+            main_Admin.lbl_formAdm_dniERR.setText("Dni already exist");
             valid = false;
         }
         return valid;
     }
+    
+    public static boolean deleteAdmnAL(){
+        String dni, name, lastname;
+        int pos;
 
+        int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
+        if (n != 0) {
+            int selec = main_Admin.TABLA.getSelectedRow();
+            if (selec == -1) {
+                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+            } else {
+                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
+                name = (String) main_Admin.TABLA.getModel().getValueAt(selec, 0);
+                lastname = (String) main_Admin.TABLA.getModel().getValueAt(selec, 1);
+                Admin adm = new Admin(dni);
+                singletonAdmin.ephemeralAdmin = adm;
+                pos = searchAL();
+                int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a " + lastname +  ", "+ name + " con dni " + dni,"Atención!", JOptionPane.WARNING_MESSAGE);
+
+                if (opc == 0) {
+                    ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).removeRow(selec);
+                    adm = singletonAdmin.AdminTableArray.get(pos);
+
+                    singletonAdmin.AdminTableArray.remove(adm);
+                    miniSimpleTableModel_Admin.datosaux.remove(adm);
+                    main_Admin.runTABLE();
+                    //EFBLLgrafico.Guardar(0);
+                    return true;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+        }
+        return false;
+    }
+    
     /**
      * Searchs for the actual singletonAdmin.ephemeral Admin on
      * singletonU.Alist_adm
