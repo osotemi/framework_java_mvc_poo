@@ -5,29 +5,18 @@
  */
 package framework.mod.user.admin.model.DAO;
 
-import com.toedter.calendar.JTextFieldDateEditor;
 import framework.clss.DateO;
 import framework.mod.nav.view.main;
-import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
-import static framework.mod.user.admin.view.main_Admin.txtf_formAdm_name;
 import framework.mod.user.model.clss.singletonU;
-import framework.tools.format;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Calendar;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -172,16 +161,9 @@ public class DAO_Admin {
             born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
             sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
             adm = new Admin(singletonU.PATH_formAdm, born, main_Admin.txtf_formAdm_dni.getText(), main_Admin.txtf_formAdm_email.getText(), main_Admin.txtf_formAdm_phone.getText(), main_Admin.txtf_formAdm_name.getText(), main_Admin.txtf_formAdm_lastname.getText(), singletonU.passwd_formAdm, ((String) main_Admin.CB_formAdm_state.getSelectedItem()), main_Admin.txtf_formAdm_username.getText(), Integer.parseInt(main_Admin.txt_formAdm_activity.getText()), sing);
-            main_Admin.lblMainform.setOpaque(true);
-            main_Admin.lblMainform.setBackground(Color.green);
-            main_Admin.lblMainform.setText("Admin creation succesfully");
             singletonAdmin.ephemeralAdmin = adm;
             valid = true;
-        } else {
-            main_Admin.lblMainform.setOpaque(true);
-            main_Admin.lblMainform.setBackground(Color.red);
-            main_Admin.lblMainform.setText("Admin creation fail");
-        }
+        } 
         return valid;
     }
 

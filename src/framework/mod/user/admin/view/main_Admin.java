@@ -432,7 +432,6 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_email.setText("E-mail...");
         txtf_formAdm_email.setBorder(null);
         txtf_formAdm_email.setNextFocusableComponent(txtf_formAdm_phone);
         txtf_formAdm_email.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -531,7 +530,6 @@ public class main_Admin extends javax.swing.JFrame {
 
         txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_lastname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_lastname.setText("Apellidos...");
         txtf_formAdm_lastname.setBorder(null);
         txtf_formAdm_lastname.setNextFocusableComponent(txtf_formAdm_email);
         txtf_formAdm_lastname.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -625,7 +623,6 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_borndateERR.setText(" ");
 
         txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_dni.setText("DNI...");
         txtf_formAdm_dni.setBorder(null);
         txtf_formAdm_dni.setNextFocusableComponent(DC_formAdm_borndate);
         txtf_formAdm_dni.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -647,7 +644,6 @@ public class main_Admin extends javax.swing.JFrame {
 
         txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_phone.setText("Teléfono...");
         txtf_formAdm_phone.setBorder(null);
         txtf_formAdm_phone.setNextFocusableComponent(txtf_formAdm_dni);
         txtf_formAdm_phone.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1325,15 +1321,15 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_JPF_fromAdm_passFocusLost
 
     private void btn_saveXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveXMLActionPerformed
-        // TODO add your handling code here:
+        BLL_Admin.BLL_UserSaveXML();
     }//GEN-LAST:event_btn_saveXMLActionPerformed
 
     private void btn_saveTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveTXTActionPerformed
-        // TODO add your handling code here:
+        BLL_Admin.BLL_UserSaveTXT();
     }//GEN-LAST:event_btn_saveTXTActionPerformed
 
     private void btn_saveJSONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveJSONActionPerformed
-        // TODO add your handling code here:
+        BLL_Admin.BLL_UserSaveJSON();
     }//GEN-LAST:event_btn_saveJSONActionPerformed
 
     private void buttonAero3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero3ActionPerformed

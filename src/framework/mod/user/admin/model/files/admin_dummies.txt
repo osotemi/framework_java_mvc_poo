@@ -13,7 +13,7 @@ Benefit: 58.7
 Antiqueness: 5 years
 Activity: 587
 Contract data: 08/01/2011
-Salary = 1 415,00 €
+Salary = 1 415,00 ?
 
 
 ----------------------------------------
@@ -33,7 +33,7 @@ Benefit: 832.3
 Antiqueness: 11 months
 Activity: 8323
 Contract data: 26/02/2015
-Salary = 1 157,75 €
+Salary = 1 157,75 ?
 
 
 ----------------------------------------
@@ -53,7 +53,7 @@ Benefit: 632.3
 Antiqueness: 12 years, 9 months
 Activity: 6323
 Contract data: 16/04/2003
-Salary = 1 903,25 €
+Salary = 1 903,25 ?
 
 
 ----------------------------------------
@@ -73,7 +73,7 @@ Benefit: 857.3
 Antiqueness: 8 years, 7 months
 Activity: 8573
 Contract data: 25/06/2007
-Salary = 1 640,75 €
+Salary = 1 640,75 ?
 
 
 ----------------------------------------
@@ -93,7 +93,7 @@ Benefit: 806.7
 Antiqueness: 32 years
 Activity: 8067
 Contract data: 13/01/1984
-Salary = 3 116,00 €
+Salary = 3 116,00 ?
 
 
 ----------------------------------------
@@ -113,7 +113,7 @@ Benefit: 613.1
 Antiqueness: 16 years, 6 months
 Activity: 6131
 Contract data: 16/07/1999
-Salary = 2 139,50 €
+Salary = 2 139,50 ?
 
 
 ----------------------------------------
@@ -133,7 +133,7 @@ Benefit: 921.3
 Antiqueness: 4 years, 4 months
 Activity: 9213
 Contract data: 27/09/2011
-Salary = 1 373,00 €
+Salary = 1 373,00 ?
 
 
 ----------------------------------------
@@ -153,7 +153,7 @@ Benefit: 13.0
 Antiqueness: 18 years, 9 months
 Activity: 130
 Contract data: 11/04/1997
-Salary = 2 281,25 €
+Salary = 2 281,25 ?
 
 
 ----------------------------------------
@@ -173,7 +173,7 @@ Benefit: 467.7
 Antiqueness: 20 years, 9 months
 Activity: 4677
 Contract data: 04/05/1995
-Salary = 2 407,25 €
+Salary = 2 407,25 ?
 
 
 ----------------------------------------
@@ -193,7 +193,7 @@ Benefit: 382.4
 Antiqueness: 4 months
 Activity: 3824
 Contract data: 26/09/2015
-Salary = 1 121,00 €
+Salary = 1 121,00 ?
 
 
 ----------------------------------------
@@ -213,7 +213,7 @@ Benefit: 779.6
 Antiqueness: 8 years, 8 months
 Activity: 7796
 Contract data: 19/05/2007
-Salary = 1 646,00 €
+Salary = 1 646,00 ?
 
 
 ----------------------------------------
@@ -233,7 +233,7 @@ Benefit: 704.2
 Antiqueness: 11 years, 7 months
 Activity: 7042
 Contract data: 29/06/2004
-Salary = 1 829,75 €
+Salary = 1 829,75 ?
 
 
 ----------------------------------------
@@ -253,7 +253,7 @@ Benefit: 199.2
 Antiqueness: 11 months
 Activity: 1992
 Contract data: 22/02/2015
-Salary = 1 157,75 €
+Salary = 1 157,75 ?
 
 
 ----------------------------------------
@@ -273,7 +273,7 @@ Benefit: 404.0
 Antiqueness: 2 months
 Activity: 4040
 Contract data: 10/11/2015
-Salary = 1 110,50 €
+Salary = 1 110,50 ?
 
 
 ----------------------------------------
@@ -293,7 +293,7 @@ Benefit: 121.8
 Antiqueness: 3 years, 10 months
 Activity: 1218
 Contract data: 11/03/2012
-Salary = 1 341,50 €
+Salary = 1 341,50 ?
 
 
 ----------------------------------------
@@ -313,7 +313,7 @@ Benefit: 572.1
 Antiqueness: 11 years, 5 months
 Activity: 5721
 Contract data: 12/08/2004
-Salary = 1 819,25 €
+Salary = 1 819,25 ?
 
 
 ----------------------------------------
@@ -333,7 +333,7 @@ Benefit: 386.8
 Antiqueness: 2 years
 Activity: 3868
 Contract data: 07/02/2014
-Salary = 1 226,00 €
+Salary = 1 226,00 ?
 
 
 ----------------------------------------

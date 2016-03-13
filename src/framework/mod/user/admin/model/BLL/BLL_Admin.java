@@ -11,8 +11,12 @@ import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.json;
+import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.mod.user.admin.view.main_Admin;
 import framework.mod.user.model.clss.singletonU;
+import framework.mod.user.admin.model.tools.json;
+import framework.mod.user.admin.model.tools.txt;
+import framework.mod.user.admin.model.tools.xml;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -65,15 +69,18 @@ public class BLL_Admin {
                 if (DAO_Admin.createAdmin()) {
                     if (createAdmAL()) {
                         //Guardar en JSON
-                        //settext
+                        main_Admin.lblMainform.setOpaque(true);
+                        main_Admin.lblMainform.setBackground(Color.green);
+                        main_Admin.lblMainform.setText("Admin creation succesfully");
                         //verd
                         //sleep 3000
 
-                        //dispose
+                        main_Admin.jPanel2.setVisible(false);
                         //pager
                     } else {
-                        //settext
-                        //roig
+                        main_Admin.lblMainform.setOpaque(true);
+                        main_Admin.lblMainform.setBackground(Color.red);
+                        main_Admin.lblMainform.setText("Admin creation fail");
                         //sleep 3000
                         //errro
                     }
@@ -168,7 +175,8 @@ public class BLL_Admin {
         pos = searchAL();
         if (pos == -1) {
             singletonU.Alist_adm.add(singletonAdmin.ephemeralAdmin);
-            ((miniSimpleTableModel_Admin)main_Admin.TABLA.getModel()).cargar();
+            singletonAdmin.AdminTableArray = singletonU.Alist_adm;
+            main_Admin.runTABLE();
             valid = true;
         } else {
             main_Admin.lbl_formAdm_dniERR.setText("Dni already exist");
@@ -187,6 +195,7 @@ public class BLL_Admin {
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
             } else {
+                selec += (pagina.currentPageIndex-1)*pagina.itemsPerPage;
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
                 name = (String) main_Admin.TABLA.getModel().getValueAt(selec, 0);
                 lastname = (String) main_Admin.TABLA.getModel().getValueAt(selec, 1);
@@ -273,5 +282,17 @@ public class BLL_Admin {
     public static void loadArray() {
         json.AdminJson_Autoload();
         singletonAdmin.AdminTableArray = singletonU.Alist_adm;
+    }
+
+    public static void BLL_UserSaveXML(){
+        xml.AdminXml_Save();
+    }
+    
+    public static void BLL_UserSaveJSON(){
+        json.AdminJson_Save();
+    }
+    
+    public static void BLL_UserSaveTXT(){
+        txt.AdminTxt_Save();
     }
 }
