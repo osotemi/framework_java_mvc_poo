@@ -20,6 +20,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -126,6 +128,7 @@ public class main_Admin extends javax.swing.JFrame {
         btn_saveTXT = new org.edisoncor.gui.button.ButtonAero();
         jLabel1 = new javax.swing.JLabel();
         lbl_formAdmin_save = new javax.swing.JLabel();
+        btn_read = new org.edisoncor.gui.button.ButtonAero();
         panelImage8 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -287,6 +290,14 @@ public class main_Admin extends javax.swing.JFrame {
 
         lbl_formAdmin_save.setText("Guardar");
 
+        btn_read.setBackground(new java.awt.Color(153, 255, 102));
+        btn_read.setText("Ver");
+        btn_read.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_readActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelImage5Layout = new javax.swing.GroupLayout(panelImage5);
         panelImage5.setLayout(panelImage5Layout);
         panelImage5Layout.setHorizontalGroup(
@@ -302,6 +313,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(btn_read, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelImage5Layout.createSequentialGroup()
                     .addContainerGap()
@@ -316,8 +328,10 @@ public class main_Admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonAero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_read, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonAero3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -924,6 +938,11 @@ public class main_Admin extends javax.swing.JFrame {
 
             }
         ));
+        TABLA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TABLAMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TABLA);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1250,7 +1269,11 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_formAdm_dniKeyReleased
 
     private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
-        BLL_Admin.BLL_FA_CreateAdmin();
+        try {
+            BLL_Admin.BLL_FA_CreateAdmin();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_formAdmCreate_createActionPerformed
 
     private void DC_formAdm_borndatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_borndatePropertyChange
@@ -1333,9 +1356,27 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveJSONActionPerformed
 
     private void buttonAero3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero3ActionPerformed
-        BLL_Admin.deleteAdmnAL();
+        BLL_Admin.deleteAdmAL();
     }//GEN-LAST:event_buttonAero3ActionPerformed
 
+    private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMouseClicked
+        boolean modificar=false;
+        
+        if (evt.getClickCount() == 2) {
+            modificar = BLL_Admin.BLL_ModifyAdm();
+            
+            if (modificar == false) {
+            } else {
+                jPanel2.setVisible(false);
+            }
+
+        }
+    }//GEN-LAST:event_TABLAMouseClicked
+
+    private void btn_readActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_readActionPerformed
+        BLL_Admin.viewAdmAL();
+    }//GEN-LAST:event_btn_readActionPerformed
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
@@ -1351,6 +1392,7 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JButton btn_formA_Avatar;
     public static javax.swing.JButton btn_formAdmCreate_back;
     public static javax.swing.JButton btn_formAdmCreate_create;
+    public static org.edisoncor.gui.button.ButtonAero btn_read;
     public static org.edisoncor.gui.button.ButtonAero btn_saveJSON;
     public static org.edisoncor.gui.button.ButtonAero btn_saveTXT;
     public static org.edisoncor.gui.button.ButtonAero btn_saveXML;

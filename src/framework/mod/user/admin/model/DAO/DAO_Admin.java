@@ -146,7 +146,7 @@ public class DAO_Admin {
      *
      * @return
      */
-    public static boolean createAdmin() {
+    public static boolean formCreateAdmin() {
         Admin adm = new Admin();
         DateO born = new DateO();
         DateO sing = new DateO();
@@ -167,6 +167,65 @@ public class DAO_Admin {
         return valid;
     }
 
+    /**
+     * Draw the View Admin form
+     */
+    public static void formViewAdmin() {
+        main_Admin.txt_formAdm_activity.setText(Integer.toString(singletonAdmin.ephemeralAdmin.getActivity()));
+        main_Admin.txt_formAdm_activity.setBorder(null);
+
+        main_Admin.DC_formAdm_borndate.setCalendar(singletonAdmin.ephemeralAdmin.getBorn_date().toCalendar());
+        main_Admin.lbl_formAdm_borndateERR.setText("");
+        
+        main_Admin.btn_formAdmCreate_create.setText("Modificar");
+        
+        main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
+        main_Admin.txtf_formAdm_dni.setText(singletonAdmin.ephemeralAdmin.getDni());
+        main_Admin.txtf_formAdm_dni.setBorder(null);
+        main_Admin.lbl_formAdm_dniERR.setText(" ");
+        
+        main_Admin.txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 0, 12));
+        main_Admin.txtf_formAdm_email.setText(singletonAdmin.ephemeralAdmin.getEmail());
+        main_Admin.txtf_formAdm_email.setBorder(null);
+        main_Admin.lbl_formAdm_emailERR.setText(" ");
+
+        main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 0, 12));
+        main_Admin.txtf_formAdm_lastname.setText(singletonAdmin.ephemeralAdmin.getLastname());
+        main_Admin.txtf_formAdm_lastname.setBorder(null);
+        main_Admin.lbl_formAdm_lastnameERR.setText(" ");
+
+        main_Admin.lblMainform.setOpaque(false);
+        main_Admin.lblMainform.setText("Modificar Admin");
+
+        main_Admin.txtf_formAdm_name.setFont(new java.awt.Font("Dialog", 0, 12));
+        main_Admin.txtf_formAdm_name.setText(singletonAdmin.ephemeralAdmin.getName());
+        main_Admin.txtf_formAdm_name.setBorder(null);
+        main_Admin.lbl_formAdm_nameERR.setText(" ");
+
+        main_Admin.JPF_fromAdm_pass.setText(singletonAdmin.ephemeralAdmin.getPassword());
+        main_Admin.JPF_fromAdm_pass.setBorder(null);
+        main_Admin.lbl_formAdm_passERR.setText(" ");
+
+        main_Admin.JPF_fromAdm_passconf.setText("");
+        main_Admin.JPF_fromAdm_passconf.setBorder(null);
+        main_Admin.lbl_formAdm_passconfERR.setText(" ");
+
+        main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 0, 12));
+        main_Admin.txtf_formAdm_phone.setText(singletonAdmin.ephemeralAdmin.getMovile());
+        main_Admin.txtf_formAdm_phone.setBorder(null);
+        main_Admin.lbl_formAdm_phoneERR.setText(" ");
+
+        main_Admin.DC_formAdm_singdate.setCalendar(singletonAdmin.ephemeralAdmin.getContract_data().toCalendar());
+        main_Admin.lbl_formAdm_singdateERR.setText(" ");
+
+        main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 0, 12));
+        main_Admin.txtf_formAdm_username.setText(singletonAdmin.ephemeralAdmin.getUser());
+        main_Admin.txtf_formAdm_username.setBorder(null);
+        main_Admin.lbl_formAdm_lusernameERR.setText(" ");
+
+        main_Admin.jPanel2.setVisible(true);
+    }
+    
     /**
      * askName function check if the main_Admin.txtf_formAdm_name text field is
      * valid
