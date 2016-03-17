@@ -39,6 +39,7 @@ public class main_Admin extends javax.swing.JFrame {
      * Creates new main Admin
      */
     public main_Admin() {
+        BLL_Admin.loadArray();
         initComponents();
         
         run();
@@ -288,6 +289,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         jLabel1.setText("Datos");
 
+        lbl_formAdmin_save.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         lbl_formAdmin_save.setText("Guardar");
 
         btn_read.setBackground(new java.awt.Color(153, 255, 102));
@@ -691,6 +693,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_formAdm_activityFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_formAdm_activityFocusLost(evt);
+            }
         });
         txt_formAdm_activity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -706,7 +711,7 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
 
-        lbl_formAdm_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_formAdm_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_formAdm_activityERR.setText(" ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1376,6 +1381,10 @@ public class main_Admin extends javax.swing.JFrame {
     private void btn_readActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_readActionPerformed
         BLL_Admin.viewAdmAL();
     }//GEN-LAST:event_btn_readActionPerformed
+
+    private void txt_formAdm_activityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_formAdm_activityFocusLost
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;

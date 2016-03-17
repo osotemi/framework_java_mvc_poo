@@ -22,6 +22,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import framework.mod.user.admin.model.classes.Admin;
+import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.model.clss.singletonU;
 import framework.tools.functions;
 
@@ -66,8 +67,8 @@ public class txt {
                 file = new FileWriter(PATH);
                 prntw = new PrintWriter(file);
 
-                for (int i = 0; i < singletonU.Alist_adm.size(); i++) {
-                    prntw.println(singletonU.Alist_adm.get(i).toString());
+                for (int i = 0; i < singletonAdmin.AdminTableArray.size(); i++) {
+                    prntw.println(singletonAdmin.AdminTableArray.get(i).toString());
                     prntw.println("\n----------------------------------------\n");
                 }
 
@@ -101,8 +102,8 @@ public class txt {
             file = new FileWriter(PATH);
             prntw = new PrintWriter(file);
 
-            for (int i = 0; i < singletonU.Alist_adm.size(); i++) {
-                prntw.println(singletonU.Alist_adm.get(i).toString());
+            for (int i = 0; i < singletonAdmin.AdminTableArray.size(); i++) {
+                prntw.println(singletonAdmin.AdminTableArray.get(i).toString());
                 prntw.println("\n----------------------------------------\n");
             }
 
@@ -142,7 +143,7 @@ public class txt {
                 FileInputStream file_input = new FileInputStream(file);
                 ObjectInputStream obj_input = new ObjectInputStream(file_input);
 
-                singletonU.Alist_adm = (ArrayList<Admin>) obj_input.readObject();
+                singletonAdmin.AdminTableArray = (ArrayList<Admin>) obj_input.readObject();
                 obj_input.close();
 
                 functions.showString("Admin load from .txt sucesfully", "Admin txt load");
@@ -172,7 +173,7 @@ public class txt {
             FileInputStream file_input = new FileInputStream(file);
             ObjectInputStream obj_input = new ObjectInputStream(file_input);
 
-            singletonU.Alist_adm = (ArrayList<Admin>) obj_input.readObject();
+            singletonAdmin.AdminTableArray = (ArrayList<Admin>) obj_input.readObject();
             obj_input.close();
 
             functions.showString("Admin load from .txt sucesfully", "Admin txt load");

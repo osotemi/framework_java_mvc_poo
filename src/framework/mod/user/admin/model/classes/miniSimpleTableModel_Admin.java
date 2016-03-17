@@ -117,7 +117,6 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
         
         Admin _adm = null;
         java.util.Date date= new java.util.Date();
-        singletonAdmin.AdminTableArray = singletonU.Alist_adm;
         for(int i=1; i<singletonAdmin.AdminTableArray.size(); i++) {
             _adm = singletonAdmin.AdminTableArray.get(i);
             addRow(_adm);

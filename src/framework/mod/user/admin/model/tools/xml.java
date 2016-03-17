@@ -26,6 +26,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 
 import framework.mod.user.admin.model.classes.Admin;
+import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.model.clss.singletonU;
 import framework.tools.functions;
 
@@ -52,7 +53,7 @@ public class xml {
 			Annotations.configureAliases(xstream, Admin.class);
 
             String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-            xstream.toXML(singletonU.Alist_adm, outstrwrt);
+            xstream.toXML(singletonAdmin.AdminTableArray, outstrwrt);
             StringBuffer xmlbuffer = new StringBuffer();
             xmlbuffer.append(header);
             xmlbuffer.append(outstr.toString());
@@ -84,7 +85,7 @@ public class xml {
 	 * @return singletonU.Alist_adm
 	 */
 	@SuppressWarnings({ "unchecked" })
-	public static ArrayList<Admin> AdminXml_load() {
+	public static void AdminXml_load() {
     	String PATH=null;
     	try {
             XStream xstream = new XStream();
@@ -99,13 +100,12 @@ public class xml {
             if (seleccion == JFileChooser.APPROVE_OPTION) {
             	File JFC = fileChooser.getSelectedFile();
                 PATH = JFC.getAbsolutePath();
-                singletonU.Alist_adm  = (ArrayList <Admin>)xstream.fromXML(new FileReader(PATH));
+                singletonAdmin.AdminTableArray  = (ArrayList <Admin>)xstream.fromXML(new FileReader(PATH));
             }
             
         } catch (Exception e1) {
         	functions.showERR("ERROR to load xml Admin file");
         }
-        return singletonU.Alist_adm;
     }
 	
 	/**AdminXml_Autosave save automatically 
@@ -123,7 +123,7 @@ public class xml {
             e.printStackTrace();
         }
 
-        if (singletonU.Alist_adm.size() > 0) {
+        if (singletonAdmin.AdminTableArray.size() > 0) {
             try {
                 OutputStream outStream = new ByteArrayOutputStream();
                 OutputStreamWriter outStreamWrit = new OutputStreamWriter(outStream);
@@ -131,7 +131,7 @@ public class xml {
 
                 Annotations.configureAliases(xstream, Admin.class);
                 String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-                xstream.toXML(singletonU.Alist_adm, outStreamWrit);
+                xstream.toXML(singletonAdmin.AdminTableArray, outStreamWrit);
                 StringBuffer xml = new StringBuffer();
                 xml.append(header);
                 xml.append(outStream.toString());
@@ -171,7 +171,7 @@ public class xml {
             File path = new File(PATH);
 
             if (path.exists()) {
-            	singletonU.Alist_adm = (ArrayList<Admin>) xstream.fromXML(new FileReader(PATH));
+            	singletonAdmin.AdminTableArray = (ArrayList<Admin>) xstream.fromXML(new FileReader(PATH));
             }
 
         } catch (IOException e) {

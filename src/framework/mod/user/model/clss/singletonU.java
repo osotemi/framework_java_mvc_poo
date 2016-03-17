@@ -18,7 +18,7 @@ public class singletonU {
         * Definition of singleton object
         * --------------------------------*/
 
-       public static ArrayList<Admin> Alist_adm ;
+       //public static ArrayList<Admin> Alist_adm ;
        //public static ArrayList<Client> Alist_clt;
        //public static ArrayList<RegisteredU> Alist_RegU;
        public static boolean dummie_mode;
@@ -39,8 +39,7 @@ public class singletonU {
         * */
 
        /**Constructor-->Generate a singleton object by default*/
-       public static void loadSingletonU(){
-            Alist_adm = new ArrayList<>();
+       public static void loadSingletonU(){            
             //Alist_clt = new ArrayList<>();
             //Alist_RegU = new ArrayList<>();
 

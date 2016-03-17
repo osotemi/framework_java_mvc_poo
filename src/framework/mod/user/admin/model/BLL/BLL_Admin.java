@@ -63,6 +63,14 @@ public class BLL_Admin {
         DAO_Admin.DAO_cfDNI();
     }
 
+    public static void BLL_FA_CleanPass(){
+        if(singletonAdmin.currentForm.equals("Modify")){
+            if(!singletonAdmin.passModf){
+                DAO_Admin.DAO_cfPass();
+            }
+        }
+    }
+    
     public static void BLL_FA_CreateAdmin() throws InterruptedException {
         switch (singletonAdmin.currentForm) {
             case "create":
@@ -103,17 +111,22 @@ public class BLL_Admin {
 
     public static void BLL_txtUsername() {
         DAO_Admin.askUsername();
+        main_Admin.JPF_fromAdm_pass.requestFocus();
     }
 
     public static void BLL_txtPhone() {
         DAO_Admin.askPhone();
+        
     }
 
     public static void BLL_JPF_Password() {
+        DAO_Admin.DAO_cfPass();
         DAO_Admin.askPassword();
+        main_Admin.JPF_fromAdm_passconf.requestFocus();
     }
 
     public static void BLL_JPF_PassConfirm() {
+        DAO_Admin.DAO_cfPass();
         DAO_Admin.askConfirmPassword();
     }
 
@@ -123,10 +136,12 @@ public class BLL_Admin {
 
     public static void BLL_txtDNI() {
         DAO_Admin.askDNI();
+        main_Admin.txt_formAdm_activity.requestFocus();
     }
 
     public static void BLL_Activity() {
         DAO_Admin.askActivity();
+        main_Admin.txtf_formAdm_username.requestFocus();
     }
 
     public static void BLL_DCBornDate() {
@@ -163,8 +178,9 @@ public class BLL_Admin {
      */
     
     public static boolean BLL_ModifyAdm() {
-        singletonAdmin.currentForm = "modify";
-        int selec = -1, pos;
+        singletonAdmin.currentForm = "Modify";
+        singletonAdmin.passModf = false;
+        int selec = -1, pos =0;
         String dni;
         boolean succes = false;
         
@@ -179,7 +195,7 @@ public class BLL_Admin {
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;
                 pos = searchAL();
-                singletonAdmin.ephemeralAdmin = singletonU.Alist_adm.get(selec);
+                singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
                 DAO_Admin.forModifyAdmin(singletonAdmin.ephemeralAdmin);
                 //GUARDAR
                 succes = true;
@@ -205,8 +221,7 @@ public class BLL_Admin {
         //ask first DNI
         pos = searchAL();
         if (pos == -1) {
-            singletonU.Alist_adm.add(singletonAdmin.ephemeralAdmin);
-            singletonAdmin.AdminTableArray = singletonU.Alist_adm;
+            singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
             main_Admin.runTABLE();
             valid = true;
         } else {
@@ -261,6 +276,8 @@ public class BLL_Admin {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                main_Admin.btn_read.requestFocus();
+                return;
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
@@ -281,11 +298,11 @@ public class BLL_Admin {
      */
     public static int searchAL() {
         int pos = -1;
-        if (singletonU.Alist_adm != null) {
-            for (int i = 0; i < singletonU.Alist_adm.size(); i++) {
-                if (singletonU.Alist_adm.get(i).getDni().equals(singletonAdmin.ephemeralAdmin.getDni())) {//search by dni
+        if (singletonAdmin.AdminTableArray != null) {
+            for (int i = 0; i < singletonAdmin.AdminTableArray.size(); i++) {
+                if (singletonAdmin.AdminTableArray.get(i).getDni().equals(singletonAdmin.ephemeralAdmin.getDni())) {//search by dni
                     pos = i;
-                    i = singletonU.Alist_adm.size();
+                    i = singletonAdmin.AdminTableArray.size();
                 }
             }
         }
@@ -305,13 +322,13 @@ public class BLL_Admin {
         int pos = -3, al_size;
         String users[];
 
-        al_size = singletonU.Alist_adm.size();
+        al_size = singletonAdmin.AdminTableArray.size();
         if (al_size == 0) {//Non users on string
             pos = -1;
         } else {
             users = new String[al_size + 1];
             for (int i = 0; i < al_size; i++) {
-                adm = singletonU.Alist_adm.get(i);
+                adm = singletonAdmin.AdminTableArray.get(i);
                 users[i] = adm.getDni() + " - " + adm.getLastname() + " - " + adm.getName();
             }
             users[al_size] = "Back";
@@ -334,8 +351,8 @@ public class BLL_Admin {
     }
 
     public static void loadArray() {
+        singletonAdmin.loadSingletonAdmin();
         json.AdminJson_Autoload();
-        singletonAdmin.AdminTableArray = singletonU.Alist_adm;
     }
 
 }

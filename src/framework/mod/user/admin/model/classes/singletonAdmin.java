@@ -15,5 +15,11 @@ public class singletonAdmin {
     
     public static ArrayList<Admin> AdminTableArray;
     public static Admin ephemeralAdmin;
+    /** buffer variables     */
     public static String currentForm;
+    public static boolean passModf;//Tells if on modifay the password was prebiously changed
+    
+    public static void loadSingletonAdmin(){
+        AdminTableArray = new ArrayList<Admin>();
+    }
 }

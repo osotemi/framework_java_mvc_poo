@@ -99,14 +99,14 @@ public class json {
 			e.printStackTrace();
 		}
 		
-		if ( singletonU.Alist_adm.size() > 0) {
+		if ( singletonAdmin.AdminTableArray.size() > 0) {
 			try{
 				XStream xstreamjson = new XStream ( new JettisonMappedXmlDriver());
 				xstreamjson.setMode(XStream.NO_REFERENCES);
 				xstreamjson.alias("Admin", Admin.class);
 				
 				Gson gson = new Gson();
-				String json = gson.toJson(singletonU.Alist_adm);
+				String json = gson.toJson(singletonAdmin.AdminTableArray);
 				FileWriter fileJson = new FileWriter(PATH);
 				fileJson.write(json);
 				fileJson.close();
@@ -143,7 +143,7 @@ public class json {
 	                File JFC = fileChooser.getSelectedFile();
 	                PATH = JFC.getAbsolutePath();
 	               
-	                singletonU.Alist_adm.clear();
+	                singletonAdmin.AdminTableArray.clear();
 	                //singletonU.Alist_adm = (ArrayList<Admin>)xstream.fromXML(new FileReader(PATH));
 	                //singletonU.Alist_adm.addAll((ArrayList<Admin>)xstream.fromXML(new FileReader(PATH)));
 	                	              
@@ -161,7 +161,7 @@ public class json {
         } catch (Exception e) {
         	   JOptionPane.showMessageDialog(null, "ERROR reading JSON file", "JSON file read ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return singletonU.Alist_adm;
+        return singletonAdmin.AdminTableArray;
     }
 	
 	/**AdminJson_Autoload load automatically the file admin.json 
@@ -172,7 +172,7 @@ public class json {
 	public static void AdminJson_Autoload(){
 		String PATH;
 		Admin adm = new Admin();
-		singletonU.Alist_adm.clear();
+		singletonAdmin.AdminTableArray.clear();
 		
 		try {
 			XStream xstream = new XStream( new JettisonMappedXmlDriver());
@@ -191,7 +191,7 @@ public class json {
 			JsonArray list = root.getAsJsonArray();
 			for (JsonElement elem : list){
 				adm = json.fromJson(elem, Admin.class);
-				singletonU.Alist_adm.add(adm);
+				singletonAdmin.AdminTableArray.add(adm);
 			}
 		} catch (Exception e) {
 			System.out.println("ERR auto-loading Json");

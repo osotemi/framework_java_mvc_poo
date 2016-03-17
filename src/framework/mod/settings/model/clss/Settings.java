@@ -72,7 +72,6 @@ public class Settings implements Serializable {
             //LooknFeel.LookFeel();
             //Language.getInstance();
             singletonU.loadSingletonU();
-            BLL_Admin.loadArray();
         }
         return instance;
     }
