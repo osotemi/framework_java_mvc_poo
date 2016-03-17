@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author osotemi
  */
 public class singletonAdmin {
-    
+    public final static String MODIFY = "Modify";
     public static ArrayList<Admin> AdminTableArray;
     public static Admin ephemeralAdmin;
     /** buffer variables     */

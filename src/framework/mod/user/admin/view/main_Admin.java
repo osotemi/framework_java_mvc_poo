@@ -1274,6 +1274,13 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_formAdm_dniKeyReleased
 
     private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
+        if(singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)){
+            try {
+                BLL_Admin.modifyAdmAL();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         try {
             BLL_Admin.BLL_FA_CreateAdmin();
         } catch (InterruptedException ex) {

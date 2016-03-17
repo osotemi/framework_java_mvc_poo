@@ -111,7 +111,7 @@ public class BLL_Admin {
 
     public static void BLL_txtUsername() {
         DAO_Admin.askUsername();
-        main_Admin.JPF_fromAdm_pass.requestFocus();
+        
     }
 
     public static void BLL_txtPhone() {
@@ -122,7 +122,7 @@ public class BLL_Admin {
     public static void BLL_JPF_Password() {
         DAO_Admin.DAO_cfPass();
         DAO_Admin.askPassword();
-        main_Admin.JPF_fromAdm_passconf.requestFocus();
+    
     }
 
     public static void BLL_JPF_PassConfirm() {
@@ -136,12 +136,12 @@ public class BLL_Admin {
 
     public static void BLL_txtDNI() {
         DAO_Admin.askDNI();
-        main_Admin.txt_formAdm_activity.requestFocus();
+        
     }
 
     public static void BLL_Activity() {
         DAO_Admin.askActivity();
-        main_Admin.txtf_formAdm_username.requestFocus();
+        
     }
 
     public static void BLL_DCBornDate() {
@@ -178,34 +178,70 @@ public class BLL_Admin {
      */
     
     public static boolean BLL_ModifyAdm() {
-        singletonAdmin.currentForm = "Modify";
+        singletonAdmin.currentForm = singletonAdmin.MODIFY;
         singletonAdmin.passModf = false;
         int selec = -1, pos =0;
         String dni;
-        boolean succes = false;
+        boolean valid = false;
         
         int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
         if (n != 0) {
             selec = main_Admin.TABLA.getSelectedRow();
+            
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+                selec++;//Me coge uno menos no se por que
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;
                 pos = searchAL();
                 singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
-                DAO_Admin.forModifyAdmin(singletonAdmin.ephemeralAdmin);
-                //GUARDAR
-                succes = true;
+                DAO_Admin.forModifyAdmin();
+                valid = true;
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
         }
-        return true;
+        return valid;
     }
-
+    
+    public static boolean modifyAdmAL() throws InterruptedException{
+        boolean valid = false;
+        int pos;
+        if( DAO_Admin.askConfirmPassword() ){
+            singletonAdmin.ephemeralAdmin = new Admin( main_Admin.txtf_formAdm_dni.getText() );
+            pos = searchAL();
+            if(pos != -1){
+                if(DAO_Admin.formCreateAdmin()){
+                    singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
+                    main_Admin.runTABLE();
+                    main_Admin.lblMainform.setOpaque(true);
+                    main_Admin.lblMainform.setBackground(Color.GREEN);
+                    main_Admin.lblMainform.setText("Administrador modificado con exito!!");
+                    Thread.sleep(3000);
+                    main_Admin.jPanel2.setVisible(false);
+                }
+                else{
+                    DAO_Admin.DAO_ERR_Modify();
+                    main_Admin.lblMainform.setOpaque(true);
+                    main_Admin.lblMainform.setBackground(Color.red);
+                    main_Admin.lblMainform.setText("Error al crear");
+                }
+            }
+            else{
+                if(singletonAdmin.passModf){
+                    //seguro que desa guardar con nuevo dni
+                }
+                else{
+                    DAO_Admin.DAO_ERR_Modify();
+                }
+            }
+        }
+            
+        return valid;
+    }
     /**
      * Function that create an user object in his singletonU Array list
      *
