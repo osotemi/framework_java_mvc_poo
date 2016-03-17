@@ -26,11 +26,6 @@ import javax.swing.JOptionPane;
  */
 public class BLL_Admin {
 
-    public static void BLL_Adm_form() {
-        singletonAdmin.currentForm = "create";
-        DAO_Admin.formNew();
-    }
-
     public static void BLL_FA_mainBack() {
         DAO_Admin.DAO_FA_mainBack();
     }
@@ -70,37 +65,7 @@ public class BLL_Admin {
             }
         }
     }
-    
-    public static void BLL_FA_CreateAdmin() throws InterruptedException {
-        switch (singletonAdmin.currentForm) {
-            case "create":
-                if (DAO_Admin.formCreateAdmin()) {
-                    if (createAdmAL()) {
-                        //Guardar en JSON
-                        main_Admin.lblMainform.setOpaque(true);
-                        main_Admin.lblMainform.setBackground(Color.green);
-                        main_Admin.lblMainform.setText("Admin creation succesfully");
-                        Thread.sleep(2000);
-                        main_Admin.jPanel2.setVisible(false);
-                        
-                        //pager
-                    } else {
-                        main_Admin.lblMainform.setOpaque(true);
-                        main_Admin.lblMainform.setBackground(Color.red);
-                        main_Admin.lblMainform.setText("Admin creation fail");
-                        //sleep 3000
-                        //errro
-                    }
-                    
-                } else {
-
-                }
-                break;
-            case "modify":
-                break;
-        }
-    }
-
+ 
     public static void BLL_txtName() {
         DAO_Admin.askName();
     }
@@ -177,6 +142,12 @@ public class BLL_Admin {
      * C-R-U-D functions
      */
     
+    public static void BLL_Adm_form() {
+        singletonAdmin.currentForm = "create";
+        DAO_Admin.formNew();
+    }
+
+    
     public static boolean BLL_ModifyAdm() {
         singletonAdmin.currentForm = singletonAdmin.MODIFY;
         singletonAdmin.passModf = false;
@@ -202,7 +173,7 @@ public class BLL_Admin {
                 valid = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null, "Lista vacía", "Error!", 2);
         }
         return valid;
     }
@@ -216,12 +187,12 @@ public class BLL_Admin {
             if(pos != -1){
                 if(DAO_Admin.formCreateAdmin()){
                     singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
+                    json.AdminJson_Autosave();
                     main_Admin.runTABLE();
                     main_Admin.lblMainform.setOpaque(true);
                     main_Admin.lblMainform.setBackground(Color.GREEN);
                     main_Admin.lblMainform.setText("Administrador modificado con exito!!");
-                    Thread.sleep(3000);
-                    main_Admin.jPanel2.setVisible(false);
+                    valid = true;
                 }
                 else{
                     DAO_Admin.DAO_ERR_Modify();
@@ -238,10 +209,46 @@ public class BLL_Admin {
                     DAO_Admin.DAO_ERR_Modify();
                 }
             }
+            Thread.sleep(3000);
+            main_Admin.jPanel2.setVisible(!valid);
         }
             
         return valid;
     }
+    
+       
+    public static void BLL_FA_CreateAdmin() throws InterruptedException {
+        boolean visible=true;
+        switch (singletonAdmin.currentForm) {
+            case singletonAdmin.CREATE:
+                if (DAO_Admin.formCreateAdmin()) {
+                    if (createAdmAL()) {
+                        
+                        main_Admin.lblMainform.setOpaque(true);
+                        main_Admin.lblMainform.setBackground(Color.green);
+                        main_Admin.lblMainform.setText("Admin creation succesfully");
+                        visible = false;
+                        
+                        //pager
+                    } else {
+                        main_Admin.lblMainform.setOpaque(true);
+                        main_Admin.lblMainform.setBackground(Color.red);
+                        main_Admin.lblMainform.setText("Admin creation fail");
+                        visible=true;
+                    }
+                    Thread.sleep(2000);
+                    main_Admin.jPanel2.setVisible(visible);
+                    
+                } else {
+
+                }
+                break;
+            case singletonAdmin.MODIFY:
+                break;
+        }
+    }
+
+    
     /**
      * Function that create an user object in his singletonU Array list
      *
@@ -258,6 +265,7 @@ public class BLL_Admin {
         pos = searchAL();
         if (pos == -1) {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
+            json.AdminJson_Autosave();
             main_Admin.runTABLE();
             valid = true;
         } else {
@@ -289,11 +297,10 @@ public class BLL_Admin {
                 if (opc == 0) {
                     ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).removeRow(selec);
                     adm = singletonAdmin.AdminTableArray.get(pos);
-
                     singletonAdmin.AdminTableArray.remove(adm);
                     miniSimpleTableModel_Admin.datosaux.remove(adm);
                     main_Admin.runTABLE();
-                    //EFBLLgrafico.Guardar(0);
+                    json.AdminJson_Autosave();
                     return true;
                 }
             }

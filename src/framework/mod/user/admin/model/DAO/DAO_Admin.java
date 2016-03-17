@@ -36,7 +36,7 @@ public class DAO_Admin {
         main_Admin.txt_formAdm_activity.setText("0");
         main_Admin.lbl_formAdm_activityERR.setText(" ");
 
-        main_Admin.btn_formA_Avatar.setEnabled(false);
+        main_Admin.btn_formA_Avatar.setEnabled(true);
         main_Admin.lbl_formAdm_photoavatar.setText("");
         
         main_Admin.DC_formAdm_borndate.setDate(null);
@@ -91,7 +91,7 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_phone.setEnabled(true);
         main_Admin.txtf_formAdm_phone.setBackground( Color.white);
         main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12));
-        main_Admin.txtf_formAdm_phone.setText("TelÃ©fono...");
+        main_Admin.txtf_formAdm_phone.setText("Teléfono...");
         main_Admin.txtf_formAdm_phone.setBorder(null);
         main_Admin.lbl_formAdm_phoneERR.setText(" ");
 

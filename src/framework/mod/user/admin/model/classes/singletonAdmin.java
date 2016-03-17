@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class singletonAdmin {
     public final static String MODIFY = "Modify";
+    public final static String CREATE = "Create";
     public static ArrayList<Admin> AdminTableArray;
     public static Admin ephemeralAdmin;
     /** buffer variables     */

@@ -71,7 +71,6 @@ public class main_Admin extends javax.swing.JFrame {
         
         this.setTitle("Formulari Admin");
 	this.setLocationRelativeTo(null);//centrado
-	//this.setSize(525,425);//ancho x alto
 	//this.setResizable(false);
 	//Image icono=Toolkit.getDefaultToolkit().getImage("p1.jpg");
 	//this.setIconImage(icono);
