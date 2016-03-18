@@ -85,7 +85,7 @@ public class DateO implements Serializable {
     public DateO(Calendar date_calendar){
                 
         this.setDay(date_calendar.get(Calendar.DAY_OF_MONTH));
-        this.setMonth(date_calendar.get(Calendar.MONTH));
+        this.setMonth(date_calendar.get(Calendar.MONTH) +1);
         this.setYear(date_calendar.get(Calendar.YEAR));
         
     }
@@ -279,7 +279,7 @@ public class DateO implements Serializable {
     public Calendar toCalendar() {
         Calendar cdate = Calendar.getInstance();
 
-        cdate.set(this.getYear(), this.getMonth(), this.getDay(), this.getHour(), this.getMinute());
+        cdate.set(this.getYear(), this.getMonth()-1, this.getDay(), this.getHour(), this.getMinute());
 
         return cdate;
     }

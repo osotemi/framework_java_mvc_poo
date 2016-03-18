@@ -12,9 +12,14 @@ import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
 import framework.mod.user.model.clss.singletonU;
+import framework.tools.imageSaver;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -267,7 +272,6 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_phone.setEnabled(false);
         main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Serif", 1, 14));
         main_Admin.txtf_formAdm_phone.setBackground( new Color(0,0,0,0));
-        main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_phone.setText(singletonAdmin.ephemeralAdmin.getMovile());
         main_Admin.txtf_formAdm_phone.setBorder(null);
         main_Admin.lbl_formAdm_phoneERR.setText(" ");
@@ -278,7 +282,6 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_username.setEnabled(false);
         main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Serif", 1, 14));
         main_Admin.txtf_formAdm_username.setBackground( new Color(0,0,0,0));
-        main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_username.setText(singletonAdmin.ephemeralAdmin.getUser());
         main_Admin.txtf_formAdm_username.setBorder(null);
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
@@ -439,6 +442,7 @@ public class DAO_Admin {
             main_Admin.lbl_formAdm_passconfERR.setForeground(Color.red);
         } else if (!validate.Password(pass)) {
             main_Admin.JPF_fromAdm_passconf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+            main_Admin.lbl_formAdm_passconfERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_passconfERR.setText("ContraseÒa no valida");
             main_Admin.lbl_formAdm_passconfERR.setForeground(Color.red);
         } else if (!pass.equals(conf_pass)) {
@@ -450,6 +454,7 @@ public class DAO_Admin {
             main_Admin.JPF_fromAdm_passconf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 150, 0), 2));
             main_Admin.JPF_fromAdm_pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 150, 0), 2));
             main_Admin.lbl_formAdm_passconfERR.setText("");
+            main_Admin.lbl_formAdm_passERR.setText("");
             valid = true;
 
         }
@@ -467,23 +472,30 @@ public class DAO_Admin {
             main_Admin.lbl_formAdm_dniERR.setForeground(Color.red);
         } else {
             dni = main_Admin.txtf_formAdm_dni.getText();
-            
-            if (dni.charAt(8) == '-') {
-                dnilet = dni.charAt(9);
-                dni = dni.substring(0, 8);
-                dni+=dnilet;
+            if(dni.length()>=9){
+                if (dni.charAt(8) == '-') {
+                    dnilet = dni.charAt(9);
+                    dni = dni.substring(0, 8);
+                    dni+=dnilet;
+                }
+
+                if (!validate.DNI(dni)) {
+
+                    main_Admin.txtf_formAdm_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+                    main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
+                    main_Admin.lbl_formAdm_dniERR.setText("DNI no valido");
+                    main_Admin.lbl_formAdm_dniERR.setForeground(Color.red);
+                } else {
+                    main_Admin.txtf_formAdm_dni.setBorder(null);
+                    main_Admin.lbl_formAdm_dniERR.setText("");
+                    valid = true;
+                }
             }
-            
-            if (!validate.DNI(dni)) {
-                
+            else{
                 main_Admin.txtf_formAdm_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
                 main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
                 main_Admin.lbl_formAdm_dniERR.setText("DNI no valido");
                 main_Admin.lbl_formAdm_dniERR.setForeground(Color.red);
-            } else {
-                main_Admin.txtf_formAdm_dni.setBorder(null);
-                main_Admin.lbl_formAdm_dniERR.setText("");
-                valid = true;
             }
         }
         return valid;
@@ -603,7 +615,7 @@ public class DAO_Admin {
             Image newimg = img.getScaledInstance(140, 170, java.awt.Image.SCALE_SMOOTH);
             //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
             ImageIcon newIcon = new ImageIcon(newimg);
-            //DAO_Admin.SaveImage(file);
+            imageSaver.SaveImage(file);
             //Se coloca el nuevo icono modificado
             main_Admin.lbl_formAdm_photoavatar.setIcon(newIcon);
             //Se cambia el tama√±o de la etiqueta
@@ -614,24 +626,7 @@ public class DAO_Admin {
 
         return valid;
     }
-    /*public static void SaveImage(String path) {
-        BufferedImage bi, biFiltered;
-        int w, h;
-        try {
-            bi = ImageIO.read(new File(path));
-            w = bi.getWidth(null);
-            h = bi.getHeight(null);
-            if (bi.getType() != BufferedImage.TYPE_INT_RGB) {
-                BufferedImage bi2 = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-                Graphics big = bi2.getGraphics();
-                big.drawImage(bi, 0, 0, null);
-                biFiltered = bi = bi2;
-            }
-        } catch (IOException e) {
-            System.out.println("Image could not be read");
-            System.exit(1);
-        }
-    }*/
+    
     
     public static void DAO_FA_mainBack() {
         //main_Admin.DISPOSE_ON_CLOSE;
@@ -667,7 +662,7 @@ public class DAO_Admin {
     }
 
     public static void DAO_cfPhone() {
-        if (main_Admin.txtf_formAdm_phone.getText().equals("Tel√©fono...")) {
+        if (main_Admin.txtf_formAdm_phone.getText().equals("TelÈfono...")) {
             main_Admin.txtf_formAdm_phone.setText("");
             main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 0, 12));
         }
@@ -692,6 +687,10 @@ public class DAO_Admin {
         main_Admin.JPF_fromAdm_passconf.setText("");
     }
 
+    public static void DAO_cfPassConf(){
+        main_Admin.JPF_fromAdm_passconf.setText("");
+    }
+    
     public static void DAO_ERR_Modify(){
         main_Admin.lblMainform.setText("Error al modificar!!");
         main_Admin.lblMainform.setBackground(Color.red);

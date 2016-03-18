@@ -120,15 +120,15 @@ public class main_Admin extends javax.swing.JFrame {
         JPanel_formAdm = new org.edisoncor.gui.panel.PanelImage();
         panelImage5 = new org.edisoncor.gui.panel.PanelImage();
         buttonAero4 = new org.edisoncor.gui.button.ButtonAero();
-        buttonAero1 = new org.edisoncor.gui.button.ButtonAero();
-        buttonAero2 = new org.edisoncor.gui.button.ButtonAero();
-        buttonAero3 = new org.edisoncor.gui.button.ButtonAero();
         btn_saveJSON = new org.edisoncor.gui.button.ButtonAero();
         btn_saveXML = new org.edisoncor.gui.button.ButtonAero();
         btn_saveTXT = new org.edisoncor.gui.button.ButtonAero();
         jLabel1 = new javax.swing.JLabel();
         lbl_formAdmin_save = new javax.swing.JLabel();
-        btn_read = new org.edisoncor.gui.button.ButtonAero();
+        btn_modifyAdmin = new javax.swing.JButton();
+        btn_viewAdmin = new javax.swing.JButton();
+        btn_deleteAdmin = new javax.swing.JButton();
+        btn_createAdmin = new javax.swing.JButton();
         panelImage8 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -238,30 +238,6 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
 
-        buttonAero1.setBackground(new java.awt.Color(102, 255, 51));
-        buttonAero1.setText("Crear");
-        buttonAero1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAero1ActionPerformed(evt);
-            }
-        });
-
-        buttonAero2.setBackground(new java.awt.Color(102, 255, 102));
-        buttonAero2.setText("Modificar");
-        buttonAero2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAero2ActionPerformed(evt);
-            }
-        });
-
-        buttonAero3.setBackground(new java.awt.Color(153, 255, 102));
-        buttonAero3.setText("Borrar");
-        buttonAero3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAero3ActionPerformed(evt);
-            }
-        });
-
         btn_saveJSON.setBackground(new java.awt.Color(51, 255, 204));
         btn_saveJSON.setText("JSON");
         btn_saveJSON.addActionListener(new java.awt.event.ActionListener() {
@@ -291,11 +267,56 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdmin_save.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         lbl_formAdmin_save.setText("Guardar");
 
-        btn_read.setBackground(new java.awt.Color(153, 255, 102));
-        btn_read.setText("Ver");
-        btn_read.addActionListener(new java.awt.event.ActionListener() {
+        btn_modifyAdmin.setBackground(new java.awt.Color(204, 204, 255));
+        btn_modifyAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/modify_user.png"))); // NOI18N
+        btn_modifyAdmin.setToolTipText("Modificar Administrador");
+        btn_modifyAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_modifyAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_modifyAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_modifyAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_modifyAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_readActionPerformed(evt);
+                btn_modifyAdminActionPerformed(evt);
+            }
+        });
+
+        btn_viewAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        btn_viewAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/view_user.png"))); // NOI18N
+        btn_viewAdmin.setToolTipText("Ver Administrador");
+        btn_viewAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_viewAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_viewAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_viewAdmin.setOpaque(false);
+        btn_viewAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_viewAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_viewAdminActionPerformed(evt);
+            }
+        });
+
+        btn_deleteAdmin.setBackground(new java.awt.Color(255, 0, 0));
+        btn_deleteAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/delete_user.png"))); // NOI18N
+        btn_deleteAdmin.setToolTipText("Eliminar Administrador");
+        btn_deleteAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_deleteAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_deleteAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_deleteAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_deleteAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteAdminActionPerformed(evt);
+            }
+        });
+
+        btn_createAdmin.setBackground(new java.awt.Color(0, 153, 0));
+        btn_createAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/create_user.png"))); // NOI18N
+        btn_createAdmin.setToolTipText("Crear Administrador");
+        btn_createAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_createAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_createAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_createAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_createAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_createAdminActionPerformed(evt);
             }
         });
 
@@ -303,18 +324,21 @@ public class main_Admin extends javax.swing.JFrame {
         panelImage5.setLayout(panelImage5Layout);
         panelImage5Layout.setHorizontalGroup(
             panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buttonAero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonAero4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonAero2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonAero3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_saveJSON, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_saveXML, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_saveTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelImage5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(btn_read, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
+                        .addGap(0, 24, Short.MAX_VALUE)
+                        .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_viewAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_createAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelImage5Layout.createSequentialGroup()
                     .addContainerGap()
@@ -325,14 +349,14 @@ public class main_Admin extends javax.swing.JFrame {
             panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(buttonAero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_read, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAero3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addComponent(btn_viewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_createAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -345,7 +369,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
-                    .addContainerGap(393, Short.MAX_VALUE)
+                    .addContainerGap(363, Short.MAX_VALUE)
                     .addComponent(lbl_formAdmin_save)
                     .addGap(222, 222, 222)))
         );
@@ -403,6 +427,7 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
 
+        lbl_formAdm_nameERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_nameERR.setText(" ");
 
         lbl_formAdm_lastnameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -415,7 +440,7 @@ public class main_Admin extends javax.swing.JFrame {
         jLabel7.setText("Fecha de nacimiento");
 
         lblusernameAdm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblusernameAdm.setText("User Name..");
+        lblusernameAdm.setText("Nombre de usuario");
 
         lbl_formAdm_lusernameERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_lusernameERR.setText(" ");
@@ -425,7 +450,8 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_passERR.setText(" ");
 
         txtf_formAdm_name.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_name.setText("Nombre...");
+        txtf_formAdm_name.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtf_formAdm_name.setToolTipText("Nombre...");
         txtf_formAdm_name.setBorder(null);
         txtf_formAdm_name.setNextFocusableComponent(txtf_formAdm_lastname);
         txtf_formAdm_name.setSelectedTextColor(new java.awt.Color(0, 0, 0));
@@ -447,6 +473,8 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formAdm_email.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtf_formAdm_email.setToolTipText("Correo electrónico");
         txtf_formAdm_email.setBorder(null);
         txtf_formAdm_email.setNextFocusableComponent(txtf_formAdm_phone);
         txtf_formAdm_email.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -468,7 +496,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_username.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtf_formAdm_username.setText("Nombre de usuario...");
+        txtf_formAdm_username.setToolTipText(" Nombre del administrador...");
         txtf_formAdm_username.setBorder(null);
         txtf_formAdm_username.setNextFocusableComponent(JPF_fromAdm_pass);
         txtf_formAdm_username.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -497,6 +525,7 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         JPF_fromAdm_pass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        JPF_fromAdm_pass.setToolTipText("Contraseña...");
         JPF_fromAdm_pass.setBorder(null);
         JPF_fromAdm_pass.setNextFocusableComponent(JPF_fromAdm_passconf);
         JPF_fromAdm_pass.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -544,7 +573,8 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_lastname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formAdm_lastname.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtf_formAdm_lastname.setToolTipText("Apellidos...");
         txtf_formAdm_lastname.setBorder(null);
         txtf_formAdm_lastname.setNextFocusableComponent(txtf_formAdm_email);
         txtf_formAdm_lastname.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -570,6 +600,7 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         JPF_fromAdm_passconf.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        JPF_fromAdm_passconf.setToolTipText("Confirmar contraseña...");
         JPF_fromAdm_passconf.setBorder(null);
         JPF_fromAdm_passconf.setNextFocusableComponent(btn_formA_Avatar);
         JPF_fromAdm_passconf.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -597,12 +628,13 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_passconfERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_passconfERR.setText(" ");
 
-        lbllastnameAdm.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbllastnameAdm.setText("Last Name");
+        lbllastnameAdm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbllastnameAdm.setText("Apellidos");
 
-        lblnameAdm.setText("Name");
+        lblnameAdm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblnameAdm.setText("Nombre");
 
-        lbl_formAdm_phoneERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formAdm_phoneERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_phoneERR.setText(" ");
 
         lbl_formAdm_singdateERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -611,24 +643,28 @@ public class main_Admin extends javax.swing.JFrame {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel17.setText("Fecha de contratación");
 
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel19.setText("Imagen de perfil");
 
-        jLabel20.setText("Email");
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel20.setText("Correo electrónico");
 
+        lbl_formAdm_dniERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_dniERR.setText(" ");
 
         lblMainform.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMainform.setText("Formulario de Administrador");
 
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel22.setText("DNI");
 
+        lbl_formAdm_emailERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_emailERR.setText(" ");
 
         lblphoneAdm.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblphoneAdm.setText("Teléfono");
 
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel26.setText("Estado");
 
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -638,6 +674,7 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_borndateERR.setText(" ");
 
         txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formAdm_dni.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtf_formAdm_dni.setBorder(null);
         txtf_formAdm_dni.setNextFocusableComponent(DC_formAdm_borndate);
         txtf_formAdm_dni.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -658,7 +695,7 @@ public class main_Admin extends javax.swing.JFrame {
         });
 
         txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formAdm_phone.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtf_formAdm_phone.setBorder(null);
         txtf_formAdm_phone.setNextFocusableComponent(txtf_formAdm_dni);
         txtf_formAdm_phone.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -718,191 +755,161 @@ public class main_Admin extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtf_formAdm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtf_formAdm_username, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblnameAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblusernameAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtf_formAdm_email, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblphoneAdm)
-                                .addComponent(txtf_formAdm_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(JPF_fromAdm_passconf)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(43, 43, 43))))))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lbl_formAdm_lusernameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(btn_formAdmCreate_back, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(lbllastnameAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(JPF_fromAdm_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
-                            .addGap(106, 106, 106))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_formA_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7)
-                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_formA_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(218, 218, 218))
-                        .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_formAdm_activityERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_formAdm_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formAdm_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_formAdmCreate_back, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formAdm_activityERR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(JPF_fromAdm_passconf, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lblnameAdm, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_name, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbllastnameAdm, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(JPF_fromAdm_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formAdm_lusernameERR, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_username, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lblusernameAdm, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_email)
+                            .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_phone)
+                            .addComponent(lblphoneAdm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblnameAdm)
-                            .addComponent(lblusernameAdm))
-                        .addGap(0, 0, 0)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtf_formAdm_username, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtf_formAdm_name))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formAdm_lusernameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbllastnameAdm)
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, 0)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JPF_fromAdm_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(13, 13, 13)
+                                .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblusernameAdm)
+                                .addGap(0, 0, 0)
+                                .addComponent(txtf_formAdm_username, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_lusernameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabel9)
+                                .addGap(0, 0, 0)
+                                .addComponent(JPF_fromAdm_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JPF_fromAdm_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblnameAdm))
+                            .addComponent(btn_formA_Avatar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtf_formAdm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel26)
+                                    .addGap(25, 25, 25))
+                                .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbllastnameAdm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel20)
                                 .addGap(0, 0, 0)
                                 .addComponent(txtf_formAdm_email, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, 0)
-                                .addComponent(JPF_fromAdm_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblphoneAdm)
                                 .addGap(0, 0, 0)
-                                .addComponent(txtf_formAdm_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtf_formAdm_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel22)
+                                .addComponent(lbl_formAdm_borndateERR)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formAdm_activityERR)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_formA_Avatar)
-                    .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_formAdm_borndateERR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
-                .addGap(1, 1, 1)
-                .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_formAdm_activityERR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel10)
+                        .addGap(30, 30, 30)))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_formAdmCreate_back)
                     .addComponent(btn_formAdmCreate_create))
@@ -924,7 +931,7 @@ public class main_Admin extends javax.swing.JFrame {
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelImage2, java.awt.BorderLayout.CENTER);
@@ -1122,15 +1129,6 @@ public class main_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero2ActionPerformed
-        BLL_Admin.BLL_ModifyAdm();
-    }//GEN-LAST:event_buttonAero2ActionPerformed
-
-    private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
-
-        BLL_Admin.BLL_Adm_form();
-    }//GEN-LAST:event_buttonAero1ActionPerformed
-
     private void buttonAero4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero4ActionPerformed
         this.dispose();
         BLL_Admin.BLL_FA_mainBack();
@@ -1225,6 +1223,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_formAdm_phoneKeyReleased
 
     private void JPF_fromAdm_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusGained
+        DAO_Admin.DAO_cfPass();
         BLL_Admin.BLL_JPF_Password();
     }//GEN-LAST:event_JPF_fromAdm_passFocusGained
 
@@ -1237,6 +1236,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_JPF_fromAdm_passKeyReleased
 
     private void JPF_fromAdm_passconfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusGained
+        DAO_Admin.DAO_cfPassConf();
         BLL_Admin.BLL_JPF_PassConfirm();
     }//GEN-LAST:event_JPF_fromAdm_passconfFocusGained
 
@@ -1273,18 +1273,21 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_formAdm_dniKeyReleased
 
     private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
-        if(singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)){
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            try {
+                BLL_Admin.BLL_FA_CreateAdmin();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)){
             try {
                 BLL_Admin.modifyAdmAL();
             } catch (InterruptedException ex) {
                 Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        try {
-            BLL_Admin.BLL_FA_CreateAdmin();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_btn_formAdmCreate_createActionPerformed
 
     private void DC_formAdm_borndatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_borndatePropertyChange
@@ -1366,10 +1369,6 @@ public class main_Admin extends javax.swing.JFrame {
         BLL_Admin.BLL_UserSaveJSON();
     }//GEN-LAST:event_btn_saveJSONActionPerformed
 
-    private void buttonAero3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero3ActionPerformed
-        BLL_Admin.deleteAdmAL();
-    }//GEN-LAST:event_buttonAero3ActionPerformed
-
     private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMouseClicked
         boolean modificar=false;
         
@@ -1384,13 +1383,25 @@ public class main_Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TABLAMouseClicked
 
-    private void btn_readActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_readActionPerformed
-        BLL_Admin.viewAdmAL();
-    }//GEN-LAST:event_btn_readActionPerformed
-
     private void txt_formAdm_activityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_formAdm_activityFocusLost
+
+    private void btn_viewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewAdminActionPerformed
+        BLL_Admin.viewAdmAL();
+    }//GEN-LAST:event_btn_viewAdminActionPerformed
+
+    private void btn_createAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAdminActionPerformed
+        BLL_Admin.BLL_Adm_form();
+    }//GEN-LAST:event_btn_createAdminActionPerformed
+
+    private void btn_modifyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modifyAdminActionPerformed
+        BLL_Admin.BLL_ModifyAdm();
+    }//GEN-LAST:event_btn_modifyAdminActionPerformed
+
+    private void btn_deleteAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAdminActionPerformed
+        BLL_Admin.deleteAdmAL();
+    }//GEN-LAST:event_btn_deleteAdminActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
@@ -1404,16 +1415,16 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JButton SIGUIENTE;
     public static javax.swing.JTable TABLA;
     public static javax.swing.ButtonGroup btnGroupState;
+    public static javax.swing.JButton btn_createAdmin;
+    public static javax.swing.JButton btn_deleteAdmin;
     public static javax.swing.JButton btn_formA_Avatar;
     public static javax.swing.JButton btn_formAdmCreate_back;
     public static javax.swing.JButton btn_formAdmCreate_create;
-    public static org.edisoncor.gui.button.ButtonAero btn_read;
+    public static javax.swing.JButton btn_modifyAdmin;
     public static org.edisoncor.gui.button.ButtonAero btn_saveJSON;
     public static org.edisoncor.gui.button.ButtonAero btn_saveTXT;
     public static org.edisoncor.gui.button.ButtonAero btn_saveXML;
-    public static org.edisoncor.gui.button.ButtonAero buttonAero1;
-    public static org.edisoncor.gui.button.ButtonAero buttonAero2;
-    public static org.edisoncor.gui.button.ButtonAero buttonAero3;
+    public static javax.swing.JButton btn_viewAdmin;
     public static org.edisoncor.gui.button.ButtonAero buttonAero4;
     public static javax.swing.JButton jButton3;
     public static javax.swing.JComboBox jComboBox1;

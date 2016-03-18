@@ -6,6 +6,7 @@
 package framework.mod.user.admin.model.BLL;
 
 import framework.mod.nav.model.tools.menu_gen;
+import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
@@ -18,7 +19,10 @@ import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.model.tools.txt;
 import framework.mod.user.admin.model.tools.xml;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -85,13 +89,12 @@ public class BLL_Admin {
     }
 
     public static void BLL_JPF_Password() {
-        DAO_Admin.DAO_cfPass();
         DAO_Admin.askPassword();
     
     }
 
     public static void BLL_JPF_PassConfirm() {
-        DAO_Admin.DAO_cfPass();
+        
         DAO_Admin.askConfirmPassword();
     }
 
@@ -143,7 +146,7 @@ public class BLL_Admin {
      */
     
     public static void BLL_Adm_form() {
-        singletonAdmin.currentForm = "create";
+        singletonAdmin.currentForm = singletonAdmin.CREATE;
         DAO_Admin.formNew();
     }
 
@@ -179,6 +182,14 @@ public class BLL_Admin {
     }
     
     public static boolean modifyAdmAL() throws InterruptedException{
+        ActionListener task = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (main_Admin.jPanel2.isVisible()){
+                    main_Admin.jPanel2.setVisible(false);
+                }
+            }
+        };
         boolean valid = false;
         int pos;
         if( DAO_Admin.askConfirmPassword() ){
@@ -209,8 +220,12 @@ public class BLL_Admin {
                     DAO_Admin.DAO_ERR_Modify();
                 }
             }
-            Thread.sleep(3000);
-            main_Admin.jPanel2.setVisible(!valid);
+            Timer timer = new Timer(1000, task);
+            timer.setInitialDelay(2000);
+            timer.setRepeats(false);
+            timer.start();
+            //main_Admin.jPanel2.setVisible(!valid);
+            
         }
             
         return valid;
@@ -219,32 +234,40 @@ public class BLL_Admin {
        
     public static void BLL_FA_CreateAdmin() throws InterruptedException {
         boolean visible=true;
-        switch (singletonAdmin.currentForm) {
-            case singletonAdmin.CREATE:
-                if (DAO_Admin.formCreateAdmin()) {
-                    if (createAdmAL()) {
-                        
-                        main_Admin.lblMainform.setOpaque(true);
-                        main_Admin.lblMainform.setBackground(Color.green);
-                        main_Admin.lblMainform.setText("Admin creation succesfully");
-                        visible = false;
-                        
-                        //pager
-                    } else {
-                        main_Admin.lblMainform.setOpaque(true);
-                        main_Admin.lblMainform.setBackground(Color.red);
-                        main_Admin.lblMainform.setText("Admin creation fail");
-                        visible=true;
-                    }
-                    Thread.sleep(2000);
-                    main_Admin.jPanel2.setVisible(visible);
-                    
-                } else {
-
+        ActionListener task = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (main_Admin.jPanel2.isVisible()){
+                    main_Admin.jPanel2.setVisible(false);
                 }
-                break;
-            case singletonAdmin.MODIFY:
-                break;
+            }
+        };
+        if (DAO_Admin.formCreateAdmin()) {
+            if (createAdmAL()) {
+
+                main_Admin.lblMainform.setOpaque(true);
+                main_Admin.lblMainform.setBackground(Color.green);
+                main_Admin.lblMainform.setText("Admin creation succesfully");
+                visible = false;
+
+                //pager
+            } else {
+                main_Admin.lblMainform.setOpaque(true);
+                main_Admin.lblMainform.setBackground(Color.red);
+                main_Admin.lblMainform.setText("Admin Save fail");
+                visible=true;
+            }
+        } else {
+            main_Admin.lblMainform.setOpaque(true);
+            main_Admin.lblMainform.setBackground(Color.red);
+            main_Admin.lblMainform.setText("Admin Save fail");
+            //Control de errores de Admin
+        }
+        if(!visible){
+            Timer timer = new Timer(1000, task);
+            timer.setInitialDelay(2000);
+            timer.setRepeats(false);
+            timer.start();
         }
     }
 
@@ -263,6 +286,7 @@ public class BLL_Admin {
 
         //ask first DNI
         pos = searchAL();
+        JOptionPane.showMessageDialog(null, ""+pos);
         if (pos == -1) {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
             json.AdminJson_Autosave();
@@ -276,6 +300,14 @@ public class BLL_Admin {
     }
 
     public static boolean deleteAdmAL() {
+        ActionListener task = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (main_Admin.jPanel2.isVisible()){
+                    main_Admin.jPanel2.setVisible(false);
+                }
+            }
+        };
         String dni, name, lastname;
         int pos;
 
@@ -301,6 +333,11 @@ public class BLL_Admin {
                     miniSimpleTableModel_Admin.datosaux.remove(adm);
                     main_Admin.runTABLE();
                     json.AdminJson_Autosave();
+                    Timer timer = new Timer(1000, task);
+                    timer.setInitialDelay(2000);
+                    timer.setRepeats(false);
+                    timer.start();
+                    
                     return true;
                 }
             }
@@ -319,7 +356,7 @@ public class BLL_Admin {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
-                main_Admin.btn_read.requestFocus();
+                main_Admin.btn_viewAdmin.requestFocus();
                 return;
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
