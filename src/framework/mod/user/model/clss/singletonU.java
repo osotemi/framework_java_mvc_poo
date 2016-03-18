@@ -25,11 +25,7 @@ public class singletonU {
        public static boolean changes;
        public static String PATH;
        public static String PATH_formAdm;
-       public static DateO born_date;
-       public static DateO sing_date;
-       public static String passwd_formAdm;
-       public static String dni;
-       public static String objtype;//->admin ->client ->reg_u
+       
        /**----------------------------------
         * Public methods of the Admin class
         * --------------------------------*/
@@ -45,11 +41,6 @@ public class singletonU {
 
             dummie_mode = true;
             PATH = "/src/framework/mod/user/admin/model/files/admin_dummies.json";
-            PATH_formAdm = "";
-            born_date = new DateO();
-            sing_date = new DateO();
-            changes = false;
-            dni = "";
-            objtype = "";
+            
        }
 }

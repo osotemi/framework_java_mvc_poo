@@ -166,7 +166,6 @@ public class BLL_Admin {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-                selec++;//Me coge uno menos no se por que
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;

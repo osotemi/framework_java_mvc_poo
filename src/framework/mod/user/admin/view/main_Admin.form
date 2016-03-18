@@ -342,11 +342,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="812" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" pref="200" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" pref="200" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel14" min="-2" pref="341" max="-2" attributes="0"/>
+                  <EmptySpace pref="355" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -357,6 +359,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -381,6 +384,16 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Contactenos"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="ff" red="99" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Icons designed by Freepik"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -442,6 +455,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -451,63 +465,67 @@
                                       </Group>
                                       <Component id="jLabel19" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                       <Component id="btn_formA_Avatar" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel26" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="CB_formAdm_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="DC_formAdm_borndate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="DC_formAdm_singdate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_singdateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_borndateERR" min="-2" pref="203" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel27" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="txt_formAdm_activity" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="btn_formAdmCreate_back" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_formAdm_activityERR" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_formAdm_borndateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="DC_formAdm_borndate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lbl_formAdm_dniERR" alignment="0" pref="203" max="32767" attributes="0"/>
-                                      <Component id="jLabel22" alignment="0" pref="203" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_dni" alignment="0" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_phoneERR" alignment="0" pref="203" max="32767" attributes="0"/>
-                                      <Component id="jLabel6" pref="203" max="32767" attributes="0"/>
-                                      <Component id="JPF_fromAdm_passconf" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_passconfERR" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lblnameAdm" pref="203" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_name" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_nameERR" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbllastnameAdm" pref="203" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_lastname" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_lastnameERR" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_passERR" pref="203" max="32767" attributes="0"/>
-                                      <Component id="JPF_fromAdm_pass" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_lusernameERR" pref="203" max="32767" attributes="0"/>
-                                      <Component id="jLabel9" pref="203" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_username" pref="203" max="32767" attributes="0"/>
-                                      <Component id="lblusernameAdm" pref="203" max="32767" attributes="0"/>
-                                      <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_email" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_emailERR" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_phone" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblphoneAdm" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btn_formAdmCreate_create" max="32767" attributes="0"/>
+                                      <Component id="jLabel6" max="32767" attributes="0"/>
+                                      <Component id="JPF_fromAdm_passconf" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_passconfERR" max="32767" attributes="0"/>
+                                      <Component id="lblnameAdm" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_name" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_nameERR" max="32767" attributes="0"/>
+                                      <Component id="lbllastnameAdm" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_lastname" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_lastnameERR" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_passERR" max="32767" attributes="0"/>
+                                      <Component id="JPF_fromAdm_pass" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_lusernameERR" max="32767" attributes="0"/>
+                                      <Component id="jLabel9" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_username" max="32767" attributes="0"/>
+                                      <Component id="lblusernameAdm" max="32767" attributes="0"/>
+                                      <Component id="jLabel20" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel10" max="32767" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Component id="lblMainform" min="-2" pref="424" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel26" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                              <Component id="CB_formAdm_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel27" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="txt_formAdm_activity" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="btn_formAdmCreate_back" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="lbl_formAdm_activityERR" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lbl_formAdm_singdateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="DC_formAdm_singdate" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblMainform" min="-2" pref="424" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbl_formAdm_dniERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_dni" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_phoneERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_email" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_emailERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_phone" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblphoneAdm" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btn_formAdmCreate_create" min="-2" pref="203" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -515,17 +533,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblMainform" min="-2" pref="34" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                           <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblusernameAdm" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                           <Component id="txtf_formAdm_username" min="-2" pref="19" max="-2" attributes="0"/>
@@ -545,7 +563,7 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="lbl_formAdm_passconfERR" min="-2" pref="13" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblnameAdm" min="-2" max="-2" attributes="0"/>
@@ -553,52 +571,52 @@
                                       <Component id="btn_formA_Avatar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtf_formAdm_name" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="lbl_formAdm_borndateERR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lbl_formAdm_nameERR" min="-2" pref="15" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="txtf_formAdm_name" min="-2" pref="19" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_nameERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lbllastnameAdm" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="CB_formAdm_state" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="txtf_formAdm_lastname" min="-2" pref="19" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="DC_formAdm_borndate" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbllastnameAdm" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_formAdm_lastnameERR" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtf_formAdm_lastname" min="-2" pref="19" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_lastnameERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="txtf_formAdm_email" min="-2" pref="19" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_emailERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblphoneAdm" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="txtf_formAdm_phone" min="-2" pref="19" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="DC_formAdm_borndate" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_borndateERR" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="DC_formAdm_singdate" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_singdateERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtf_formAdm_email" alignment="1" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="DC_formAdm_singdate" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbl_formAdm_emailERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="lbl_formAdm_singdateERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblphoneAdm" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="CB_formAdm_state" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_phone" min="-2" pref="24" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lbl_formAdm_phoneERR" min="-2" pref="15" max="-2" attributes="0"/>
@@ -608,29 +626,29 @@
                                       <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtf_formAdm_dni" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="txt_formAdm_activity" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txt_formAdm_activity" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_dni" min="-2" pref="24" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbl_formAdm_dniERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                                       <Component id="lbl_formAdm_activityERR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btn_formAdmCreate_back" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_formAdmCreate_create" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel8" min="-2" pref="34" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btn_formAdmCreate_back" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_formAdmCreate_create" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -649,7 +667,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_nameERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -667,7 +685,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Confirmar Contrase&#xf1;a"/>
                   </Properties>
                 </Component>
@@ -679,13 +697,13 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblusernameAdm">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Nombre de usuario"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_lusernameERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                   </Properties>
@@ -695,7 +713,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_passERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -707,7 +725,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Nombre..."/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -734,7 +752,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Correo electr&#xf3;nico"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -758,7 +776,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value=" Nombre del administrador..."/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -793,7 +811,7 @@
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="JPF_fromAdm_pass">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Contrase&#xf1;a..."/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -846,7 +864,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Apellidos..."/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -868,7 +886,7 @@
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="JPF_fromAdm_passconf">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Confirmar contrase&#xf1;a..."/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -889,13 +907,13 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_passconfERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -904,19 +922,19 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbllastnameAdm">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Apellidos"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblnameAdm">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_phoneERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -925,7 +943,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_singdateERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -934,25 +952,25 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="Fecha de contrataci&#xf3;n"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Imagen de perfil"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_dniERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -967,13 +985,13 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel22">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="DNI"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_emailERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -982,25 +1000,25 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblphoneAdm">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="Estado"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel27">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="Actividad"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_borndateERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
@@ -1012,7 +1030,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -1035,7 +1053,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -1076,7 +1094,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_formAdm_activity">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
                   <Events>
@@ -1092,7 +1110,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formAdm_activityERR">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
