@@ -137,12 +137,14 @@ public class DAO_Admin {
         main_Admin.JPF_fromAdm_pass.setBackground( Color.white);
         main_Admin.JPF_fromAdm_pass.setText("");
         main_Admin.JPF_fromAdm_pass.setBorder(null);
+        main_Admin.JPF_fromAdm_pass.setEchoChar('*');
         main_Admin.lbl_formAdm_passERR.setText(" ");
 
         main_Admin.JPF_fromAdm_passconf.setEnabled(true);
         main_Admin.JPF_fromAdm_passconf.setBackground( Color.white);
         main_Admin.JPF_fromAdm_passconf.setText("");
         main_Admin.JPF_fromAdm_passconf.setBorder(null);
+        main_Admin.JPF_fromAdm_passconf.setEchoChar('*');
         main_Admin.lbl_formAdm_passconfERR.setText(" ");
 
         main_Admin.txtf_formAdm_phone.setEnabled(true);
@@ -173,6 +175,8 @@ public class DAO_Admin {
         
         main_Admin.jPanel2.setBackground(Color.green);
         main_Admin.jPanel2.setVisible(true);
+        main_Admin.txtf_formAdm_username.requestFocus();
+        main_Admin.txtf_formAdm_username.selectAll();
     }
 
     public static void forModifyAdmin() {
@@ -238,12 +242,15 @@ public class DAO_Admin {
         main_Admin.JPF_fromAdm_pass.setEnabled(true);
         main_Admin.JPF_fromAdm_pass.setToolTipText("");
         main_Admin.JPF_fromAdm_pass.setBackground(Color.white);
+        main_Admin.JPF_fromAdm_pass.setEchoChar((char) 0);
         main_Admin.lbl_formAdm_passERR.setText(" ");
 
         main_Admin.JPF_fromAdm_passconf.setText(singletonAdmin.ephemeralAdmin.getPassword());
         main_Admin.JPF_fromAdm_passconf.setBorder(null);
         main_Admin.JPF_fromAdm_passconf.setEnabled(true);
+        main_Admin.JPF_fromAdm_passconf.setToolTipText("");
         main_Admin.JPF_fromAdm_passconf.setBackground(Color.white);
+        main_Admin.JPF_fromAdm_passconf.setEchoChar((char) 0);
         main_Admin.lbl_formAdm_passconfERR.setText(" ");
 
         main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 0, 12));
@@ -270,7 +277,8 @@ public class DAO_Admin {
         main_Admin.btn_formAdmCreate_back.setBackground(Color.red);
         main_Admin.jPanel2.setBackground(null);
         main_Admin.jPanel2.setVisible(true);
-
+        main_Admin.txtf_formAdm_username.requestFocus();
+        main_Admin.txtf_formAdm_username.selectAll();
     }
 
     /**
@@ -336,12 +344,16 @@ public class DAO_Admin {
         main_Admin.JPF_fromAdm_pass.setBackground( new Color(0,0,0,0));
         main_Admin.JPF_fromAdm_pass.setText(singletonAdmin.ephemeralAdmin.getPassword());
         main_Admin.JPF_fromAdm_pass.setBorder(null);
+        main_Admin.JPF_fromAdm_pass.setToolTipText("");
+        main_Admin.JPF_fromAdm_pass.setEchoChar('*');
         main_Admin.lbl_formAdm_passERR.setText(" ");
         main_Admin.lbl_formAdm_passERR.setToolTipText("");
         
         main_Admin.JPF_fromAdm_passconf.setBackground( new Color(0,0,0,0));
         main_Admin.JPF_fromAdm_passconf.setText(singletonAdmin.ephemeralAdmin.getPassword());
         main_Admin.JPF_fromAdm_passconf.setBorder(null);
+        main_Admin.JPF_fromAdm_passconf.setEchoChar('*');
+        main_Admin.JPF_fromAdm_passconf.setToolTipText("");
         main_Admin.lbl_formAdm_passconfERR.setText(" ");
         main_Admin.lbl_formAdm_passconfERR.setToolTipText("");
         
@@ -528,7 +540,7 @@ public class DAO_Admin {
 
         if (pass.equals("")) {
             main_Admin.JPF_fromAdm_passconf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
-            main_Admin.JPF_fromAdm_passconf.setToolTipText("Debe contener minimo 8 caractéres, minúscula, mayúsculas, números y carácteres especiales");
+            main_Admin.JPF_fromAdm_passconf.setToolTipText("Debe contener minimo 8 caractéres, minúscula, mayúsculas y números");
             main_Admin.lbl_formAdm_passconfERR.setText(ERROR);
             main_Admin.lbl_formAdm_passconfERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_passconfERR.setForeground(Color.red);

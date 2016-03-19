@@ -36,27 +36,51 @@ public class BLL_Admin {
     }
 
     public static void BLL_FA_CleanName() {
-        DAO_Admin.DAO_cfName();
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            DAO_Admin.DAO_cfName();
+        }else{
+            main_Admin.txtf_formAdm_name.selectAll();
+        }
     }
 
     public static void BLL_FA_CleanLastName() {
-        DAO_Admin.DAO_cfLastName();
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            DAO_Admin.DAO_cfLastName();
+        }else{
+            main_Admin.txtf_formAdm_lastname.selectAll();
+        }
     }
 
     public static void BLL_FA_CleanUserName() {
-        DAO_Admin.DAO_cfUserName();
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            DAO_Admin.DAO_cfUserName();
+        }else{
+            main_Admin.txtf_formAdm_username.selectAll();
+        }
     }
 
     public static void BLL_FA_CleanPhone() {
-        DAO_Admin.DAO_cfPhone();
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            DAO_Admin.DAO_cfPhone();
+        }else{
+            main_Admin.txtf_formAdm_phone.selectAll();
+        }
     }
 
     public static void BLL_FA_CleanEmail() {
-        DAO_Admin.DAO_cfEmail();
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            DAO_Admin.DAO_cfEmail();
+        }else{
+            main_Admin.txtf_formAdm_email.selectAll();
+        }
     }
 
     public static void BLL_FA_CleanDNI() {
-        DAO_Admin.DAO_cfDNI();
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+            DAO_Admin.DAO_cfDNI();
+        }else{
+            main_Admin.txtf_formAdm_dni.selectAll();
+        }
     }
 
     public static void BLL_FA_CleanPass() {
@@ -64,6 +88,8 @@ public class BLL_Admin {
             if (!singletonAdmin.passModf) {
                 DAO_Admin.DAO_cfPass();
                 singletonAdmin.passModf = true;
+            }else{
+                main_Admin.JPF_fromAdm_pass.selectAll();
             }
         } else if (singletonAdmin.currentForm.equals(singletonAdmin.CREATE)) {
             DAO_Admin.DAO_cfPass();
@@ -89,12 +115,23 @@ public class BLL_Admin {
     }
 
     public static void BLL_JPF_Password() {
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+             DAO_Admin.DAO_cfPass();
+        }else{
+            main_Admin.JPF_fromAdm_pass.selectAll();
+        }
+        
         DAO_Admin.askPassword();
 
     }
 
     public static void BLL_JPF_PassConfirm() {
-
+        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
+             DAO_Admin.DAO_cfPassConf();
+        }else{
+            main_Admin.JPF_fromAdm_passconf.selectAll();
+        }
+        
         DAO_Admin.askConfirmPassword();
     }
 

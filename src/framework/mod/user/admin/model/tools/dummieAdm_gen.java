@@ -77,9 +77,9 @@ public class dummieAdm_gen {
     public static void dummieAdmin() {
         String name, lastname, dni;
         int valid_dni = 0;
-        int activity = (int) (Math.random() * 10000);
+        
         DateO born = dummieAdm_gen.rdmBorndate();
-
+        DateO sing = dummieAdm_gen.rdmSingdate(born);
         name = rdmName();
         lastname = rdmLastName();
 
@@ -89,7 +89,7 @@ public class dummieAdm_gen {
             valid_dni = BLL_Admin.searchAL();
         } while (valid_dni != -1);
 
-        singletonAdmin.ephemeralAdmin = new Admin(rdmAvatar(), born, dni, rdmEmail(name, lastname), rdmPhone(), name, lastname + " " + rdmLastName(), rdmPasswd(), rdmState(), dummieAdm_gen.rdmUser(name, lastname), activity, dummieAdm_gen.rdmSingdate(born));
+        singletonAdmin.ephemeralAdmin = new Admin(rdmAvatar(), born, dni, rdmEmail(name, lastname), rdmPhone(), name, lastname + " " + rdmLastName(), rdmPasswd(), rdmState(), dummieAdm_gen.rdmUser(name, lastname), rdmActivity(sing), dummieAdm_gen.rdmSingdate(born));
         try {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
         } catch (Exception ex) {
@@ -145,7 +145,7 @@ public class dummieAdm_gen {
     }
 
     public static String rdmPasswd() {
-        String abc = "abcdefghijklmnñopkrstuvwz";
+        String abc = "abcdefghijklmnopkrstuvwz";
         String pass = "";
         int lenght;
         do {
@@ -308,5 +308,16 @@ public class dummieAdm_gen {
 
     public static String rdmUser(String name, String lastname) {
         return "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+    }
+
+    public static int rdmActivity(DateO singDate){
+        DateO today = new DateO();
+        int diff = 0;
+        today.getTodaydate();
+        diff = today.getYear() - singDate.getYear();
+        JOptionPane.showMessageDialog(null, today.getYear()+" todayyear" + singDate.getYear()+" todaydate "+ diff);
+        int activity = (int) ((Math.random() * 1000)* diff);
+        JOptionPane.showMessageDialog(null, ""+activity);
+        return activity;
     }
 }

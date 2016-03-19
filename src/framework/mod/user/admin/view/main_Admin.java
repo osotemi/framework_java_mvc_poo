@@ -127,7 +127,7 @@ public class main_Admin extends javax.swing.JFrame {
         btn_deleteAdmin = new javax.swing.JButton();
         btn_createAdmin = new javax.swing.JButton();
         btn_deleteAllAdmin = new javax.swing.JButton();
-        btn_createAdmin1 = new javax.swing.JButton();
+        btn_createDummies = new javax.swing.JButton();
         panelImage8 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -328,16 +328,16 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
 
-        btn_createAdmin1.setBackground(new java.awt.Color(0, 153, 0));
-        btn_createAdmin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/AddDummies.png"))); // NOI18N
-        btn_createAdmin1.setToolTipText("Añadir dummies");
-        btn_createAdmin1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_createAdmin1.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn_createAdmin1.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn_createAdmin1.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_createAdmin1.addActionListener(new java.awt.event.ActionListener() {
+        btn_createDummies.setBackground(new java.awt.Color(0, 153, 0));
+        btn_createDummies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/AddDummies.png"))); // NOI18N
+        btn_createDummies.setToolTipText("Añadir dummies");
+        btn_createDummies.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_createDummies.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_createDummies.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_createDummies.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_createDummies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_createAdmin1ActionPerformed(evt);
+                btn_createDummiesActionPerformed(evt);
             }
         });
 
@@ -357,7 +357,7 @@ public class main_Admin extends javax.swing.JFrame {
                     .addComponent(btn_createAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_createAdmin1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_createDummies, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         panelImage5Layout.setVerticalGroup(
@@ -374,7 +374,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_createAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_createDummies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -487,6 +487,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_nameKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtf_formAdm_nameKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_nameKeyReleased(evt);
             }
@@ -509,6 +512,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_emailKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtf_formAdm_emailKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_emailKeyReleased(evt);
             }
@@ -520,16 +526,21 @@ public class main_Admin extends javax.swing.JFrame {
         txtf_formAdm_username.setBorder(null);
         txtf_formAdm_username.setNextFocusableComponent(JPF_fromAdm_pass);
         txtf_formAdm_username.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_usernameFocusGained(evt);
-            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtf_formAdm_usernameFocusLost(evt);
+            }
+        });
+        txtf_formAdm_username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtf_formAdm_usernameMouseClicked(evt);
             }
         });
         txtf_formAdm_username.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_usernameKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtf_formAdm_usernameKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_usernameKeyReleased(evt);
@@ -564,6 +575,9 @@ public class main_Admin extends javax.swing.JFrame {
         JPF_fromAdm_pass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JPF_fromAdm_passKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passKeyReleased(evt);
@@ -614,6 +628,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_lastnameKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtf_formAdm_lastnameKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_lastnameKeyReleased(evt);
             }
@@ -627,6 +644,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 JPF_fromAdm_passconfFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                JPF_fromAdm_passconfFocusLost(evt);
+            }
         });
         JPF_fromAdm_passconf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -636,6 +656,9 @@ public class main_Admin extends javax.swing.JFrame {
         JPF_fromAdm_passconf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passconfKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JPF_fromAdm_passconfKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passconfKeyReleased(evt);
@@ -730,6 +753,9 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_phoneKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtf_formAdm_phoneKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_phoneKeyReleased(evt);
             }
@@ -769,6 +795,8 @@ public class main_Admin extends javax.swing.JFrame {
 
         lbl_formAdm_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_activityERR.setText(" ");
+
+        lbl_formAdm_photoavatar.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1183,6 +1211,7 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusLost
         BLL_Admin.BLL_txtName();
+        txtf_formAdm_lastname.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_nameFocusLost
 
     private void txtf_formAdm_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyTyped
@@ -1190,6 +1219,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_formAdm_nameKeyTyped
 
     private void txtf_formAdm_lastnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusGained
+        
         BLL_Admin.BLL_FA_CleanLastName();
     }//GEN-LAST:event_txtf_formAdm_lastnameFocusGained
 
@@ -1203,11 +1233,8 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_lastnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusLost
         BLL_Admin.BLL_txtLastname();
+        txtf_formAdm_email.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_lastnameFocusLost
-
-    private void txtf_formAdm_usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameFocusGained
-        BLL_Admin.BLL_FA_CleanUserName();
-    }//GEN-LAST:event_txtf_formAdm_usernameFocusGained
 
     private void txtf_formAdm_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyTyped
         BLL_Admin.BLL_txtUsername();
@@ -1215,6 +1242,7 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameFocusLost
         BLL_Admin.BLL_txtUsername();
+        JPF_fromAdm_pass.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_usernameFocusLost
 
     private void txtf_formAdm_phoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusGained
@@ -1227,6 +1255,7 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_phoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusLost
         BLL_Admin.BLL_txtPhone();
+        txtf_formAdm_dni.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_phoneFocusLost
 
     private void txtf_formAdm_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyReleased
@@ -1246,7 +1275,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_formAdm_phoneKeyReleased
 
     private void JPF_fromAdm_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusGained
-        DAO_Admin.DAO_cfPass();
+       
         BLL_Admin.BLL_JPF_Password();
     }//GEN-LAST:event_JPF_fromAdm_passFocusGained
 
@@ -1259,7 +1288,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_JPF_fromAdm_passKeyReleased
 
     private void JPF_fromAdm_passconfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusGained
-        DAO_Admin.DAO_cfPassConf();
+        
         BLL_Admin.BLL_JPF_PassConfirm();
     }//GEN-LAST:event_JPF_fromAdm_passconfFocusGained
 
@@ -1370,14 +1399,17 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusLost
         BLL_Admin.BLL_txtEmail();
+        txtf_formAdm_phone.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_emailFocusLost
 
     private void txtf_formAdm_dniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusLost
         BLL_Admin.BLL_txtDNI();
+        txt_formAdm_activity.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_dniFocusLost
 
     private void JPF_fromAdm_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusLost
         BLL_Admin.BLL_JPF_Password();
+        JPF_fromAdm_passconf.requestFocus();
     }//GEN-LAST:event_JPF_fromAdm_passFocusLost
 
     private void btn_saveXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveXMLActionPerformed
@@ -1408,7 +1440,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_TABLAMouseClicked
 
     private void txt_formAdm_activityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusLost
-        // TODO add your handling code here:
+        btn_formAdmCreate_create.requestFocus();
     }//GEN-LAST:event_txt_formAdm_activityFocusLost
 
     private void btn_viewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewAdminActionPerformed
@@ -1431,13 +1463,76 @@ public class main_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_deleteAllAdminActionPerformed
 
-    private void btn_createAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAdmin1ActionPerformed
+    private void btn_createDummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createDummiesActionPerformed
         dummieAdm_gen.menu_dummie();
-    }//GEN-LAST:event_btn_createAdmin1ActionPerformed
+    }//GEN-LAST:event_btn_createDummiesActionPerformed
 
     private void TABLAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMousePressed
         
     }//GEN-LAST:event_TABLAMousePressed
+
+    private void txtf_formAdm_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameMouseClicked
+       BLL_Admin.BLL_FA_CleanUserName();
+    }//GEN-LAST:event_txtf_formAdm_usernameMouseClicked
+
+    private void JPF_fromAdm_passconfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusLost
+        BLL_Admin.BLL_JPF_PassConfirm();
+        txtf_formAdm_name.requestFocus();
+    }//GEN-LAST:event_JPF_fromAdm_passconfFocusLost
+
+    private void txtf_formAdm_usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            JPF_fromAdm_pass.requestFocus();
+        }
+    }//GEN-LAST:event_txtf_formAdm_usernameKeyPressed
+
+    private void JPF_fromAdm_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            txtf_formAdm_name.requestFocus();
+        }else if(evt.getKeyCode()==evt.VK_UP){
+            JPF_fromAdm_passconf.requestFocus();
+        }
+    }//GEN-LAST:event_JPF_fromAdm_passKeyPressed
+
+    private void JPF_fromAdm_passconfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            JPF_fromAdm_pass.requestFocus();
+        }else if(evt.getKeyCode()==evt.VK_UP){
+            txtf_formAdm_name.requestFocus();
+        }
+    }//GEN-LAST:event_JPF_fromAdm_passconfKeyPressed
+
+    private void txtf_formAdm_nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            JPF_fromAdm_passconf.requestFocus();
+        }else if(evt.getKeyCode()==evt.VK_UP){
+            txtf_formAdm_lastname.requestFocus();
+        }
+    }//GEN-LAST:event_txtf_formAdm_nameKeyPressed
+
+    private void txtf_formAdm_lastnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            txtf_formAdm_name.requestFocus();
+        }else if(evt.getKeyCode()==evt.VK_UP){
+            txtf_formAdm_email.requestFocus();
+        }
+    }//GEN-LAST:event_txtf_formAdm_lastnameKeyPressed
+
+    private void txtf_formAdm_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            txtf_formAdm_lastname.requestFocus();
+        }else if(evt.getKeyCode()==evt.VK_UP){
+            txtf_formAdm_phone.requestFocus();
+        }
+    }//GEN-LAST:event_txtf_formAdm_emailKeyPressed
+
+    private void txtf_formAdm_phoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyPressed
+        if(evt.getKeyCode()==evt.VK_DOWN){
+            txtf_formAdm_email.requestFocus();
+        }else if(evt.getKeyCode()==evt.VK_UP){
+            txtf_formAdm_dni.requestFocus();
+        }
+    }//GEN-LAST:event_txtf_formAdm_phoneKeyPressed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
@@ -1452,7 +1547,7 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JTable TABLA;
     public static javax.swing.ButtonGroup btnGroupState;
     public static javax.swing.JButton btn_createAdmin;
-    public static javax.swing.JButton btn_createAdmin1;
+    public static javax.swing.JButton btn_createDummies;
     public static javax.swing.JButton btn_deleteAdmin;
     public static javax.swing.JButton btn_deleteAllAdmin;
     public static javax.swing.JButton btn_formA_Avatar;
