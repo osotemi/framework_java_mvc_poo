@@ -6,15 +6,12 @@
 package framework.mod.user.admin.model.BLL;
 
 import framework.mod.nav.model.tools.menu_gen;
-import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
-import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.mod.user.admin.view.main_Admin;
-import framework.mod.user.model.clss.singletonU;
 import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.model.tools.txt;
 import framework.mod.user.admin.model.tools.xml;
@@ -62,14 +59,17 @@ public class BLL_Admin {
         DAO_Admin.DAO_cfDNI();
     }
 
-    public static void BLL_FA_CleanPass(){
-        if(singletonAdmin.currentForm.equals("Modify")){
-            if(!singletonAdmin.passModf){
+    public static void BLL_FA_CleanPass() {
+        if (singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)) {
+            if (!singletonAdmin.passModf) {
                 DAO_Admin.DAO_cfPass();
+                singletonAdmin.passModf = true;
             }
+        } else if (singletonAdmin.currentForm.equals(singletonAdmin.CREATE)) {
+            DAO_Admin.DAO_cfPass();
         }
     }
- 
+
     public static void BLL_txtName() {
         DAO_Admin.askName();
     }
@@ -80,21 +80,21 @@ public class BLL_Admin {
 
     public static void BLL_txtUsername() {
         DAO_Admin.askUsername();
-        
+
     }
 
     public static void BLL_txtPhone() {
         DAO_Admin.askPhone();
-        
+
     }
 
     public static void BLL_JPF_Password() {
         DAO_Admin.askPassword();
-    
+
     }
 
     public static void BLL_JPF_PassConfirm() {
-        
+
         DAO_Admin.askConfirmPassword();
     }
 
@@ -104,12 +104,12 @@ public class BLL_Admin {
 
     public static void BLL_txtDNI() {
         DAO_Admin.askDNI();
-        
+
     }
 
     public static void BLL_Activity() {
         DAO_Admin.askActivity();
-        
+
     }
 
     public static void BLL_DCBornDate() {
@@ -128,7 +128,6 @@ public class BLL_Admin {
     /**
      * FILE SAVE BLL FUNCTIONS
      */
-    
     public static void BLL_UserSaveXML() {
         xml.AdminXml_Save();
     }
@@ -144,165 +143,23 @@ public class BLL_Admin {
     /**
      * C-R-U-D functions
      */
-    
-    public static void BLL_Adm_form() {
+    /**
+     * 
+     */
+    public static void BLL_CreateAdm() {
         singletonAdmin.currentForm = singletonAdmin.CREATE;
         DAO_Admin.formNew();
     }
 
-    
-    public static boolean BLL_ModifyAdm() {
-        singletonAdmin.currentForm = singletonAdmin.MODIFY;
-        singletonAdmin.passModf = false;
-        int selec = -1, pos =0;
-        String dni;
-        boolean valid = false;
-        
-        int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
-        if (n != 0) {
-            selec = main_Admin.TABLA.getSelectedRow();
-            
-            if (selec == -1) {
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
-            } else {
-                selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
-                Admin adm = new Admin(dni);
-                singletonAdmin.ephemeralAdmin = adm;
-                pos = searchAL();
-                singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
-                DAO_Admin.forModifyAdmin();
-                valid = true;
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Lista vacía", "Error!", 2);
-        }
-        return valid;
-    }
-    
-    public static boolean modifyAdmAL() throws InterruptedException{
-        ActionListener task = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()){
-                    main_Admin.jPanel2.setVisible(false);
-                }
-            }
-        };
-        boolean valid = false;
-        int pos;
-        if( DAO_Admin.askConfirmPassword() ){
-            singletonAdmin.ephemeralAdmin = new Admin( main_Admin.txtf_formAdm_dni.getText() );
-            pos = searchAL();
-            if(pos != -1){
-                if(DAO_Admin.formCreateAdmin()){
-                    singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
-                    json.AdminJson_Autosave();
-                    main_Admin.runTABLE();
-                    main_Admin.lblMainform.setOpaque(true);
-                    main_Admin.lblMainform.setBackground(Color.GREEN);
-                    main_Admin.lblMainform.setText("Administrador modificado con exito!!");
-                    valid = true;
-                }
-                else{
-                    DAO_Admin.DAO_ERR_Modify();
-                    main_Admin.lblMainform.setOpaque(true);
-                    main_Admin.lblMainform.setBackground(Color.red);
-                    main_Admin.lblMainform.setText("Error al crear");
-                }
-            }
-            else{
-                if(singletonAdmin.passModf){
-                    //seguro que desa guardar con nuevo dni
-                }
-                else{
-                    DAO_Admin.DAO_ERR_Modify();
-                }
-            }
-            Timer timer = new Timer(1000, task);
-            timer.setInitialDelay(2000);
-            timer.setRepeats(false);
-            timer.start();
-            //main_Admin.jPanel2.setVisible(!valid);
-            
-        }
-            
-        return valid;
-    }
-    
-       
-    public static void BLL_FA_CreateAdmin() throws InterruptedException {
-        boolean visible=true;
-        ActionListener task = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()){
-                    main_Admin.jPanel2.setVisible(false);
-                }
-            }
-        };
-        if (DAO_Admin.formCreateAdmin()) {
-            if (createAdmAL()) {
-
-                main_Admin.lblMainform.setOpaque(true);
-                main_Admin.lblMainform.setBackground(Color.green);
-                main_Admin.lblMainform.setText("Admin creation succesfully");
-                visible = false;
-
-                //pager
-            } else {
-                main_Admin.lblMainform.setOpaque(true);
-                main_Admin.lblMainform.setBackground(Color.red);
-                main_Admin.lblMainform.setText("Admin Save fail");
-                visible=true;
-            }
-        } else {
-            main_Admin.lblMainform.setOpaque(true);
-            main_Admin.lblMainform.setBackground(Color.red);
-            main_Admin.lblMainform.setText("Admin Save fail");
-            //Control de errores de Admin
-        }
-        if(!visible){
-            Timer timer = new Timer(1000, task);
-            timer.setInitialDelay(2000);
-            timer.setRepeats(false);
-            timer.start();
-        }
-    }
-
-    
     /**
-     * Function that create an user object in his singletonU Array list
-     *
-     * @param int optfull -> if == 1-> create full object else -> creates a PK
-     * object
+     * Deletes an Admin selected on the table and saves changes on JSON file
+     * @return 
      */
-    public static boolean createAdmAL() {
-        String tryagain[] = {"Try again", "Exit"};
-        String dni = "";
-        int pos = 0, opt_tryagain = 0;
-        boolean valid = false;
-
-        //ask first DNI
-        pos = searchAL();
-        JOptionPane.showMessageDialog(null, ""+pos);
-        if (pos == -1) {
-            singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
-            json.AdminJson_Autosave();
-            main_Admin.runTABLE();
-            valid = true;
-        } else {
-            main_Admin.lbl_formAdm_dniERR.setText("Dni already exist");
-            valid = false;
-        }
-        return valid;
-    }
-
-    public static boolean deleteAdmAL() {
+    public static boolean BLL_deleteAdm() {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()){
+                if (main_Admin.jPanel2.isVisible()) {
                     main_Admin.jPanel2.setVisible(false);
                 }
             }
@@ -336,7 +193,7 @@ public class BLL_Admin {
                     timer.setInitialDelay(2000);
                     timer.setRepeats(false);
                     timer.start();
-                    
+
                     return true;
                 }
             }
@@ -345,8 +202,45 @@ public class BLL_Admin {
         }
         return false;
     }
+  
+    /**
+     * Function looks for an Admin to modify it and calls a DAO function to draw
+     * modify form
+     */
+    public static boolean BLL_ModifyAdm() {
+        singletonAdmin.currentForm = singletonAdmin.MODIFY;
+        singletonAdmin.passModf = false;
+        int selec = -1, pos = 0;
+        String dni;
+        boolean valid = false;
+
+        int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
+        if (n != 0) {
+            selec = main_Admin.TABLA.getSelectedRow();
+
+            if (selec == -1) {
+                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+            } else {
+                selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+                //dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
+                //Admin adm = new Admin(dni);
+                //singletonAdmin.ephemeralAdmin = adm;
+                //pos = searchAL();
+                //singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
+                DAO_Admin.forModifyAdmin();
+                valid = true;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Lista vacía", "Error!", 2);
+        }
+        return valid;
+    }
+
     
-    public static void viewAdmAL() {
+    /*
+    Search for an Admin on singleton array list and draws it
+    */
+    public static void BLL_ViewAdm() {
         String dni, name, lastname;
         int pos;
 
@@ -370,7 +264,140 @@ public class BLL_Admin {
             JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
         }
     }
-    
+    /**
+     * Creates an Admin when btn create of the form is click
+     * and saves it on JSON file
+     * @throws InterruptedException 
+     */
+    public static void FORM_BTN_createAdmin() throws InterruptedException {
+        boolean visible = true;
+        ActionListener task = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (main_Admin.jPanel2.isVisible()) {
+                    main_Admin.jPanel2.setVisible(false);
+                }
+            }
+        };
+        if (DAO_Admin.formCreateAdmin()) {
+            if (createAdmAL()) {
+
+                main_Admin.lblMainform.setOpaque(true);
+                main_Admin.lblMainform.setBackground(Color.green);
+                main_Admin.lblMainform.setText("Hecho!");
+                visible = false;
+
+                //pager
+            } else {
+                main_Admin.lblMainform.setOpaque(true);
+                main_Admin.lblMainform.setBackground(Color.red);
+                main_Admin.lblMainform.setText("Error");
+                visible = true;
+            }
+        } else {
+            main_Admin.lblMainform.setOpaque(true);
+            main_Admin.lblMainform.setBackground(Color.red);;
+        }
+        if (!visible) {
+            Timer timer = new Timer(1000, task);
+            timer.setInitialDelay(2000);
+            timer.setRepeats(false);
+            timer.start();
+        }
+    }
+  
+    /**
+     * Modify an admin and overwrite-it on the ArrayList, save changes on Json,
+     * draws it and returns
+     */
+    public static boolean FORM_BTN_modifyAdm() throws InterruptedException {
+        ActionListener task = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (main_Admin.jPanel2.isVisible()) {
+                    main_Admin.jPanel2.setVisible(false);
+                }
+            }
+        };
+        boolean valid = false;
+        int pos, selec;
+        if (DAO_Admin.askConfirmPassword()) {
+            singletonAdmin.ephemeralAdmin = new Admin(main_Admin.txtf_formAdm_dni.getText());
+            pos = searchAL();
+            if (pos != -1) {
+                if (DAO_Admin.formCreateAdmin()) {
+                    singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
+                    json.AdminJson_Autosave();
+                    main_Admin.runTABLE();
+                    main_Admin.lblMainform.setOpaque(true);
+                    main_Admin.lblMainform.setBackground(Color.GREEN);
+                    main_Admin.lblMainform.setText("Modificado!");
+                    valid = true;
+                } else {
+                    DAO_Admin.DAO_ERR_Modify();
+                    main_Admin.lblMainform.setOpaque(true);
+                }
+            } else if (singletonAdmin.passModf) {
+
+                int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
+                if (n != 0) {
+                    selec = main_Admin.TABLA.getSelectedRow();
+
+                    if (selec == -1) {//perdimos la referencia dela admin a modificar
+                        DAO_Admin.DAO_ERR_Modify();
+                    } else {
+                        selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+                        singletonAdmin.AdminTableArray.remove(selec);
+                        singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
+                        json.AdminJson_Autosave();
+                        main_Admin.runTABLE();
+                        main_Admin.lblMainform.setOpaque(true);
+                        main_Admin.lblMainform.setBackground(Color.GREEN);
+                        main_Admin.lblMainform.setText("Modificado!");
+                        valid = true;
+                    }
+                }
+            } else {
+                DAO_Admin.DAO_ERR_Modify();
+            }
+            Timer timer = new Timer(1000, task);
+            timer.setInitialDelay(2000);
+            timer.setRepeats(false);
+            timer.start();
+            //main_Admin.jPanel2.setVisible(!valid);
+
+        }
+
+        return valid;
+    }
+
+    /**
+     * Function that create an user object in his AdminTableArray Array list
+     *
+     * @param int 
+     */
+    public static boolean createAdmAL() {
+        String tryagain[] = {"Try again", "Exit"};
+        String dni = "";
+        int pos = 0, opt_tryagain = 0;
+        boolean valid = false;
+
+        //ask first DNI
+        pos = searchAL();
+        JOptionPane.showMessageDialog(null, "" + pos);
+        if (pos == -1) {
+            singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
+            json.AdminJson_Autosave();
+            main_Admin.runTABLE();
+            valid = true;
+        } else {
+            main_Admin.lbl_formAdm_dniERR.setText("DNI no valido");
+            main_Admin.JPF_fromAdm_pass.setToolTipText("Ya existe un usuario con ese DNI");
+            valid = false;
+        }
+        return valid;
+    }
+
     /**
      * Searchs for the actual singletonAdmin.ephemeral Admin on
      * singletonU.Alist_adm
@@ -428,7 +455,9 @@ public class BLL_Admin {
 
         return pos;
     }
-
+    /**
+     * Initialite array list Admin and loads it from JSON file
+     */
     public static void loadArray() {
         singletonAdmin.loadSingletonAdmin();
         json.AdminJson_Autoload();

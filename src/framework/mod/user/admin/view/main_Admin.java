@@ -82,7 +82,6 @@ public class main_Admin extends javax.swing.JFrame {
         ((miniSimpleTableModel_Admin)TABLA.getModel()).cargar();
         TABLA.setFillsViewportHeight(true);
         TABLA.setRowSorter(sorter);
-
         pagina.inicializa();
         pagina.initLinkBox();
         
@@ -1284,14 +1283,14 @@ public class main_Admin extends javax.swing.JFrame {
     private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
         if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
             try {
-                BLL_Admin.BLL_FA_CreateAdmin();
+                BLL_Admin.FORM_BTN_createAdmin();
             } catch (InterruptedException ex) {
                 Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else if(singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)){
             try {
-                BLL_Admin.modifyAdmAL();
+                BLL_Admin.FORM_BTN_modifyAdm();
             } catch (InterruptedException ex) {
                 Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1397,11 +1396,11 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_formAdm_activityFocusLost
 
     private void btn_viewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewAdminActionPerformed
-        BLL_Admin.viewAdmAL();
+        BLL_Admin.BLL_ViewAdm();
     }//GEN-LAST:event_btn_viewAdminActionPerformed
 
     private void btn_createAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAdminActionPerformed
-        BLL_Admin.BLL_Adm_form();
+        BLL_Admin.BLL_CreateAdm();
     }//GEN-LAST:event_btn_createAdminActionPerformed
 
     private void btn_modifyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modifyAdminActionPerformed
@@ -1409,7 +1408,7 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_modifyAdminActionPerformed
 
     private void btn_deleteAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAdminActionPerformed
-        BLL_Admin.deleteAdmAL();
+        BLL_Admin.BLL_deleteAdm();
     }//GEN-LAST:event_btn_deleteAdminActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
