@@ -13,7 +13,7 @@ import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.autoComplete.AutocompleteJComboBox;
 import framework.mod.user.admin.model.tools.autoComplete.StringSearchable;
-import framework.mod.user.model.clss.singletonU;
+import framework.mod.user.admin.model.tools.dummieAdm_gen;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
@@ -122,12 +122,12 @@ public class main_Admin extends javax.swing.JFrame {
         btn_saveJSON = new org.edisoncor.gui.button.ButtonAero();
         btn_saveXML = new org.edisoncor.gui.button.ButtonAero();
         btn_saveTXT = new org.edisoncor.gui.button.ButtonAero();
-        jLabel1 = new javax.swing.JLabel();
-        lbl_formAdmin_save = new javax.swing.JLabel();
         btn_modifyAdmin = new javax.swing.JButton();
         btn_viewAdmin = new javax.swing.JButton();
         btn_deleteAdmin = new javax.swing.JButton();
         btn_createAdmin = new javax.swing.JButton();
+        btn_deleteAllAdmin = new javax.swing.JButton();
+        btn_createAdmin1 = new javax.swing.JButton();
         panelImage8 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -262,11 +262,6 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Datos");
-
-        lbl_formAdmin_save.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        lbl_formAdmin_save.setText("Guardar");
-
         btn_modifyAdmin.setBackground(new java.awt.Color(204, 204, 255));
         btn_modifyAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/modify_user.png"))); // NOI18N
         btn_modifyAdmin.setToolTipText("Modificar Administrador");
@@ -320,6 +315,32 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
 
+        btn_deleteAllAdmin.setBackground(new java.awt.Color(255, 0, 0));
+        btn_deleteAllAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/deleteAll_user.png"))); // NOI18N
+        btn_deleteAllAdmin.setToolTipText("Eliminar todos los administradores");
+        btn_deleteAllAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_deleteAllAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_deleteAllAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_deleteAllAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_deleteAllAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteAllAdminActionPerformed(evt);
+            }
+        });
+
+        btn_createAdmin1.setBackground(new java.awt.Color(0, 153, 0));
+        btn_createAdmin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/AddDummies.png"))); // NOI18N
+        btn_createAdmin1.setToolTipText("Añadir dummies");
+        btn_createAdmin1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_createAdmin1.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_createAdmin1.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_createAdmin1.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_createAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_createAdmin1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelImage5Layout = new javax.swing.GroupLayout(panelImage5);
         panelImage5.setLayout(panelImage5Layout);
         panelImage5Layout.setHorizontalGroup(
@@ -329,52 +350,43 @@ public class main_Admin extends javax.swing.JFrame {
             .addComponent(btn_saveXML, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_saveTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelImage5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(32, 32, 32)
                 .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
-                        .addGap(0, 24, Short.MAX_VALUE)
-                        .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_viewAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_createAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-            .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelImage5Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lbl_formAdmin_save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(btn_viewAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_createAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_createAdmin1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         panelImage5Layout.setVerticalGroup(
             panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_viewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_createAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_createAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_createAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btn_saveTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_saveJSON, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
                 .addComponent(buttonAero4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
-                    .addContainerGap(363, Short.MAX_VALUE)
-                    .addComponent(lbl_formAdmin_save)
-                    .addGap(222, 222, 222)))
         );
 
-        getContentPane().add(panelImage5, java.awt.BorderLayout.WEST);
+        getContentPane().add(panelImage5, java.awt.BorderLayout.CENTER);
 
         panelImage8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/4809986809_aa94ea96b3_o.jpg"))); // NOI18N
         panelImage8.setPreferredSize(new java.awt.Dimension(1410, 30));
@@ -822,7 +834,7 @@ public class main_Admin extends javax.swing.JFrame {
                             .addComponent(txtf_formAdm_phone)
                             .addComponent(lblphoneAdm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -932,7 +944,7 @@ public class main_Admin extends javax.swing.JFrame {
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelImage2Layout.setVerticalGroup(
@@ -942,7 +954,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelImage2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(panelImage2, java.awt.BorderLayout.WEST);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -958,6 +970,9 @@ public class main_Admin extends javax.swing.JFrame {
             }
         ));
         TABLA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TABLAMousePressed(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TABLAMouseClicked(evt);
             }
@@ -1380,12 +1395,13 @@ public class main_Admin extends javax.swing.JFrame {
     private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMouseClicked
         boolean modificar=false;
         
+        singletonAdmin.selectedrow=main_Admin.TABLA.getSelectedRow();
         if (evt.getClickCount() == 2) {
             modificar = BLL_Admin.BLL_ModifyAdm();
             
             if (modificar == false) {
             } else {
-                jPanel2.setVisible(false);
+                jPanel2.setVisible(true);
             }
 
         }
@@ -1410,6 +1426,18 @@ public class main_Admin extends javax.swing.JFrame {
     private void btn_deleteAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAdminActionPerformed
         BLL_Admin.BLL_deleteAdm();
     }//GEN-LAST:event_btn_deleteAdminActionPerformed
+
+    private void btn_deleteAllAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAllAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_deleteAllAdminActionPerformed
+
+    private void btn_createAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAdmin1ActionPerformed
+        dummieAdm_gen.menu_dummie();
+    }//GEN-LAST:event_btn_createAdmin1ActionPerformed
+
+    private void TABLAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMousePressed
+        
+    }//GEN-LAST:event_TABLAMousePressed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
@@ -1424,7 +1452,9 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JTable TABLA;
     public static javax.swing.ButtonGroup btnGroupState;
     public static javax.swing.JButton btn_createAdmin;
+    public static javax.swing.JButton btn_createAdmin1;
     public static javax.swing.JButton btn_deleteAdmin;
+    public static javax.swing.JButton btn_deleteAllAdmin;
     public static javax.swing.JButton btn_formA_Avatar;
     public static javax.swing.JButton btn_formAdmCreate_back;
     public static javax.swing.JButton btn_formAdmCreate_create;
@@ -1436,7 +1466,6 @@ public class main_Admin extends javax.swing.JFrame {
     public static org.edisoncor.gui.button.ButtonAero buttonAero4;
     public static javax.swing.JButton jButton3;
     public static javax.swing.JComboBox jComboBox1;
-    public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel11;
     public static javax.swing.JLabel jLabel12;
@@ -1476,7 +1505,6 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JLabel lbl_formAdm_phoneERR;
     public static javax.swing.JLabel lbl_formAdm_photoavatar;
     public static javax.swing.JLabel lbl_formAdm_singdateERR;
-    public static javax.swing.JLabel lbl_formAdmin_save;
     public static javax.swing.JLabel lbllastnameAdm;
     public static javax.swing.JLabel lblnameAdm;
     public static javax.swing.JLabel lblphoneAdm;

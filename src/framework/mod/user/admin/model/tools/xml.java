@@ -27,7 +27,6 @@ import com.thoughtworks.xstream.annotations.Annotations;
 
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
-import framework.mod.user.model.clss.singletonU;
 import framework.tools.functions;
 
 @SuppressWarnings({ "deprecation" })
@@ -118,7 +117,7 @@ public class xml {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonU.PATH;
+                    + singletonAdmin.PATH;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -166,7 +165,7 @@ public class xml {
             Annotations.configureAliases(xstream, Admin.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonU.PATH;
+                    + singletonAdmin.PATH;
 
             File path = new File(PATH);
 

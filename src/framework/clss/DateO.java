@@ -731,6 +731,20 @@ public class DateO implements Serializable {
         return formdate;
     }
     
+    /**isValid check if the input date is between actual year - 65 and today
+	 * 
+	 * @return boolean valid
+	 */
+	public boolean isValid(){//for dummies
+		DateO todayDate = new DateO();
+		todayDate.getTodaydate();
+		boolean valid=false;
+		if(this.getYear() > (todayDate.getYear() - 65) && this.isLater(todayDate.getSdate()) != 1 ){
+			valid = true;
+		}
+		return valid;
+	}
+    
     /**
      * copy in the caller object the values of the input DateO object
      *

@@ -8,7 +8,7 @@ package framework.mod.settings.model.clss;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.mod.settings.model.tools.LooknFeel;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
-import framework.mod.user.model.clss.singletonU;
+import framework.mod.user.admin.model.classes.singletonAdmin;
 import java.io.Serializable;
 import java.util.Locale;
 
@@ -71,7 +71,8 @@ public class Settings implements Serializable {
             //singletonProfile.Alist_Profile.get(0).ProfilesTOSettings();
             //LooknFeel.LookFeel();
             //Language.getInstance();
-            singletonU.loadSingletonU();
+            singletonAdmin.loadSingletonAdmin();
+            fdate = "dd/MM/yyyy";//Temporally
         }
         return instance;
     }

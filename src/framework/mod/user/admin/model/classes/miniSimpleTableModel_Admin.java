@@ -10,7 +10,6 @@ import framework.clss.DateO;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.view.main_Admin;
-import framework.mod.user.model.clss.singletonU;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import javax.swing.JComboBox;

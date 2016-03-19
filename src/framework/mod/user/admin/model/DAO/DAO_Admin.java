@@ -11,7 +11,6 @@ import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
-import framework.mod.user.model.clss.singletonU;
 import framework.tools.imageSaver;
 import java.awt.Color;
 import java.awt.Image;
@@ -27,6 +26,62 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class DAO_Admin {
     public static final String ERROR = "Error";
     public static final String ERROR_CREATE = "Error en la creación de el Administrador\n";
+
+    
+    /**
+     * Creates an Admin checking for all the fields are OK; saves in on singleton.ephimeralAdmin and returns true when done
+     * If the fields are not ok, shows an error and returns false
+     * @return
+     */
+    public static boolean formCreateAdmin() {
+        Admin adm = new Admin();
+        DateO born = new DateO();
+        DateO sing = new DateO();
+        String error = "";
+        boolean valid = false;
+        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = false;
+
+        if (!singletonAdmin.PATH_formAdm.equals("")) {
+            chkAvatar = true;
+        }
+
+        if (chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkSingdate && chkAvatar) {
+            born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
+            sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
+            adm = new Admin(singletonAdmin.PATH_formAdm, born, main_Admin.txtf_formAdm_dni.getText(), main_Admin.txtf_formAdm_email.getText(), main_Admin.txtf_formAdm_phone.getText(), main_Admin.txtf_formAdm_name.getText(), main_Admin.txtf_formAdm_lastname.getText(), singletonAdmin.passwd_formAdm, ((String) main_Admin.CB_formAdm_state.getSelectedItem()), main_Admin.txtf_formAdm_username.getText(), Integer.parseInt(main_Admin.txt_formAdm_activity.getText()), sing);
+            singletonAdmin.ephemeralAdmin = adm;
+            valid = true;
+        }
+        else{
+            error = ERROR_CREATE;
+            
+            if(chkActivity){
+                error+= "-Error actividad\n";
+            }else if(chkAvatar){
+                error+= "-Error avatar\n";
+            }else if(chkBorndate){
+                error+= "-Error en la fecha de nacimento\n";
+            }else if(chkConfPass){
+                error+= "-Error en la confirmación de la contraseño\n";
+            }else if(chkDNI){
+                error+= "-Error en el dni\n";
+            }else if(chkEmail){
+                error+= "-Error en el email\n";
+            }else if(chkLastname){
+                error+=  "-Error en los apellidos\n";
+            }else if(chkName){
+                error+=  "-Error en el nombre\n";
+            }else if(chkPhone){
+                error+=  "-Error en el teléfono\n";
+            }else if(chkSingdate){
+                error+= "-Error en la fecha de contratación\n";
+            }else if(chkUsername){
+                error+= "-Error en el nombre de usuario\n";
+            }
+            main_Admin.lblMainform.setText(error);
+        }
+        return valid;
+    }
 
     public static void formNew() {
 
@@ -182,6 +237,7 @@ public class DAO_Admin {
         main_Admin.JPF_fromAdm_pass.setBorder(null);
         main_Admin.JPF_fromAdm_pass.setEnabled(true);
         main_Admin.JPF_fromAdm_pass.setToolTipText("");
+        main_Admin.JPF_fromAdm_pass.setBackground(Color.white);
         main_Admin.lbl_formAdm_passERR.setText(" ");
 
         main_Admin.JPF_fromAdm_passconf.setText(singletonAdmin.ephemeralAdmin.getPassword());
@@ -209,63 +265,12 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_username.setBackground(Color.white);
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
         
+        main_Admin.btn_formAdmCreate_create.setEnabled(true);
+        main_Admin.btn_formAdmCreate_create.setVisible(true);
+        main_Admin.btn_formAdmCreate_back.setBackground(Color.red);
         main_Admin.jPanel2.setBackground(null);
         main_Admin.jPanel2.setVisible(true);
 
-    }
-
-    /**
-     *
-     * @return
-     */
-    public static boolean formCreateAdmin() {
-        Admin adm = new Admin();
-        DateO born = new DateO();
-        DateO sing = new DateO();
-        String error = "";
-        boolean valid = false;
-        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = false;
-
-        if (!singletonU.PATH_formAdm.equals("")) {
-            chkAvatar = true;
-        }
-
-        if (chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkSingdate && chkAvatar) {
-            born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
-            sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
-            adm = new Admin(singletonAdmin.PATH_formAdm, born, main_Admin.txtf_formAdm_dni.getText(), main_Admin.txtf_formAdm_email.getText(), main_Admin.txtf_formAdm_phone.getText(), main_Admin.txtf_formAdm_name.getText(), main_Admin.txtf_formAdm_lastname.getText(), singletonAdmin.passwd_formAdm, ((String) main_Admin.CB_formAdm_state.getSelectedItem()), main_Admin.txtf_formAdm_username.getText(), Integer.parseInt(main_Admin.txt_formAdm_activity.getText()), sing);
-            singletonAdmin.ephemeralAdmin = adm;
-            valid = true;
-        }
-        else{
-            error = ERROR_CREATE;
-            
-            if(chkActivity){
-                error+= "-Error actividad\n";
-            }else if(chkAvatar){
-                error+= "-Error avatar\n";
-            }else if(chkBorndate){
-                error+= "-Error en la fecha de nacimento\n";
-            }else if(chkConfPass){
-                error+= "-Error en la confirmación de la contraseño\n";
-            }else if(chkDNI){
-                error+= "-Error en el dni\n";
-            }else if(chkEmail){
-                error+= "-Error en el email\n";
-            }else if(chkLastname){
-                error+=  "-Error en los apellidos\n";
-            }else if(chkName){
-                error+=  "-Error en el nombre\n";
-            }else if(chkPhone){
-                error+=  "-Error en el teléfono\n";
-            }else if(chkSingdate){
-                error+= "-Error en la fecha de contratación\n";
-            }else if(chkUsername){
-                error+= "-Error en el nombre de usuario\n";
-            }
-            main_Admin.lblMainform.setText(error);
-        }
-        return valid;
     }
 
     /**
@@ -279,6 +284,12 @@ public class DAO_Admin {
         main_Admin.txt_formAdm_activity.setToolTipText("");
         main_Admin.txt_formAdm_activity.setBorder(null);
 
+        try {
+            main_Admin.lbl_formAdm_photoavatar.setIcon(new ImageIcon(singletonAdmin.ephemeralAdmin.getAvataring()));
+        } catch (Exception e) {
+            main_Admin.btn_formA_Avatar.setToolTipText("Imposible cargar imágen");
+        }
+        
         main_Admin.DC_formAdm_borndate.setCalendar(singletonAdmin.ephemeralAdmin.getBorn_date().toCalendar());
         main_Admin.lbl_formAdm_borndateERR.setText("");
         main_Admin.lbl_formAdm_borndateERR.setToolTipText("");
@@ -712,7 +723,7 @@ public class DAO_Admin {
             //Se cambia el tamaÃ±o de la etiqueta
             main_Admin.lbl_formAdm_photoavatar.setSize(140, 170);
             //Guardo el Path en el singleton
-            singletonU.PATH_formAdm = file;
+            singletonAdmin.PATH_formAdm = file;
             valid=true;
         }
 

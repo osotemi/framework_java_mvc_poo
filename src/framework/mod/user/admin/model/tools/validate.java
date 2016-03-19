@@ -22,7 +22,7 @@ public class validate {
      * @return bool
      */
     public static boolean LettersOnly(String str) {
-        String Pattern_name = "^([A-Za-z Ã‘Ã±ÃÃ€Ã‰ÃˆÃ“Ã’ÃšÃ Ã¡Ã©Ã Ã­Ã³Ã Ãº]{1,60})";
+        String Pattern_name = "^([A-Za-záéíóúÁÉÍÓÚ ]{1,60})";
         return str.matches(Pattern_name);
     }
 

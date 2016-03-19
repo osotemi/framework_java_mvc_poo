@@ -29,7 +29,6 @@ import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
-import framework.mod.user.model.clss.singletonU;
 import javax.swing.JOptionPane;
 
 public class json {
@@ -94,7 +93,7 @@ public class json {
 		
 		try{
 			PATH = new java.io.File(".").getCanonicalPath()
-					+ singletonU.PATH;
+					+ singletonAdmin.PATH;
 		} catch (IOException e){
 			e.printStackTrace();
 		}
@@ -180,7 +179,7 @@ public class json {
 			xstream.alias("Admin", Admin.class);
 			
 			PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonU.PATH;
+                    + singletonAdmin.PATH;
 			
 			JsonReader read = new JsonReader(new FileReader(PATH));
 			JsonParser parseator = new JsonParser();

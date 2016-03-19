@@ -23,7 +23,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
-import framework.mod.user.model.clss.singletonU;
 import framework.tools.functions;
 
 public class txt {
@@ -93,7 +92,7 @@ public class txt {
 
         try {
 
-            PATH = new java.io.File(".").getCanonicalPath() + singletonU.PATH;
+            PATH = new java.io.File(".").getCanonicalPath() + singletonAdmin.PATH;
 
             if (!PATH.endsWith(".txt")) {
                 PATH = PATH + ".txt";

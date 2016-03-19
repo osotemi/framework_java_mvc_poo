@@ -216,17 +216,17 @@ public class BLL_Admin {
 
         int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
         if (n != 0) {
-            selec = main_Admin.TABLA.getSelectedRow();
+            selec = singletonAdmin.selectedrow;
 
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-                //dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
-                //Admin adm = new Admin(dni);
-                //singletonAdmin.ephemeralAdmin = adm;
-                //pos = searchAL();
-                //singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
+                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
+                Admin adm = new Admin(dni);
+                singletonAdmin.ephemeralAdmin = adm;
+                pos = searchAL();
+                singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
                 DAO_Admin.forModifyAdmin();
                 valid = true;
             }
@@ -343,7 +343,8 @@ public class BLL_Admin {
                 if (n != 0) {
                     selec = main_Admin.TABLA.getSelectedRow();
 
-                    if (selec == -1) {//perdimos la referencia dela admin a modificar
+                    if (selec == -1) {//perdimos la referencia del admin a modificar
+                        JOptionPane.showMessageDialog(null, "perdimos la referencia del admin a modificar");
                         DAO_Admin.DAO_ERR_Modify();
                     } else {
                         selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
