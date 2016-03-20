@@ -131,7 +131,7 @@ public class dummieAdm_gen {
             email += lastname;
         }
         email = email.toLowerCase();
-        //quitaacentos
+        email = format.formRmAccent(email);
         if (opt_com > 0.5f) {
             email += "@gmail.com";
         } else if (opt_com > 1.0f) {
@@ -315,9 +315,7 @@ public class dummieAdm_gen {
         int diff = 0;
         today.getTodaydate();
         diff = today.getYear() - singDate.getYear();
-        JOptionPane.showMessageDialog(null, today.getYear()+" todayyear" + singDate.getYear()+" todaydate "+ diff);
         int activity = (int) ((Math.random() * 1000)* diff);
-        JOptionPane.showMessageDialog(null, ""+activity);
         return activity;
     }
 }

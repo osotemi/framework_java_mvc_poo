@@ -15,6 +15,9 @@ import framework.tools.imageSaver;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -56,7 +59,7 @@ public class DAO_Admin {
             error = ERROR_CREATE;
             
             if(chkActivity){
-                error+= "-Error actividad\n";
+                error+= "\n-Error actividad\n";
             }else if(chkAvatar){
                 error+= "-Error avatar\n";
             }else if(chkBorndate){
@@ -86,7 +89,7 @@ public class DAO_Admin {
     public static void formNew() {
 
         main_Admin.txt_formAdm_activity.setEnabled(true);
-        main_Admin.txt_formAdm_activity.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txt_formAdm_activity.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txt_formAdm_activity.setBackground( Color.white);
         main_Admin.txt_formAdm_activity.setBorder(null);
         main_Admin.txt_formAdm_activity.setText("0");
@@ -100,21 +103,21 @@ public class DAO_Admin {
         
         main_Admin.txtf_formAdm_dni.setEnabled(true);
         main_Admin.txtf_formAdm_dni.setBackground( Color.white);
-        main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_dni.setText("DNI...");
         main_Admin.txtf_formAdm_dni.setBorder(null);
         main_Admin.lbl_formAdm_dniERR.setText(" ");
 
         main_Admin.txtf_formAdm_email.setEnabled(true);
         main_Admin.txtf_formAdm_email.setBackground( Color.white);
-        main_Admin.txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_email.setText("E-mail...");
         main_Admin.txtf_formAdm_email.setBorder(null);
         main_Admin.lbl_formAdm_emailERR.setText(" ");
 
         main_Admin.txtf_formAdm_lastname.setEnabled(true);
         main_Admin.txtf_formAdm_lastname.setBackground( Color.white);
-        main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_lastname.setText("Apellidos...");
         main_Admin.txtf_formAdm_lastname.setBorder(null);
         main_Admin.lbl_formAdm_lastnameERR.setText(" ");
@@ -128,7 +131,7 @@ public class DAO_Admin {
         
         main_Admin.txtf_formAdm_name.setEnabled(true);
         main_Admin.txtf_formAdm_name.setBackground( Color.white);
-        main_Admin.txtf_formAdm_name.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txtf_formAdm_name.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_name.setText("Nombre...");
         main_Admin.txtf_formAdm_name.setBorder(null);
         main_Admin.lbl_formAdm_nameERR.setText(" ");
@@ -149,7 +152,7 @@ public class DAO_Admin {
 
         main_Admin.txtf_formAdm_phone.setEnabled(true);
         main_Admin.txtf_formAdm_phone.setBackground( Color.white);
-        main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_phone.setText("Teléfono...");
         main_Admin.txtf_formAdm_phone.setBorder(null);
         main_Admin.lbl_formAdm_phoneERR.setText(" ");
@@ -161,7 +164,7 @@ public class DAO_Admin {
 
         main_Admin.txtf_formAdm_username.setEnabled(true);
         main_Admin.txtf_formAdm_username.setBackground( Color.white);
-        main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 2, 12));
+        main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_username.setText("Nombre de usuario...");
         main_Admin.txtf_formAdm_username.setBorder(null);
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
@@ -173,7 +176,7 @@ public class DAO_Admin {
         main_Admin.btn_formAdmCreate_create.setVisible(true);
         main_Admin.btn_formAdmCreate_create.setText("Crear");
         
-        main_Admin.jPanel2.setBackground(Color.green);
+        main_Admin.jPanel2.setBackground(Color.lightGray);
         main_Admin.jPanel2.setVisible(true);
         main_Admin.txtf_formAdm_username.requestFocus();
         main_Admin.txtf_formAdm_username.selectAll();
@@ -226,6 +229,7 @@ public class DAO_Admin {
         main_Admin.lbl_formAdm_lastnameERR.setText(" ");
 
         main_Admin.lblMainform.setOpaque(false);
+        main_Admin.lblMainform.setFont(new java.awt.Font("Free Mono", 1, 24));
         main_Admin.lblMainform.setText("Modificar Admin");
         main_Admin.lblMainform.setToolTipText("");
 
@@ -274,7 +278,6 @@ public class DAO_Admin {
         
         main_Admin.btn_formAdmCreate_create.setEnabled(true);
         main_Admin.btn_formAdmCreate_create.setVisible(true);
-        main_Admin.btn_formAdmCreate_back.setBackground(Color.red);
         main_Admin.jPanel2.setBackground(null);
         main_Admin.jPanel2.setVisible(true);
         main_Admin.txtf_formAdm_username.requestFocus();
@@ -286,7 +289,7 @@ public class DAO_Admin {
      */
     public static void formViewAdmin() {
         main_Admin.txt_formAdm_activity.setEnabled(false);
-        main_Admin.txt_formAdm_activity.setFont(new java.awt.Font("Serif", 1, 14));
+        main_Admin.txt_formAdm_activity.setFont(new java.awt.Font("Serif", 0, 14));
         main_Admin.txt_formAdm_activity.setBackground( new Color(0,0,0,0));
         main_Admin.txt_formAdm_activity.setText(Integer.toString(singletonAdmin.ephemeralAdmin.getActivity()));
         main_Admin.txt_formAdm_activity.setToolTipText("");
@@ -305,7 +308,7 @@ public class DAO_Admin {
         main_Admin.btn_formAdmCreate_create.setVisible(false);
         
         main_Admin.txtf_formAdm_dni.setEnabled(false);
-        main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Serif", 1, 14));
+        main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Serif", 0, 14));
         main_Admin.txtf_formAdm_dni.setBackground( new Color(0,0,0,0));
         main_Admin.txtf_formAdm_dni.setText(singletonAdmin.ephemeralAdmin.getDni());
         main_Admin.txtf_formAdm_dni.setBorder(null);
@@ -313,7 +316,7 @@ public class DAO_Admin {
         main_Admin.lbl_formAdm_dniERR.setText(" ");
         
         main_Admin.txtf_formAdm_email.setEnabled(false);
-        main_Admin.txtf_formAdm_email.setFont(new java.awt.Font("Serif", 1, 14));
+        main_Admin.txtf_formAdm_email.setFont(new java.awt.Font("Serif", 0, 14));
         main_Admin.txtf_formAdm_email.setBackground( new Color(0,0,0,0));
         main_Admin.txtf_formAdm_email.setText(singletonAdmin.ephemeralAdmin.getEmail());
         main_Admin.txtf_formAdm_email.setBorder(null);
@@ -321,7 +324,7 @@ public class DAO_Admin {
         main_Admin.lbl_formAdm_emailERR.setText(" ");
 
         main_Admin.txtf_formAdm_lastname.setEnabled(false);
-        main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Serif", 1, 14));
+        main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Serif", 0, 14));
         main_Admin.txtf_formAdm_lastname.setBackground( new Color(0,0,0,0));
         main_Admin.txtf_formAdm_lastname.setText(singletonAdmin.ephemeralAdmin.getLastname());
         main_Admin.txtf_formAdm_lastname.setBorder(null);
@@ -334,7 +337,7 @@ public class DAO_Admin {
         main_Admin.lblMainform.setToolTipText("");
 
         main_Admin.txtf_formAdm_name.setEnabled(false);
-        main_Admin.txtf_formAdm_name.setFont(new java.awt.Font("Serif", 1, 14));
+        main_Admin.txtf_formAdm_name.setFont(new java.awt.Font("Serif", 0, 14));
         main_Admin.txtf_formAdm_name.setBackground( new Color(0,0,0,0));
         main_Admin.txtf_formAdm_name.setText(singletonAdmin.ephemeralAdmin.getName());
         main_Admin.txtf_formAdm_name.setBorder(null);
@@ -370,7 +373,7 @@ public class DAO_Admin {
         main_Admin.lbl_formAdm_singdateERR.setToolTipText("");
 
         main_Admin.txtf_formAdm_username.setEnabled(false);
-        main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Serif", 1, 14));
+        main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Serif", 0, 14));
         main_Admin.txtf_formAdm_username.setBackground( new Color(0,0,0,0));
         main_Admin.txtf_formAdm_username.setText(singletonAdmin.ephemeralAdmin.getUser());
         main_Admin.txtf_formAdm_username.setBorder(null);
@@ -747,7 +750,11 @@ public class DAO_Admin {
      */
     
     public static void DAO_FA_mainBack() {
-        new main().setVisible(true);
+        try {
+            new main().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(DAO_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public static void DAO_FA_hideFormPanel() {

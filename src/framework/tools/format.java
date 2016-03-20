@@ -424,4 +424,48 @@ public class format {
         }
         return formdate;
     }
+    
+    public static String formRmAccent(String word){
+        String validate = "";
+        char caracter =' ';
+        for(int i = 0; i< word.length(); i++){
+            caracter = word.charAt(i);
+            switch(caracter){
+                case 'Á':
+                    validate += 'a';
+                    break;
+                case 'á':
+                    validate += 'a';
+                    break;
+                case 'É':
+                    validate += 'e';
+                    break;
+                case 'é':
+                    validate += 'e';
+                    break;
+                case 'Í':
+                    validate += 'i';
+                    break;
+                case 'í':
+                    validate += 'i';
+                    break;
+                case 'Ó':
+                    validate += 'o';
+                    break;
+                case 'ó':
+                    validate += 'o';
+                    break;
+                case 'Ú':
+                    validate += 'u';
+                    break;
+                case 'ú':
+                    validate += 'u';
+                    break;
+                default:
+                    validate += caracter;
+                    break;
+            }
+        }
+        return validate;
+    }
 }

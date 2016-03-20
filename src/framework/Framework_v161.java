@@ -7,6 +7,9 @@ package framework;
 
 import framework.mod.nav.view.main;
 import framework.mod.settings.model.clss.Settings;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,7 +48,11 @@ public class Framework_v161 {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Settings.getInstance();
-                new main().setVisible(true);
+                try {
+                    new main().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Framework_v161.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

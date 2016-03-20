@@ -14,10 +14,13 @@ import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.autoComplete.AutocompleteJComboBox;
 import framework.mod.user.admin.model.tools.autoComplete.StringSearchable;
 import framework.mod.user.admin.model.tools.dummieAdm_gen;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.InputEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -28,24 +31,27 @@ import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author osotemi
  */
 public class main_Admin extends javax.swing.JFrame {
+
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_Admin());
     public static AutocompleteJComboBox combo = null;
+
     /**
      * Creates new main Admin
      */
-    public main_Admin() {
+    public main_Admin() throws IOException {
         BLL_Admin.loadArray();
         initComponents();
-        
+
         run();
         ///
         runTABLE();
-        
+
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -54,8 +60,7 @@ public class main_Admin extends javax.swing.JFrame {
                 BLL_Admin.BLL_FA_mainBack();
             }
         });
-        
-        
+
         combo.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,48 +68,49 @@ public class main_Admin extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void run(){
+
+    private void run() throws IOException {
         jPanel2.setVisible(false);
         DC_formAdm_borndate.getDateEditor().setEnabled(false);
         DC_formAdm_singdate.getDateEditor().setEnabled(false);
-        
+
         this.setTitle("Formulari Admin");
-	this.setLocationRelativeTo(null);//centrado
-	//this.setResizable(false);
-	//Image icono=Toolkit.getDefaultToolkit().getImage("p1.jpg");
-	//this.setIconImage(icono);
-	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(null);//centrado
+        Image icono=Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
+        this.setIconImage(icono);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    
-    public static void runTABLE(){
-        TABLA.setModel( new miniSimpleTableModel_Admin() );
-        ((miniSimpleTableModel_Admin)TABLA.getModel()).cargar();
+
+    public static void runTABLE() {
+        TABLA.setModel(new miniSimpleTableModel_Admin());
+        ((miniSimpleTableModel_Admin) TABLA.getModel()).cargar();
         TABLA.setFillsViewportHeight(true);
         TABLA.setRowSorter(sorter);
         pagina.inicializa();
         pagina.initLinkBox();
-        
+
         jLabel13.setText(String.valueOf(singletonAdmin.AdminTableArray.size()));
-        
+
         //combo lineas
         List<String> myWords = new ArrayList<String>();
-        for(int i=0;i<=singletonAdmin.AdminTableArray.size()-1;i++) {
+        for (int i = 0; i <= singletonAdmin.AdminTableArray.size() - 1; i++) {
             myWords.add(singletonAdmin.AdminTableArray.get(i).getName().toLowerCase());
             myWords.add(singletonAdmin.AdminTableArray.get(i).getName());
         }
 
-	StringSearchable searchable = new StringSearchable(myWords);
-	combo = new AutocompleteJComboBox(searchable);
+        StringSearchable searchable = new StringSearchable(myWords);
+        combo = new AutocompleteJComboBox(searchable);
         //JPanel5 se utiliza solamente para que JPanel3 que contendrá combo, no se redimensione
         jPanel5.setLayout(new java.awt.BorderLayout());
         jPanel5.add(combo);
     }
-    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {                                            
+
+    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
         pagina.currentPageIndex = 1;
-        ((miniSimpleTableModel_Admin)TABLA.getModel()).filtrar();
+        ((miniSimpleTableModel_Admin) TABLA.getModel()).filtrar();
         combo.requestFocus();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,7 +217,7 @@ public class main_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1370, 780));
 
-        JPanel_formAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/portada-servicios.jpg"))); // NOI18N
+        JPanel_formAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/14650540950_fe4dc85417_o.jpg"))); // NOI18N
         JPanel_formAdm.setName(""); // NOI18N
         JPanel_formAdm.setPreferredSize(new java.awt.Dimension(0, 70));
 
@@ -358,7 +364,7 @@ public class main_Admin extends javax.swing.JFrame {
                     .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_createDummies, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelImage5Layout.setVerticalGroup(
             panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,9 +378,9 @@ public class main_Admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_createDummies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -386,7 +392,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(panelImage5, java.awt.BorderLayout.CENTER);
+        getContentPane().add(panelImage5, java.awt.BorderLayout.WEST);
 
         panelImage8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/4809986809_aa94ea96b3_o.jpg"))); // NOI18N
         panelImage8.setPreferredSize(new java.awt.Dimension(1410, 30));
@@ -398,7 +404,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         jLabel5.setForeground(new java.awt.Color(153, 255, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Contactenos");
+        jLabel5.setText("Powered by @osotemi");
         jLabel5.setToolTipText("");
 
         jLabel14.setForeground(new java.awt.Color(153, 255, 153));
@@ -487,9 +493,6 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_nameKeyTyped(evt);
             }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_nameKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_nameKeyReleased(evt);
             }
@@ -512,9 +515,6 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_emailKeyTyped(evt);
             }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_emailKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_emailKeyReleased(evt);
             }
@@ -530,17 +530,9 @@ public class main_Admin extends javax.swing.JFrame {
                 txtf_formAdm_usernameFocusLost(evt);
             }
         });
-        txtf_formAdm_username.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtf_formAdm_usernameMouseClicked(evt);
-            }
-        });
         txtf_formAdm_username.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_usernameKeyTyped(evt);
-            }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_usernameKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_usernameKeyReleased(evt);
@@ -567,17 +559,9 @@ public class main_Admin extends javax.swing.JFrame {
                 JPF_fromAdm_passFocusLost(evt);
             }
         });
-        JPF_fromAdm_pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JPF_fromAdm_passActionPerformed(evt);
-            }
-        });
         JPF_fromAdm_pass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passKeyTyped(evt);
-            }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JPF_fromAdm_passKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passKeyReleased(evt);
@@ -619,17 +603,9 @@ public class main_Admin extends javax.swing.JFrame {
                 txtf_formAdm_lastnameFocusLost(evt);
             }
         });
-        txtf_formAdm_lastname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtf_formAdm_lastnameActionPerformed(evt);
-            }
-        });
         txtf_formAdm_lastname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_lastnameKeyTyped(evt);
-            }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_lastnameKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_lastnameKeyReleased(evt);
@@ -641,9 +617,6 @@ public class main_Admin extends javax.swing.JFrame {
         JPF_fromAdm_passconf.setBorder(null);
         JPF_fromAdm_passconf.setNextFocusableComponent(btn_formA_Avatar);
         JPF_fromAdm_passconf.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JPF_fromAdm_passconfFocusGained(evt);
-            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 JPF_fromAdm_passconfFocusLost(evt);
             }
@@ -656,9 +629,6 @@ public class main_Admin extends javax.swing.JFrame {
         JPF_fromAdm_passconf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passconfKeyTyped(evt);
-            }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JPF_fromAdm_passconfKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 JPF_fromAdm_passconfKeyReleased(evt);
@@ -753,9 +723,6 @@ public class main_Admin extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_phoneKeyTyped(evt);
             }
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_phoneKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtf_formAdm_phoneKeyReleased(evt);
             }
@@ -763,11 +730,6 @@ public class main_Admin extends javax.swing.JFrame {
 
         CB_formAdm_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline", "Loged" }));
         CB_formAdm_state.setSelectedItem("Offline");
-        CB_formAdm_state.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_formAdm_stateActionPerformed(evt);
-            }
-        });
 
         txt_formAdm_activity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_formAdm_activity.setText("0");
@@ -797,6 +759,8 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_formAdm_activityERR.setText(" ");
 
         lbl_formAdm_photoavatar.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_formAdm_photoavatar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        lbl_formAdm_photoavatar.setOpaque(true);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -816,7 +780,7 @@ public class main_Admin extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_formAdm_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(JPF_fromAdm_passconf)
@@ -834,7 +798,7 @@ public class main_Admin extends javax.swing.JFrame {
                             .addComponent(txtf_formAdm_username)
                             .addComponent(lblusernameAdm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8)))
@@ -851,7 +815,7 @@ public class main_Admin extends javax.swing.JFrame {
                                 .addComponent(lbl_formAdm_activityERR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -862,7 +826,7 @@ public class main_Admin extends javax.swing.JFrame {
                             .addComponent(txtf_formAdm_phone)
                             .addComponent(lblphoneAdm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 54, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -972,7 +936,7 @@ public class main_Admin extends javax.swing.JFrame {
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelImage2Layout.setVerticalGroup(
@@ -982,7 +946,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelImage2, java.awt.BorderLayout.WEST);
+        getContentPane().add(panelImage2, java.awt.BorderLayout.CENTER);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -998,9 +962,6 @@ public class main_Admin extends javax.swing.JFrame {
             }
         ));
         TABLA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TABLAMousePressed(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TABLAMouseClicked(evt);
             }
@@ -1185,187 +1146,6 @@ public class main_Admin extends javax.swing.JFrame {
         BLL_Admin.BLL_FA_mainBack();
     }//GEN-LAST:event_buttonAero4ActionPerformed
 
-    private void JPF_fromAdm_passconfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfActionPerformed
-        BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfActionPerformed
-
-    private void btn_formAdmCreate_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_backActionPerformed
-        BLL_Admin.BLL_FA_HideNewFormPanel();
-    }//GEN-LAST:event_btn_formAdmCreate_backActionPerformed
-
-    private void btn_formA_AvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formA_AvatarActionPerformed
-        BLL_Admin.BLL_Avatar();
-    }//GEN-LAST:event_btn_formA_AvatarActionPerformed
-
-    private void JPF_fromAdm_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JPF_fromAdm_passActionPerformed
-
-    private void CB_formAdm_stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_formAdm_stateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CB_formAdm_stateActionPerformed
-
-    private void txtf_formAdm_lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtf_formAdm_lastnameActionPerformed
-
-    private void txtf_formAdm_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusLost
-        BLL_Admin.BLL_txtName();
-        txtf_formAdm_lastname.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_nameFocusLost
-
-    private void txtf_formAdm_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyTyped
-        BLL_Admin.BLL_txtName();
-    }//GEN-LAST:event_txtf_formAdm_nameKeyTyped
-
-    private void txtf_formAdm_lastnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusGained
-        
-        BLL_Admin.BLL_FA_CleanLastName();
-    }//GEN-LAST:event_txtf_formAdm_lastnameFocusGained
-
-    private void txtf_formAdm_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusGained
-        BLL_Admin.BLL_FA_CleanName();
-    }//GEN-LAST:event_txtf_formAdm_nameFocusGained
-
-    private void txtf_formAdm_lastnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyTyped
-        BLL_Admin.BLL_txtLastname();
-    }//GEN-LAST:event_txtf_formAdm_lastnameKeyTyped
-
-    private void txtf_formAdm_lastnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusLost
-        BLL_Admin.BLL_txtLastname();
-        txtf_formAdm_email.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_lastnameFocusLost
-
-    private void txtf_formAdm_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyTyped
-        BLL_Admin.BLL_txtUsername();
-    }//GEN-LAST:event_txtf_formAdm_usernameKeyTyped
-
-    private void txtf_formAdm_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameFocusLost
-        BLL_Admin.BLL_txtUsername();
-        JPF_fromAdm_pass.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_usernameFocusLost
-
-    private void txtf_formAdm_phoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusGained
-        BLL_Admin.BLL_FA_CleanPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneFocusGained
-
-    private void txtf_formAdm_phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyTyped
-        BLL_Admin.BLL_txtPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneKeyTyped
-
-    private void txtf_formAdm_phoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusLost
-        BLL_Admin.BLL_txtPhone();
-        txtf_formAdm_dni.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_phoneFocusLost
-
-    private void txtf_formAdm_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyReleased
-        BLL_Admin.BLL_txtName();
-    }//GEN-LAST:event_txtf_formAdm_nameKeyReleased
-
-    private void txtf_formAdm_lastnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyReleased
-        BLL_Admin.BLL_txtLastname();
-    }//GEN-LAST:event_txtf_formAdm_lastnameKeyReleased
-
-    private void txtf_formAdm_usernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyReleased
-        BLL_Admin.BLL_txtUsername();
-    }//GEN-LAST:event_txtf_formAdm_usernameKeyReleased
-
-    private void txtf_formAdm_phoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyReleased
-        BLL_Admin.BLL_txtPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneKeyReleased
-
-    private void JPF_fromAdm_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusGained
-       
-        BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passFocusGained
-
-    private void JPF_fromAdm_passKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyTyped
-        BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passKeyTyped
-
-    private void JPF_fromAdm_passKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyReleased
-        BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passKeyReleased
-
-    private void JPF_fromAdm_passconfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusGained
-        
-        BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfFocusGained
-
-    private void JPF_fromAdm_passconfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyTyped
-        BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfKeyTyped
-
-    private void JPF_fromAdm_passconfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyReleased
-        BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfKeyReleased
-
-    private void txtf_formAdm_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusGained
-        BLL_Admin.BLL_FA_CleanEmail();
-    }//GEN-LAST:event_txtf_formAdm_emailFocusGained
-
-    private void txtf_formAdm_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyTyped
-        BLL_Admin.BLL_txtEmail();
-    }//GEN-LAST:event_txtf_formAdm_emailKeyTyped
-
-    private void txtf_formAdm_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyReleased
-        BLL_Admin.BLL_txtEmail();
-    }//GEN-LAST:event_txtf_formAdm_emailKeyReleased
-
-    private void txtf_formAdm_dniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusGained
-        BLL_Admin.BLL_FA_CleanDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniFocusGained
-
-    private void txtf_formAdm_dniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniKeyTyped
-        BLL_Admin.BLL_txtDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniKeyTyped
-
-    private void txtf_formAdm_dniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniKeyReleased
-        BLL_Admin.BLL_txtDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniKeyReleased
-
-    private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
-        if(singletonAdmin.currentForm.equals(singletonAdmin.CREATE)){
-            try {
-                BLL_Admin.FORM_BTN_createAdmin();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else if(singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)){
-            try {
-                BLL_Admin.FORM_BTN_modifyAdm();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-    }//GEN-LAST:event_btn_formAdmCreate_createActionPerformed
-
-    private void DC_formAdm_borndatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_borndatePropertyChange
-        BLL_Admin.BLL_DCBornDate();
-    }//GEN-LAST:event_DC_formAdm_borndatePropertyChange
-
-    private void DC_formAdm_singdatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_singdatePropertyChange
-        BLL_Admin.BLL_DCSingDate();
-    }//GEN-LAST:event_DC_formAdm_singdatePropertyChange
-
-    private void txt_formAdm_activityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_formAdm_activityActionPerformed
-        BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityActionPerformed
-
-    private void txt_formAdm_activityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusGained
-        BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityFocusGained
-
-    private void txt_formAdm_activityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyTyped
-        BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityKeyTyped
-
-    private void txt_formAdm_activityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyReleased
-        BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityKeyReleased
-
     private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
         pagina.currentPageIndex -= 1;
         pagina.initLinkBox();
@@ -1392,25 +1172,10 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        pagina.itemsPerPage=Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
         pagina.currentPageIndex = 1;
         pagina.initLinkBox();
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void txtf_formAdm_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusLost
-        BLL_Admin.BLL_txtEmail();
-        txtf_formAdm_phone.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_emailFocusLost
-
-    private void txtf_formAdm_dniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusLost
-        BLL_Admin.BLL_txtDNI();
-        txt_formAdm_activity.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_dniFocusLost
-
-    private void JPF_fromAdm_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusLost
-        BLL_Admin.BLL_JPF_Password();
-        JPF_fromAdm_passconf.requestFocus();
-    }//GEN-LAST:event_JPF_fromAdm_passFocusLost
 
     private void btn_saveXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveXMLActionPerformed
         BLL_Admin.BLL_UserSaveXML();
@@ -1425,23 +1190,8 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveJSONActionPerformed
 
     private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMouseClicked
-        boolean modificar=false;
-        
-        singletonAdmin.selectedrow=main_Admin.TABLA.getSelectedRow();
-        if (evt.getClickCount() == 2) {
-            modificar = BLL_Admin.BLL_ModifyAdm();
-            
-            if (modificar == false) {
-            } else {
-                jPanel2.setVisible(true);
-            }
-
-        }
+        BLL_Admin.BLL_TableMouseClick(evt);
     }//GEN-LAST:event_TABLAMouseClicked
-
-    private void txt_formAdm_activityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusLost
-        btn_formAdmCreate_create.requestFocus();
-    }//GEN-LAST:event_txt_formAdm_activityFocusLost
 
     private void btn_viewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewAdminActionPerformed
         BLL_Admin.BLL_ViewAdm();
@@ -1456,84 +1206,203 @@ public class main_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_modifyAdminActionPerformed
 
     private void btn_deleteAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAdminActionPerformed
-        BLL_Admin.BLL_deleteAdm();
+        BLL_Admin.BLL_DeleteAdm();
     }//GEN-LAST:event_btn_deleteAdminActionPerformed
-
-    private void btn_deleteAllAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAllAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_deleteAllAdminActionPerformed
 
     private void btn_createDummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createDummiesActionPerformed
         dummieAdm_gen.menu_dummie();
     }//GEN-LAST:event_btn_createDummiesActionPerformed
 
-    private void TABLAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMousePressed
-        
-    }//GEN-LAST:event_TABLAMousePressed
+    private void btn_deleteAllAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAllAdminActionPerformed
+        BLL_Admin.BLL_DeleteAllAdm();
+    }//GEN-LAST:event_btn_deleteAllAdminActionPerformed
 
-    private void txtf_formAdm_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameMouseClicked
-       BLL_Admin.BLL_FA_CleanUserName();
-    }//GEN-LAST:event_txtf_formAdm_usernameMouseClicked
+    private void txt_formAdm_activityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyReleased
+        BLL_Admin.BLL_Activity();
+    }//GEN-LAST:event_txt_formAdm_activityKeyReleased
+
+    private void txt_formAdm_activityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyTyped
+        BLL_Admin.BLL_Activity();
+    }//GEN-LAST:event_txt_formAdm_activityKeyTyped
+
+    private void txt_formAdm_activityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_formAdm_activityActionPerformed
+        BLL_Admin.BLL_Activity();
+    }//GEN-LAST:event_txt_formAdm_activityActionPerformed
+
+    private void txt_formAdm_activityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusLost
+        btn_formAdmCreate_create.requestFocus();
+    }//GEN-LAST:event_txt_formAdm_activityFocusLost
+
+    private void txt_formAdm_activityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusGained
+        BLL_Admin.BLL_Activity();
+    }//GEN-LAST:event_txt_formAdm_activityFocusGained
+
+    private void txtf_formAdm_phoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyReleased
+        BLL_Admin.BLL_txtPhone();
+    }//GEN-LAST:event_txtf_formAdm_phoneKeyReleased
+
+    private void txtf_formAdm_phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyTyped
+        BLL_Admin.BLL_txtPhone();
+    }//GEN-LAST:event_txtf_formAdm_phoneKeyTyped
+
+    private void txtf_formAdm_phoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusLost
+        BLL_Admin.BLL_txtPhone();
+        txtf_formAdm_dni.requestFocus();
+    }//GEN-LAST:event_txtf_formAdm_phoneFocusLost
+
+    private void txtf_formAdm_phoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusGained
+        BLL_Admin.BLL_FA_CleanPhone();
+    }//GEN-LAST:event_txtf_formAdm_phoneFocusGained
+
+    private void txtf_formAdm_dniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniKeyReleased
+        BLL_Admin.BLL_txtDNI();
+    }//GEN-LAST:event_txtf_formAdm_dniKeyReleased
+
+    private void txtf_formAdm_dniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniKeyTyped
+        BLL_Admin.BLL_txtDNI();
+    }//GEN-LAST:event_txtf_formAdm_dniKeyTyped
+
+    private void txtf_formAdm_dniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusLost
+        BLL_Admin.BLL_txtDNI();
+        txt_formAdm_activity.requestFocus();
+    }//GEN-LAST:event_txtf_formAdm_dniFocusLost
+
+    private void txtf_formAdm_dniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusGained
+        BLL_Admin.BLL_FA_CleanDNI();
+    }//GEN-LAST:event_txtf_formAdm_dniFocusGained
+
+    private void JPF_fromAdm_passconfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyReleased
+        BLL_Admin.BLL_JPF_PassConfirm();
+    }//GEN-LAST:event_JPF_fromAdm_passconfKeyReleased
+
+    private void JPF_fromAdm_passconfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyTyped
+        BLL_Admin.BLL_JPF_PassConfirm();
+    }//GEN-LAST:event_JPF_fromAdm_passconfKeyTyped
+
+    private void JPF_fromAdm_passconfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfActionPerformed
+        BLL_Admin.BLL_JPF_PassConfirm();
+    }//GEN-LAST:event_JPF_fromAdm_passconfActionPerformed
 
     private void JPF_fromAdm_passconfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusLost
         BLL_Admin.BLL_JPF_PassConfirm();
         txtf_formAdm_name.requestFocus();
     }//GEN-LAST:event_JPF_fromAdm_passconfFocusLost
 
-    private void txtf_formAdm_usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            JPF_fromAdm_pass.requestFocus();
-        }
-    }//GEN-LAST:event_txtf_formAdm_usernameKeyPressed
+    private void txtf_formAdm_lastnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyReleased
+        BLL_Admin.BLL_txtLastname();
+    }//GEN-LAST:event_txtf_formAdm_lastnameKeyReleased
 
-    private void JPF_fromAdm_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            txtf_formAdm_name.requestFocus();
-        }else if(evt.getKeyCode()==evt.VK_UP){
-            JPF_fromAdm_passconf.requestFocus();
-        }
-    }//GEN-LAST:event_JPF_fromAdm_passKeyPressed
+    private void txtf_formAdm_lastnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyTyped
+        BLL_Admin.BLL_txtLastname();
+    }//GEN-LAST:event_txtf_formAdm_lastnameKeyTyped
 
-    private void JPF_fromAdm_passconfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            JPF_fromAdm_pass.requestFocus();
-        }else if(evt.getKeyCode()==evt.VK_UP){
-            txtf_formAdm_name.requestFocus();
-        }
-    }//GEN-LAST:event_JPF_fromAdm_passconfKeyPressed
+    private void txtf_formAdm_lastnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusLost
+        BLL_Admin.BLL_txtLastname();
+        txtf_formAdm_email.requestFocus();
+    }//GEN-LAST:event_txtf_formAdm_lastnameFocusLost
 
-    private void txtf_formAdm_nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            JPF_fromAdm_passconf.requestFocus();
-        }else if(evt.getKeyCode()==evt.VK_UP){
-            txtf_formAdm_lastname.requestFocus();
-        }
-    }//GEN-LAST:event_txtf_formAdm_nameKeyPressed
+    private void txtf_formAdm_lastnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusGained
 
-    private void txtf_formAdm_lastnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            txtf_formAdm_name.requestFocus();
-        }else if(evt.getKeyCode()==evt.VK_UP){
-            txtf_formAdm_email.requestFocus();
-        }
-    }//GEN-LAST:event_txtf_formAdm_lastnameKeyPressed
+        BLL_Admin.BLL_FA_CleanLastName();
+    }//GEN-LAST:event_txtf_formAdm_lastnameFocusGained
 
-    private void txtf_formAdm_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            txtf_formAdm_lastname.requestFocus();
-        }else if(evt.getKeyCode()==evt.VK_UP){
-            txtf_formAdm_phone.requestFocus();
+    private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
+        if (singletonAdmin.currentForm.equals(singletonAdmin.CREATE)) {
+            try {
+                BLL_Admin.FORM_BTN_createAdmin();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)) {
+            try {
+                BLL_Admin.FORM_BTN_modifyAdm();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_txtf_formAdm_emailKeyPressed
+    }//GEN-LAST:event_btn_formAdmCreate_createActionPerformed
 
-    private void txtf_formAdm_phoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyPressed
-        if(evt.getKeyCode()==evt.VK_DOWN){
-            txtf_formAdm_email.requestFocus();
-        }else if(evt.getKeyCode()==evt.VK_UP){
-            txtf_formAdm_dni.requestFocus();
-        }
-    }//GEN-LAST:event_txtf_formAdm_phoneKeyPressed
-    
+    private void btn_formAdmCreate_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_backActionPerformed
+        BLL_Admin.BLL_FA_HideNewFormPanel();
+    }//GEN-LAST:event_btn_formAdmCreate_backActionPerformed
+
+    private void btn_formA_AvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formA_AvatarActionPerformed
+        BLL_Admin.BLL_Avatar();
+    }//GEN-LAST:event_btn_formA_AvatarActionPerformed
+
+    private void JPF_fromAdm_passKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyReleased
+        BLL_Admin.BLL_JPF_Password();
+    }//GEN-LAST:event_JPF_fromAdm_passKeyReleased
+
+    private void JPF_fromAdm_passKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyTyped
+        BLL_Admin.BLL_JPF_Password();
+    }//GEN-LAST:event_JPF_fromAdm_passKeyTyped
+
+    private void JPF_fromAdm_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusLost
+        BLL_Admin.BLL_JPF_Password();
+        JPF_fromAdm_passconf.requestFocus();
+    }//GEN-LAST:event_JPF_fromAdm_passFocusLost
+
+    private void JPF_fromAdm_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusGained
+
+        BLL_Admin.BLL_JPF_Password();
+    }//GEN-LAST:event_JPF_fromAdm_passFocusGained
+
+    private void DC_formAdm_borndatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_borndatePropertyChange
+        BLL_Admin.BLL_DCBornDate();
+    }//GEN-LAST:event_DC_formAdm_borndatePropertyChange
+
+    private void txtf_formAdm_usernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyReleased
+        BLL_Admin.BLL_txtUsername();
+    }//GEN-LAST:event_txtf_formAdm_usernameKeyReleased
+
+    private void txtf_formAdm_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyTyped
+        BLL_Admin.BLL_txtUsername();
+    }//GEN-LAST:event_txtf_formAdm_usernameKeyTyped
+
+    private void txtf_formAdm_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameFocusLost
+        BLL_Admin.BLL_txtUsername();
+        JPF_fromAdm_pass.requestFocus();
+    }//GEN-LAST:event_txtf_formAdm_usernameFocusLost
+
+    private void txtf_formAdm_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyReleased
+        BLL_Admin.BLL_txtEmail();
+    }//GEN-LAST:event_txtf_formAdm_emailKeyReleased
+
+    private void txtf_formAdm_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyTyped
+        BLL_Admin.BLL_txtEmail();
+    }//GEN-LAST:event_txtf_formAdm_emailKeyTyped
+
+    private void txtf_formAdm_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusLost
+        BLL_Admin.BLL_txtEmail();
+        txtf_formAdm_phone.requestFocus();
+    }//GEN-LAST:event_txtf_formAdm_emailFocusLost
+
+    private void txtf_formAdm_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusGained
+        BLL_Admin.BLL_FA_CleanEmail();
+    }//GEN-LAST:event_txtf_formAdm_emailFocusGained
+
+    private void txtf_formAdm_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyReleased
+        BLL_Admin.BLL_txtName();
+    }//GEN-LAST:event_txtf_formAdm_nameKeyReleased
+
+    private void txtf_formAdm_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyTyped
+        BLL_Admin.BLL_txtName();
+    }//GEN-LAST:event_txtf_formAdm_nameKeyTyped
+
+    private void txtf_formAdm_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusLost
+        BLL_Admin.BLL_txtName();
+        txtf_formAdm_lastname.requestFocus();
+    }//GEN-LAST:event_txtf_formAdm_nameFocusLost
+
+    private void txtf_formAdm_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusGained
+        BLL_Admin.BLL_FA_CleanName();
+    }//GEN-LAST:event_txtf_formAdm_nameFocusGained
+
+    private void DC_formAdm_singdatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_singdatePropertyChange
+        BLL_Admin.BLL_DCSingDate();
+    }//GEN-LAST:event_DC_formAdm_singdatePropertyChange
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
