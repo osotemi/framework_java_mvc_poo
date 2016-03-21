@@ -550,7 +550,7 @@ public class DAO_Admin {
             main_Admin.JPF_fromAdm_pass.setBorder(null);
             main_Admin.lbl_formAdm_passERR.setToolTipText("");
             main_Admin.lbl_formAdm_passERR.setText("");
-            //singletonU.passwd_formAdm = pass;
+            askConfirmPassword();
             valid = true;
         }
         return valid;

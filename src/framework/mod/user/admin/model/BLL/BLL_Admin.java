@@ -454,9 +454,7 @@ public class BLL_Admin {
         int pos = 0, opt_tryagain = 0;
         boolean valid = false;
 
-        //ask first DNI
         pos = searchAL();
-        JOptionPane.showMessageDialog(null, "" + pos);
         if (pos == -1) {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
             json.AdminJson_Autosave();
