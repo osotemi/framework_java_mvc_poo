@@ -28,14 +28,15 @@ public class singletonAdmin {
     public static String objtype;//->admin ->client ->reg_u
     public static String PATH_formAdm = "";
     public static boolean changes;
-    public static int selectedrow;
+    public static int selectedPOSmodify;
     /**
      * Initialite Array List
      */
     public static void loadSingletonAdmin(){
         AdminTableArray = new ArrayList<Admin>();
         PATH ="/src/framework/mod/user/admin/model/files/admin_dummies.json";
-        selectedrow=-1;
+        passwd_formAdm = "";
+        selectedPOSmodify=-1;
         changes = false;
     }
 }

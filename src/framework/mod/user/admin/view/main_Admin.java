@@ -1247,7 +1247,6 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_phoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusLost
         BLL_Admin.BLL_txtPhone();
-        txtf_formAdm_dni.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_phoneFocusLost
 
     private void txtf_formAdm_phoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusGained
@@ -1264,7 +1263,6 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_dniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusLost
         BLL_Admin.BLL_txtDNI();
-        txt_formAdm_activity.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_dniFocusLost
 
     private void txtf_formAdm_dniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusGained
@@ -1285,7 +1283,6 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void JPF_fromAdm_passconfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusLost
         BLL_Admin.BLL_JPF_PassConfirm();
-        txtf_formAdm_name.requestFocus();
     }//GEN-LAST:event_JPF_fromAdm_passconfFocusLost
 
     private void txtf_formAdm_lastnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyReleased
@@ -1298,7 +1295,7 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_lastnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusLost
         BLL_Admin.BLL_txtLastname();
-        txtf_formAdm_email.requestFocus();
+        
     }//GEN-LAST:event_txtf_formAdm_lastnameFocusLost
 
     private void txtf_formAdm_lastnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusGained
@@ -1340,7 +1337,6 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void JPF_fromAdm_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusLost
         BLL_Admin.BLL_JPF_Password();
-        JPF_fromAdm_passconf.requestFocus();
     }//GEN-LAST:event_JPF_fromAdm_passFocusLost
 
     private void JPF_fromAdm_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusGained
@@ -1362,7 +1358,6 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameFocusLost
         BLL_Admin.BLL_txtUsername();
-        JPF_fromAdm_pass.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_usernameFocusLost
 
     private void txtf_formAdm_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyReleased
@@ -1392,7 +1387,6 @@ public class main_Admin extends javax.swing.JFrame {
 
     private void txtf_formAdm_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusLost
         BLL_Admin.BLL_txtName();
-        txtf_formAdm_lastname.requestFocus();
     }//GEN-LAST:event_txtf_formAdm_nameFocusLost
 
     private void txtf_formAdm_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusGained
