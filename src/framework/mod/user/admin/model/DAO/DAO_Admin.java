@@ -96,7 +96,6 @@ public class DAO_Admin {
             if(chkUsername){
                 error+= "-Error en el nombre de usuario\n";
             }
-            main_Admin.lblMainform.setToolTipText("");
             main_Admin.lblMainform.setToolTipText(error);
             main_Admin.lblMainform.setOpaque(true);
             main_Admin.lblMainform.setBackground(Color.red);

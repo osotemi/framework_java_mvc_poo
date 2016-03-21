@@ -117,13 +117,12 @@ public class BLL_Admin {
     }
 
     public static void BLL_JPF_Password() {
-        
+
         DAO_Admin.askPassword();
 
     }
 
     public static void BLL_JPF_PassConfirm() {
-        
 
         DAO_Admin.askConfirmPassword();
     }
@@ -173,16 +172,17 @@ public class BLL_Admin {
     /**
      * MTableMouse Clicked actions
      */
-    public static void BLL_TableMouseClick(java.awt.event.MouseEvent evt){
+    public static void BLL_TableMouseClick(java.awt.event.MouseEvent evt) {
         boolean modificar = false;
 
         if (evt.getClickCount() == 2) {
             main_Admin.jPanel2.setVisible(BLL_Admin.BLL_ModifyAdm());
-        } else if((evt.getModifiers() == InputEvent.BUTTON1_MASK)){
+        } else if ((evt.getModifiers() == InputEvent.BUTTON1_MASK)) {
             BLL_ViewAdm();
             main_Admin.jPanel2.setVisible(true);
         }
     }
+
     /**
      * C-R-U-D functions
      */
@@ -302,7 +302,7 @@ public class BLL_Admin {
                 singletonAdmin.dni = dni;
                 singletonAdmin.ephemeralAdmin = new Admin(dni);
                 pos = searchAL();
-                singletonAdmin.selectedPOSmodify= pos;
+                singletonAdmin.selectedPOSmodify = pos;
                 singletonAdmin.PATH_formAdm = singletonAdmin.ephemeralAdmin.getAvataring();
                 singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
                 DAO_Admin.forModifyAdmin();
@@ -334,14 +334,13 @@ public class BLL_Admin {
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;
                 pos = searchAL();
-                if(pos!=-1){
+                if (pos != -1) {
                     singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(pos);
                     DAO_Admin.formViewAdmin();
-                }else{
+                } else {
                     DAO_Admin.DAO_ERR_View();
                 }
-                
-                
+
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
@@ -395,12 +394,12 @@ public class BLL_Admin {
      * Modify an admin and overwrite-it on the ArrayList, save changes on Json,
      * draws it and returns
      */
-    public static void FORM_BTN_modifyAdm() throws InterruptedException {
+    public static void FORM_BTN_modifyAdm() throws InterruptedException {      
         main_Admin.lblMainform.setToolTipText("");
         boolean valid = false;
         int pos, selec;
         Admin adm = new Admin();
-        
+
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -409,7 +408,7 @@ public class BLL_Admin {
                 }
             }
         };
-       
+
         if (DAO_Admin.askDNI()) {
             singletonAdmin.ephemeralAdmin = new Admin(main_Admin.txtf_formAdm_dni.getText());
             pos = searchAL();
@@ -417,19 +416,22 @@ public class BLL_Admin {
                 if (DAO_Admin.formCreateAdmin()) {
                     singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
                     valid = true;
-                } 
-            }
-            else{
+                }
+            } else if (DAO_Admin.formCreateAdmin()) { //ephemeralAdmin is created with form data
+
+                singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);//POSmodify taken from original 
+
                 if (DAO_Admin.formCreateAdmin()) { //ephemeralAdmin is created with form data
-                                        
-                    singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);//POSmodify taken from original 
+                    singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);
                     valid = true;
                 }
             }
-        } else {
-            DAO_Admin.DAO_ERR_Modify();
+        }else {
+        DAO_Admin.DAO_ERR_Modify();
+
         }
-        if (valid){
+
+        if (valid) {
             json.AdminJson_Autosave();
             main_Admin.runTABLE();
             main_Admin.lblMainform.setOpaque(true);
@@ -440,15 +442,12 @@ public class BLL_Admin {
             timer.setRepeats(false);
             timer.start();
         }
-            
-            
-    }
-
-    /**
-     * Function that create an user object in his AdminTableArray Array list
-     *
-     * @param int
-     */
+}
+        /**
+         * Function that create an user object in his AdminTableArray Array list
+         *
+         * @param int
+         */
     public static boolean createAdmAL() {
         String tryagain[] = {"Try again", "Exit"};
         String dni = "";
