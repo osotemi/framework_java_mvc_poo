@@ -9,6 +9,7 @@ import framework.clss.DateO;
 import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.admin.model.tools.dummieAdm_gen;
 import framework.mod.user.admin.model.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
 import framework.tools.imageSaver;
@@ -20,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -42,12 +44,15 @@ public class DAO_Admin {
         DateO sing = new DateO();
         String error = "";
         boolean valid = false;
-        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = false;
+        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = true;
+        try {
+            if(singletonAdmin.PATH_formAdm.equals(""))
+            singletonAdmin.PATH_formAdm = singletonAdmin.ephemeralAdmin.getAvataring();
 
-        if (!singletonAdmin.PATH_formAdm.equals("")) {
-            chkAvatar = true;
+        } catch (Exception e) {
+            singletonAdmin.PATH_formAdm = dummieAdm_gen.rdmAvatar();
         }
-
+        
         if (chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkSingdate && chkAvatar) {
             born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
             sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
@@ -56,32 +61,45 @@ public class DAO_Admin {
             valid = true;
         }
         else{
-            error = ERROR_CREATE;
+            error = ERROR_CREATE + "\n";
             
             if(chkActivity){
-                error+= "\n-Error actividad\n";
-            }else if(chkAvatar){
+                error+= "-Error actividad\n";
+            }
+            if(chkAvatar){
                 error+= "-Error avatar\n";
-            }else if(chkBorndate){
+            }
+            if(chkBorndate){
                 error+= "-Error en la fecha de nacimento\n";
-            }else if(chkConfPass){
+            }
+            if(chkConfPass){
                 error+= "-Error en la confirmación de la contraseño\n";
-            }else if(chkDNI){
+            }
+            if(chkDNI){
                 error+= "-Error en el dni\n";
-            }else if(chkEmail){
+            }
+            if(chkEmail){
                 error+= "-Error en el email\n";
-            }else if(chkLastname){
+            }
+            if(chkLastname){
                 error+=  "-Error en los apellidos\n";
-            }else if(chkName){
+            }
+            if(chkName){
                 error+=  "-Error en el nombre\n";
-            }else if(chkPhone){
+            }
+            if(chkPhone){
                 error+=  "-Error en el teléfono\n";
-            }else if(chkSingdate){
+            }
+            if(chkSingdate){
                 error+= "-Error en la fecha de contratación\n";
-            }else if(chkUsername){
+            }
+            if(chkUsername){
                 error+= "-Error en el nombre de usuario\n";
             }
-            main_Admin.lblMainform.setText(error);
+            main_Admin.lblMainform.setToolTipText(error);
+            main_Admin.lblMainform.setOpaque(true);
+            main_Admin.lblMainform.setBackground(Color.red);
+            main_Admin.lblMainform.setText(ERROR);
         }
         return valid;
     }
@@ -187,7 +205,7 @@ public class DAO_Admin {
         main_Admin.txt_formAdm_activity.setBorder(null);
         main_Admin.txt_formAdm_activity.setBackground(Color.white);
         main_Admin.txt_formAdm_activity.setEnabled(true);
-        main_Admin.txt_formAdm_activity.setToolTipText("");
+        main_Admin.txt_formAdm_activity.setToolTipText(""+singletonAdmin.ephemeralAdmin.getActivity());
         main_Admin.lbl_formAdm_activityERR.setText("");
 
         main_Admin.btn_formA_Avatar.setEnabled(true);
@@ -218,8 +236,10 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_email.setToolTipText("");
         main_Admin.txtf_formAdm_email.setEnabled(true);
         main_Admin.txtf_formAdm_email.setBackground(Color.white);
-        main_Admin.lbl_formAdm_emailERR.setText(" ");
+        main_Admin.lbl_formAdm_emailERR.setText("");
 
+        main_Admin.CB_formAdm_state.setSelectedItem(singletonAdmin.ephemeralAdmin.getState());
+        
         main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_lastname.setText(singletonAdmin.ephemeralAdmin.getLastname());
         main_Admin.txtf_formAdm_lastname.setBorder(null);
@@ -399,6 +419,7 @@ public class DAO_Admin {
         if (main_Admin.txtf_formAdm_name.getText().isEmpty()) {
             main_Admin.txtf_formAdm_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Admin.txtf_formAdm_name.setToolTipText("Nómbre necesario");
+            main_Admin.txtf_formAdm_name.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Admin.lbl_formAdm_nameERR.setText(ERROR);
             main_Admin.lbl_formAdm_nameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_nameERR.setForeground(Color.red);
@@ -409,7 +430,7 @@ public class DAO_Admin {
             main_Admin.lbl_formAdm_nameERR.setText(ERROR);
         } else {
             main_Admin.txtf_formAdm_name.setBorder(null);
-            main_Admin.txtf_formAdm_name.setToolTipText("Correcto!");
+            main_Admin.txtf_formAdm_name.setToolTipText("");
             main_Admin.lbl_formAdm_nameERR.setText("");
             valid = true;
         }
@@ -435,13 +456,13 @@ public class DAO_Admin {
         } //else if(main_Admin.txtf_formAdm_name.getText())
         else if (!validate.LettersOnly(main_Admin.txtf_formAdm_lastname.getText())) {
             main_Admin.txtf_formAdm_lastname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
-            main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 1, 12));
+            main_Admin.txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Admin.lbl_formAdm_lastnameERR.setToolTipText("Sólo létras");
             main_Admin.lbl_formAdm_lastnameERR.setText(ERROR);
             main_Admin.lbl_formAdm_lastnameERR.setForeground(Color.red);
         } else {
             main_Admin.txtf_formAdm_lastname.setBorder(null);
-            main_Admin.lbl_formAdm_lastnameERR.setText("Correcto!");
+            main_Admin.lbl_formAdm_lastnameERR.setText("");
             main_Admin.lbl_formAdm_lastnameERR.setToolTipText("Sólo létras");
             valid = true;
         }
@@ -565,6 +586,7 @@ public class DAO_Admin {
             main_Admin.JPF_fromAdm_passconf.setToolTipText("");
             main_Admin.lbl_formAdm_passconfERR.setText("");
             main_Admin.lbl_formAdm_passERR.setText("");
+            singletonAdmin.passwd_formAdm = pass;
             valid = true;
 
         }
@@ -575,11 +597,13 @@ public class DAO_Admin {
         boolean valid = false;
         String dni ="";
         Character dnilet;
+        main_Admin.lbl_formAdm_dniERR.setFont(new java.awt.Font("Dialog", 1, 12));
+        
+        
         if (main_Admin.txtf_formAdm_dni.getText().isEmpty()) {
             main_Admin.txtf_formAdm_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Admin.txtf_formAdm_dni.setToolTipText("DNI necesario");
             main_Admin.lbl_formAdm_dniERR.setText(ERROR);
-            main_Admin.lbl_formAdm_dniERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_dniERR.setForeground(Color.red);
         } else {
             dni = main_Admin.txtf_formAdm_dni.getText();
@@ -591,22 +615,23 @@ public class DAO_Admin {
                 }
 
                 if (!validate.DNI(dni)) {
-
                     main_Admin.txtf_formAdm_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
-                    main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 1, 12));
+                    main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
                     main_Admin.txtf_formAdm_dni.setToolTipText("DNI no válido");
                     main_Admin.lbl_formAdm_dniERR.setText(ERROR);
                     main_Admin.lbl_formAdm_dniERR.setForeground(Color.red);
                 } else {
                     main_Admin.txtf_formAdm_dni.setBorder(null);
                     main_Admin.txtf_formAdm_dni.setToolTipText("");
+                    main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
                     main_Admin.lbl_formAdm_dniERR.setText("");
+                    singletonAdmin.passModf = true;
                     valid = true;
                 }
             }
             else{
                 main_Admin.txtf_formAdm_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
-                main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 1, 12));
+                main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
                 main_Admin.txtf_formAdm_dni.setToolTipText("DNI no válido");
                 main_Admin.lbl_formAdm_dniERR.setText("");
                 main_Admin.lbl_formAdm_dniERR.setForeground(Color.red);
@@ -621,7 +646,7 @@ public class DAO_Admin {
         if (main_Admin.txtf_formAdm_email.getText().isEmpty()) {
             main_Admin.txtf_formAdm_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Admin.lbl_formAdm_emailERR.setText("Correo electriónico necesario");
-            main_Admin.lbl_formAdm_emailERR.setFont(new java.awt.Font("Dialog", 1, 12));
+            main_Admin.lbl_formAdm_emailERR.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Admin.lbl_formAdm_emailERR.setForeground(Color.red);
         } else if (!validate.Email(main_Admin.txtf_formAdm_email.getText())) {
             main_Admin.txtf_formAdm_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
@@ -642,8 +667,9 @@ public class DAO_Admin {
         if (!validate.Numbers(main_Admin.txt_formAdm_activity.getText())) {
             main_Admin.txt_formAdm_activity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Admin.txt_formAdm_activity.setFont(new java.awt.Font("Dialog", 0, 12));
-            main_Admin.txt_formAdm_activity.setToolTipText("Teléfono no válido");
+            main_Admin.txt_formAdm_activity.setToolTipText("Sólo números");
             main_Admin.lbl_formAdm_activityERR.setText(ERROR);
+            main_Admin.lbl_formAdm_activityERR.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Admin.lbl_formAdm_activityERR.setForeground(Color.red);
         } else {
             main_Admin.txt_formAdm_activity.setBorder(null);
@@ -670,7 +696,7 @@ public class DAO_Admin {
         }
         if (!bornDate.isValid_workage()) {
             main_Admin.DC_formAdm_borndate.setToolTipText("Fecha de nacimento no válida");
-            main_Admin.lbl_formAdm_borndateERR.setFont(new java.awt.Font("Dialog", 0, 12));
+            main_Admin.lbl_formAdm_borndateERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_borndateERR.setText(ERROR);
             main_Admin.lbl_formAdm_borndateERR.setForeground(Color.red);
         } else {
@@ -700,7 +726,7 @@ public class DAO_Admin {
         }
         if (!singDate.isValid_singdate(bornDate)) {
             main_Admin.DC_formAdm_borndate.setToolTipText("Fecha de contratación no válida");
-            main_Admin.lbl_formAdm_singdateERR.setFont(new java.awt.Font("Dialog", 0, 12));
+            main_Admin.lbl_formAdm_singdateERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_singdateERR.setText(ERROR);
             main_Admin.lbl_formAdm_singdateERR.setForeground(Color.red);
         } else {
@@ -822,6 +848,12 @@ public class DAO_Admin {
     public static void DAO_ERR_Modify(){
         main_Admin.lblMainform.setText("Error!!");
         main_Admin.lblMainform.setToolTipText("Error al modificar el administrador");
+        main_Admin.lblMainform.setBackground(Color.red);
+    }
+    
+    public static void DAO_ERR_View(){
+        main_Admin.lblMainform.setText("Error!!");
+        main_Admin.lblMainform.setToolTipText("Error al mostrar el administrador: usuario no encontrado");
         main_Admin.lblMainform.setBackground(Color.red);
     }
     

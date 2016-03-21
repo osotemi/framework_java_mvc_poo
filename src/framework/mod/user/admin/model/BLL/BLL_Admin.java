@@ -292,16 +292,18 @@ public class BLL_Admin {
 
         int n = ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).getRowCount();
         if (n != 0) {
-            selec = singletonAdmin.selectedrow = main_Admin.TABLA.getSelectedRow();
+            selec = main_Admin.TABLA.getSelectedRow();
 
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
             } else {
-                singletonAdmin.selectedrow += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+                selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
-                Admin adm = new Admin(dni);
-                singletonAdmin.ephemeralAdmin = adm;
+                singletonAdmin.dni = dni;
+                singletonAdmin.ephemeralAdmin = new Admin(dni);
                 pos = searchAL();
+                singletonAdmin.selectedPOSmodify= pos;
+                singletonAdmin.PATH_formAdm = singletonAdmin.ephemeralAdmin.getAvataring();
                 singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(selec);
                 DAO_Admin.forModifyAdmin();
                 valid = true;
@@ -332,8 +334,14 @@ public class BLL_Admin {
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;
                 pos = searchAL();
-                singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(pos);
-                DAO_Admin.formViewAdmin();
+                if(pos!=-1){
+                    singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(pos);
+                    DAO_Admin.formViewAdmin();
+                }else{
+                    DAO_Admin.DAO_ERR_View();
+                }
+                
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
@@ -387,7 +395,11 @@ public class BLL_Admin {
      * Modify an admin and overwrite-it on the ArrayList, save changes on Json,
      * draws it and returns
      */
-    public static boolean FORM_BTN_modifyAdm() throws InterruptedException {
+    public static void FORM_BTN_modifyAdm() throws InterruptedException {
+        boolean valid = false;
+        int pos, selec;
+        Admin adm = new Admin();
+        
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -396,9 +408,8 @@ public class BLL_Admin {
                 }
             }
         };
-        boolean valid = false;
-        int pos, selec;
-        if (DAO_Admin.askConfirmPassword()) {
+       
+        if (DAO_Admin.askDNI()) {
             singletonAdmin.ephemeralAdmin = new Admin(main_Admin.txtf_formAdm_dni.getText());
             pos = searchAL();
             if (pos != -1) {
@@ -410,22 +421,29 @@ public class BLL_Admin {
                     main_Admin.lblMainform.setBackground(Color.GREEN);
                     main_Admin.lblMainform.setText("Modificado!");
                     valid = true;
-                } else {
-                    singletonAdmin.AdminTableArray.set(singletonAdmin.selectedrow, singletonAdmin.ephemeralAdmin);
+                } 
+            }
+            else{
+               
+                
+                if (DAO_Admin.formCreateAdmin()) { //ephemeralAdmin is created with form data
+                                        
+                    singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);
                     main_Admin.lblMainform.setBackground(Color.GREEN);
                     main_Admin.lblMainform.setText("Modificado!");
                     main_Admin.lblMainform.setOpaque(true);
+                    json.AdminJson_Autosave();
+                    main_Admin.runTABLE();
+                    valid = true;
                 }
             }
         } else {
             DAO_Admin.DAO_ERR_Modify();
         }
         Timer timer = new Timer(1000, task);
-        timer.setInitialDelay(2000);
+        timer.setInitialDelay(3000);
         timer.setRepeats(false);
         timer.start();
-        main_Admin.jPanel2.setVisible(!valid);
-        return valid;
     }
 
     /**
