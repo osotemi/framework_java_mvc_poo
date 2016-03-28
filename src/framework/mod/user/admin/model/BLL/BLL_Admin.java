@@ -15,11 +15,14 @@ import framework.mod.user.admin.view.main_Admin;
 import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.model.tools.txt;
 import framework.mod.user.admin.model.tools.xml;
+import static framework.mod.user.admin.view.main_Admin.CB_tbl_entries;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -37,6 +40,22 @@ public class BLL_Admin {
         DAO_Admin.DAO_FA_hideFormPanel();
     }
 
+    public static void BLL_FA_formCreate(){
+        if (singletonAdmin.currentForm.equals(singletonAdmin.CREATE)) {
+            try {
+                BLL_Admin.FORM_BTN_createAdmin();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (singletonAdmin.currentForm.equals(singletonAdmin.MODIFY)) {
+            try {
+                BLL_Admin.FORM_BTN_modifyAdm();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(main_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     public static void BLL_FA_CleanName() {
         if (singletonAdmin.currentForm.equals(singletonAdmin.CREATE)) {
             DAO_Admin.DAO_cfName();
@@ -98,6 +117,32 @@ public class BLL_Admin {
         }
     }
 
+    public static void BLL_TBL_Previous(){
+        pagina.currentPageIndex -= 1;
+        pagina.initLinkBox();
+    }
+    
+    public static void BLL_TBL_Next(){
+        pagina.currentPageIndex += 1;
+        pagina.initLinkBox();
+    }
+    
+    public static void BLL_TBL_First(){
+        pagina.currentPageIndex = 1;
+        pagina.initLinkBox();
+    }
+    
+    public static void BLL_TBL_Last(){
+        pagina.currentPageIndex = pagina.maxPageIndex;
+        pagina.initLinkBox();
+    }
+    
+    public static void BLL_TBL_CB_entries(){
+        pagina.itemsPerPage = Integer.parseInt(CB_tbl_entries.getSelectedItem().toString());
+        pagina.currentPageIndex = 1;
+        pagina.initLinkBox();
+    }
+    
     public static void BLL_txtName() {
         DAO_Admin.askName();
     }
@@ -176,10 +221,10 @@ public class BLL_Admin {
         boolean modificar = false;
 
         if (evt.getClickCount() == 2) {
-            main_Admin.jPanel2.setVisible(BLL_Admin.BLL_ModifyAdm());
+            main_Admin.PNL_drawForm.setVisible(BLL_Admin.BLL_ModifyAdm());
         } else if ((evt.getModifiers() == InputEvent.BUTTON1_MASK)) {
             BLL_ViewAdm();
-            main_Admin.jPanel2.setVisible(true);
+            main_Admin.PNL_drawForm.setVisible(true);
         }
     }
 
@@ -203,9 +248,9 @@ public class BLL_Admin {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()) {
+                if (main_Admin.PNL_drawForm.isVisible()) {
 
-                    main_Admin.jPanel2.setVisible(false);
+                    main_Admin.PNL_drawForm.setVisible(false);
                 }
             }
         };
@@ -256,8 +301,8 @@ public class BLL_Admin {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()) {
-                    main_Admin.jPanel2.setVisible(false);
+                if (main_Admin.PNL_drawForm.isVisible()) {
+                    main_Admin.PNL_drawForm.setVisible(false);
                 }
             }
         };
@@ -358,8 +403,8 @@ public class BLL_Admin {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()) {
-                    main_Admin.jPanel2.setVisible(false);
+                if (main_Admin.PNL_drawForm.isVisible()) {
+                    main_Admin.PNL_drawForm.setVisible(false);
                 }
             }
         };
@@ -403,8 +448,8 @@ public class BLL_Admin {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.jPanel2.isVisible()) {
-                    main_Admin.jPanel2.setVisible(false);
+                if (main_Admin.PNL_drawForm.isVisible()) {
+                    main_Admin.PNL_drawForm.setVisible(false);
                 }
             }
         };

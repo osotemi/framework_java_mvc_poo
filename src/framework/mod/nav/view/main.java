@@ -8,13 +8,13 @@ package framework.mod.nav.view;
 import framework.mod.user.admin.view.main_Admin;
 import static framework.mod.user.admin.view.main_Admin.DC_formAdm_borndate;
 import static framework.mod.user.admin.view.main_Admin.DC_formAdm_singdate;
-import static framework.mod.user.admin.view.main_Admin.jPanel2;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import static framework.mod.user.admin.view.main_Admin.PNL_drawForm;
 
 /**
  *
@@ -25,21 +25,29 @@ public class main extends javax.swing.JFrame {
     /**
      * Creates new form main
      */
-    public main() throws IOException {
+    public main() {
         initComponents();
-        run();
+        //un();
+        
         //
         ///
     }
-    private void run() throws IOException{
-                
+    /*
+    private void run() {
+        Image icono = null;
         this.setTitle("Servicios farmaceúticos");
 	this.setLocationRelativeTo(null);//centrado
 	//this.setSize(525,425);//ancho x alto
-	Image icono=Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
+        try {
+            icono=Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
+        } catch (IOException e) {
+            
+        }
+            
         this.setIconImage(icono);
 	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,7 +59,7 @@ public class main extends javax.swing.JFrame {
 
         panelImage3 = new org.edisoncor.gui.panel.PanelImage();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
-        jButton1 = new javax.swing.JButton();
+        btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
         panelImage4 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -80,15 +88,15 @@ public class main extends javax.swing.JFrame {
         panelImage2.setAlignmentY(0.0F);
         panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/Green-and-Blue-Abstract-Backgrounds-1024x768.jpg"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setText("Admin");
-        jButton1.setAlignmentY(0.0F);
-        jButton1.setBorderPainted(false);
-        jButton1.setMinimumSize(new java.awt.Dimension(70, 25));
-        jButton1.setPreferredSize(new java.awt.Dimension(70, 25));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_AdminGOTO_mainAdmin.setBackground(new java.awt.Color(0, 153, 0));
+        btn_AdminGOTO_mainAdmin.setText("Admin");
+        btn_AdminGOTO_mainAdmin.setAlignmentY(0.0F);
+        btn_AdminGOTO_mainAdmin.setBorderPainted(false);
+        btn_AdminGOTO_mainAdmin.setMinimumSize(new java.awt.Dimension(70, 25));
+        btn_AdminGOTO_mainAdmin.setPreferredSize(new java.awt.Dimension(70, 25));
+        btn_AdminGOTO_mainAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_AdminGOTO_mainAdminActionPerformed(evt);
             }
         });
 
@@ -98,18 +106,18 @@ public class main extends javax.swing.JFrame {
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage2Layout.createSequentialGroup()
                 .addGap(402, 402, 402)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(438, Short.MAX_VALUE))
         );
         panelImage2Layout.setVerticalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage2Layout.createSequentialGroup()
                 .addGap(187, 187, 187)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(253, Short.MAX_VALUE))
         );
 
-        jButton1.getAccessibleContext().setAccessibleDescription("");
+        btn_AdminGOTO_mainAdmin.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(panelImage2, java.awt.BorderLayout.CENTER);
 
@@ -184,27 +192,29 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    private void btn_AdminGOTO_mainAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdminGOTO_mainAdminActionPerformed
+        /*
         try {
             new main_Admin().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+        */
+    }//GEN-LAST:event_btn_AdminGOTO_mainAdminActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private org.edisoncor.gui.panel.PanelImage panelImage2;
-    private org.edisoncor.gui.panel.PanelImage panelImage3;
-    private org.edisoncor.gui.panel.PanelImage panelImage4;
-    private org.edisoncor.gui.panel.PanelImage panelImage5;
+    public static javax.swing.JButton btn_AdminGOTO_mainAdmin;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
+    public static org.edisoncor.gui.panel.PanelImage panelImage2;
+    public static org.edisoncor.gui.panel.PanelImage panelImage3;
+    public static org.edisoncor.gui.panel.PanelImage panelImage4;
+    public static org.edisoncor.gui.panel.PanelImage panelImage5;
     // End of variables declaration//GEN-END:variables
 }

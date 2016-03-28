@@ -6,6 +6,7 @@
 package framework.mod.user.admin.model.DAO;
 
 import framework.clss.DateO;
+import framework.mod.nav.controler.Controler_main;
 import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
@@ -194,8 +195,8 @@ public class DAO_Admin {
         main_Admin.btn_formAdmCreate_create.setVisible(true);
         main_Admin.btn_formAdmCreate_create.setText("Crear");
         
-        main_Admin.jPanel2.setBackground(Color.lightGray);
-        main_Admin.jPanel2.setVisible(true);
+        main_Admin.PNL_drawForm.setBackground(Color.lightGray);
+        main_Admin.PNL_drawForm.setVisible(true);
         main_Admin.txtf_formAdm_username.requestFocus();
         main_Admin.txtf_formAdm_username.selectAll();
     }
@@ -298,8 +299,8 @@ public class DAO_Admin {
         
         main_Admin.btn_formAdmCreate_create.setEnabled(true);
         main_Admin.btn_formAdmCreate_create.setVisible(true);
-        main_Admin.jPanel2.setBackground(null);
-        main_Admin.jPanel2.setVisible(true);
+        main_Admin.PNL_drawForm.setBackground(null);
+        main_Admin.PNL_drawForm.setVisible(true);
         main_Admin.txtf_formAdm_username.requestFocus();
         main_Admin.txtf_formAdm_username.selectAll();
     }
@@ -402,8 +403,8 @@ public class DAO_Admin {
         
         main_Admin.btn_formA_Avatar.setEnabled(false);
         main_Admin.btn_formAdmCreate_back.setBackground(new Color(0,0,0,0));
-        main_Admin.jPanel2.setVisible(true);
-        main_Admin.jPanel2.setBackground(Color.WHITE);
+        main_Admin.PNL_drawForm.setVisible(true);
+        main_Admin.PNL_drawForm.setBackground(Color.WHITE);
     }
     
     /**
@@ -776,15 +777,11 @@ public class DAO_Admin {
      */
     
     public static void DAO_FA_mainBack() {
-        try {
-            new main().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(DAO_Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new Controler_main(new main()).run();
     }
 
     public static void DAO_FA_hideFormPanel() {
-        main_Admin.jPanel2.setVisible(false);
+        main_Admin.PNL_drawForm.setVisible(false);
     }
 
     /**
