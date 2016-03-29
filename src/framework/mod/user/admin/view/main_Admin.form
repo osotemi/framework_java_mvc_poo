@@ -143,9 +143,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Inicio"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_backMainActionPerformed"/>
-          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAero" name="btn_saveJSON">
           <Properties>
@@ -154,9 +151,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="JSON"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_saveJSONActionPerformed"/>
-          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAero" name="btn_saveXML">
           <Properties>
@@ -165,9 +159,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="XML"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_saveXMLActionPerformed"/>
-          </Events>
         </Component>
         <Component class="org.edisoncor.gui.button.ButtonAero" name="btn_saveTXT">
           <Properties>
@@ -176,9 +167,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="TXT"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_saveTXTActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_modifyAdmin">
           <Properties>
@@ -204,9 +192,6 @@
               <Dimension value="[64, 64]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modifyAdminActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_viewAdmin">
           <Properties>
@@ -233,9 +218,6 @@
               <Dimension value="[64, 64]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_viewAdminActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_deleteAdmin">
           <Properties>
@@ -261,9 +243,6 @@
               <Dimension value="[64, 64]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deleteAdminActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_createAdmin">
           <Properties>
@@ -289,9 +268,6 @@
               <Dimension value="[64, 64]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_createAdminActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_deleteAllAdmin">
           <Properties>
@@ -317,9 +293,6 @@
               <Dimension value="[64, 64]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deleteAllAdminActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_createDummies">
           <Properties>
@@ -345,9 +318,6 @@
               <Dimension value="[64, 64]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_createDummiesActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

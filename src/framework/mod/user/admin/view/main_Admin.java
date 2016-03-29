@@ -246,35 +246,15 @@ public class main_Admin extends javax.swing.JFrame {
 
         btn_backMain.setBackground(new java.awt.Color(255, 0, 0));
         btn_backMain.setText("Inicio");
-        btn_backMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_backMainActionPerformed(evt);
-            }
-        });
 
         btn_saveJSON.setBackground(new java.awt.Color(51, 255, 204));
         btn_saveJSON.setText("JSON");
-        btn_saveJSON.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_saveJSONActionPerformed(evt);
-            }
-        });
 
         btn_saveXML.setBackground(new java.awt.Color(51, 255, 204));
         btn_saveXML.setText("XML");
-        btn_saveXML.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_saveXMLActionPerformed(evt);
-            }
-        });
 
         btn_saveTXT.setBackground(new java.awt.Color(51, 255, 204));
         btn_saveTXT.setText("TXT");
-        btn_saveTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_saveTXTActionPerformed(evt);
-            }
-        });
 
         btn_modifyAdmin.setBackground(new java.awt.Color(204, 204, 255));
         btn_modifyAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/modify_user.png"))); // NOI18N
@@ -283,11 +263,6 @@ public class main_Admin extends javax.swing.JFrame {
         btn_modifyAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
         btn_modifyAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
         btn_modifyAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_modifyAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_modifyAdminActionPerformed(evt);
-            }
-        });
 
         btn_viewAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btn_viewAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/view_user.png"))); // NOI18N
@@ -297,11 +272,6 @@ public class main_Admin extends javax.swing.JFrame {
         btn_viewAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
         btn_viewAdmin.setOpaque(false);
         btn_viewAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_viewAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_viewAdminActionPerformed(evt);
-            }
-        });
 
         btn_deleteAdmin.setBackground(new java.awt.Color(255, 0, 0));
         btn_deleteAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/delete_user.png"))); // NOI18N
@@ -310,11 +280,6 @@ public class main_Admin extends javax.swing.JFrame {
         btn_deleteAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
         btn_deleteAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
         btn_deleteAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_deleteAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_deleteAdminActionPerformed(evt);
-            }
-        });
 
         btn_createAdmin.setBackground(new java.awt.Color(0, 153, 0));
         btn_createAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/create_user.png"))); // NOI18N
@@ -323,11 +288,6 @@ public class main_Admin extends javax.swing.JFrame {
         btn_createAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
         btn_createAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
         btn_createAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_createAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_createAdminActionPerformed(evt);
-            }
-        });
 
         btn_deleteAllAdmin.setBackground(new java.awt.Color(255, 0, 0));
         btn_deleteAllAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/deleteAll_user.png"))); // NOI18N
@@ -336,11 +296,6 @@ public class main_Admin extends javax.swing.JFrame {
         btn_deleteAllAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
         btn_deleteAllAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
         btn_deleteAllAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_deleteAllAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_deleteAllAdminActionPerformed(evt);
-            }
-        });
 
         btn_createDummies.setBackground(new java.awt.Color(0, 153, 0));
         btn_createDummies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/AddDummies.png"))); // NOI18N
@@ -349,11 +304,6 @@ public class main_Admin extends javax.swing.JFrame {
         btn_createDummies.setMaximumSize(new java.awt.Dimension(64, 64));
         btn_createDummies.setMinimumSize(new java.awt.Dimension(64, 64));
         btn_createDummies.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn_createDummies.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_createDummiesActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout PNL_menuBtnLayout = new javax.swing.GroupLayout(PNL_menuBtn);
         PNL_menuBtn.setLayout(PNL_menuBtnLayout);
@@ -1149,13 +1099,6 @@ public class main_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_backMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backMainActionPerformed
-        /*
-        this.dispose();
-        BLL_Admin.BLL_FA_mainBack();
-        */
-    }//GEN-LAST:event_btn_backMainActionPerformed
-
     private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
         
         BLL_Admin.BLL_TBL_Previous();
@@ -1187,46 +1130,10 @@ public class main_Admin extends javax.swing.JFrame {
         //pagina.initLinkBox();
     }//GEN-LAST:event_CB_tbl_entriesActionPerformed
 
-    private void btn_saveXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveXMLActionPerformed
-        //BLL_Admin.BLL_UserSaveXML();
-    }//GEN-LAST:event_btn_saveXMLActionPerformed
-
-    private void btn_saveTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveTXTActionPerformed
-        //BLL_Admin.BLL_UserSaveTXT();
-    }//GEN-LAST:event_btn_saveTXTActionPerformed
-
-    private void btn_saveJSONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveJSONActionPerformed
-        //BLL_Admin.BLL_UserSaveJSON();
-    }//GEN-LAST:event_btn_saveJSONActionPerformed
-
     private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMouseClicked
         BLL_Admin.BLL_TableMouseClick(evt);
     }//GEN-LAST:event_TABLAMouseClicked
-    
-    private void btn_viewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewAdminActionPerformed
-        //BLL_Admin.BLL_ViewAdm();
-    }//GEN-LAST:event_btn_viewAdminActionPerformed
-    
-    private void btn_createAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAdminActionPerformed
-        //BLL_Admin.BLL_CreateAdm();
-    }//GEN-LAST:event_btn_createAdminActionPerformed
-
-    private void btn_modifyAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modifyAdminActionPerformed
-        //BLL_Admin.BLL_ModifyAdm();
-    }//GEN-LAST:event_btn_modifyAdminActionPerformed
-
-    private void btn_deleteAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAdminActionPerformed
-        //BLL_Admin.BLL_DeleteAdm();
-    }//GEN-LAST:event_btn_deleteAdminActionPerformed
-
-    private void btn_createDummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createDummiesActionPerformed
-        //dummieAdm_gen.menu_dummie();
-    }//GEN-LAST:event_btn_createDummiesActionPerformed
-
-    private void btn_deleteAllAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteAllAdminActionPerformed
-        //BLL_Admin.BLL_DeleteAllAdm();
-    }//GEN-LAST:event_btn_deleteAllAdminActionPerformed
-
+        
     private void txt_formAdm_activityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyReleased
         //BLL_Admin.BLL_Activity();
     }//GEN-LAST:event_txt_formAdm_activityKeyReleased

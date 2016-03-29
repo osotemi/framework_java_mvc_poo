@@ -60,13 +60,10 @@ public class main extends javax.swing.JFrame {
         panelImage3 = new org.edisoncor.gui.panel.PanelImage();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
         btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
+        btn_conf = new javax.swing.JButton();
         panelImage4 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        panelImage5 = new org.edisoncor.gui.panel.PanelImage();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout panelImage3Layout = new javax.swing.GroupLayout(panelImage3);
         panelImage3.setLayout(panelImage3Layout);
@@ -94,11 +91,9 @@ public class main extends javax.swing.JFrame {
         btn_AdminGOTO_mainAdmin.setBorderPainted(false);
         btn_AdminGOTO_mainAdmin.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_AdminGOTO_mainAdmin.setPreferredSize(new java.awt.Dimension(70, 25));
-        btn_AdminGOTO_mainAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_AdminGOTO_mainAdminActionPerformed(evt);
-            }
-        });
+
+        btn_conf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/sett_icons.png"))); // NOI18N
+        btn_conf.setOpaque(false);
 
         javax.swing.GroupLayout panelImage2Layout = new javax.swing.GroupLayout(panelImage2);
         panelImage2.setLayout(panelImage2Layout);
@@ -107,12 +102,18 @@ public class main extends javax.swing.JFrame {
             .addGroup(panelImage2Layout.createSequentialGroup()
                 .addGap(402, 402, 402)
                 .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelImage2Layout.setVerticalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage2Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
+                .addContainerGap()
+                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
                 .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(253, Short.MAX_VALUE))
         );
@@ -138,7 +139,7 @@ public class main extends javax.swing.JFrame {
         panelImage4Layout.setHorizontalGroup(
             panelImage4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage4Layout.createSequentialGroup()
-                .addContainerGap(442, Short.MAX_VALUE)
+                .addContainerGap(466, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,65 +157,17 @@ public class main extends javax.swing.JFrame {
 
         getContentPane().add(panelImage4, java.awt.BorderLayout.PAGE_END);
 
-        panelImage5.setPreferredSize(new java.awt.Dimension(0, 243));
-
-        jLabel1.setText("jLabel1");
-
-        jLabel2.setText("jLabel2");
-
-        jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout panelImage5Layout = new javax.swing.GroupLayout(panelImage5);
-        panelImage5.setLayout(panelImage5Layout);
-        panelImage5Layout.setHorizontalGroup(
-            panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        panelImage5Layout.setVerticalGroup(
-            panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addContainerGap(372, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(panelImage5, java.awt.BorderLayout.EAST);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void btn_AdminGOTO_mainAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdminGOTO_mainAdminActionPerformed
-        /*
-        try {
-            new main_Admin().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.dispose();
-        */
-    }//GEN-LAST:event_btn_AdminGOTO_mainAdminActionPerformed
-    
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_AdminGOTO_mainAdmin;
-    public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JButton btn_conf;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static org.edisoncor.gui.panel.PanelImage panelImage2;
     public static org.edisoncor.gui.panel.PanelImage panelImage3;
     public static org.edisoncor.gui.panel.PanelImage panelImage4;
-    public static org.edisoncor.gui.panel.PanelImage panelImage5;
     // End of variables declaration//GEN-END:variables
 }

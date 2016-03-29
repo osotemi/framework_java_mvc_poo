@@ -10,6 +10,7 @@ import framework.mod.settings.model.tools.LooknFeel;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -47,7 +48,7 @@ public class Settings implements Serializable {
      * file_type = ".xml"/ looknfeel = "Motif";
      *
      */
-    /*protected Settings(){
+    protected Settings(){
             name = "Default";
             decimal = 2;
             language = "UK";
@@ -55,10 +56,10 @@ public class Settings implements Serializable {
             currency = Locale.FRANCE;
             file_type = ".json";
             looknfeel = "WindowsC";
-    }*/
-    protected Settings() {
-
     }
+    /*protected Settings() {
+
+    }*/
 
     /**
      * Gettes & Setters
@@ -66,9 +67,9 @@ public class Settings implements Serializable {
     public static Settings getInstance() {
         if (instance == null) {
             instance = new Settings();
-            //singletonProfile.Alist_Profile = new ArrayList<>();
-            //profile_json.Profiles_Autoload();
-            //singletonProfile.Alist_Profile.get(0).ProfilesTOSettings();
+            singletonProfile.Alist_Profile = new ArrayList<>();
+            profile_json.Profiles_Autoload();
+            singletonProfile.Alist_Profile.get(0).ProfilesTOSettings();
             //LooknFeel.LookFeel();
             //Language.getInstance();
             singletonAdmin.loadSingletonAdmin();

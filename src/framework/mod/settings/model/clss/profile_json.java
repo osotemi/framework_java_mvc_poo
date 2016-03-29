@@ -43,7 +43,7 @@ public class profile_json {
             xstream.alias("Profiles", Profiles.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/clss/prof/profiles.json";
+                    + "/src/framework/mod/settings/model/files/profiles.json";
 
             JsonReader read = new JsonReader(new FileReader(PATH));
             JsonParser parseator = new JsonParser();
@@ -72,7 +72,7 @@ public class profile_json {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/clss/prof/profiles.json";
+                    + "/src/framework/mod/settings/model/files/profiles.json";
         } catch (IOException e) {
         }
 

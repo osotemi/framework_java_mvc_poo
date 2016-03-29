@@ -200,8 +200,76 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         
         MainAdmin.TABLA.setName("_TABLA");
         MainAdmin.TABLA.addMouseListener(this);
+        //form Admin
+        MainAdmin.btn_formA_Avatar.setActionCommand("_BTN_avatar");
+        MainAdmin.btn_formA_Avatar.setName("_BTN_avatar");
+        MainAdmin.btn_formA_Avatar.addKeyListener(this);
         
+        MainAdmin.btn_formAdmCreate_create.setActionCommand("_BTN_formCreate");
+        MainAdmin.btn_formAdmCreate_create.setName("_BTN_formCreate");
+        MainAdmin.btn_formAdmCreate_create.addKeyListener(this);
         
+        MainAdmin.btn_formAdmCreate_back.setActionCommand("_BTN_formBack");
+        MainAdmin.btn_formAdmCreate_back.setName("_BTN_formBack");
+        MainAdmin.btn_formAdmCreate_back.addKeyListener(this);
+
+        MainAdmin.CB_formAdm_state.setActionCommand("_CB_state");
+        MainAdmin.CB_formAdm_state.setName("_CB_state");
+        MainAdmin.CB_formAdm_state.addKeyListener(this);
+        
+        MainAdmin.DC_formAdm_borndate.setName("_DC_bornDate");
+        MainAdmin.DC_formAdm_borndate.addKeyListener(this);
+        
+        MainAdmin.DC_formAdm_singdate.setName("_DC_singDate");
+        MainAdmin.DC_formAdm_singdate.addKeyListener(this);
+        
+        MainAdmin.JPF_fromAdm_pass.setName("_JPF_pass");
+        MainAdmin.JPF_fromAdm_pass.addKeyListener(this);
+        
+        MainAdmin.JPF_fromAdm_passconf.setName("_JPF_passConf");
+        MainAdmin.JPF_fromAdm_passconf.addKeyListener(this);
+        
+        MainAdmin.txt_formAdm_activity.setActionCommand("_TXT_activity");
+        MainAdmin.txt_formAdm_activity.setName("_TXT_activity");
+        MainAdmin.txt_formAdm_activity.addKeyListener(this);
+        MainAdmin.txt_formAdm_activity.addFocusListener(this);
+        
+        MainAdmin.txtf_formAdm_dni.setActionCommand("_TXT_dni");
+        MainAdmin.txtf_formAdm_dni.setName("_TXT_dni");
+        MainAdmin.txtf_formAdm_dni.addActionListener(this);
+        MainAdmin.txtf_formAdm_dni.addKeyListener(this);
+        MainAdmin.txtf_formAdm_dni.addFocusListener(this);
+        
+        MainAdmin.txtf_formAdm_email.setActionCommand("_TXT_email");
+        MainAdmin.txtf_formAdm_email.setName("_TXT_email");
+        MainAdmin.txtf_formAdm_email.addActionListener(this);
+        MainAdmin.txtf_formAdm_email.addKeyListener(this);
+        MainAdmin.txtf_formAdm_email.addFocusListener(this);
+        
+        MainAdmin.txtf_formAdm_lastname.setActionCommand("_TXT_lastName");
+        MainAdmin.txtf_formAdm_lastname.setName("_TXT_lastName");
+        MainAdmin.txtf_formAdm_lastname.addActionListener(this);
+        MainAdmin.txtf_formAdm_lastname.addKeyListener(this);
+        MainAdmin.txtf_formAdm_lastname.addFocusListener(this);
+        
+        MainAdmin.txtf_formAdm_name.setActionCommand("_TXT_name");
+        MainAdmin.txtf_formAdm_name.setName("_TXT_name");
+        MainAdmin.txtf_formAdm_name.addActionListener(this);
+        MainAdmin.txtf_formAdm_name.addKeyListener(this);
+        MainAdmin.txtf_formAdm_name.addFocusListener(this);
+        
+        MainAdmin.txtf_formAdm_phone.setActionCommand("_TXT_phone");
+        MainAdmin.txtf_formAdm_phone.setName("_TXT_phone");
+        MainAdmin.txtf_formAdm_phone.addActionListener(this);
+        MainAdmin.txtf_formAdm_phone.addKeyListener(this);
+        MainAdmin.txtf_formAdm_phone.addFocusListener(this);
+        
+        MainAdmin.txtf_formAdm_username.setActionCommand("_TXT_userName");
+        MainAdmin.txtf_formAdm_username.setName("_TXT_userName");
+        MainAdmin.txtf_formAdm_username.addActionListener(this);
+        MainAdmin.txtf_formAdm_username.addKeyListener(this);
+        MainAdmin.txtf_formAdm_username.addFocusListener(this);
+              
     }
     
     public static void runTABLE() {
