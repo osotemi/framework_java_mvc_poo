@@ -27,13 +27,13 @@ public class Language extends Properties{
 	protected Language(){
 		
             switch (Settings.getInstance().getLanguage()) {
-            case "ES":
+            case singleSettings.LANG_ES:
                     this.getProperties("prop/spanish.properties");
                     break;
-            case "VLC":
+            case singleSettings.LANG_VLC:
                     this.getProperties("prop/valencia.properties");
                     break;
-            case "GZ":
+            case singleSettings.LANG_GZ:
                     this.getProperties("prop/galician.properties");
                     break;
             default://UK
@@ -42,16 +42,15 @@ public class Language extends Properties{
             }
 	}
 	
-	
 	public void loadProperties(){
             switch (Settings.getInstance().getLanguage()) {
-            case "ES":
+            case singleSettings.LANG_ES:
                     this.getProperties("prop/spanish.properties");
                     break;
-            case "VLC":
+            case singleSettings.LANG_VLC:
                     this.getProperties("prop/valencia.properties");
                     break;
-            case "GZ":
+            case singleSettings.LANG_GZ:
                     this.getProperties("prop/galician.properties");
                     break;
             default://UK

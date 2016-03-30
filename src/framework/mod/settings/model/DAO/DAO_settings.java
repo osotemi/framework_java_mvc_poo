@@ -5,6 +5,9 @@
  */
 package framework.mod.settings.model.DAO;
 
+import framework.mod.settings.controler.Controler_wdwSettings;
+import static framework.mod.settings.controler.Controler_wdwSettings.Conf;
+import framework.mod.settings.model.clss.Language;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
 import framework.mod.settings.view.wdwSettings;
@@ -21,29 +24,17 @@ public class DAO_settings {
     public static void drawCurrency(){
         //Currency
         if( Settings.getInstance().getCurrency().equals(Locale.US) ){
-            wdwSettings.btn_currDolar.setSelected(true);
-            wdwSettings.JP_currDolar.setOpaque(true);
-            wdwSettings.JP_currDolar.setBackground(Color.green);
-            wdwSettings.JP_currEuro.setOpaque(false);
-            wdwSettings.JP_currEuro.setBackground(null);
-            wdwSettings.JP_currPound.setOpaque(false);
-            wdwSettings.JP_currPound.setBackground(null);
+            Conf.btn_currDolar.setBorder(javax.swing.BorderFactory.createLoweredBevelBorder());
+            Conf.btn_currEuro.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+            Conf.btn_currPound.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         } else if (Settings.getInstance().getCurrency().equals(Locale.UK)){
-            wdwSettings.btn_currPound.setSelected(true);
-            wdwSettings.JP_currPound.setOpaque(true);
-            wdwSettings.JP_currPound.setBackground(Color.green);
-            wdwSettings.JP_currEuro.setOpaque(false);
-            wdwSettings.JP_currEuro.setBackground(null);
-            wdwSettings.JP_currDolar.setOpaque(false);
-            wdwSettings.JP_currDolar.setBackground(null);
+            Conf.btn_currDolar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+            Conf.btn_currEuro.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+            Conf.btn_currPound.setBorder(javax.swing.BorderFactory.createLoweredBevelBorder());
         } else if (Settings.getInstance().getCurrency().equals(Locale.FRANCE) ){
-            wdwSettings.btn_currEuro.setSelected(true);
-            wdwSettings.JP_currEuro.setOpaque(true);
-            wdwSettings.JP_currEuro.setBackground(Color.green);
-            wdwSettings.JP_currDolar.setOpaque(false);
-            wdwSettings.JP_currDolar.setBackground(null);
-            wdwSettings.JP_currPound.setOpaque(false);
-            wdwSettings.JP_currPound.setBackground(null);
+            Conf.btn_currDolar.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+            Conf.btn_currEuro.setBorder(javax.swing.BorderFactory.createLoweredBevelBorder());
+            Conf.btn_currPound.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         } else {
             System.out.println("Error drawing currency");
         }
@@ -123,5 +114,30 @@ public class DAO_settings {
         
         //Language
         
+    }
+
+    public static void writeConfigFrame(){
+        //Inicializa los mensajes de properties
+        Conf.setTitle(Language.getInstance().getProperty("wdwSettings_title"));
+        //Currency tab
+        Conf.LBL_currency.setText(Language.getInstance().getProperty("curr_mess"));
+        Conf.TABgen.setTitleAt(0, Language.getInstance().getProperty("TABcurrency"));
+        
+        //Date format
+        Conf.LBL_formatDate.setText(Language.getInstance().getProperty("date_mess"));
+        Conf.TABgen.setTitleAt(1, Language.getInstance().getProperty("TABdateform"));
+        
+        //Decimal tab
+        Conf.TABgen.setTitleAt(2, Language.getInstance().getProperty("TABdecimal"));
+        
+        //File type
+        Conf.LBL_fileType.setText(Language.getInstance().getProperty("fileform_mess"));
+        Conf.TABgen.setTitleAt(3, Language.getInstance().getProperty("TABfileType"));
+        
+        //Language
+        Conf.TABgen.setTitleAt(4, Language.getInstance().getProperty("TABlanguage"));
+        
+        //Look&feel
+        Conf.TABgen.setTitleAt(5, Language.getInstance().getProperty("TABlookNfeel"));
     }
 }

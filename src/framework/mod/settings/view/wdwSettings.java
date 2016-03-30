@@ -28,28 +28,21 @@ public class wdwSettings extends javax.swing.JFrame {
     private void initComponents() {
 
         TABgen = new javax.swing.JTabbedPane();
+        TABcurrency = new javax.swing.JPanel();
+        LBL_currency = new javax.swing.JLabel();
+        btn_currDolar = new javax.swing.JButton();
+        btn_currPound = new javax.swing.JButton();
+        btn_currEuro = new javax.swing.JButton();
         TABdecimal = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         JSP_decimals = new javax.swing.JSpinner();
-        TABfdate = new javax.swing.JPanel();
-        JCB_formatDate = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         TABfileType = new javax.swing.JPanel();
         btn_confJSON = new javax.swing.JButton();
         btn_confTXT = new javax.swing.JButton();
         btn_confXML = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        TABlookNfeel = new javax.swing.JPanel();
+        LBL_fileType = new javax.swing.JLabel();
         TABlanguage = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        JP_currEuro = new javax.swing.JPanel();
-        btn_currEuro = new javax.swing.JButton();
-        JP_currPound = new javax.swing.JPanel();
-        btn_currPound = new javax.swing.JButton();
-        JP_currDolar = new javax.swing.JPanel();
-        btn_currDolar = new javax.swing.JButton();
-        TABcurrency = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LBL_selectLanguage = new javax.swing.JLabel();
         JP_langES = new javax.swing.JPanel();
         btn_spain = new javax.swing.JButton();
         JP_langGZ = new javax.swing.JPanel();
@@ -58,8 +51,69 @@ public class wdwSettings extends javax.swing.JFrame {
         btn_unitedk = new javax.swing.JButton();
         JP_langVLC = new javax.swing.JPanel();
         btn_valencia = new javax.swing.JButton();
+        TABlookNfeel = new javax.swing.JPanel();
+        TABfdate = new javax.swing.JPanel();
+        JCB_formatDate = new javax.swing.JComboBox<>();
+        LBL_formatDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TABcurrency.setBackground(new java.awt.Color(102, 255, 102));
+
+        LBL_currency.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LBL_currency.setText("_");
+
+        btn_currDolar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/currency/money_dolar.png"))); // NOI18N
+        btn_currDolar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_currDolar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_currDolar.setMaximumSize(new java.awt.Dimension(100, 100));
+        btn_currDolar.setMinimumSize(new java.awt.Dimension(100, 100));
+        btn_currDolar.setPreferredSize(new java.awt.Dimension(100, 100));
+
+        btn_currPound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/currency/money_pounds.png"))); // NOI18N
+        btn_currPound.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_currPound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_currPound.setMaximumSize(new java.awt.Dimension(100, 100));
+        btn_currPound.setMinimumSize(new java.awt.Dimension(100, 100));
+        btn_currPound.setPreferredSize(new java.awt.Dimension(100, 100));
+
+        btn_currEuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/currency/money_euro.png"))); // NOI18N
+        btn_currEuro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_currEuro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_currEuro.setMaximumSize(new java.awt.Dimension(100, 100));
+        btn_currEuro.setMinimumSize(new java.awt.Dimension(100, 100));
+        btn_currEuro.setPreferredSize(new java.awt.Dimension(100, 100));
+
+        javax.swing.GroupLayout TABcurrencyLayout = new javax.swing.GroupLayout(TABcurrency);
+        TABcurrency.setLayout(TABcurrencyLayout);
+        TABcurrencyLayout.setHorizontalGroup(
+            TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABcurrencyLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TABcurrencyLayout.createSequentialGroup()
+                        .addComponent(btn_currEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_currDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(btn_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LBL_currency, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+                .addGap(60, 60, 60))
+        );
+        TABcurrencyLayout.setVerticalGroup(
+            TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABcurrencyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LBL_currency)
+                .addGap(18, 18, 18)
+                .addGroup(TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_currEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_currDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        TABgen.addTab("Currency", TABcurrency);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Decimales");
@@ -87,33 +141,6 @@ public class wdwSettings extends javax.swing.JFrame {
 
         TABgen.addTab("Decimal", TABdecimal);
 
-        JCB_formatDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dd/MM/yyyy", "dd-MM-yyyy", "yyyy/MM/dd", "yyyy-MM-dd" }));
-
-        jLabel3.setText("Formato de fecha");
-
-        javax.swing.GroupLayout TABfdateLayout = new javax.swing.GroupLayout(TABfdate);
-        TABfdate.setLayout(TABfdateLayout);
-        TABfdateLayout.setHorizontalGroup(
-            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TABfdateLayout.createSequentialGroup()
-                .addContainerGap(256, Short.MAX_VALUE)
-                .addGroup(TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(JCB_formatDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(177, 177, 177))
-        );
-        TABfdateLayout.setVerticalGroup(
-            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABfdateLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCB_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-
-        TABgen.addTab("Date Format", TABfdate);
-
         btn_confJSON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/format/format_json.jpeg"))); // NOI18N
         btn_confJSON.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_confJSON.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,8 +162,8 @@ public class wdwSettings extends javax.swing.JFrame {
         btn_confXML.setMinimumSize(new java.awt.Dimension(102, 102));
         btn_confXML.setPreferredSize(new java.awt.Dimension(102, 102));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("jLabel1");
+        LBL_fileType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LBL_fileType.setText("_");
 
         javax.swing.GroupLayout TABfileTypeLayout = new javax.swing.GroupLayout(TABfileType);
         TABfileType.setLayout(TABfileTypeLayout);
@@ -152,14 +179,14 @@ public class wdwSettings extends javax.swing.JFrame {
                 .addContainerGap(127, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TABfileTypeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LBL_fileType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         TABfileTypeLayout.setVerticalGroup(
             TABfileTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TABfileTypeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(LBL_fileType)
                 .addGap(18, 18, 18)
                 .addGroup(TABfileTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_confTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,129 +197,10 @@ public class wdwSettings extends javax.swing.JFrame {
 
         TABgen.addTab("File Type", TABfileType);
 
-        javax.swing.GroupLayout TABlookNfeelLayout = new javax.swing.GroupLayout(TABlookNfeel);
-        TABlookNfeel.setLayout(TABlookNfeelLayout);
-        TABlookNfeelLayout.setHorizontalGroup(
-            TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
-        );
-        TABlookNfeelLayout.setVerticalGroup(
-            TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
-        );
+        TABlanguage.setBackground(new java.awt.Color(255, 255, 255));
 
-        TABgen.addTab("Look & Feel", TABlookNfeel);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel1");
-
-        btn_currEuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/currency/money_euro.png"))); // NOI18N
-        btn_currEuro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btn_currEuro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_currEuro.setMaximumSize(new java.awt.Dimension(100, 100));
-        btn_currEuro.setMinimumSize(new java.awt.Dimension(100, 100));
-        btn_currEuro.setPreferredSize(new java.awt.Dimension(100, 100));
-
-        javax.swing.GroupLayout JP_currEuroLayout = new javax.swing.GroupLayout(JP_currEuro);
-        JP_currEuro.setLayout(JP_currEuroLayout);
-        JP_currEuroLayout.setHorizontalGroup(
-            JP_currEuroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_currEuroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_currEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        JP_currEuroLayout.setVerticalGroup(
-            JP_currEuroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_currEuroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_currEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        btn_currPound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/currency/money_pounds.png"))); // NOI18N
-        btn_currPound.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btn_currPound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_currPound.setMaximumSize(new java.awt.Dimension(100, 100));
-        btn_currPound.setMinimumSize(new java.awt.Dimension(100, 100));
-        btn_currPound.setPreferredSize(new java.awt.Dimension(100, 100));
-
-        javax.swing.GroupLayout JP_currPoundLayout = new javax.swing.GroupLayout(JP_currPound);
-        JP_currPound.setLayout(JP_currPoundLayout);
-        JP_currPoundLayout.setHorizontalGroup(
-            JP_currPoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_currPoundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        JP_currPoundLayout.setVerticalGroup(
-            JP_currPoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_currPoundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        btn_currDolar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/currency/money_dolar.png"))); // NOI18N
-        btn_currDolar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btn_currDolar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_currDolar.setMaximumSize(new java.awt.Dimension(100, 100));
-        btn_currDolar.setMinimumSize(new java.awt.Dimension(100, 100));
-        btn_currDolar.setPreferredSize(new java.awt.Dimension(100, 100));
-
-        javax.swing.GroupLayout JP_currDolarLayout = new javax.swing.GroupLayout(JP_currDolar);
-        JP_currDolar.setLayout(JP_currDolarLayout);
-        JP_currDolarLayout.setHorizontalGroup(
-            JP_currDolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_currDolarLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(btn_currDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        JP_currDolarLayout.setVerticalGroup(
-            JP_currDolarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JP_currDolarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_currDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout TABlanguageLayout = new javax.swing.GroupLayout(TABlanguage);
-        TABlanguage.setLayout(TABlanguageLayout);
-        TABlanguageLayout.setHorizontalGroup(
-            TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABlanguageLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(TABlanguageLayout.createSequentialGroup()
-                        .addComponent(JP_currEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                        .addComponent(JP_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96)
-                        .addComponent(JP_currDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        TABlanguageLayout.setVerticalGroup(
-            TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABlanguageLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JP_currDolar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JP_currEuro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JP_currPound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        TABgen.addTab("Currency", TABlanguage);
-
-        TABcurrency.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("jLabel1");
+        LBL_selectLanguage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LBL_selectLanguage.setText("_");
 
         btn_spain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/flags/flag_ES.png"))); // NOI18N
         btn_spain.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -398,15 +306,15 @@ public class wdwSettings extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout TABcurrencyLayout = new javax.swing.GroupLayout(TABcurrency);
-        TABcurrency.setLayout(TABcurrencyLayout);
-        TABcurrencyLayout.setHorizontalGroup(
-            TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABcurrencyLayout.createSequentialGroup()
+        javax.swing.GroupLayout TABlanguageLayout = new javax.swing.GroupLayout(TABlanguage);
+        TABlanguage.setLayout(TABlanguageLayout);
+        TABlanguageLayout.setHorizontalGroup(
+            TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABlanguageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(TABcurrencyLayout.createSequentialGroup()
+                .addGroup(TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBL_selectLanguage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(TABlanguageLayout.createSequentialGroup()
                         .addComponent(JP_langES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JP_langGZ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,13 +325,13 @@ public class wdwSettings extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        TABcurrencyLayout.setVerticalGroup(
-            TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABcurrencyLayout.createSequentialGroup()
+        TABlanguageLayout.setVerticalGroup(
+            TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABlanguageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(LBL_selectLanguage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TABlanguageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JP_langES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JP_langGZ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JP_langUK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,7 +339,47 @@ public class wdwSettings extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        TABgen.addTab("Languange", TABcurrency);
+        TABgen.addTab("Languange", TABlanguage);
+
+        javax.swing.GroupLayout TABlookNfeelLayout = new javax.swing.GroupLayout(TABlookNfeel);
+        TABlookNfeel.setLayout(TABlookNfeelLayout);
+        TABlookNfeelLayout.setHorizontalGroup(
+            TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 618, Short.MAX_VALUE)
+        );
+        TABlookNfeelLayout.setVerticalGroup(
+            TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 199, Short.MAX_VALUE)
+        );
+
+        TABgen.addTab("Look & Feel", TABlookNfeel);
+
+        JCB_formatDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dd/MM/yyyy", "dd-MM-yyyy", "yyyy/MM/dd", "yyyy-MM-dd" }));
+
+        LBL_formatDate.setText("Formato de fecha");
+
+        javax.swing.GroupLayout TABfdateLayout = new javax.swing.GroupLayout(TABfdate);
+        TABfdate.setLayout(TABfdateLayout);
+        TABfdateLayout.setHorizontalGroup(
+            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABfdateLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(LBL_formatDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JCB_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(333, Short.MAX_VALUE))
+        );
+        TABfdateLayout.setVerticalGroup(
+            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABfdateLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(LBL_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JCB_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+
+        TABgen.addTab("Date Format", TABfdate);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -492,14 +440,15 @@ public class wdwSettings extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox<String> JCB_formatDate;
-    public static javax.swing.JPanel JP_currDolar;
-    public static javax.swing.JPanel JP_currEuro;
-    public static javax.swing.JPanel JP_currPound;
     public static javax.swing.JPanel JP_langES;
     public static javax.swing.JPanel JP_langGZ;
     public static javax.swing.JPanel JP_langUK;
     public static javax.swing.JPanel JP_langVLC;
     public static javax.swing.JSpinner JSP_decimals;
+    public static javax.swing.JLabel LBL_currency;
+    public static javax.swing.JLabel LBL_fileType;
+    public static javax.swing.JLabel LBL_formatDate;
+    public static javax.swing.JLabel LBL_selectLanguage;
     public static javax.swing.JPanel TABcurrency;
     public static javax.swing.JPanel TABdecimal;
     public static javax.swing.JPanel TABfdate;
@@ -517,10 +466,6 @@ public class wdwSettings extends javax.swing.JFrame {
     public static javax.swing.JButton btn_spain;
     public static javax.swing.JButton btn_unitedk;
     public static javax.swing.JButton btn_valencia;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

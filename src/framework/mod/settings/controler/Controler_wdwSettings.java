@@ -8,6 +8,7 @@ package framework.mod.settings.controler;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import framework.mod.settings.model.BLL.BLL_settings;
 import framework.mod.settings.model.DAO.DAO_settings;
+import framework.mod.settings.model.clss.Language;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
 import framework.mod.settings.model.clss.singletonProfile;
@@ -69,8 +70,7 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
     public void run() {
         Image icono = null;
         Conf.setVisible(true);
-        Conf.setTitle("Configuración");
-        Conf.setLocationRelativeTo(null);//centrado
+        Conf.setTitle(Language.getInstance().getProperty("wdwSettings_title"));
         Conf.setSize(770, 425);//ancho x alto
         Conf.setResizable(false);
         try {
@@ -78,6 +78,7 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
         } catch (IOException e) {
 
         }
+        Conf.setLocationRelativeTo(null);//centrado
         Conf.setIconImage(icono);
         //Conf.setExtendedState(JFrame.MAXIMIZED_BOTH); //la aplicación se abre maximizada
 
@@ -87,9 +88,11 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
                 Conf.dispose();
             }
         });
+        
+        DAO_settings.writeConfigFrame();
+        
         BLL_settings.BLL_drawSettingsPanel();
-        
-        
+                
         //Inicia los componentes del menu de configuración
         //Currency tab
         Conf.btn_currDolar.setActionCommand("_BTN_currDolar");
@@ -159,15 +162,19 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
                 break;
             case _BTN_LNGes: 
                 BLL_settings.BLL_BTN_lang_spanish();
+                DAO_settings.writeConfigFrame();
                 break;
             case _BTN_LNGgz: 
                 BLL_settings.BLL_BTN_lang_galiza();
+                DAO_settings.writeConfigFrame();
                 break;
             case _BTN_LNGuk: 
                 BLL_settings.BLL_BTN_lang_english();
+                DAO_settings.writeConfigFrame();
                 break;
             case _BTN_LNGvlc: 
                 BLL_settings.BLL_BTN_lang_valencia();
+                DAO_settings.writeConfigFrame();
                 break;
             default:
                 break;
