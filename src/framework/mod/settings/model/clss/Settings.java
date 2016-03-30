@@ -51,7 +51,7 @@ public class Settings implements Serializable {
     protected Settings(){
             name = "Default";
             decimal = 2;
-            language = "UK";
+            language = singleSettings.LANG_ES;
             fdate = "dd/MM/yyyy";
             currency = Locale.FRANCE;
             file_type = ".json";
