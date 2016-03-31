@@ -48,77 +48,8 @@ public class main_Admin extends javax.swing.JFrame {
         
         initComponents();
         
-        /*
-        BLL_Admin.loadArray();
-        run();
-        ///
-        runTABLE();
-
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                dispose();
-                BLL_Admin.BLL_FA_mainBack();
-            }
-        });
-
-        combo.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboActionPerformed(evt);
-            }
-        });
-        */
     }
-
-    private void run(){
-        Image icono = null;
-        PNL_drawForm.setVisible(false);
-        DC_formAdm_borndate.getDateEditor().setEnabled(false);
-        DC_formAdm_singdate.getDateEditor().setEnabled(false);
-
-        this.setTitle("Formulari Admin");
-        this.setLocationRelativeTo(null);//centrado
-        try {
-            icono = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
-        } catch (IOException e) {
-
-        }
-        this.setIconImage(icono);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-    }
-
-    public static void runTABLE() {
-        TABLA.setModel(new miniSimpleTableModel_Admin());
-        ((miniSimpleTableModel_Admin) TABLA.getModel()).cargar();
-        TABLA.setFillsViewportHeight(true);
-        TABLA.setRowSorter(sorter);
-        pagina.inicializa();
-        pagina.initLinkBox();
-
-        lbl_entries.setText(String.valueOf(singletonAdmin.AdminTableArray.size()));
-
-        //combo lineas
-        List<String> myWords = new ArrayList<String>();
-        for (int i = 0; i <= singletonAdmin.AdminTableArray.size() - 1; i++) {
-            myWords.add(singletonAdmin.AdminTableArray.get(i).getName().toLowerCase());
-            myWords.add(singletonAdmin.AdminTableArray.get(i).getName());
-        }
-
-        StringSearchable searchable = new StringSearchable(myWords);
-        combo = new AutocompleteJComboBox(searchable);
-        //JPanel5 se utiliza solamente para que JPanel3 que contendrÃ¡ combo, no se redimensione
-        jPanel5.setLayout(new java.awt.BorderLayout());
-        jPanel5.add(combo);
-    }
-
-    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
-        pagina.currentPageIndex = 1;
-        ((miniSimpleTableModel_Admin) TABLA.getModel()).filtrar();
-        combo.requestFocus();
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -229,7 +160,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         PNL_title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/14650540950_fe4dc85417_o.jpg"))); // NOI18N
         PNL_title.setName(""); // NOI18N
-        PNL_title.setPreferredSize(new java.awt.Dimension(0, 70));
+        PNL_title.setPreferredSize(new java.awt.Dimension(0, 50));
 
         javax.swing.GroupLayout PNL_titleLayout = new javax.swing.GroupLayout(PNL_title);
         PNL_title.setLayout(PNL_titleLayout);
@@ -239,7 +170,7 @@ public class main_Admin extends javax.swing.JFrame {
         );
         PNL_titleLayout.setVerticalGroup(
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         getContentPane().add(PNL_title, java.awt.BorderLayout.NORTH);
@@ -341,7 +272,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addComponent(btn_createDummies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btn_saveTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,11 +338,6 @@ public class main_Admin extends javax.swing.JFrame {
         PNL_drawForm.setPreferredSize(new java.awt.Dimension(500, 535));
 
         DC_formAdm_singdate.setDateFormatString("dd/MM/yyyy");
-        DC_formAdm_singdate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                DC_formAdm_singdatePropertyChange(evt);
-            }
-        });
 
         lbl_formAdm_nameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_formAdm_nameERR.setText(" ");
@@ -441,159 +367,44 @@ public class main_Admin extends javax.swing.JFrame {
         txtf_formAdm_name.setBorder(null);
         txtf_formAdm_name.setNextFocusableComponent(txtf_formAdm_lastname);
         txtf_formAdm_name.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        txtf_formAdm_name.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_nameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_nameFocusLost(evt);
-            }
-        });
-        txtf_formAdm_name.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_nameKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_nameKeyReleased(evt);
-            }
-        });
 
         txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtf_formAdm_email.setToolTipText("Correo electrónico");
         txtf_formAdm_email.setBorder(null);
         txtf_formAdm_email.setNextFocusableComponent(txtf_formAdm_phone);
-        txtf_formAdm_email.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_emailFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_emailFocusLost(evt);
-            }
-        });
-        txtf_formAdm_email.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_emailKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_emailKeyReleased(evt);
-            }
-        });
 
         txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtf_formAdm_username.setToolTipText(" Nombre del administrador...");
         txtf_formAdm_username.setBorder(null);
         txtf_formAdm_username.setNextFocusableComponent(JPF_fromAdm_pass);
-        txtf_formAdm_username.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_usernameFocusLost(evt);
-            }
-        });
-        txtf_formAdm_username.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_usernameKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_usernameKeyReleased(evt);
-            }
-        });
 
         DC_formAdm_borndate.setDateFormatString("dd/MM/yyyy");
         DC_formAdm_borndate.setNextFocusableComponent(txtf_formAdm_username);
-        DC_formAdm_borndate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                DC_formAdm_borndatePropertyChange(evt);
-            }
-        });
 
         JPF_fromAdm_pass.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         JPF_fromAdm_pass.setToolTipText("Contraseña...");
         JPF_fromAdm_pass.setBorder(null);
         JPF_fromAdm_pass.setNextFocusableComponent(JPF_fromAdm_passconf);
-        JPF_fromAdm_pass.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                JPF_fromAdm_passFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JPF_fromAdm_passFocusLost(evt);
-            }
-        });
-        JPF_fromAdm_pass.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                JPF_fromAdm_passKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JPF_fromAdm_passKeyReleased(evt);
-            }
-        });
 
         btn_formA_Avatar.setText("Cargar Imagen");
         btn_formA_Avatar.setBorderPainted(false);
-        btn_formA_Avatar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_formA_AvatarActionPerformed(evt);
-            }
-        });
 
         btn_formAdmCreate_back.setText("Volver");
-        btn_formAdmCreate_back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_formAdmCreate_backActionPerformed(evt);
-            }
-        });
 
         btn_formAdmCreate_create.setText("Crear");
-        btn_formAdmCreate_create.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_formAdmCreate_createActionPerformed(evt);
-            }
-        });
 
         txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_lastname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtf_formAdm_lastname.setToolTipText("Apellidos...");
         txtf_formAdm_lastname.setBorder(null);
         txtf_formAdm_lastname.setNextFocusableComponent(txtf_formAdm_email);
-        txtf_formAdm_lastname.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_lastnameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_lastnameFocusLost(evt);
-            }
-        });
-        txtf_formAdm_lastname.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_lastnameKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_lastnameKeyReleased(evt);
-            }
-        });
 
         JPF_fromAdm_passconf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         JPF_fromAdm_passconf.setToolTipText("Confirmar contraseña...");
         JPF_fromAdm_passconf.setBorder(null);
         JPF_fromAdm_passconf.setNextFocusableComponent(btn_formA_Avatar);
-        JPF_fromAdm_passconf.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JPF_fromAdm_passconfFocusLost(evt);
-            }
-        });
-        JPF_fromAdm_passconf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JPF_fromAdm_passconfActionPerformed(evt);
-            }
-        });
-        JPF_fromAdm_passconf.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                JPF_fromAdm_passconfKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JPF_fromAdm_passconfKeyReleased(evt);
-            }
-        });
 
         lbl_form_pass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_pass.setText("Contraseña");
@@ -650,70 +461,17 @@ public class main_Admin extends javax.swing.JFrame {
         txtf_formAdm_dni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtf_formAdm_dni.setBorder(null);
         txtf_formAdm_dni.setNextFocusableComponent(DC_formAdm_borndate);
-        txtf_formAdm_dni.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_dniFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_dniFocusLost(evt);
-            }
-        });
-        txtf_formAdm_dni.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_dniKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_dniKeyReleased(evt);
-            }
-        });
 
         txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         txtf_formAdm_phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtf_formAdm_phone.setBorder(null);
         txtf_formAdm_phone.setNextFocusableComponent(txtf_formAdm_dni);
-        txtf_formAdm_phone.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_phoneFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtf_formAdm_phoneFocusLost(evt);
-            }
-        });
-        txtf_formAdm_phone.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_phoneKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtf_formAdm_phoneKeyReleased(evt);
-            }
-        });
 
         CB_formAdm_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline", "Loged" }));
         CB_formAdm_state.setSelectedItem("Offline");
 
         txt_formAdm_activity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_formAdm_activity.setText("0");
-        txt_formAdm_activity.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_formAdm_activityFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_formAdm_activityFocusLost(evt);
-            }
-        });
-        txt_formAdm_activity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_formAdm_activityActionPerformed(evt);
-            }
-        });
-        txt_formAdm_activity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_formAdm_activityKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_formAdm_activityKeyReleased(evt);
-            }
-        });
 
         lbl_formAdm_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formAdm_activityERR.setText(" ");
@@ -737,20 +495,20 @@ public class main_Admin extends javax.swing.JFrame {
                 .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PNL_drawFormLayout.createSequentialGroup()
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                                .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbl_form_avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_formA_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_form_hireDate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_formAdm_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_drawFormLayout.createSequentialGroup()
-                                .addComponent(lbl_form_bornDate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_form_avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_formA_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_form_hireDate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formAdm_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PNL_drawFormLayout.createSequentialGroup()
+                                    .addGap(37, 37, 37)
+                                    .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbl_form_bornDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_form_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_form_passConf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(JPF_fromAdm_passconf)
@@ -775,32 +533,25 @@ public class main_Admin extends javax.swing.JFrame {
                     .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PNL_drawFormLayout.createSequentialGroup()
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbl_form_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbl_form_activity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_formAdmCreate_back, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_formAdm_activityERR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbl_form_dni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtf_formAdm_dni)
-                                .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtf_formAdm_email)
-                                .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtf_formAdm_phone)
-                                .addComponent(lbl_form_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 54, Short.MAX_VALUE))
+                            .addComponent(btn_formAdmCreate_back, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_form_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formAdm_activityERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_form_dni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_dni)
+                            .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_email)
+                            .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formAdm_phone)
+                            .addComponent(lbl_form_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 52, Short.MAX_VALUE))
         );
         PNL_drawFormLayout.setVerticalGroup(
             PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -810,11 +561,7 @@ public class main_Admin extends javax.swing.JFrame {
                     .addGroup(PNL_drawFormLayout.createSequentialGroup()
                         .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                                .addComponent(lbl_form_avatar)
-                                .addGap(13, 13, 13)
-                                .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
                                 .addComponent(lbl_form_userName)
                                 .addGap(0, 0, 0)
@@ -827,73 +574,75 @@ public class main_Admin extends javax.swing.JFrame {
                                 .addComponent(JPF_fromAdm_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(17, 17, 17)
                                 .addComponent(lbl_form_passConf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JPF_fromAdm_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PNL_drawFormLayout.createSequentialGroup()
+                                .addComponent(JPF_fromAdm_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_form_name))
-                            .addComponent(btn_formA_Avatar))
+                                .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbl_form_name)
+                                    .addComponent(lbl_form_bornDate)))
+                            .addGroup(PNL_drawFormLayout.createSequentialGroup()
+                                .addComponent(lbl_form_avatar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_formA_Avatar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtf_formAdm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formAdm_borndateERR))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
+                                .addComponent(txtf_formAdm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lbl_form_lastName)
-                                    .addComponent(lbl_form_bornDate))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbl_form_hireDate)))
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_form_email)
-                            .addComponent(lbl_form_hireDate))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_formAdm_borndateERR)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtf_formAdm_email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_form_phone)
+                            .addComponent(lbl_form_email)
                             .addComponent(lbl_form_state))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtf_formAdm_email, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CB_formAdm_state))
+                        .addGap(0, 0, 0)
+                        .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_form_phone)
+                            .addComponent(lbl_form_activity))
                         .addGap(0, 0, 0)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CB_formAdm_state)
-                            .addComponent(txtf_formAdm_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtf_formAdm_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                            .addComponent(txt_formAdm_activity))
+                        .addGap(0, 0, 0)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_form_dni)
-                            .addComponent(lbl_form_activity))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_formAdm_activity)
-                            .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_formAdm_activityERR))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_form_dni)
+                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_formAdmCreate_back)
@@ -921,7 +670,7 @@ public class main_Admin extends javax.swing.JFrame {
             PNL_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE))
         );
 
         getContentPane().add(PNL_form, java.awt.BorderLayout.CENTER);
@@ -939,11 +688,6 @@ public class main_Admin extends javax.swing.JFrame {
 
             }
         ));
-        TABLA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TABLAMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(TABLA);
 
         javax.swing.GroupLayout PNL_tableLayout = new javax.swing.GroupLayout(PNL_table);
@@ -967,19 +711,9 @@ public class main_Admin extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ANTERIOR.setText("<");
-        ANTERIOR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANTERIORActionPerformed(evt);
-            }
-        });
         jPanel3.add(ANTERIOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         SIGUIENTE.setText(">");
-        SIGUIENTE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SIGUIENTEActionPerformed(evt);
-            }
-        });
         jPanel3.add(SIGUIENTE, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
         CAJA.setEditable(false);
@@ -988,19 +722,9 @@ public class main_Admin extends javax.swing.JFrame {
         jPanel3.add(CAJA, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 80, 30));
 
         primero.setText("|<");
-        primero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                primeroActionPerformed(evt);
-            }
-        });
         jPanel3.add(primero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         ultimo.setText(">|");
-        ultimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultimoActionPerformed(evt);
-            }
-        });
         jPanel3.add(ultimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1015,18 +739,8 @@ public class main_Admin extends javax.swing.JFrame {
         );
 
         btn_tbl_back.setText("V");
-        btn_tbl_back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tbl_backActionPerformed(evt);
-            }
-        });
 
         CB_tbl_entries.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "10", "15", "20", "50", "100" }));
-        CB_tbl_entries.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_tbl_entriesActionPerformed(evt);
-            }
-        });
 
         lbl_rowBYpag.setText("Show entries:");
 
@@ -1120,210 +834,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
         
-        BLL_Admin.BLL_TBL_Previous();
-    }//GEN-LAST:event_ANTERIORActionPerformed
-
-    private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-        //pagina.currentPageIndex += 1;
-        //pagina.initLinkBox();
-    }//GEN-LAST:event_SIGUIENTEActionPerformed
-
-    private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
-        //pagina.currentPageIndex = 1;
-        //pagina.initLinkBox();
-    }//GEN-LAST:event_primeroActionPerformed
-
-    private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
-        //pagina.currentPageIndex = pagina.maxPageIndex;
-        //pagina.initLinkBox();
-    }//GEN-LAST:event_ultimoActionPerformed
-
-    private void btn_tbl_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tbl_backActionPerformed
-        //this.dispose();
-        //BLL_Admin.BLL_FA_mainBack();
-    }//GEN-LAST:event_btn_tbl_backActionPerformed
-
-    private void CB_tbl_entriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_tbl_entriesActionPerformed
-        //pagina.itemsPerPage = Integer.parseInt(CB_tbl_entries.getSelectedItem().toString());
-        //pagina.currentPageIndex = 1;
-        //pagina.initLinkBox();
-    }//GEN-LAST:event_CB_tbl_entriesActionPerformed
-
-    private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABLAMouseClicked
-        BLL_Admin.BLL_TableMouseClick(evt);
-    }//GEN-LAST:event_TABLAMouseClicked
-        
-    private void txt_formAdm_activityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyReleased
-        //BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityKeyReleased
-
-    private void txt_formAdm_activityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_formAdm_activityKeyTyped
-        //BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityKeyTyped
-
-    private void txt_formAdm_activityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_formAdm_activityActionPerformed
-        //BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityActionPerformed
-
-    private void txt_formAdm_activityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusLost
-        btn_formAdmCreate_create.requestFocus();
-    }//GEN-LAST:event_txt_formAdm_activityFocusLost
-
-    private void txt_formAdm_activityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_formAdm_activityFocusGained
-        //BLL_Admin.BLL_Activity();
-    }//GEN-LAST:event_txt_formAdm_activityFocusGained
-
-    private void txtf_formAdm_phoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyReleased
-        //BLL_Admin.BLL_txtPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneKeyReleased
-
-    private void txtf_formAdm_phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneKeyTyped
-        //BLL_Admin.BLL_txtPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneKeyTyped
-
-    private void txtf_formAdm_phoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusLost
-        //BLL_Admin.BLL_txtPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneFocusLost
-
-    private void txtf_formAdm_phoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_phoneFocusGained
-        //BLL_Admin.BLL_FA_CleanPhone();
-    }//GEN-LAST:event_txtf_formAdm_phoneFocusGained
-
-    private void txtf_formAdm_dniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniKeyReleased
-        //BLL_Admin.BLL_txtDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniKeyReleased
-
-    private void txtf_formAdm_dniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniKeyTyped
-        //BLL_Admin.BLL_txtDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniKeyTyped
-
-    private void txtf_formAdm_dniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusLost
-        //BLL_Admin.BLL_txtDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniFocusLost
-
-    private void txtf_formAdm_dniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_dniFocusGained
-        //BLL_Admin.BLL_FA_CleanDNI();
-    }//GEN-LAST:event_txtf_formAdm_dniFocusGained
-
-    private void JPF_fromAdm_passconfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyReleased
-        //BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfKeyReleased
-
-    private void JPF_fromAdm_passconfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfKeyTyped
-        //BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfKeyTyped
-
-    private void JPF_fromAdm_passconfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfActionPerformed
-        //BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfActionPerformed
-
-    private void JPF_fromAdm_passconfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passconfFocusLost
-        //BLL_Admin.BLL_JPF_PassConfirm();
-    }//GEN-LAST:event_JPF_fromAdm_passconfFocusLost
-
-    private void txtf_formAdm_lastnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyReleased
-        //BLL_Admin.BLL_txtLastname();
-    }//GEN-LAST:event_txtf_formAdm_lastnameKeyReleased
-
-    private void txtf_formAdm_lastnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameKeyTyped
-        //BLL_Admin.BLL_txtLastname();
-    }//GEN-LAST:event_txtf_formAdm_lastnameKeyTyped
-
-    private void txtf_formAdm_lastnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusLost
-        //BLL_Admin.BLL_txtLastname();
-        
-    }//GEN-LAST:event_txtf_formAdm_lastnameFocusLost
-
-    private void txtf_formAdm_lastnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_lastnameFocusGained
-
-        //BLL_Admin.BLL_FA_CleanLastName();
-    }//GEN-LAST:event_txtf_formAdm_lastnameFocusGained
-
-    private void btn_formAdmCreate_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_createActionPerformed
-        //
-    }//GEN-LAST:event_btn_formAdmCreate_createActionPerformed
-
-    private void btn_formAdmCreate_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formAdmCreate_backActionPerformed
-        //BLL_Admin.BLL_FA_HideNewFormPanel();
-    }//GEN-LAST:event_btn_formAdmCreate_backActionPerformed
-
-    private void btn_formA_AvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_formA_AvatarActionPerformed
-        //BLL_Admin.BLL_Avatar();
-    }//GEN-LAST:event_btn_formA_AvatarActionPerformed
-
-    private void JPF_fromAdm_passKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyReleased
-        //BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passKeyReleased
-
-    private void JPF_fromAdm_passKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passKeyTyped
-        //BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passKeyTyped
-
-    private void JPF_fromAdm_passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusLost
-        //BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passFocusLost
-
-    private void JPF_fromAdm_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JPF_fromAdm_passFocusGained
-
-        //BLL_Admin.BLL_JPF_Password();
-    }//GEN-LAST:event_JPF_fromAdm_passFocusGained
-
-    private void DC_formAdm_borndatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_borndatePropertyChange
-        //BLL_Admin.BLL_DCBornDate();
-    }//GEN-LAST:event_DC_formAdm_borndatePropertyChange
-
-    private void txtf_formAdm_usernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyReleased
-        //BLL_Admin.BLL_txtUsername();
-    }//GEN-LAST:event_txtf_formAdm_usernameKeyReleased
-
-    private void txtf_formAdm_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameKeyTyped
-        //BLL_Admin.BLL_txtUsername();
-    }//GEN-LAST:event_txtf_formAdm_usernameKeyTyped
-
-    private void txtf_formAdm_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_usernameFocusLost
-        //BLL_Admin.BLL_txtUsername();
-    }//GEN-LAST:event_txtf_formAdm_usernameFocusLost
-
-    private void txtf_formAdm_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyReleased
-        //BLL_Admin.BLL_txtEmail();
-    }//GEN-LAST:event_txtf_formAdm_emailKeyReleased
-
-    private void txtf_formAdm_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailKeyTyped
-        //BLL_Admin.BLL_txtEmail();
-    }//GEN-LAST:event_txtf_formAdm_emailKeyTyped
-
-    private void txtf_formAdm_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusLost
-        //BLL_Admin.BLL_txtEmail();
-        txtf_formAdm_phone.requestFocus();
-    }//GEN-LAST:event_txtf_formAdm_emailFocusLost
-
-    private void txtf_formAdm_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_emailFocusGained
-        //BLL_Admin.BLL_FA_CleanEmail();
-    }//GEN-LAST:event_txtf_formAdm_emailFocusGained
-
-    private void txtf_formAdm_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyReleased
-        //BLL_Admin.BLL_txtName();
-    }//GEN-LAST:event_txtf_formAdm_nameKeyReleased
-
-    private void txtf_formAdm_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameKeyTyped
-        //BLL_Admin.BLL_txtName();
-    }//GEN-LAST:event_txtf_formAdm_nameKeyTyped
-
-    private void txtf_formAdm_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusLost
-        //BLL_Admin.BLL_txtName();
-    }//GEN-LAST:event_txtf_formAdm_nameFocusLost
-
-    private void txtf_formAdm_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtf_formAdm_nameFocusGained
-        //BLL_Admin.BLL_FA_CleanName();
-    }//GEN-LAST:event_txtf_formAdm_nameFocusGained
-
-    private void DC_formAdm_singdatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DC_formAdm_singdatePropertyChange
-        //BLL_Admin.BLL_DCSingDate();
-    }//GEN-LAST:event_DC_formAdm_singdatePropertyChange
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;

@@ -24,6 +24,7 @@ import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.nav.model.tools.menu_gen;
+import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.tools.format;
 import framework.tools.functions;
 import framework.mod.user.admin.model.tools.validate;
@@ -55,7 +56,7 @@ public class dummieAdm_gen {
                         dummieAdm_gen.dummieAdmin();
                     }
                     json.AdminJson_Autosave();
-                    main_Admin.runTABLE();
+                    Controler_mainAdmin.runTABLE();
                     back = true;
                 } catch (Exception e) {
                     functions.showERR("ERR on dummie creation. Please try again");

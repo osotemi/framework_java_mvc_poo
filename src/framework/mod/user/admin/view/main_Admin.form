@@ -52,7 +52,7 @@
         </Property>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[0, 70]"/>
+          <Dimension value="[0, 50]"/>
         </Property>
       </Properties>
       <Constraints>
@@ -69,7 +69,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -122,7 +122,7 @@
                   <Component id="btn_createDummies" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_deleteAllAdmin" min="-2" pref="64" max="-2" attributes="0"/>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Component id="btn_saveXML" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="btn_saveTXT" min="-2" max="-2" attributes="0"/>
@@ -431,7 +431,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="588" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="608" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -457,25 +457,23 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="lbl_form_avatar" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="btn_formA_Avatar" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="lbl_form_hireDate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="lbl_formAdm_borndateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="DC_formAdm_borndate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lbl_form_avatar" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="btn_formA_Avatar" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="lbl_form_hireDate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="lbl_formAdm_borndateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="DC_formAdm_borndate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                              <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Component id="lbl_form_bornDate" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="DC_formAdm_singdate" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lbl_form_bornDate" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lbl_formAdm_singdateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lbl_form_passConf" max="32767" attributes="0"/>
                                       <Component id="JPF_fromAdm_passconf" max="32767" attributes="0"/>
@@ -503,40 +501,29 @@
                               <Component id="lblMainform" min="-2" pref="424" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="lbl_form_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                                  <Component id="CB_formAdm_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="lbl_form_activity" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="txt_formAdm_activity" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="btn_formAdmCreate_back" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="lbl_formAdm_activityERR" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="lbl_formAdm_singdateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="DC_formAdm_singdate" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="btn_formAdmCreate_back" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                       <Component id="lbl_form_salary" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="CB_formAdm_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="txt_formAdm_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_formAdm_activityERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_benefit" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbl_form_benefit" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lbl_formAdm_dniERR" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lbl_form_dni" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtf_formAdm_dni" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lbl_formAdm_phoneERR" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtf_formAdm_email" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lbl_formAdm_emailERR" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtf_formAdm_phone" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lbl_form_phone" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="btn_formAdmCreate_create" min="-2" pref="203" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbl_formAdm_dniERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_form_dni" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_dni" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_phoneERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_email" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formAdm_emailERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formAdm_phone" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_form_phone" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btn_formAdmCreate_create" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="54" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -548,12 +535,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblMainform" min="-2" pref="34" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lbl_form_avatar" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lbl_form_userName" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -566,91 +548,92 @@
                                           <Component id="JPF_fromAdm_pass" min="-2" pref="19" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lbl_formAdm_passERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                           <Component id="lbl_form_passConf" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="JPF_fromAdm_passconf" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbl_formAdm_passconfERR" min="-2" pref="13" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lbl_form_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_form_bornDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lbl_form_avatar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btn_formA_Avatar" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lbl_formAdm_passconfERR" min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Component id="txtf_formAdm_name" min="-2" pref="19" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_form_name" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="btn_formA_Avatar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtf_formAdm_name" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="lbl_formAdm_borndateERR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_formAdm_nameERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                          <Component id="lbl_formAdm_nameERR" min="-2" pref="15" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lbl_form_lastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lbl_form_bornDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_form_hireDate" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtf_formAdm_lastname" min="-2" pref="19" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="DC_formAdm_borndate" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbl_formAdm_borndateERR" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_formAdm_lastnameERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_form_email" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_hireDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtf_formAdm_email" alignment="1" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="txtf_formAdm_lastname" min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="DC_formAdm_singdate" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_formAdm_emailERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="lbl_formAdm_lastnameERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                                       <Component id="lbl_formAdm_singdateERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_form_phone" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_email" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_form_state" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtf_formAdm_email" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="CB_formAdm_state" alignment="3" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="lbl_formAdm_emailERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbl_form_phone" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_activity" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CB_formAdm_state" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_phone" min="-2" pref="24" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_formAdm_phoneERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_form_dni" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_activity" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtf_formAdm_phone" pref="24" max="32767" attributes="0"/>
                                       <Component id="txt_formAdm_activity" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_dni" min="-2" pref="24" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_formAdm_dniERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="lbl_formAdm_phoneERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                                       <Component id="lbl_formAdm_activityERR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbl_form_dni" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_form_salary" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtf_formAdm_dni" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                                       <Component id="lbl_form_benefit" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lbl_formAdm_dniERR" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btn_formAdmCreate_back" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -674,9 +657,6 @@
                   <Properties>
                     <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="DC_formAdm_singdatePropertyChange"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -753,12 +733,6 @@
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_nameFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_nameFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_nameKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_nameKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -777,12 +751,6 @@
                       <ComponentRef name="txtf_formAdm_phone"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_emailFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_emailFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_emailKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_emailKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -801,11 +769,6 @@
                       <ComponentRef name="JPF_fromAdm_pass"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_usernameFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_usernameKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_usernameKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -817,9 +780,6 @@
                       <ComponentRef name="txtf_formAdm_username"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="DC_formAdm_borndatePropertyChange"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -835,12 +795,6 @@
                       <ComponentRef name="JPF_fromAdm_passconf"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JPF_fromAdm_passFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JPF_fromAdm_passFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JPF_fromAdm_passKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JPF_fromAdm_passKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -850,9 +804,6 @@
                     <Property name="text" type="java.lang.String" value="Cargar Imagen"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_formA_AvatarActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -861,17 +812,11 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Volver"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_formAdmCreate_backActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_formAdmCreate_create">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Crear"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_formAdmCreate_createActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtf_formAdm_lastname">
                   <Properties>
@@ -887,12 +832,6 @@
                       <ComponentRef name="txtf_formAdm_email"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_lastnameFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_lastnameFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_lastnameKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_lastnameKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -908,12 +847,6 @@
                       <ComponentRef name="btn_formA_Avatar"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="JPF_fromAdm_passconfFocusLost"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JPF_fromAdm_passconfActionPerformed"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JPF_fromAdm_passconfKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JPF_fromAdm_passconfKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1051,12 +984,6 @@
                       <ComponentRef name="DC_formAdm_borndate"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_dniFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_dniFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_dniKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_dniKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1074,12 +1001,6 @@
                       <ComponentRef name="txtf_formAdm_dni"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_phoneFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtf_formAdm_phoneFocusLost"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_phoneKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtf_formAdm_phoneKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1107,13 +1028,6 @@
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_formAdm_activityFocusGained"/>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_formAdm_activityFocusLost"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_formAdm_activityActionPerformed"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_formAdm_activityKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_formAdm_activityKeyReleased"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1296,9 +1210,6 @@
                       <Table columnCount="0" rowCount="4"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TABLAMouseClicked"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1324,9 +1235,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ANTERIORActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1340,9 +1248,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SIGUIENTEActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1373,9 +1278,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="|&lt;"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="primeroActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1389,9 +1291,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;|"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ultimoActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1425,9 +1324,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="V"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_tbl_backActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="CB_tbl_entries">
           <Properties>
@@ -1442,9 +1338,6 @@
               </StringArray>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CB_tbl_entriesActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>

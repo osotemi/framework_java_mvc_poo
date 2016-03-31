@@ -20,9 +20,7 @@ import static framework.mod.user.admin.view.main_Admin.DC_formAdm_borndate;
 import static framework.mod.user.admin.view.main_Admin.DC_formAdm_singdate;
 import static framework.mod.user.admin.view.main_Admin.TABLA;
 import static framework.mod.user.admin.view.main_Admin.combo;
-import static framework.mod.user.admin.view.main_Admin.comboActionPerformed;
 import static framework.mod.user.admin.view.main_Admin.jPanel5;
-import static framework.mod.user.admin.view.main_Admin.runTABLE;
 import static framework.mod.user.admin.view.main_Admin.sorter;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -98,6 +96,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         _BTN_primero,
         _BTN_ultimo,
         _BTN_TBL_back,
+        _combo,
         
         _CB_TBL_entries,
         _TABLA,
@@ -132,14 +131,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
                 BLL_Admin.BLL_FA_mainBack();
             }
         });
-
-        combo.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboActionPerformed(evt);
-            }
-        });
-        
+                
         //Inicia los componentes del menu de botones
         MainAdmin.btn_createAdmin.setActionCommand("_BTN_create");
         MainAdmin.btn_createAdmin.addActionListener(this);
@@ -198,6 +190,9 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         
         MainAdmin.CB_tbl_entries.setActionCommand("_CB_TBL_entries");
         MainAdmin.CB_tbl_entries.addActionListener(this);
+        
+        MainAdmin.combo.setActionCommand("_combo");
+        MainAdmin.combo.addActionListener(this);
         
         MainAdmin.TABLA.setName("_TABLA");
         MainAdmin.TABLA.addMouseListener(this);
@@ -365,6 +360,9 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
             case _CB_TBL_entries:
                 BLL_Admin.BLL_TBL_CB_entries();
                 break;
+            case _combo:
+                BLL_Admin.BLL_TBL_combo();
+                break;
             case _JPF_passConf:
                 BLL_Admin.BLL_JPF_PassConfirm();
                 break;
@@ -409,8 +407,38 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void keyPressed(KeyEvent evt) {
+        switch(Accion.valueOf(evt.getComponent().getName())){
+            case _JPF_pass:
+                BLL_Admin.BLL_JPF_Password();
+                break;
+            case _JPF_passConf:
+                BLL_Admin.BLL_JPF_PassConfirm();
+                break;
+            case _TXT_activity:
+                BLL_Admin.BLL_Activity();
+                break;
+            case _TXT_dni:
+                BLL_Admin.BLL_txtDNI();
+                break;
+            case _TXT_email:
+                BLL_Admin.BLL_txtEmail();
+                break;
+            case _TXT_lastName:
+                BLL_Admin.BLL_txtLastname();
+                break;
+            case _TXT_name:
+                BLL_Admin.BLL_txtName();
+                break;
+            case _TXT_phone:
+                BLL_Admin.BLL_txtPhone();
+                break;
+            case _TXT_userName:
+                BLL_Admin.BLL_txtUsername();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override

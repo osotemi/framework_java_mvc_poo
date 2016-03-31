@@ -6,6 +6,7 @@
 package framework.mod.user.admin.model.BLL;
 
 import framework.mod.nav.model.tools.menu_gen;
+import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
@@ -17,6 +18,7 @@ import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.model.tools.txt;
 import framework.mod.user.admin.model.tools.xml;
 import static framework.mod.user.admin.view.main_Admin.CB_tbl_entries;
+import static framework.mod.user.admin.view.main_Admin.combo;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -142,6 +144,12 @@ public class BLL_Admin {
         pagina.itemsPerPage = Integer.parseInt(CB_tbl_entries.getSelectedItem().toString());
         pagina.currentPageIndex = 1;
         pagina.initLinkBox();
+    }
+    
+    public static void BLL_TBL_combo(){
+        pagina.currentPageIndex = 1;
+        ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).filtrar();
+        main_Admin.combo.requestFocus();
     }
     
     public static void BLL_txtName() {
@@ -279,7 +287,7 @@ public class BLL_Admin {
                     adm = singletonAdmin.AdminTableArray.get(pos);
                     singletonAdmin.AdminTableArray.remove(adm);
                     miniSimpleTableModel_Admin.datosaux.remove(adm);
-                    main_Admin.runTABLE();
+                    Controler_mainAdmin.runTABLE();
                     json.AdminJson_Autosave();
                     main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_delok"));
                     main_Admin.lblMainform.setOpaque(true);
@@ -313,7 +321,7 @@ public class BLL_Admin {
 
         if (opc == 0) {
             singletonAdmin.AdminTableArray = new ArrayList<>();
-            main_Admin.runTABLE();
+            Controler_mainAdmin.runTABLE();
             json.AdminJson_Autosave();
             main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_DeletAll"));
             main_Admin.lblMainform.setBackground(Color.red);
@@ -480,7 +488,7 @@ public class BLL_Admin {
 
         if (valid) {
             json.AdminJson_Autosave();
-            main_Admin.runTABLE();
+            Controler_mainAdmin.runTABLE();
             main_Admin.lblMainform.setOpaque(true);
             main_Admin.lblMainform.setBackground(Color.GREEN);
             main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("OK_modify"));
@@ -505,7 +513,7 @@ public class BLL_Admin {
         if (pos == -1) {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
             json.AdminJson_Autosave();
-            main_Admin.runTABLE();
+            Controler_mainAdmin.runTABLE();
             valid = true;
         } else {
             main_Admin.lbl_formAdm_dniERR.setText(LanguageAdm.getInstance().getProperty("errVal_dni"));
