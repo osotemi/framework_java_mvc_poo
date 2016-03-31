@@ -9,6 +9,7 @@ import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.clss.DateO;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.view.main_Admin;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import javax.swing.table.AbstractTableModel;
 public class miniSimpleTableModel_Admin extends AbstractTableModel{
     public static ArrayList<Admin> data = new ArrayList<Admin>();
     public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
-    String[] columns = {"Nombre", "Apellidos", "Contratacion", "Actividad"};
+    String[] columns = {LanguageAdm.getInstance().getProperty("col_name"), LanguageAdm.getInstance().getProperty("col_lastName"), LanguageAdm.getInstance().getProperty("col_hireDate"), LanguageAdm.getInstance().getProperty("col_salary")};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override
@@ -63,7 +64,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
                 break;
 
             case 3:
-                dev = fila.getActivity();
+                dev = fila.getSalary();
                 break;
             
             case 4:
@@ -98,7 +99,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
                 break;
             
             case 3:
-                fila.setActivity(Integer.parseInt(value.toString()));
+                fila.setSalary(Integer.parseInt(value.toString()));
                 break;
 
         }
@@ -143,8 +144,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
                     cont++;
                 }
             }
-            main_Admin.jLabel13.setText(String.valueOf(cont));
-            System.out.println("word selected: " + nom);
+            main_Admin.lbl_entries.setText(String.valueOf(cont));
             pagina.initLinkBox();
         }
     }

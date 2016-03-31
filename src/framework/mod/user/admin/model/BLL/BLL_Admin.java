@@ -10,6 +10,7 @@ import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.mod.user.admin.view.main_Admin;
 import framework.mod.user.admin.model.tools.json;
@@ -261,7 +262,8 @@ public class BLL_Admin {
         if (n != 0) {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errorTBL_selectUser"), LanguageAdm.getInstance().getProperty("error"), 2);
+                
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
@@ -270,7 +272,7 @@ public class BLL_Admin {
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;
                 pos = searchAL();
-                int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a " + lastname + ", " + name + " con dni " + dni, "Atención!", JOptionPane.WARNING_MESSAGE);
+                int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("mes_askDelet_I") + lastname + ", " + name + LanguageAdm.getInstance().getProperty("mes_askDelet_II") + dni, LanguageAdm.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
 
                 if (opc == 0) {
                     ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).removeRow(selec);
@@ -279,7 +281,7 @@ public class BLL_Admin {
                     miniSimpleTableModel_Admin.datosaux.remove(adm);
                     main_Admin.runTABLE();
                     json.AdminJson_Autosave();
-                    main_Admin.lblMainform.setText("Eliminado");
+                    main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_delok"));
                     main_Admin.lblMainform.setOpaque(true);
                     main_Admin.lblMainform.setBackground(Color.red);
                     Timer timer = new Timer(4000, task);
@@ -291,7 +293,7 @@ public class BLL_Admin {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_emptyList"), LanguageAdm.getInstance().getProperty("error"), 2);
         }
         return false;
     }
@@ -307,13 +309,13 @@ public class BLL_Admin {
             }
         };
 
-        int opc = JOptionPane.showConfirmDialog(null, "¿Desea eliminar a todos los usuarios?", "Atención!", JOptionPane.WARNING_MESSAGE);
+        int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("askDelet"), LanguageAdm.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
 
         if (opc == 0) {
             singletonAdmin.AdminTableArray = new ArrayList<>();
             main_Admin.runTABLE();
             json.AdminJson_Autosave();
-            main_Admin.lblMainform.setText("All deleted");
+            main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_DeletAll"));
             main_Admin.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
             timer.setInitialDelay(2000);
@@ -340,7 +342,7 @@ public class BLL_Admin {
             selec = main_Admin.TABLA.getSelectedRow();
 
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errorTBL_selectUser"), "Error!", 2);
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
@@ -354,7 +356,7 @@ public class BLL_Admin {
                 valid = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_emptyList"), LanguageAdm.getInstance().getProperty("error"), 2);
         }
         return valid;
     }
@@ -370,7 +372,7 @@ public class BLL_Admin {
         if (n != 0) {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errorTBL_selectUser"), "Error!", 2);
                 main_Admin.btn_viewAdmin.requestFocus();
                 return;
             } else {
@@ -413,14 +415,14 @@ public class BLL_Admin {
 
                 main_Admin.lblMainform.setOpaque(true);
                 main_Admin.lblMainform.setBackground(Color.green);
-                main_Admin.lblMainform.setText("Hecho!");
+                main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("OK"));
                 visible = false;
 
                 //pager
             } else {
                 main_Admin.lblMainform.setOpaque(true);
                 main_Admin.lblMainform.setBackground(Color.red);
-                main_Admin.lblMainform.setText("Error");
+                main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("error"));
                 visible = true;
             }
         } else {
@@ -481,7 +483,7 @@ public class BLL_Admin {
             main_Admin.runTABLE();
             main_Admin.lblMainform.setOpaque(true);
             main_Admin.lblMainform.setBackground(Color.GREEN);
-            main_Admin.lblMainform.setText("Modificado!");
+            main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("OK_modify"));
             Timer timer = new Timer(1000, task);
             timer.setInitialDelay(3000);
             timer.setRepeats(false);
@@ -494,9 +496,9 @@ public class BLL_Admin {
          * @param int
          */
     public static boolean createAdmAL() {
-        String tryagain[] = {"Try again", "Exit"};
+        
         String dni = "";
-        int pos = 0, opt_tryagain = 0;
+        int pos = 0;
         boolean valid = false;
 
         pos = searchAL();
@@ -506,8 +508,8 @@ public class BLL_Admin {
             main_Admin.runTABLE();
             valid = true;
         } else {
-            main_Admin.lbl_formAdm_dniERR.setText("DNI no valido");
-            main_Admin.JPF_fromAdm_pass.setToolTipText("Ya existe un usuario con ese DNI");
+            main_Admin.lbl_formAdm_dniERR.setText(LanguageAdm.getInstance().getProperty("errVal_dni"));
+            main_Admin.JPF_fromAdm_pass.setToolTipText(LanguageAdm.getInstance().getProperty("mes_dniAlreadyExist"));
             valid = false;
         }
         return valid;
@@ -537,7 +539,7 @@ public class BLL_Admin {
      * @return int position or -1 if the newuser is not on the array or -2 if
      * select Cancel option
      */
-    public static int searchALcombo() {
+    /*public static int searchALcombo() {
         Admin adm = new Admin();
         String sltUser = "", dni = "";
         int pos = -3, al_size;
@@ -570,7 +572,7 @@ public class BLL_Admin {
 
         return pos;
     }
-
+    */
     /**
      * Initialite array list Admin and loads it from JSON file
      */

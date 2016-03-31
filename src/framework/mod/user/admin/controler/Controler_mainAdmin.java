@@ -9,6 +9,7 @@ import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.model.tools.autoComplete.AutocompleteJComboBox;
 import framework.mod.user.admin.model.tools.autoComplete.StringSearchable;
 import framework.mod.user.admin.model.tools.dummieAdm_gen;
@@ -20,7 +21,6 @@ import static framework.mod.user.admin.view.main_Admin.DC_formAdm_singdate;
 import static framework.mod.user.admin.view.main_Admin.TABLA;
 import static framework.mod.user.admin.view.main_Admin.combo;
 import static framework.mod.user.admin.view.main_Admin.comboActionPerformed;
-import static framework.mod.user.admin.view.main_Admin.jLabel13;
 import static framework.mod.user.admin.view.main_Admin.jPanel5;
 import static framework.mod.user.admin.view.main_Admin.runTABLE;
 import static framework.mod.user.admin.view.main_Admin.sorter;
@@ -43,6 +43,7 @@ import javax.swing.JFrame;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import static framework.mod.user.admin.view.main_Admin.PNL_drawForm;
 import java.beans.PropertyChangeEvent;
+import static framework.mod.user.admin.view.main_Admin.lbl_entries;
 
 /**
  *
@@ -112,7 +113,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         DC_formAdm_borndate.getDateEditor().setEnabled(false);
         DC_formAdm_singdate.getDateEditor().setEnabled(false);
         
-        MainAdmin.setTitle("Formulari Admin");
+        MainAdmin.setTitle(LanguageAdm.getInstance().getProperty("adm_title"));
         MainAdmin.setLocationRelativeTo(null);//centrado
         try {
             icono = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
@@ -280,8 +281,11 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         pagina.inicializa();
         pagina.initLinkBox();
 
-        jLabel13.setText(String.valueOf(singletonAdmin.AdminTableArray.size()));
-
+        lbl_entries.setText(String.valueOf(singletonAdmin.AdminTableArray.size()));
+        main_Admin.lbl_filtBY.setText(LanguageAdm.getInstance().getProperty("tbl_filter"));
+        main_Admin.lbl_rowBYpag.setText(LanguageAdm.getInstance().getProperty("tbl_usrByPage"));
+        main_Admin.btn_tbl_back.setText(LanguageAdm.getInstance().getProperty("tbl_back"));
+        
         //combo lineas
         List<String> myWords = new ArrayList<String>();
         for (int i = 0; i <= singletonAdmin.AdminTableArray.size() - 1; i++) {

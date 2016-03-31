@@ -33,8 +33,11 @@ public class wdwSettings extends javax.swing.JFrame {
         btn_currDolar = new javax.swing.JButton();
         btn_currPound = new javax.swing.JButton();
         btn_currEuro = new javax.swing.JButton();
+        TABfdate = new javax.swing.JPanel();
+        JCB_formatDate = new javax.swing.JComboBox<>();
+        lbl_fdate = new javax.swing.JLabel();
         TABdecimal = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_decimal = new javax.swing.JLabel();
         JSP_decimals = new javax.swing.JSpinner();
         TABfileType = new javax.swing.JPanel();
         btn_confJSON = new javax.swing.JButton();
@@ -52,9 +55,6 @@ public class wdwSettings extends javax.swing.JFrame {
         JP_langVLC = new javax.swing.JPanel();
         btn_valencia = new javax.swing.JButton();
         TABlookNfeel = new javax.swing.JPanel();
-        TABfdate = new javax.swing.JPanel();
-        JCB_formatDate = new javax.swing.JComboBox<>();
-        LBL_formatDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +83,11 @@ public class wdwSettings extends javax.swing.JFrame {
         btn_currEuro.setMaximumSize(new java.awt.Dimension(100, 100));
         btn_currEuro.setMinimumSize(new java.awt.Dimension(100, 100));
         btn_currEuro.setPreferredSize(new java.awt.Dimension(100, 100));
+        btn_currEuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_currEuroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TABcurrencyLayout = new javax.swing.GroupLayout(TABcurrency);
         TABcurrency.setLayout(TABcurrencyLayout);
@@ -91,13 +96,15 @@ public class wdwSettings extends javax.swing.JFrame {
             .addGroup(TABcurrencyLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(TABcurrencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBL_currency, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                     .addGroup(TABcurrencyLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addComponent(btn_currEuro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(48, 48, 48)
                         .addComponent(btn_currDolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
-                        .addComponent(btn_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LBL_currency, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addComponent(btn_currPound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(60, 60, 60))
         );
         TABcurrencyLayout.setVerticalGroup(
@@ -115,8 +122,36 @@ public class wdwSettings extends javax.swing.JFrame {
 
         TABgen.addTab("Currency", TABcurrency);
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Decimales");
+        JCB_formatDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dd/MM/yyyy", "dd-MM-yyyy", "yyyy/MM/dd", "yyyy-MM-dd" }));
+
+        lbl_fdate.setText("_");
+        lbl_fdate.setOpaque(true);
+
+        javax.swing.GroupLayout TABfdateLayout = new javax.swing.GroupLayout(TABfdate);
+        TABfdate.setLayout(TABfdateLayout);
+        TABfdateLayout.setHorizontalGroup(
+            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABfdateLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_fdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JCB_formatDate, 0, 185, Short.MAX_VALUE))
+                .addContainerGap(333, Short.MAX_VALUE))
+        );
+        TABfdateLayout.setVerticalGroup(
+            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TABfdateLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(lbl_fdate, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JCB_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+
+        TABgen.addTab("Date Format", TABfdate);
+
+        lbl_decimal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_decimal.setText("_");
 
         javax.swing.GroupLayout TABdecimalLayout = new javax.swing.GroupLayout(TABdecimal);
         TABdecimal.setLayout(TABdecimalLayout);
@@ -124,7 +159,7 @@ public class wdwSettings extends javax.swing.JFrame {
             TABdecimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TABdecimalLayout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JSP_decimals, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(300, Short.MAX_VALUE))
@@ -134,7 +169,7 @@ public class wdwSettings extends javax.swing.JFrame {
             .addGroup(TABdecimalLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addGroup(TABdecimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JSP_decimals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
@@ -203,9 +238,7 @@ public class wdwSettings extends javax.swing.JFrame {
         LBL_selectLanguage.setText("_");
 
         btn_spain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/flags/flag_ES.png"))); // NOI18N
-        btn_spain.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_spain.setBorderPainted(false);
-        btn_spain.setContentAreaFilled(false);
+        btn_spain.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_spain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_spain.setMaximumSize(new java.awt.Dimension(120, 91));
         btn_spain.setMinimumSize(new java.awt.Dimension(120, 91));
@@ -229,9 +262,7 @@ public class wdwSettings extends javax.swing.JFrame {
         );
 
         btn_galiza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/flags/flag_GZ.png"))); // NOI18N
-        btn_galiza.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_galiza.setBorderPainted(false);
-        btn_galiza.setContentAreaFilled(false);
+        btn_galiza.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_galiza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_galiza.setMaximumSize(new java.awt.Dimension(120, 91));
         btn_galiza.setMinimumSize(new java.awt.Dimension(120, 91));
@@ -255,9 +286,7 @@ public class wdwSettings extends javax.swing.JFrame {
         );
 
         btn_unitedk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/flags/flag_UK.png"))); // NOI18N
-        btn_unitedk.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_unitedk.setBorderPainted(false);
-        btn_unitedk.setContentAreaFilled(false);
+        btn_unitedk.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_unitedk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_unitedk.setMaximumSize(new java.awt.Dimension(120, 91));
         btn_unitedk.setMinimumSize(new java.awt.Dimension(120, 91));
@@ -281,9 +310,7 @@ public class wdwSettings extends javax.swing.JFrame {
         );
 
         btn_valencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/flags/flag_VLC.png"))); // NOI18N
-        btn_valencia.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_valencia.setBorderPainted(false);
-        btn_valencia.setContentAreaFilled(false);
+        btn_valencia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_valencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_valencia.setMaximumSize(new java.awt.Dimension(120, 91));
         btn_valencia.setMinimumSize(new java.awt.Dimension(120, 91));
@@ -354,33 +381,6 @@ public class wdwSettings extends javax.swing.JFrame {
 
         TABgen.addTab("Look & Feel", TABlookNfeel);
 
-        JCB_formatDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dd/MM/yyyy", "dd-MM-yyyy", "yyyy/MM/dd", "yyyy-MM-dd" }));
-
-        LBL_formatDate.setText("Formato de fecha");
-
-        javax.swing.GroupLayout TABfdateLayout = new javax.swing.GroupLayout(TABfdate);
-        TABfdate.setLayout(TABfdateLayout);
-        TABfdateLayout.setHorizontalGroup(
-            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABfdateLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(LBL_formatDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JCB_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(333, Short.MAX_VALUE))
-        );
-        TABfdateLayout.setVerticalGroup(
-            TABfdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TABfdateLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(LBL_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCB_formatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
-
-        TABgen.addTab("Date Format", TABfdate);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -402,6 +402,10 @@ public class wdwSettings extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_currEuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_currEuroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_currEuroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,7 +451,6 @@ public class wdwSettings extends javax.swing.JFrame {
     public static javax.swing.JSpinner JSP_decimals;
     public static javax.swing.JLabel LBL_currency;
     public static javax.swing.JLabel LBL_fileType;
-    public static javax.swing.JLabel LBL_formatDate;
     public static javax.swing.JLabel LBL_selectLanguage;
     public static javax.swing.JPanel TABcurrency;
     public static javax.swing.JPanel TABdecimal;
@@ -466,6 +469,7 @@ public class wdwSettings extends javax.swing.JFrame {
     public static javax.swing.JButton btn_spain;
     public static javax.swing.JButton btn_unitedk;
     public static javax.swing.JButton btn_valencia;
-    private javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel lbl_decimal;
+    public static javax.swing.JLabel lbl_fdate;
     // End of variables declaration//GEN-END:variables
 }

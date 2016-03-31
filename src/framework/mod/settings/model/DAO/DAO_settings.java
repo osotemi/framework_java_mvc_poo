@@ -115,29 +115,4 @@ public class DAO_settings {
         //Language
         
     }
-
-    public static void writeConfigFrame(){
-        //Inicializa los mensajes de properties
-        Conf.setTitle(Language.getInstance().getProperty("wdwSettings_title"));
-        //Currency tab
-        Conf.LBL_currency.setText(Language.getInstance().getProperty("curr_mess"));
-        Conf.TABgen.setTitleAt(0, Language.getInstance().getProperty("TABcurrency"));
-        
-        //Date format
-        Conf.LBL_formatDate.setText(Language.getInstance().getProperty("date_mess"));
-        Conf.TABgen.setTitleAt(1, Language.getInstance().getProperty("TABdateform"));
-        
-        //Decimal tab
-        Conf.TABgen.setTitleAt(2, Language.getInstance().getProperty("TABdecimal"));
-        
-        //File type
-        Conf.LBL_fileType.setText(Language.getInstance().getProperty("fileform_mess"));
-        Conf.TABgen.setTitleAt(3, Language.getInstance().getProperty("TABfileType"));
-        
-        //Language
-        Conf.TABgen.setTitleAt(4, Language.getInstance().getProperty("TABlanguage"));
-        
-        //Look&feel
-        Conf.TABgen.setTitleAt(5, Language.getInstance().getProperty("TABlookNfeel"));
-    }
 }

@@ -89,7 +89,7 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
             }
         });
         
-        DAO_settings.writeConfigFrame();
+        writeConfigFrame();
         
         BLL_settings.BLL_drawSettingsPanel();
                 
@@ -135,6 +135,33 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
         
     }
 
+    public static void writeConfigFrame(){
+        //Inicializa los mensajes de properties
+        Conf.setTitle(Language.getInstance().getProperty("wdwSettings_title"));
+        //Currency tab
+        Conf.LBL_currency.setText(Language.getInstance().getProperty("curr_mess"));
+        Conf.TABgen.setTitleAt(0, Language.getInstance().getProperty("TABcurrency"));
+        
+        //Date format
+        Conf.lbl_fdate.setText(Language.getInstance().getProperty("date_mess"));
+        Conf.TABgen.setTitleAt(1, Language.getInstance().getProperty("TABdateform"));
+        
+        //Decimal tab
+        Conf.lbl_decimal.setText(Language.getInstance().getProperty("dec_mess"));
+        Conf.TABgen.setTitleAt(2, Language.getInstance().getProperty("TABdecimal"));
+        
+        //File type
+        Conf.LBL_fileType.setText(Language.getInstance().getProperty("fileform_mess"));
+        Conf.TABgen.setTitleAt(3, Language.getInstance().getProperty("TABfileType"));
+        
+        //Language
+        Conf.TABgen.setTitleAt(4, Language.getInstance().getProperty("TABlanguage"));
+        Conf.LBL_selectLanguage.setText(Language.getInstance().getProperty("lang_mess"));
+        
+        //Look&feel
+        Conf.TABgen.setTitleAt(5, Language.getInstance().getProperty("TABlookNfeel"));
+    }
+    
     @Override
     public void actionPerformed(ActionEvent evt) {
         switch ( Accion.valueOf(evt.getActionCommand()) ){
@@ -162,19 +189,19 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
                 break;
             case _BTN_LNGes: 
                 BLL_settings.BLL_BTN_lang_spanish();
-                DAO_settings.writeConfigFrame();
+                writeConfigFrame();
                 break;
             case _BTN_LNGgz: 
                 BLL_settings.BLL_BTN_lang_galiza();
-                DAO_settings.writeConfigFrame();
+                writeConfigFrame();
                 break;
             case _BTN_LNGuk: 
                 BLL_settings.BLL_BTN_lang_english();
-                DAO_settings.writeConfigFrame();
+                writeConfigFrame();
                 break;
             case _BTN_LNGvlc: 
                 BLL_settings.BLL_BTN_lang_valencia();
-                DAO_settings.writeConfigFrame();
+                writeConfigFrame();
                 break;
             default:
                 break;
