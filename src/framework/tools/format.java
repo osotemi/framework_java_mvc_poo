@@ -6,6 +6,7 @@
 package framework.tools;
 
 import framework.mod.settings.model.clss.Settings;
+import framework.mod.settings.model.clss.singleSettings;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -159,7 +160,8 @@ public class format {
      *
      * @return String
      */
-    public static String formMoneyOut(float amount, Locale currency) {
+    public static String formMoneyOut(float amount) {
+        Locale currency = Settings.getInstance().getCurrency();
         if (currency == Locale.US) {
             amount *= 1.09379f;
         } else if (currency == Locale.UK) {

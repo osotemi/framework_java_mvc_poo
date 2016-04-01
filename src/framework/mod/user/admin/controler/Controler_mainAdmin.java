@@ -6,6 +6,8 @@
 package framework.mod.user.admin.controler;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
+import framework.mod.nav.controler.Controler_main;
+import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
@@ -105,6 +107,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
     
     public void run(){
         BLL_Admin.loadArray();
+        LanguageAdm.getInstance().loadProperties();
         //Initializate components
         Image icono = null;
         MainAdmin.setVisible(true);
@@ -165,7 +168,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         
         MainAdmin.btn_backMain.setActionCommand("_BTN_back");
         MainAdmin.btn_backMain.addActionListener(this);
-        MainAdmin.btn_backMain.setText("Inicio");
+        MainAdmin.btn_backMain.setText(LanguageAdm.getInstance().getProperty("DRW_btnMain"));// corregir
         
         //Inicia los componentes de la TABLA/pagina
         MainAdmin.ANTERIOR.setActionCommand("_BTN_ANTERIOR");
@@ -186,7 +189,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         
         MainAdmin.btn_tbl_back.setActionCommand("_BTN_TBL_back");
         MainAdmin.btn_tbl_back.addActionListener(this);
-        MainAdmin.btn_tbl_back.setText("Volver");
+        MainAdmin.btn_tbl_back.setText(LanguageAdm.getInstance().getProperty("DRW_btnBack"));//corregir
         
         MainAdmin.CB_tbl_entries.setActionCommand("_CB_TBL_entries");
         MainAdmin.CB_tbl_entries.addActionListener(this);
@@ -196,76 +199,91 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         
         MainAdmin.TABLA.setName("_TABLA");
         MainAdmin.TABLA.addMouseListener(this);
+        
         //form Admin
+        MainAdmin.lbl_form_avatar.setText(LanguageAdm.getInstance().getProperty("DRW_lblAvatar"));
         MainAdmin.btn_formA_Avatar.setActionCommand("_BTN_avatar");
         MainAdmin.btn_formA_Avatar.setName("_BTN_avatar");
+        MainAdmin.btn_formA_Avatar.setText(LanguageAdm.getInstance().getProperty("DRW_btnAvatar"));
         MainAdmin.btn_formA_Avatar.addKeyListener(this);
         
         MainAdmin.btn_formAdmCreate_create.setActionCommand("_BTN_formCreate");
         MainAdmin.btn_formAdmCreate_create.setName("_BTN_formCreate");
+        MainAdmin.btn_formAdmCreate_create.setText("");
         MainAdmin.btn_formAdmCreate_create.addKeyListener(this);
         
         MainAdmin.btn_formAdmCreate_back.setActionCommand("_BTN_formBack");
         MainAdmin.btn_formAdmCreate_back.setName("_BTN_formBack");
         MainAdmin.btn_formAdmCreate_back.addKeyListener(this);
 
+        MainAdmin.lbl_form_state.setText(LanguageAdm.getInstance().getProperty("DRW_lblState"));
         MainAdmin.CB_formAdm_state.setActionCommand("_CB_state");
         MainAdmin.CB_formAdm_state.setName("_CB_state");
         MainAdmin.CB_formAdm_state.addKeyListener(this);
         
+        MainAdmin.lbl_form_bornDate.setText(LanguageAdm.getInstance().getProperty("DRW_lblBornDate"));
         MainAdmin.DC_formAdm_borndate.setName("_DC_bornDate");
         MainAdmin.DC_formAdm_borndate.addKeyListener(this);
         
+        MainAdmin.lbl_form_hireDate.setText(LanguageAdm.getInstance().getProperty("DRW_lblSingDate"));
         MainAdmin.DC_formAdm_singdate.setName("_DC_singDate");
         MainAdmin.DC_formAdm_singdate.addKeyListener(this);
         
+        MainAdmin.lbl_form_pass.setText(LanguageAdm.getInstance().getProperty("DRW_lblPass"));
         MainAdmin.JPF_fromAdm_pass.setName("_JPF_pass");
         MainAdmin.JPF_fromAdm_pass.addKeyListener(this);
         
+        MainAdmin.lbl_form_passConf.setText(LanguageAdm.getInstance().getProperty("DRW_lblPassConf"));
         MainAdmin.JPF_fromAdm_passconf.setName("_JPF_passConf");
         MainAdmin.JPF_fromAdm_passconf.addKeyListener(this);
         
+        MainAdmin.lbl_form_activity.setText(LanguageAdm.getInstance().getProperty("DRW_lblActivity"));
         MainAdmin.txt_formAdm_activity.setActionCommand("_TXT_activity");
         MainAdmin.txt_formAdm_activity.setName("_TXT_activity");
         MainAdmin.txt_formAdm_activity.addKeyListener(this);
         MainAdmin.txt_formAdm_activity.addFocusListener(this);
         
+        MainAdmin.lbl_form_dni.setText(LanguageAdm.getInstance().getProperty("DRW_lblDni"));
         MainAdmin.txtf_formAdm_dni.setActionCommand("_TXT_dni");
         MainAdmin.txtf_formAdm_dni.setName("_TXT_dni");
         MainAdmin.txtf_formAdm_dni.addActionListener(this);
         MainAdmin.txtf_formAdm_dni.addKeyListener(this);
         MainAdmin.txtf_formAdm_dni.addFocusListener(this);
         
+        MainAdmin.lbl_form_email.setText(LanguageAdm.getInstance().getProperty("DRW_lblEmail"));
         MainAdmin.txtf_formAdm_email.setActionCommand("_TXT_email");
         MainAdmin.txtf_formAdm_email.setName("_TXT_email");
         MainAdmin.txtf_formAdm_email.addActionListener(this);
         MainAdmin.txtf_formAdm_email.addKeyListener(this);
         MainAdmin.txtf_formAdm_email.addFocusListener(this);
         
+        MainAdmin.lbl_form_lastName.setText(LanguageAdm.getInstance().getProperty("DRW_lblLastName"));
         MainAdmin.txtf_formAdm_lastname.setActionCommand("_TXT_lastName");
         MainAdmin.txtf_formAdm_lastname.setName("_TXT_lastName");
         MainAdmin.txtf_formAdm_lastname.addActionListener(this);
         MainAdmin.txtf_formAdm_lastname.addKeyListener(this);
         MainAdmin.txtf_formAdm_lastname.addFocusListener(this);
         
+        MainAdmin.lbl_form_name.setText(LanguageAdm.getInstance().getProperty("DRW_lblName"));
         MainAdmin.txtf_formAdm_name.setActionCommand("_TXT_name");
         MainAdmin.txtf_formAdm_name.setName("_TXT_name");
         MainAdmin.txtf_formAdm_name.addActionListener(this);
         MainAdmin.txtf_formAdm_name.addKeyListener(this);
         MainAdmin.txtf_formAdm_name.addFocusListener(this);
         
+        MainAdmin.lbl_form_phone.setText(LanguageAdm.getInstance().getProperty("DRW_lblPhone"));
         MainAdmin.txtf_formAdm_phone.setActionCommand("_TXT_phone");
         MainAdmin.txtf_formAdm_phone.setName("_TXT_phone");
         MainAdmin.txtf_formAdm_phone.addActionListener(this);
         MainAdmin.txtf_formAdm_phone.addKeyListener(this);
         MainAdmin.txtf_formAdm_phone.addFocusListener(this);
         
+        MainAdmin.lbl_form_userName.setText(LanguageAdm.getInstance().getProperty("DRW_lblUserName"));
         MainAdmin.txtf_formAdm_username.setActionCommand("_TXT_userName");
         MainAdmin.txtf_formAdm_username.setName("_TXT_userName");
         MainAdmin.txtf_formAdm_username.addActionListener(this);
         MainAdmin.txtf_formAdm_username.addKeyListener(this);
         MainAdmin.txtf_formAdm_username.addFocusListener(this);
-              
     }
     
     public static void runTABLE() {
@@ -295,14 +313,12 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         jPanel5.add(combo);
     }
     
-    
     @Override
     public void actionPerformed(ActionEvent evt) {
         switch (Accion.valueOf(evt.getActionCommand())) {
             //PNL_menuBtn action buttons
-            case _BTN_back:               
-                new main_Admin().setVisible(true);
-                MainAdmin.dispose();
+            case _BTN_back:
+                BLL_Admin.BLL_FA_mainBack();
                 break;
             case _BTN_create:
                 BLL_Admin.BLL_CreateAdm();

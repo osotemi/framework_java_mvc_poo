@@ -11,6 +11,7 @@ import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.view.main_Admin;
+import framework.tools.format;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -60,11 +61,12 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
                 break;
 
             case 2:
-                dev = fila.getContract_data().toString();
+                dev = DateO.formDate(fila.getContract_data().toString());
                 break;
 
             case 3:
                 dev = fila.getSalary();
+                dev = format.formMoneyOut((float)dev);
                 break;
             
             case 4:

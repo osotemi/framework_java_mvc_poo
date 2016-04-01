@@ -13,6 +13,7 @@ import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.view.wdwSettings;
+import framework.mod.user.admin.model.tools.LanguageAdm;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -189,18 +190,22 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
                 break;
             case _BTN_LNGes: 
                 BLL_settings.BLL_BTN_lang_spanish();
+                Language.getInstance().loadProperties();
                 writeConfigFrame();
                 break;
             case _BTN_LNGgz: 
                 BLL_settings.BLL_BTN_lang_galiza();
+                Language.getInstance().loadProperties();
                 writeConfigFrame();
                 break;
             case _BTN_LNGuk: 
                 BLL_settings.BLL_BTN_lang_english();
+                Language.getInstance().loadProperties();
                 writeConfigFrame();
                 break;
             case _BTN_LNGvlc: 
                 BLL_settings.BLL_BTN_lang_valencia();
+                Language.getInstance().loadProperties();
                 writeConfigFrame();
                 break;
             default:

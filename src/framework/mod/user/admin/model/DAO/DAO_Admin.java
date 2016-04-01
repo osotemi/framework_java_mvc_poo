@@ -8,6 +8,9 @@ package framework.mod.user.admin.model.DAO;
 import framework.clss.DateO;
 import framework.mod.nav.controler.Controler_main;
 import framework.mod.nav.view.main;
+import framework.mod.settings.model.clss.Settings;
+import framework.mod.user.admin.controler.Controler_mainAdmin;
+import static framework.mod.user.admin.controler.Controler_mainAdmin.MainAdmin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
@@ -789,6 +792,7 @@ public class DAO_Admin {
      */
     
     public static void DAO_FA_mainBack() {
+        MainAdmin.dispose();
         new Controler_main(new main()).run();
     }
 
@@ -870,4 +874,5 @@ public class DAO_Admin {
         main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("ok_modify"));
         main_Admin.lblMainform.setBackground(Color.green);
     }
+
 }

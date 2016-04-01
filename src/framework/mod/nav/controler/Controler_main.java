@@ -11,8 +11,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import framework.mod.nav.view.main;
 import framework.mod.settings.controler.Controler_wdwSettings;
+import framework.mod.settings.model.clss.Settings;
+import framework.mod.settings.model.clss.singleSettings;
 import framework.mod.settings.view.wdwSettings;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
+import framework.mod.user.admin.model.DAO.DAO_Admin;
+import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.view.main_Admin;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -20,6 +24,7 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -75,9 +80,11 @@ public class Controler_main implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent evt) {
         switch (Accion.valueOf(evt.getActionCommand())) {
-            case _BTN_Admin:               
+            case _BTN_Admin:     
+                //LanguageAdm.getInstance().loadProperties();
                 new Controler_mainAdmin(new main_Admin()).run();
                 MainMenu.dispose();
+                
                 break;
             case _BTN_Config:
                 new Controler_wdwSettings(new wdwSettings()).run();

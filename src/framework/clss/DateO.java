@@ -13,6 +13,7 @@ import java.util.Locale;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.mod.settings.model.clss.Settings;
+import javax.swing.JOptionPane;
 
 /**
  * @version 1.6.1 23/2/2016
@@ -268,6 +269,7 @@ public class DateO implements Serializable {
      */
     @Override
     public String toString() {//EN FUNCION DE SETTING
+        
         return this.getDay() + "/" + this.getMonth() + "/" + this.getYear();
     }
 
@@ -639,6 +641,7 @@ public class DateO implements Serializable {
                 i = formats.length;
             } catch (Exception e) {
                 valid = false;
+                System.err.println("ERROR formatDate");
             }
         }
         for (int j = 0; j < formats.length; j++) {
