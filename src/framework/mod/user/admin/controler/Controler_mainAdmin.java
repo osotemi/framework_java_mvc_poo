@@ -324,7 +324,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
                 BLL_Admin.BLL_CreateAdm();
                 break;
              case _BTN_createDummies:
-                 dummieAdm_gen.menu_dummie();
+                dummieAdm_gen.menu_dummie();
                 break;
             case _BTN_delete:
                 BLL_Admin.BLL_DeleteAdm();

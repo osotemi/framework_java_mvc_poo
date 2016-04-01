@@ -8,6 +8,8 @@ package framework.mod.settings.model.BLL;
 import framework.mod.settings.model.DAO.DAO_settings;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
+import framework.mod.settings.view.wdwSettings;
+import framework.mod.user.admin.controler.Controler_mainAdmin;
 import java.util.Locale;
 
 /**
@@ -60,6 +62,11 @@ public class BLL_settings {
         Settings.getInstance().setFile_type(singleSettings.FILET_xml);
         //guardar settings
         DAO_settings.drawFileType();
+    }
+    
+    //Format date
+    public static void BLL_JC_FD(){
+        Settings.getInstance().setFdate((String)wdwSettings.JCB_formatDate.getSelectedItem());
     }
     
     //Language

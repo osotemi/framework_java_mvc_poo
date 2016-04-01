@@ -176,6 +176,7 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
                 BLL_settings.BLL_BTN_currPounds();
                 break;
             case _SPN_decimal:
+                
                 break;
             case _BTN_FTjson:
                 BLL_settings.BLL_BTN_FTjson();
@@ -187,6 +188,7 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
                 BLL_settings.BLL_BTN_FTxml();
                 break;
             case _JC_formatDate:
+                BLL_settings.BLL_JC_FD();
                 break;
             case _BTN_LNGes: 
                 BLL_settings.BLL_BTN_lang_spanish();

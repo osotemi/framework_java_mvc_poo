@@ -380,7 +380,7 @@ public class BLL_Admin {
         if (n != 0) {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errorTBL_selectUser"), "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_emptyList"), LanguageAdm.getInstance().getProperty("error"), 2);
                 main_Admin.btn_viewAdmin.requestFocus();
                 return;
             } else {
@@ -398,7 +398,7 @@ public class BLL_Admin {
 
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_emptyList"), LanguageAdm.getInstance().getProperty("error"), 2);
         }
     }
 

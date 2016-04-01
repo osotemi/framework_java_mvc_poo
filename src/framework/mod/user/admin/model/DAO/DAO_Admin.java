@@ -17,6 +17,7 @@ import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.model.tools.dummieAdm_gen;
 import framework.mod.user.admin.model.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
+import framework.tools.format;
 import framework.tools.imageSaver;
 import java.awt.Color;
 import java.awt.Image;
@@ -293,6 +294,8 @@ public class DAO_Admin {
         main_Admin.DC_formAdm_singdate.setCalendar(singletonAdmin.ephemeralAdmin.getContract_data().toCalendar());
         main_Admin.lbl_formAdm_singdateERR.setText(" ");
 
+        main_Admin.CB_formAdm_state.setSelectedItem(singletonAdmin.ephemeralAdmin.getState());
+        
         main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_username.setText(singletonAdmin.ephemeralAdmin.getUser());
         main_Admin.txtf_formAdm_username.setBorder(null);
@@ -390,7 +393,7 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_phone.setEnabled(false);
         main_Admin.txtf_formAdm_phone.setFont(new java.awt.Font("Serif", 1, 14));
         main_Admin.txtf_formAdm_phone.setBackground( new Color(0,0,0,0));
-        main_Admin.txtf_formAdm_phone.setText(singletonAdmin.ephemeralAdmin.getMovile());
+        main_Admin.txtf_formAdm_phone.setText(format.formPhone(singletonAdmin.ephemeralAdmin.getMovile()));
         main_Admin.txtf_formAdm_phone.setBorder(null);
         main_Admin.txtf_formAdm_phone.setToolTipText("");
         main_Admin.lbl_formAdm_phoneERR.setText(" ");
@@ -407,7 +410,7 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_username.setToolTipText("");
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
         
-        main_Admin.lbl_form_salary.setText(LanguageAdm.getInstance().getProperty("view_salary") + " -> " + Float.toString(singletonAdmin.ephemeralAdmin.getSalary()));//formato
+        main_Admin.lbl_form_salary.setText(LanguageAdm.getInstance().getProperty("view_salary") + " -> " + format.formMoneyOut(singletonAdmin.ephemeralAdmin.getSalary()) );//formato
         main_Admin.lbl_form_salary.setFont(new java.awt.Font("Serif", 1, 14));
         main_Admin.lbl_form_benefit.setText(LanguageAdm.getInstance().getProperty("view_benefit")+ " -> " + Float.toString(singletonAdmin.ephemeralAdmin.getBenefit()));
         main_Admin.lbl_form_benefit.setFont(new java.awt.Font("Serif", 1, 14));
@@ -417,6 +420,8 @@ public class DAO_Admin {
         main_Admin.btn_formAdmCreate_back.setBackground(new Color(0,0,0,0));
         main_Admin.PNL_drawForm.setVisible(true);
         main_Admin.PNL_drawForm.setBackground(Color.WHITE);
+        
+        main_Admin.CB_formAdm_state.setSelectedItem(singletonAdmin.ephemeralAdmin.getState());
     }
     
     /**
