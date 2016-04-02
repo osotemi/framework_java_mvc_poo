@@ -34,7 +34,7 @@ public class singletonReg {
      */
     public static void loadSingletonReg(){
         RegTableArray = new ArrayList<RegisteredU>();
-        PATH_REG ="/src/framework/mod/user/client/model/files/registered_DB.json";
+        PATH_REG ="/src/framework/mod/user/registered/model/files/RegDB.json";
         passwd_formReg = "";
         selectedPOSmodifyReg =-1;
         changesReg = false;

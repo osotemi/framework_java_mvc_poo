@@ -6,6 +6,7 @@
 package framework.mod.user.registered.model.BLL;
 
 import framework.mod.user.admin.model.BLL.BLL_Admin;
+import framework.mod.user.registered.controler.Controler_mainReg;
 import framework.mod.user.registered.model.DAO.DAO_Registered;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.miniSimpleTableModelReg;
@@ -209,7 +210,7 @@ public class BLL_Registered {
     }
 
     public static void BLL_UserSaveJSON() {
-        json.AdminJson_Save();
+        jsonReg.RegJson_Save();
     }
 
     public static void BLL_UserSaveTXT() {
@@ -281,8 +282,8 @@ public class BLL_Registered {
                     regu = singletonReg.RegTableArray.get(pos);
                     singletonReg.RegTableArray.remove(regu);
                     miniSimpleTableModelReg.datosauxReg.remove(regu);
-                    Controler_mainAdmin.runTABLE();
-                    jsonReg.AdminJson_Autosave();
+                    Controler_mainReg.runTABLE();
+                    jsonReg.RegJson_Autosave();
                     main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("mes_delok"));
                     main_Reg.lblMainform.setOpaque(true);
                     main_Reg.lblMainform.setBackground(Color.red);
@@ -316,8 +317,8 @@ public class BLL_Registered {
 
         if (opc == 0) {
             singletonReg.RegTableArray = new ArrayList<>();
-            Controler_mainAdmin.runTABLE();
-            json.AdminJson_Autosave();
+            Controler_mainReg.runTABLE();
+            jsonReg.RegJson_Autosave();
             main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("mes_DeletAll"));
             main_Reg.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
@@ -482,8 +483,8 @@ public class BLL_Registered {
         }
 
         if (valid) {
-            json.AdminJson_Autosave();
-            Controler_mainAdmin.runTABLE();
+            jsonReg.RegJson_Autosave();
+            Controler_mainReg.runTABLE();
             main_Reg.lblMainform.setOpaque(true);
             main_Reg.lblMainform.setBackground(Color.GREEN);
             main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("OK_modify"));
@@ -507,8 +508,8 @@ public class BLL_Registered {
         pos = searchAL();
         if (pos == -1) {
             singletonReg.RegTableArray.add(singletonReg.ephemeralReg);
-            json.AdminJson_Autosave();
-            Controler_mainAdmin.runTABLE();
+            jsonReg.RegJson_Autosave();
+            Controler_mainReg.runTABLE();
             valid = true;
         } else {
             main_Reg.lbl_formReg_dniERR.setText(LanguageReg.getInstance().getProperty("errVal_dni"));
@@ -539,6 +540,6 @@ public class BLL_Registered {
      */
     public static void loadArray() {
         singletonReg.loadSingletonReg();
-        json.AdminJson_Autoload();
+        jsonReg.RegJson_Autoload();
     }
 }

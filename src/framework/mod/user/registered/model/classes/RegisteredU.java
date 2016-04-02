@@ -15,6 +15,7 @@ import framework.tools.format;
  *
  * @author osotemi
  */
+@XStreamAlias("RegU")
 public class RegisteredU extends User implements Serializable{
 	/**----------------------------------
 	 * Definition of RegisteredU object
