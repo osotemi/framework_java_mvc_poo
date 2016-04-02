@@ -40,7 +40,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="9"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-68,0,0,5,-126"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-88,0,0,5,-126"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -122,7 +122,7 @@
                   <Component id="btn_createDummies" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_deleteAllClient" min="-2" pref="64" max="-2" attributes="0"/>
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <EmptySpace pref="10" max="32767" attributes="0"/>
                   <Component id="btn_saveXML" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="btn_saveTXT" min="-2" max="-2" attributes="0"/>
@@ -431,7 +431,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="608" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="588" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -490,7 +490,8 @@
                                       <Component id="lbl_form_pass" max="32767" attributes="0"/>
                                       <Component id="txtf_formClt_username" max="32767" attributes="0"/>
                                       <Component id="lbl_form_userName" max="32767" attributes="0"/>
-                                      <Component id="lbl_form_email" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_email" alignment="0" pref="203" max="32767" attributes="0"/>
+                                      <Component id="JCK_form_premium" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -500,14 +501,15 @@
                               </Group>
                               <Component id="lblMainform" min="-2" pref="424" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btn_formCltCreate_back" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_salary" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="CB_formClt_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="txt_formClt_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_formClt_activityERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_benefit" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btn_formCltCreate_back" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="CB_formClt_state" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="lbl_form_shopAccount" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="txt_formClt_shopAccount" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="lbl_formClt_shopAccountERR" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="lbl_form_benefit" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="lbl_form_clType" alignment="1" pref="203" max="32767" attributes="0"/>
+                                      <Component id="CB_formCLT_type" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -523,7 +525,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -546,15 +548,17 @@
                                           <Component id="lbl_form_pass" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                           <Component id="JPF_fromClt_pass" min="-2" pref="19" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                           <Component id="lbl_formClt_passERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                           <Component id="lbl_form_passConf" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="JPF_fromClt_passconf" min="-2" pref="19" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                           <Component id="lbl_formClt_passconfERR" min="-2" pref="13" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="JCK_form_premium" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lbl_form_name" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="lbl_form_bornDate" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -610,30 +614,33 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbl_form_phone" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_activity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_shopAccount" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtf_formClt_phone" pref="24" max="32767" attributes="0"/>
-                                      <Component id="txt_formClt_activity" max="32767" attributes="0"/>
+                                      <Component id="txt_formClt_shopAccount" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbl_formClt_phoneERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="lbl_formClt_activityERR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_formClt_shopAccountERR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbl_form_dni" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_salary" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_clType" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtf_formClt_dni" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_benefit" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="CB_formCLT_type" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_formClt_dniERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbl_formClt_dniERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="lbl_form_benefit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btn_formCltCreate_back" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -795,6 +802,9 @@
                       <ComponentRef name="JPF_fromClt_passconf"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JPF_fromClt_passActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -847,6 +857,9 @@
                       <ComponentRef name="btn_formClt_Avatar"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JPF_fromClt_passconfActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -899,7 +912,7 @@
                 <Component class="javax.swing.JLabel" name="lbl_form_hireDate">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Fecha de contrataci&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="Fecha de alta"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_form_avatar">
@@ -926,7 +939,7 @@
                 <Component class="javax.swing.JLabel" name="lblMainform">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Formulario de Administrador"/>
+                    <Property name="text" type="java.lang.String" value="Formulario de Cliente"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_form_dni">
@@ -956,10 +969,10 @@
                     <Property name="text" type="java.lang.String" value="Estado"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_form_activity">
+                <Component class="javax.swing.JLabel" name="lbl_form_shopAccount">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Actividad"/>
+                    <Property name="text" type="java.lang.String" value="Compras"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_formClt_borndateERR">
@@ -1023,7 +1036,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt_formClt_activity">
+                <Component class="javax.swing.JTextField" name="txt_formClt_shopAccount">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="0"/>
@@ -1032,7 +1045,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formClt_activityERR">
+                <Component class="javax.swing.JLabel" name="lbl_formClt_shopAccountERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -1061,7 +1074,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_form_salary">
+                <Component class="javax.swing.JLabel" name="lbl_form_benefit">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -1070,13 +1083,33 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_form_benefit">
+                <Component class="javax.swing.JCheckBox" name="JCK_form_premium">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="PREMIUM"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_form_clType">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value=" "/>
+                    <Property name="text" type="java.lang.String" value=" Tipo de cliente"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="CB_formCLT_type">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="&quot;Chrome&quot;"/>
+                        <StringItem index="1" value="&quot;Silver&quot;"/>
+                        <StringItem index="2" value="&quot;Gold&quot;"/>
+                        <StringItem index="3" value="&quot;Platinum&quot;"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

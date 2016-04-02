@@ -108,18 +108,20 @@ public class main_Client extends javax.swing.JFrame {
         lbl_formClt_emailERR = new javax.swing.JLabel();
         lbl_form_phone = new javax.swing.JLabel();
         lbl_form_state = new javax.swing.JLabel();
-        lbl_form_activity = new javax.swing.JLabel();
+        lbl_form_shopAccount = new javax.swing.JLabel();
         lbl_formClt_borndateERR = new javax.swing.JLabel();
         txtf_formClt_dni = new javax.swing.JTextField();
         txtf_formClt_phone = new javax.swing.JTextField();
         CB_formClt_state = new javax.swing.JComboBox<>();
-        txt_formClt_activity = new javax.swing.JTextField();
-        lbl_formClt_activityERR = new javax.swing.JLabel();
+        txt_formClt_shopAccount = new javax.swing.JTextField();
+        lbl_formClt_shopAccountERR = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lbl_formClt_photoavatar = new javax.swing.JLabel();
-        lbl_form_salary = new javax.swing.JLabel();
         lbl_form_benefit = new javax.swing.JLabel();
+        JCK_form_premium = new javax.swing.JCheckBox();
+        lbl_form_clType = new javax.swing.JLabel();
+        CB_formCLT_type = new javax.swing.JComboBox<>();
         PNL_mainTablePager = new javax.swing.JPanel();
         PNL_table = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -267,7 +269,7 @@ public class main_Client extends javax.swing.JFrame {
                 .addComponent(btn_createDummies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_deleteAllClient, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btn_saveTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,6 +384,11 @@ public class main_Client extends javax.swing.JFrame {
         JPF_fromClt_pass.setToolTipText("Contraseña...");
         JPF_fromClt_pass.setBorder(null);
         JPF_fromClt_pass.setNextFocusableComponent(JPF_fromClt_passconf);
+        JPF_fromClt_pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JPF_fromClt_passActionPerformed(evt);
+            }
+        });
 
         btn_formClt_Avatar.setText("Cargar Imagen");
         btn_formClt_Avatar.setBorderPainted(false);
@@ -400,6 +407,11 @@ public class main_Client extends javax.swing.JFrame {
         JPF_fromClt_passconf.setToolTipText("Confirmar contraseña...");
         JPF_fromClt_passconf.setBorder(null);
         JPF_fromClt_passconf.setNextFocusableComponent(btn_formClt_Avatar);
+        JPF_fromClt_passconf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JPF_fromClt_passconfActionPerformed(evt);
+            }
+        });
 
         lbl_form_pass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_pass.setText("Contraseña");
@@ -420,7 +432,7 @@ public class main_Client extends javax.swing.JFrame {
         lbl_formClt_singdateERR.setText(" ");
 
         lbl_form_hireDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_form_hireDate.setText("Fecha de contratación");
+        lbl_form_hireDate.setText("Fecha de alta");
 
         lbl_form_avatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_form_avatar.setText("Imagen de perfil");
@@ -432,7 +444,7 @@ public class main_Client extends javax.swing.JFrame {
         lbl_formClt_dniERR.setText(" ");
 
         lblMainform.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMainform.setText("Formulario de Administrador");
+        lblMainform.setText("Formulario de Cliente");
 
         lbl_form_dni.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_dni.setText("DNI");
@@ -446,8 +458,8 @@ public class main_Client extends javax.swing.JFrame {
         lbl_form_state.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_form_state.setText("Estado");
 
-        lbl_form_activity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_form_activity.setText("Actividad");
+        lbl_form_shopAccount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_form_shopAccount.setText("Compras");
 
         lbl_formClt_borndateERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_formClt_borndateERR.setText(" ");
@@ -465,21 +477,25 @@ public class main_Client extends javax.swing.JFrame {
         CB_formClt_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline", "Loged" }));
         CB_formClt_state.setSelectedItem("Offline");
 
-        txt_formClt_activity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txt_formClt_activity.setText("0");
+        txt_formClt_shopAccount.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_formClt_shopAccount.setText("0");
 
-        lbl_formClt_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_formClt_activityERR.setText(" ");
+        lbl_formClt_shopAccountERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_formClt_shopAccountERR.setText(" ");
 
         lbl_formClt_photoavatar.setBackground(new java.awt.Color(255, 255, 255));
         lbl_formClt_photoavatar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         lbl_formClt_photoavatar.setOpaque(true);
 
-        lbl_form_salary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_form_salary.setText(" ");
-
         lbl_form_benefit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_form_benefit.setText(" ");
+
+        JCK_form_premium.setText("PREMIUM");
+
+        lbl_form_clType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_form_clType.setText(" Tipo de cliente");
+
+        CB_formCLT_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "\"Chrome\"", "\"Silver\"", "\"Gold\"", "\"Platinum\"" }));
 
         javax.swing.GroupLayout PNL_drawFormLayout = new javax.swing.GroupLayout(PNL_drawForm);
         PNL_drawForm.setLayout(PNL_drawFormLayout);
@@ -520,21 +536,23 @@ public class main_Client extends javax.swing.JFrame {
                             .addComponent(lbl_form_pass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtf_formClt_username)
                             .addComponent(lbl_form_userName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_form_email, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_form_email, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(JCK_form_premium, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8)))
                     .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_formCltCreate_back, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CB_formClt_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_formClt_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formClt_activityERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_formCltCreate_back, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(CB_formClt_state, javax.swing.GroupLayout.Alignment.TRAILING, 0, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_form_shopAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txt_formClt_shopAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_formClt_shopAccountERR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(lbl_form_clType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(CB_formCLT_type, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_formClt_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -546,7 +564,7 @@ public class main_Client extends javax.swing.JFrame {
                             .addComponent(txtf_formClt_phone)
                             .addComponent(lbl_form_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_formCltCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addGap(0, 57, Short.MAX_VALUE))
         );
         PNL_drawFormLayout.setVerticalGroup(
             PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,15 +585,17 @@ public class main_Client extends javax.swing.JFrame {
                                 .addComponent(lbl_form_pass)
                                 .addGap(0, 0, 0)
                                 .addComponent(JPF_fromClt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(0, 0, 0)
                                 .addComponent(lbl_formClt_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
+                                .addGap(5, 5, 5)
                                 .addComponent(lbl_form_passConf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JPF_fromClt_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(0, 0, 0)
                                 .addComponent(lbl_formClt_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JCK_form_premium)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lbl_form_name)
                                     .addComponent(lbl_form_bornDate)))
@@ -619,25 +639,27 @@ public class main_Client extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_form_phone)
-                            .addComponent(lbl_form_activity))
+                            .addComponent(lbl_form_shopAccount))
                         .addGap(0, 0, 0)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtf_formClt_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                            .addComponent(txt_formClt_activity))
+                            .addComponent(txt_formClt_shopAccount))
                         .addGap(0, 0, 0)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_formClt_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formClt_activityERR))
+                            .addComponent(lbl_formClt_shopAccountERR))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_form_dni)
-                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_form_clType))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtf_formClt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CB_formCLT_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_formClt_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_formClt_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_form_benefit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_formCltCreate_back)
@@ -665,7 +687,7 @@ public class main_Client extends javax.swing.JFrame {
             PNL_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
         );
 
         getContentPane().add(PNL_form, java.awt.BorderLayout.CENTER);
@@ -829,14 +851,24 @@ public class main_Client extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JPF_fromClt_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPF_fromClt_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JPF_fromClt_passActionPerformed
+
+    private void JPF_fromClt_passconfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPF_fromClt_passconfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JPF_fromClt_passconfActionPerformed
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA_CLT;
+    public static javax.swing.JComboBox<String> CB_formCLT_type;
     public static javax.swing.JComboBox<String> CB_formClt_state;
     public static javax.swing.JComboBox CB_tbl_entries;
     public static com.toedter.calendar.JDateChooser DC_formClt_borndate;
     public static com.toedter.calendar.JDateChooser DC_formClt_singdate;
+    public static javax.swing.JCheckBox JCK_form_premium;
     public static javax.swing.JPasswordField JPF_fromClt_pass;
     public static javax.swing.JPasswordField JPF_fromClt_passconf;
     public static javax.swing.JPanel PNL_drawForm;
@@ -877,7 +909,6 @@ public class main_Client extends javax.swing.JFrame {
     public static javax.swing.JLabel lblMainform;
     public static javax.swing.JLabel lbl_entries;
     public static javax.swing.JLabel lbl_filtBY;
-    public static javax.swing.JLabel lbl_formClt_activityERR;
     public static javax.swing.JLabel lbl_formClt_borndateERR;
     public static javax.swing.JLabel lbl_formClt_dniERR;
     public static javax.swing.JLabel lbl_formClt_emailERR;
@@ -888,11 +919,12 @@ public class main_Client extends javax.swing.JFrame {
     public static javax.swing.JLabel lbl_formClt_passconfERR;
     public static javax.swing.JLabel lbl_formClt_phoneERR;
     public static javax.swing.JLabel lbl_formClt_photoavatar;
+    public static javax.swing.JLabel lbl_formClt_shopAccountERR;
     public static javax.swing.JLabel lbl_formClt_singdateERR;
-    public static javax.swing.JLabel lbl_form_activity;
     public static javax.swing.JLabel lbl_form_avatar;
     public static javax.swing.JLabel lbl_form_benefit;
     public static javax.swing.JLabel lbl_form_bornDate;
+    public static javax.swing.JLabel lbl_form_clType;
     public static javax.swing.JLabel lbl_form_dni;
     public static javax.swing.JLabel lbl_form_email;
     public static javax.swing.JLabel lbl_form_hireDate;
@@ -901,13 +933,13 @@ public class main_Client extends javax.swing.JFrame {
     public static javax.swing.JLabel lbl_form_pass;
     public static javax.swing.JLabel lbl_form_passConf;
     public static javax.swing.JLabel lbl_form_phone;
-    public static javax.swing.JLabel lbl_form_salary;
+    public static javax.swing.JLabel lbl_form_shopAccount;
     public static javax.swing.JLabel lbl_form_state;
     public static javax.swing.JLabel lbl_form_userName;
     public static javax.swing.JLabel lbl_rowBYpag;
     public static org.edisoncor.gui.panel.PanelImage panelImage3;
     public static javax.swing.JButton primero;
-    public static javax.swing.JTextField txt_formClt_activity;
+    public static javax.swing.JTextField txt_formClt_shopAccount;
     public static javax.swing.JTextField txtf_formClt_dni;
     public static javax.swing.JTextField txtf_formClt_email;
     public static javax.swing.JTextField txtf_formClt_lastname;

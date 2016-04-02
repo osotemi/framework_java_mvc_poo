@@ -228,11 +228,11 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         MainClient.JPF_fromClt_passconf.setName("_JPF_passConf");
         MainClient.JPF_fromClt_passconf.addKeyListener(this);
         
-        MainClient.lbl_form_activity.setText(LanguageClt.getInstance().getProperty("DRW_lblActivity"));
-        MainClient.txt_formClt_activity.setActionCommand("_TXT_activity");
-        MainClient.txt_formClt_activity.setName("_TXT_activity");
-        MainClient.txt_formClt_activity.addKeyListener(this);
-        MainClient.txt_formClt_activity.addFocusListener(this);
+        MainClient.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblActivity"));
+        MainClient.txt_formClt_shopAccount.setActionCommand("_TXT_activity");
+        MainClient.txt_formClt_shopAccount.setName("_TXT_activity");
+        MainClient.txt_formClt_shopAccount.addKeyListener(this);
+        MainClient.txt_formClt_shopAccount.addFocusListener(this);
         
         MainClient.lbl_form_dni.setText(LanguageClt.getInstance().getProperty("DRW_lblDni"));
         MainClient.txtf_formClt_dni.setActionCommand("_TXT_dni");

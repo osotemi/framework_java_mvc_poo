@@ -29,7 +29,7 @@ public class Client extends User implements Serializable{
 	@XStreamAlias("client_type")
 	private String client_type;//chrome sliver gold platinium
 	@XStreamAlias("premium")
-	private boolean premium;//low-medium-high
+	private boolean premium;
 	@XStreamAlias("register_date")
 	private DateO register_date;
 	@XStreamAlias("shop_acount")
