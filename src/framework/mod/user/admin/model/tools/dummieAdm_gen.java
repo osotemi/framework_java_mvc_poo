@@ -27,7 +27,7 @@ import framework.mod.nav.model.tools.menu_gen;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.tools.format;
 import framework.tools.functions;
-import framework.mod.user.admin.model.tools.validate;
+import framework.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
 import javax.swing.JOptionPane;
 

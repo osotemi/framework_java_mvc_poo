@@ -15,7 +15,7 @@ import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.model.tools.dummieAdm_gen;
-import framework.mod.user.admin.model.tools.validate;
+import framework.tools.validate;
 import framework.mod.user.admin.view.main_Admin;
 import framework.tools.format;
 import framework.tools.imageSaver;
