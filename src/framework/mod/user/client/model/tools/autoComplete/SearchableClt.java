@@ -19,5 +19,5 @@ public interface SearchableClt<E, V> {
      * @param value A searchable value of type V
      * @return A Collection of items of type E.
      */
-    public Collection<E> searchClt(V value);
+    public Collection<E> search(V value);
 }

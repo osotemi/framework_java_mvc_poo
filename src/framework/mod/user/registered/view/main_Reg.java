@@ -6,6 +6,8 @@
 package framework.mod.user.registered.view;
 
 
+import framework.mod.user.registered.model.classes.miniSimpleTableModelReg;
+import framework.mod.user.registered.model.tools.autoComplete.AutoCompleteJComboBoxReg;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -28,15 +30,15 @@ import javax.swing.table.TableRowSorter;
  *
  * @author osotemi
  */
-public class main_Admin extends javax.swing.JFrame {
+public class main_Reg extends javax.swing.JFrame {
 
-    //public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_Admin());
-    //public static AutocompleteJComboBox combo = null;
+    public static TableRowSorter<TableModel> sorterReg = new TableRowSorter<TableModel>(new miniSimpleTableModelReg());
+    public static AutoCompleteJComboBoxReg comboReg = null;
 
     /**
      * Creates new main Admin
      */
-    public main_Admin() {
+    public main_Reg() {
         
         initComponents();
         
@@ -59,11 +61,11 @@ public class main_Admin extends javax.swing.JFrame {
         btn_saveJSON = new org.edisoncor.gui.button.ButtonAero();
         btn_saveXML = new org.edisoncor.gui.button.ButtonAero();
         btn_saveTXT = new org.edisoncor.gui.button.ButtonAero();
-        btn_modifyAdmin = new javax.swing.JButton();
-        btn_viewAdmin = new javax.swing.JButton();
-        btn_deleteAdmin = new javax.swing.JButton();
-        btn_createAdmin = new javax.swing.JButton();
-        btn_deleteAllAdmin = new javax.swing.JButton();
+        btn_modifyReg = new javax.swing.JButton();
+        btn_viewReg = new javax.swing.JButton();
+        btn_deleteReg = new javax.swing.JButton();
+        btn_createReg = new javax.swing.JButton();
+        btn_deleteAllReg = new javax.swing.JButton();
         btn_createDummies = new javax.swing.JButton();
         PNL_footer = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
@@ -72,59 +74,54 @@ public class main_Admin extends javax.swing.JFrame {
         PNL_form = new org.edisoncor.gui.panel.PanelImage();
         jScrollPane1 = new javax.swing.JScrollPane();
         PNL_drawForm = new javax.swing.JPanel();
-        DC_formAdm_singdate = new com.toedter.calendar.JDateChooser();
-        lbl_formAdm_nameERR = new javax.swing.JLabel();
-        lbl_formAdm_lastnameERR = new javax.swing.JLabel();
+        lbl_formReg_nameERR = new javax.swing.JLabel();
+        lbl_formReg_lastnameERR = new javax.swing.JLabel();
         lbl_form_passConf = new javax.swing.JLabel();
         lbl_form_bornDate = new javax.swing.JLabel();
         lbl_form_userName = new javax.swing.JLabel();
-        lbl_formAdm_lusernameERR = new javax.swing.JLabel();
-        lbl_formAdm_passERR = new javax.swing.JLabel();
-        txtf_formAdm_name = new javax.swing.JTextField();
-        txtf_formAdm_email = new javax.swing.JTextField();
-        txtf_formAdm_username = new javax.swing.JTextField();
-        DC_formAdm_borndate = new com.toedter.calendar.JDateChooser();
-        JPF_fromAdm_pass = new javax.swing.JPasswordField();
-        btn_formA_Avatar = new javax.swing.JButton();
-        btn_formAdmCreate_back = new javax.swing.JButton();
-        btn_formAdmCreate_create = new javax.swing.JButton();
-        txtf_formAdm_lastname = new javax.swing.JTextField();
-        JPF_fromAdm_passconf = new javax.swing.JPasswordField();
+        lbl_formReg_usernameERR = new javax.swing.JLabel();
+        lbl_formReg_passERR = new javax.swing.JLabel();
+        txtf_formReg_name = new javax.swing.JTextField();
+        txtf_formReg_email = new javax.swing.JTextField();
+        txtf_formReg_username = new javax.swing.JTextField();
+        DC_formReg_borndate = new com.toedter.calendar.JDateChooser();
+        JPF_fromReg_pass = new javax.swing.JPasswordField();
+        btn_formReg_Avatar = new javax.swing.JButton();
+        btn_formRegCreate_back = new javax.swing.JButton();
+        btn_formRegCreate_create = new javax.swing.JButton();
+        txtf_formReg_lastname = new javax.swing.JTextField();
+        JPF_fromReg_passconf = new javax.swing.JPasswordField();
         lbl_form_pass = new javax.swing.JLabel();
-        lbl_formAdm_passconfERR = new javax.swing.JLabel();
+        lbl_formReg_passconfERR = new javax.swing.JLabel();
         lbl_form_lastName = new javax.swing.JLabel();
         lbl_form_name = new javax.swing.JLabel();
-        lbl_formAdm_phoneERR = new javax.swing.JLabel();
-        lbl_formAdm_singdateERR = new javax.swing.JLabel();
-        lbl_form_hireDate = new javax.swing.JLabel();
+        lbl_formReg_phoneERR = new javax.swing.JLabel();
         lbl_form_avatar = new javax.swing.JLabel();
         lbl_form_email = new javax.swing.JLabel();
-        lbl_formAdm_dniERR = new javax.swing.JLabel();
+        lbl_formReg_dniERR = new javax.swing.JLabel();
         lblMainform = new javax.swing.JLabel();
         lbl_form_dni = new javax.swing.JLabel();
-        lbl_formAdm_emailERR = new javax.swing.JLabel();
+        lbl_formReg_emailERR = new javax.swing.JLabel();
         lbl_form_phone = new javax.swing.JLabel();
         lbl_form_state = new javax.swing.JLabel();
         lbl_form_activity = new javax.swing.JLabel();
-        lbl_formAdm_borndateERR = new javax.swing.JLabel();
-        txtf_formAdm_dni = new javax.swing.JTextField();
-        txtf_formAdm_phone = new javax.swing.JTextField();
-        CB_formAdm_state = new javax.swing.JComboBox<>();
-        txt_formAdm_activity = new javax.swing.JTextField();
-        lbl_formAdm_activityERR = new javax.swing.JLabel();
+        lbl_formReg_borndateERR = new javax.swing.JLabel();
+        txtf_formReg_dni = new javax.swing.JTextField();
+        txtf_formReg_phone = new javax.swing.JTextField();
+        CB_formReg_state = new javax.swing.JComboBox<>();
+        txt_formReg_activity = new javax.swing.JTextField();
+        lbl_formReg_activityERR = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        lbl_formAdm_photoavatar = new javax.swing.JLabel();
-        lbl_form_salary = new javax.swing.JLabel();
-        lbl_form_benefit = new javax.swing.JLabel();
+        lbl_formReg_photoavatar = new javax.swing.JLabel();
         PNL_mainTablePager = new javax.swing.JPanel();
         PNL_table = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TABLA = new javax.swing.JTable();
+        TABLA_REG = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         ANTERIOR = new javax.swing.JButton();
         SIGUIENTE = new javax.swing.JButton();
-        CAJA = new javax.swing.JTextField();
+        CAJA_REG = new javax.swing.JTextField();
         primero = new javax.swing.JButton();
         ultimo = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -181,46 +178,46 @@ public class main_Admin extends javax.swing.JFrame {
         btn_saveTXT.setBackground(new java.awt.Color(51, 255, 204));
         btn_saveTXT.setText("TXT");
 
-        btn_modifyAdmin.setBackground(new java.awt.Color(204, 204, 255));
-        btn_modifyAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/modify_user.png"))); // NOI18N
-        btn_modifyAdmin.setToolTipText("Modificar Administrador");
-        btn_modifyAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_modifyAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn_modifyAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn_modifyAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_modifyReg.setBackground(new java.awt.Color(204, 204, 255));
+        btn_modifyReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/modify_user.png"))); // NOI18N
+        btn_modifyReg.setToolTipText("Modificar Administrador");
+        btn_modifyReg.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_modifyReg.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_modifyReg.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_modifyReg.setPreferredSize(new java.awt.Dimension(64, 64));
 
-        btn_viewAdmin.setBackground(new java.awt.Color(255, 255, 255));
-        btn_viewAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/view_user.png"))); // NOI18N
-        btn_viewAdmin.setToolTipText("Ver Administrador");
-        btn_viewAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_viewAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn_viewAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn_viewAdmin.setOpaque(false);
-        btn_viewAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_viewReg.setBackground(new java.awt.Color(255, 255, 255));
+        btn_viewReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/view_user.png"))); // NOI18N
+        btn_viewReg.setToolTipText("Ver Administrador");
+        btn_viewReg.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_viewReg.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_viewReg.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_viewReg.setOpaque(false);
+        btn_viewReg.setPreferredSize(new java.awt.Dimension(64, 64));
 
-        btn_deleteAdmin.setBackground(new java.awt.Color(255, 0, 0));
-        btn_deleteAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/delete_user.png"))); // NOI18N
-        btn_deleteAdmin.setToolTipText("Eliminar Administrador");
-        btn_deleteAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_deleteAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn_deleteAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn_deleteAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_deleteReg.setBackground(new java.awt.Color(255, 0, 0));
+        btn_deleteReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/delete_user.png"))); // NOI18N
+        btn_deleteReg.setToolTipText("Eliminar Administrador");
+        btn_deleteReg.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_deleteReg.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_deleteReg.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_deleteReg.setPreferredSize(new java.awt.Dimension(64, 64));
 
-        btn_createAdmin.setBackground(new java.awt.Color(0, 153, 0));
-        btn_createAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/create_user.png"))); // NOI18N
-        btn_createAdmin.setToolTipText("Crear Administrador");
-        btn_createAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_createAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn_createAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn_createAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_createReg.setBackground(new java.awt.Color(0, 153, 0));
+        btn_createReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/create_user.png"))); // NOI18N
+        btn_createReg.setToolTipText("Crear Administrador");
+        btn_createReg.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_createReg.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_createReg.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_createReg.setPreferredSize(new java.awt.Dimension(64, 64));
 
-        btn_deleteAllAdmin.setBackground(new java.awt.Color(255, 0, 0));
-        btn_deleteAllAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/deleteAll_user.png"))); // NOI18N
-        btn_deleteAllAdmin.setToolTipText("Eliminar todos los administradores");
-        btn_deleteAllAdmin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_deleteAllAdmin.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn_deleteAllAdmin.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn_deleteAllAdmin.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn_deleteAllReg.setBackground(new java.awt.Color(255, 0, 0));
+        btn_deleteAllReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/deleteAll_user.png"))); // NOI18N
+        btn_deleteAllReg.setToolTipText("Eliminar todos los administradores");
+        btn_deleteAllReg.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_deleteAllReg.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn_deleteAllReg.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn_deleteAllReg.setPreferredSize(new java.awt.Dimension(64, 64));
 
         btn_createDummies.setBackground(new java.awt.Color(0, 153, 0));
         btn_createDummies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/form_icons/AddDummies.png"))); // NOI18N
@@ -241,11 +238,11 @@ public class main_Admin extends javax.swing.JFrame {
             .addGroup(PNL_menuBtnLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(PNL_menuBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_viewAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_createAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_viewReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_modifyReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_createReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_deleteReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_deleteAllReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_createDummies, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -253,17 +250,17 @@ public class main_Admin extends javax.swing.JFrame {
             PNL_menuBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_menuBtnLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_viewAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_viewReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_modifyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_modifyReg, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_createAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_createReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_deleteAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_deleteReg, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_createDummies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_deleteAllReg, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -329,13 +326,11 @@ public class main_Admin extends javax.swing.JFrame {
         PNL_drawForm.setAutoscrolls(true);
         PNL_drawForm.setPreferredSize(new java.awt.Dimension(500, 535));
 
-        DC_formAdm_singdate.setDateFormatString("dd/MM/yyyy");
+        lbl_formReg_nameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_nameERR.setText(" ");
 
-        lbl_formAdm_nameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_nameERR.setText(" ");
-
-        lbl_formAdm_lastnameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_lastnameERR.setText(" ");
+        lbl_formReg_lastnameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_lastnameERR.setText(" ");
 
         lbl_form_passConf.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_passConf.setText("Confirmar Contraseña");
@@ -346,63 +341,63 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_form_userName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_userName.setText("Nombre de usuario");
 
-        lbl_formAdm_lusernameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_lusernameERR.setText(" ");
-        lbl_formAdm_lusernameERR.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lbl_formReg_usernameERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_usernameERR.setText(" ");
+        lbl_formReg_usernameERR.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        lbl_formAdm_passERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_passERR.setText(" ");
+        lbl_formReg_passERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_passERR.setText(" ");
 
-        txtf_formAdm_name.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_name.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_name.setToolTipText("Nombre...");
-        txtf_formAdm_name.setBorder(null);
-        txtf_formAdm_name.setNextFocusableComponent(txtf_formAdm_lastname);
-        txtf_formAdm_name.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        txtf_formReg_name.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formReg_name.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formReg_name.setToolTipText("Nombre...");
+        txtf_formReg_name.setBorder(null);
+        txtf_formReg_name.setNextFocusableComponent(txtf_formReg_lastname);
+        txtf_formReg_name.setSelectedTextColor(new java.awt.Color(0, 0, 0));
 
-        txtf_formAdm_email.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_email.setToolTipText("Correo electrónico");
-        txtf_formAdm_email.setBorder(null);
-        txtf_formAdm_email.setNextFocusableComponent(txtf_formAdm_phone);
+        txtf_formReg_email.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formReg_email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formReg_email.setToolTipText("Correo electrónico");
+        txtf_formReg_email.setBorder(null);
+        txtf_formReg_email.setNextFocusableComponent(txtf_formReg_phone);
 
-        txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_username.setToolTipText(" Nombre del administrador...");
-        txtf_formAdm_username.setBorder(null);
-        txtf_formAdm_username.setNextFocusableComponent(JPF_fromAdm_pass);
+        txtf_formReg_username.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formReg_username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formReg_username.setToolTipText(" Nombre del administrador...");
+        txtf_formReg_username.setBorder(null);
+        txtf_formReg_username.setNextFocusableComponent(JPF_fromReg_pass);
 
-        DC_formAdm_borndate.setDateFormatString("dd/MM/yyyy");
-        DC_formAdm_borndate.setNextFocusableComponent(txtf_formAdm_username);
+        DC_formReg_borndate.setDateFormatString("dd/MM/yyyy");
+        DC_formReg_borndate.setNextFocusableComponent(txtf_formReg_username);
 
-        JPF_fromAdm_pass.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        JPF_fromAdm_pass.setToolTipText("Contraseña...");
-        JPF_fromAdm_pass.setBorder(null);
-        JPF_fromAdm_pass.setNextFocusableComponent(JPF_fromAdm_passconf);
+        JPF_fromReg_pass.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        JPF_fromReg_pass.setToolTipText("Contraseña...");
+        JPF_fromReg_pass.setBorder(null);
+        JPF_fromReg_pass.setNextFocusableComponent(JPF_fromReg_passconf);
 
-        btn_formA_Avatar.setText("Cargar Imagen");
-        btn_formA_Avatar.setBorderPainted(false);
+        btn_formReg_Avatar.setText("Cargar Imagen");
+        btn_formReg_Avatar.setBorderPainted(false);
 
-        btn_formAdmCreate_back.setText("Volver");
+        btn_formRegCreate_back.setText("Volver");
 
-        btn_formAdmCreate_create.setText("Crear");
+        btn_formRegCreate_create.setText("Crear");
 
-        txtf_formAdm_lastname.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_lastname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_lastname.setToolTipText("Apellidos...");
-        txtf_formAdm_lastname.setBorder(null);
-        txtf_formAdm_lastname.setNextFocusableComponent(txtf_formAdm_email);
+        txtf_formReg_lastname.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formReg_lastname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formReg_lastname.setToolTipText("Apellidos...");
+        txtf_formReg_lastname.setBorder(null);
+        txtf_formReg_lastname.setNextFocusableComponent(txtf_formReg_email);
 
-        JPF_fromAdm_passconf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        JPF_fromAdm_passconf.setToolTipText("Confirmar contraseña...");
-        JPF_fromAdm_passconf.setBorder(null);
-        JPF_fromAdm_passconf.setNextFocusableComponent(btn_formA_Avatar);
+        JPF_fromReg_passconf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        JPF_fromReg_passconf.setToolTipText("Confirmar contraseña...");
+        JPF_fromReg_passconf.setBorder(null);
+        JPF_fromReg_passconf.setNextFocusableComponent(btn_formReg_Avatar);
 
         lbl_form_pass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_pass.setText("Contraseña");
 
-        lbl_formAdm_passconfERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_passconfERR.setText(" ");
+        lbl_formReg_passconfERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_passconfERR.setText(" ");
 
         lbl_form_lastName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_lastName.setText("Apellidos");
@@ -410,14 +405,8 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_form_name.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_name.setText("Nombre");
 
-        lbl_formAdm_phoneERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_phoneERR.setText(" ");
-
-        lbl_formAdm_singdateERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_formAdm_singdateERR.setText(" ");
-
-        lbl_form_hireDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_form_hireDate.setText("Fecha de contratación");
+        lbl_formReg_phoneERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_phoneERR.setText(" ");
 
         lbl_form_avatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_form_avatar.setText("Imagen de perfil");
@@ -425,17 +414,17 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_form_email.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_email.setText("Correo electrónico");
 
-        lbl_formAdm_dniERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_dniERR.setText(" ");
+        lbl_formReg_dniERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_dniERR.setText(" ");
 
         lblMainform.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMainform.setText("Formulario de Administrador");
+        lblMainform.setText("Formulario de Usuario Registrado");
 
         lbl_form_dni.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_dni.setText("DNI");
 
-        lbl_formAdm_emailERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_formAdm_emailERR.setText(" ");
+        lbl_formReg_emailERR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_formReg_emailERR.setText(" ");
 
         lbl_form_phone.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_form_phone.setText("Teléfono");
@@ -446,37 +435,31 @@ public class main_Admin extends javax.swing.JFrame {
         lbl_form_activity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_form_activity.setText("Actividad");
 
-        lbl_formAdm_borndateERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_formAdm_borndateERR.setText(" ");
+        lbl_formReg_borndateERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_formReg_borndateERR.setText(" ");
 
-        txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_dni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_dni.setBorder(null);
-        txtf_formAdm_dni.setNextFocusableComponent(DC_formAdm_borndate);
+        txtf_formReg_dni.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formReg_dni.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formReg_dni.setBorder(null);
+        txtf_formReg_dni.setNextFocusableComponent(DC_formReg_borndate);
 
-        txtf_formAdm_phone.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        txtf_formAdm_phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtf_formAdm_phone.setBorder(null);
-        txtf_formAdm_phone.setNextFocusableComponent(txtf_formAdm_dni);
+        txtf_formReg_phone.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        txtf_formReg_phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtf_formReg_phone.setBorder(null);
+        txtf_formReg_phone.setNextFocusableComponent(txtf_formReg_dni);
 
-        CB_formAdm_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline", "Loged" }));
-        CB_formAdm_state.setSelectedItem("Offline");
+        CB_formReg_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline", "Loged" }));
+        CB_formReg_state.setSelectedItem("Offline");
 
-        txt_formAdm_activity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txt_formAdm_activity.setText("0");
+        txt_formReg_activity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_formReg_activity.setText("0");
 
-        lbl_formAdm_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_formAdm_activityERR.setText(" ");
+        lbl_formReg_activityERR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_formReg_activityERR.setText(" ");
 
-        lbl_formAdm_photoavatar.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_formAdm_photoavatar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        lbl_formAdm_photoavatar.setOpaque(true);
-
-        lbl_form_salary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_form_salary.setText(" ");
-
-        lbl_form_benefit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_form_benefit.setText(" ");
+        lbl_formReg_photoavatar.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_formReg_photoavatar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        lbl_formReg_photoavatar.setOpaque(true);
 
         javax.swing.GroupLayout PNL_drawFormLayout = new javax.swing.GroupLayout(PNL_drawForm);
         PNL_drawForm.setLayout(PNL_drawFormLayout);
@@ -489,33 +472,30 @@ public class main_Admin extends javax.swing.JFrame {
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lbl_form_avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_formA_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_form_hireDate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_formAdm_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_formReg_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formReg_borndateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DC_formReg_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(PNL_drawFormLayout.createSequentialGroup()
                                     .addGap(37, 37, 37)
-                                    .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lbl_form_bornDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_formReg_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbl_form_bornDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbl_form_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_form_passConf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JPF_fromAdm_passconf)
-                            .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JPF_fromReg_passconf)
+                            .addComponent(lbl_formReg_passconfERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_form_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtf_formAdm_name)
-                            .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formReg_name)
+                            .addComponent(lbl_formReg_nameERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_form_lastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtf_formAdm_lastname)
-                            .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JPF_fromAdm_pass)
-                            .addComponent(lbl_formAdm_lusernameERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formReg_lastname)
+                            .addComponent(lbl_formReg_lastnameERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_formReg_passERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JPF_fromReg_pass)
+                            .addComponent(lbl_formReg_usernameERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_form_pass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtf_formAdm_username)
+                            .addComponent(txtf_formReg_username)
                             .addComponent(lbl_form_userName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_form_email, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -525,25 +505,23 @@ public class main_Admin extends javax.swing.JFrame {
                     .addComponent(lblMainform, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PNL_drawFormLayout.createSequentialGroup()
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_formAdmCreate_back, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CB_formAdm_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_formRegCreate_back, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CB_formReg_state, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_form_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_formAdm_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formAdm_activityERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_formReg_activity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formReg_activityERR, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_formReg_dniERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_form_dni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtf_formAdm_dni)
-                            .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtf_formAdm_email)
-                            .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtf_formAdm_phone)
+                            .addComponent(txtf_formReg_dni)
+                            .addComponent(lbl_formReg_phoneERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formReg_email)
+                            .addComponent(lbl_formReg_emailERR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtf_formReg_phone)
                             .addComponent(lbl_form_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_formAdmCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 52, Short.MAX_VALUE))
+                            .addComponent(btn_formRegCreate_create, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 57, Short.MAX_VALUE))
         );
         PNL_drawFormLayout.setVerticalGroup(
             PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -557,21 +535,21 @@ public class main_Admin extends javax.swing.JFrame {
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
                                 .addComponent(lbl_form_userName)
                                 .addGap(0, 0, 0)
-                                .addComponent(txtf_formAdm_username, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtf_formReg_username, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_lusernameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formReg_usernameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(lbl_form_pass)
                                 .addGap(0, 0, 0)
-                                .addComponent(JPF_fromAdm_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JPF_fromReg_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formReg_passERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17)
                                 .addComponent(lbl_form_passConf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JPF_fromAdm_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JPF_fromReg_passconf, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formReg_passconfERR, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lbl_form_name)
@@ -579,66 +557,57 @@ public class main_Admin extends javax.swing.JFrame {
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
                                 .addComponent(lbl_form_avatar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_formReg_photoavatar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_formA_Avatar)))
+                                .addComponent(btn_formReg_Avatar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                                .addComponent(txtf_formAdm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtf_formReg_name, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbl_form_lastName)
-                                    .addComponent(lbl_form_hireDate)))
+                                .addComponent(lbl_formReg_nameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(lbl_form_lastName))
                             .addGroup(PNL_drawFormLayout.createSequentialGroup()
-                                .addComponent(DC_formAdm_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DC_formReg_borndate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_formAdm_borndateERR)))
+                                .addComponent(lbl_formReg_borndateERR)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtf_formAdm_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DC_formAdm_singdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtf_formReg_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_formAdm_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formAdm_singdateERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_formReg_lastnameERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_form_email)
                             .addComponent(lbl_form_state))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtf_formAdm_email, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CB_formAdm_state))
+                            .addComponent(txtf_formReg_email, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CB_formReg_state))
                         .addGap(0, 0, 0)
-                        .addComponent(lbl_formAdm_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_formReg_emailERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_form_phone)
                             .addComponent(lbl_form_activity))
                         .addGap(0, 0, 0)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtf_formAdm_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                            .addComponent(txt_formAdm_activity))
+                            .addComponent(txtf_formReg_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                            .addComponent(txt_formReg_activity))
                         .addGap(0, 0, 0)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_formAdm_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_formAdm_activityERR))
+                            .addComponent(lbl_formReg_phoneERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_formReg_activityERR))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_form_dni)
-                            .addComponent(lbl_form_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_form_dni)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtf_formAdm_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_form_benefit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtf_formReg_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_formAdm_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_formReg_dniERR, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PNL_drawFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_formAdmCreate_back)
-                            .addComponent(btn_formAdmCreate_create)))
+                            .addComponent(btn_formRegCreate_back)
+                            .addComponent(btn_formRegCreate_create)))
                     .addGroup(PNL_drawFormLayout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99)
@@ -669,7 +638,7 @@ public class main_Admin extends javax.swing.JFrame {
 
         PNL_table.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        TABLA.setModel(new javax.swing.table.DefaultTableModel(
+        TABLA_REG.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -680,7 +649,7 @@ public class main_Admin extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(TABLA);
+        jScrollPane2.setViewportView(TABLA_REG);
 
         javax.swing.GroupLayout PNL_tableLayout = new javax.swing.GroupLayout(PNL_table);
         PNL_table.setLayout(PNL_tableLayout);
@@ -708,10 +677,10 @@ public class main_Admin extends javax.swing.JFrame {
         SIGUIENTE.setText(">");
         jPanel3.add(SIGUIENTE, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
-        CAJA.setEditable(false);
-        CAJA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CAJA.setPreferredSize(new java.awt.Dimension(140, 20));
-        jPanel3.add(CAJA, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 80, 30));
+        CAJA_REG.setEditable(false);
+        CAJA_REG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CAJA_REG.setPreferredSize(new java.awt.Dimension(140, 20));
+        jPanel3.add(CAJA_REG, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 80, 30));
 
         primero.setText("|<");
         jPanel3.add(primero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
@@ -829,13 +798,12 @@ public class main_Admin extends javax.swing.JFrame {
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
-    public static javax.swing.JTextField CAJA;
-    public static javax.swing.JComboBox<String> CB_formAdm_state;
+    public static javax.swing.JTextField CAJA_REG;
+    public static javax.swing.JComboBox<String> CB_formReg_state;
     public static javax.swing.JComboBox CB_tbl_entries;
-    public static com.toedter.calendar.JDateChooser DC_formAdm_borndate;
-    public static com.toedter.calendar.JDateChooser DC_formAdm_singdate;
-    public static javax.swing.JPasswordField JPF_fromAdm_pass;
-    public static javax.swing.JPasswordField JPF_fromAdm_passconf;
+    public static com.toedter.calendar.JDateChooser DC_formReg_borndate;
+    public static javax.swing.JPasswordField JPF_fromReg_pass;
+    public static javax.swing.JPasswordField JPF_fromReg_passconf;
     public static javax.swing.JPanel PNL_drawForm;
     public static org.edisoncor.gui.panel.PanelImage PNL_footer;
     public static org.edisoncor.gui.panel.PanelImage PNL_form;
@@ -844,22 +812,22 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JPanel PNL_table;
     public static org.edisoncor.gui.panel.PanelImage PNL_title;
     public static javax.swing.JButton SIGUIENTE;
-    public static javax.swing.JTable TABLA;
+    public static javax.swing.JTable TABLA_REG;
     public static javax.swing.ButtonGroup btnGroupState;
     public static org.edisoncor.gui.button.ButtonAero btn_backMain;
-    public static javax.swing.JButton btn_createAdmin;
     public static javax.swing.JButton btn_createDummies;
-    public static javax.swing.JButton btn_deleteAdmin;
-    public static javax.swing.JButton btn_deleteAllAdmin;
-    public static javax.swing.JButton btn_formA_Avatar;
-    public static javax.swing.JButton btn_formAdmCreate_back;
-    public static javax.swing.JButton btn_formAdmCreate_create;
-    public static javax.swing.JButton btn_modifyAdmin;
+    public static javax.swing.JButton btn_createReg;
+    public static javax.swing.JButton btn_deleteAllReg;
+    public static javax.swing.JButton btn_deleteReg;
+    public static javax.swing.JButton btn_formRegCreate_back;
+    public static javax.swing.JButton btn_formRegCreate_create;
+    public static javax.swing.JButton btn_formReg_Avatar;
+    public static javax.swing.JButton btn_modifyReg;
     public static org.edisoncor.gui.button.ButtonAero btn_saveJSON;
     public static org.edisoncor.gui.button.ButtonAero btn_saveTXT;
     public static org.edisoncor.gui.button.ButtonAero btn_saveXML;
     public static javax.swing.JButton btn_tbl_back;
-    public static javax.swing.JButton btn_viewAdmin;
+    public static javax.swing.JButton btn_viewReg;
     public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel4;
@@ -874,43 +842,39 @@ public class main_Admin extends javax.swing.JFrame {
     public static javax.swing.JLabel lblMainform;
     public static javax.swing.JLabel lbl_entries;
     public static javax.swing.JLabel lbl_filtBY;
-    public static javax.swing.JLabel lbl_formAdm_activityERR;
-    public static javax.swing.JLabel lbl_formAdm_borndateERR;
-    public static javax.swing.JLabel lbl_formAdm_dniERR;
-    public static javax.swing.JLabel lbl_formAdm_emailERR;
-    public static javax.swing.JLabel lbl_formAdm_lastnameERR;
-    public static javax.swing.JLabel lbl_formAdm_lusernameERR;
-    public static javax.swing.JLabel lbl_formAdm_nameERR;
-    public static javax.swing.JLabel lbl_formAdm_passERR;
-    public static javax.swing.JLabel lbl_formAdm_passconfERR;
-    public static javax.swing.JLabel lbl_formAdm_phoneERR;
-    public static javax.swing.JLabel lbl_formAdm_photoavatar;
-    public static javax.swing.JLabel lbl_formAdm_singdateERR;
+    public static javax.swing.JLabel lbl_formReg_activityERR;
+    public static javax.swing.JLabel lbl_formReg_borndateERR;
+    public static javax.swing.JLabel lbl_formReg_dniERR;
+    public static javax.swing.JLabel lbl_formReg_emailERR;
+    public static javax.swing.JLabel lbl_formReg_lastnameERR;
+    public static javax.swing.JLabel lbl_formReg_nameERR;
+    public static javax.swing.JLabel lbl_formReg_passERR;
+    public static javax.swing.JLabel lbl_formReg_passconfERR;
+    public static javax.swing.JLabel lbl_formReg_phoneERR;
+    public static javax.swing.JLabel lbl_formReg_photoavatar;
+    public static javax.swing.JLabel lbl_formReg_usernameERR;
     public static javax.swing.JLabel lbl_form_activity;
     public static javax.swing.JLabel lbl_form_avatar;
-    public static javax.swing.JLabel lbl_form_benefit;
     public static javax.swing.JLabel lbl_form_bornDate;
     public static javax.swing.JLabel lbl_form_dni;
     public static javax.swing.JLabel lbl_form_email;
-    public static javax.swing.JLabel lbl_form_hireDate;
     public static javax.swing.JLabel lbl_form_lastName;
     public static javax.swing.JLabel lbl_form_name;
     public static javax.swing.JLabel lbl_form_pass;
     public static javax.swing.JLabel lbl_form_passConf;
     public static javax.swing.JLabel lbl_form_phone;
-    public static javax.swing.JLabel lbl_form_salary;
     public static javax.swing.JLabel lbl_form_state;
     public static javax.swing.JLabel lbl_form_userName;
     public static javax.swing.JLabel lbl_rowBYpag;
     public static org.edisoncor.gui.panel.PanelImage panelImage3;
     public static javax.swing.JButton primero;
-    public static javax.swing.JTextField txt_formAdm_activity;
-    public static javax.swing.JTextField txtf_formAdm_dni;
-    public static javax.swing.JTextField txtf_formAdm_email;
-    public static javax.swing.JTextField txtf_formAdm_lastname;
-    public static javax.swing.JTextField txtf_formAdm_name;
-    public static javax.swing.JTextField txtf_formAdm_phone;
-    public static javax.swing.JTextField txtf_formAdm_username;
+    public static javax.swing.JTextField txt_formReg_activity;
+    public static javax.swing.JTextField txtf_formReg_dni;
+    public static javax.swing.JTextField txtf_formReg_email;
+    public static javax.swing.JTextField txtf_formReg_lastname;
+    public static javax.swing.JTextField txtf_formReg_name;
+    public static javax.swing.JTextField txtf_formReg_phone;
+    public static javax.swing.JTextField txtf_formReg_username;
     public static javax.swing.JButton ultimo;
     // End of variables declaration//GEN-END:variables
 }

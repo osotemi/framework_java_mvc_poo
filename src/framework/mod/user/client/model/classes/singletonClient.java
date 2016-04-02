@@ -34,7 +34,7 @@ public class singletonClient {
      */
     public static void loadSingletonClient(){
         ClienTableArray = new ArrayList<Client>();
-        PATH_CLT ="/src/framework/mod/user/client/model/files/client_DB.json";
+        PATH_CLT ="/src/framework/mod/user/client/model/files/clientDB.json";
         passwd_formClt = "";
         selectedPOSmodifyClt =-1;
         changesClt = false;

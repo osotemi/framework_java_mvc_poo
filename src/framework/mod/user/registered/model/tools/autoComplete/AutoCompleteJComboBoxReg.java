@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package framework.mod.user.client.model.tools.autoComplete;
+package framework.mod.user.registered.model.tools.autoComplete;
 
 import java.awt.Component;
 import java.awt.event.FocusEvent;
@@ -23,13 +23,13 @@ import javax.swing.text.JTextComponent;
  *
  * @author osotemi
  */
-public class AutocompleteJComboBoxClt extends JComboBox{
+public class AutoCompleteJComboBoxReg extends JComboBox {
     
-    private final SearchableClt<String, String> searchableClt;
+    private final SearchableReg<String, String> searchableReg;
     
-    public AutocompleteJComboBoxClt(SearchableClt<String, String> s) {
+    public AutoCompleteJComboBoxReg(SearchableReg<String, String> s) {
         super();
-        this.searchableClt = s;
+        this.searchableReg = s;
 
         setEditable(true);
 
@@ -60,7 +60,7 @@ public class AutocompleteJComboBoxClt extends JComboBox{
 
                         @Override
                         public void run() {
-                            List<String> founds = new ArrayList<String>(searchableClt.search(tc.getText()));
+                            List<String> founds = new ArrayList<String>(searchableReg.search(tc.getText()));
                             Set<String> foundSet = new HashSet<String>();
                             for (String s : founds) {
                                 foundSet.add(s.toLowerCase());

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package framework.mod.user.client.model.tools.autoComplete;
+package framework.mod.user.registered.model.tools.autoComplete;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author osotemi
  */
-public class StringSearchableClt implements SearchableClt<String, String> {
+public class StringSearchableReg implements SearchableReg<String, String>{
 
     private List<String> terms = new ArrayList<String>();
 
@@ -22,7 +22,7 @@ public class StringSearchableClt implements SearchableClt<String, String> {
      *
      * @param terms The inventory of terms to search.
      */
-    public StringSearchableClt(List<String> terms) {
+    public StringSearchableReg(List<String> terms) {
         this.terms.addAll(terms);
     }
 
@@ -36,5 +36,5 @@ public class StringSearchableClt implements SearchableClt<String, String> {
         }
         return founds;
     }
-
+  
 }

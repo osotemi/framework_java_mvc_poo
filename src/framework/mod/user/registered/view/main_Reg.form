@@ -96,11 +96,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_viewAdmin" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_modifyAdmin" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_createAdmin" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_deleteAdmin" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="btn_deleteAllAdmin" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="btn_viewReg" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_modifyReg" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_createReg" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_deleteReg" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="btn_deleteAllReg" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="btn_createDummies" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -111,17 +111,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_viewAdmin" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_viewReg" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_modifyAdmin" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="btn_modifyReg" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_createAdmin" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_createReg" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_deleteAdmin" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="btn_deleteReg" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_createDummies" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_deleteAllAdmin" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="btn_deleteAllReg" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Component id="btn_saveXML" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -168,7 +168,7 @@
             <Property name="text" type="java.lang.String" value="TXT"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_modifyAdmin">
+        <Component class="javax.swing.JButton" name="btn_modifyReg">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -193,7 +193,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_viewAdmin">
+        <Component class="javax.swing.JButton" name="btn_viewReg">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -219,7 +219,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_deleteAdmin">
+        <Component class="javax.swing.JButton" name="btn_deleteReg">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -244,7 +244,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_createAdmin">
+        <Component class="javax.swing.JButton" name="btn_createReg">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="0" type="rgb"/>
@@ -269,7 +269,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_deleteAllAdmin">
+        <Component class="javax.swing.JButton" name="btn_deleteAllReg">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -459,36 +459,33 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lbl_form_avatar" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="btn_formA_Avatar" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="lbl_form_hireDate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_borndateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="DC_formAdm_borndate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="btn_formReg_Avatar" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="lbl_formReg_borndateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="DC_formReg_borndate" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                              <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
+                                              <Component id="lbl_formReg_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="lbl_form_bornDate" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="DC_formAdm_singdate" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="lbl_formAdm_singdateERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                       <Component id="lbl_form_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lbl_form_passConf" max="32767" attributes="0"/>
-                                      <Component id="JPF_fromAdm_passconf" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_passconfERR" max="32767" attributes="0"/>
+                                      <Component id="JPF_fromReg_passconf" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_passconfERR" max="32767" attributes="0"/>
                                       <Component id="lbl_form_name" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_name" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_nameERR" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_name" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_nameERR" max="32767" attributes="0"/>
                                       <Component id="lbl_form_lastName" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_lastname" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_lastnameERR" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_passERR" max="32767" attributes="0"/>
-                                      <Component id="JPF_fromAdm_pass" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_lusernameERR" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_lastname" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_lastnameERR" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_passERR" max="32767" attributes="0"/>
+                                      <Component id="JPF_fromReg_pass" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_usernameERR" max="32767" attributes="0"/>
                                       <Component id="lbl_form_pass" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_username" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_username" max="32767" attributes="0"/>
                                       <Component id="lbl_form_userName" max="32767" attributes="0"/>
                                       <Component id="lbl_form_email" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
@@ -501,29 +498,27 @@
                               <Component id="lblMainform" min="-2" pref="424" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btn_formAdmCreate_back" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_salary" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="CB_formAdm_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="btn_formRegCreate_back" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="CB_formReg_state" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                       <Component id="lbl_form_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="txt_formAdm_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_formAdm_activityERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_benefit" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="txt_formReg_activity" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="lbl_formReg_activityERR" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lbl_formAdm_dniERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_dniERR" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lbl_form_dni" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_dni" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_phoneERR" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_email" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lbl_formAdm_emailERR" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtf_formAdm_phone" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_dni" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_phoneERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_email" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_formReg_emailERR" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_phone" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lbl_form_phone" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btn_formAdmCreate_create" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="btn_formRegCreate_create" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -539,21 +534,21 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lbl_form_userName" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="txtf_formAdm_username" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="txtf_formReg_username" min="-2" pref="19" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_lusernameERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                          <Component id="lbl_formReg_usernameERR" min="-2" pref="15" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                           <Component id="lbl_form_pass" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                          <Component id="JPF_fromAdm_pass" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="JPF_fromReg_pass" min="-2" pref="19" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_passERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                          <Component id="lbl_formReg_passERR" min="-2" pref="15" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                           <Component id="lbl_form_passConf" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="JPF_fromAdm_passconf" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="JPF_fromReg_passconf" min="-2" pref="19" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_passconfERR" min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Component id="lbl_formReg_passconfERR" min="-2" pref="13" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lbl_form_name" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -563,38 +558,30 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lbl_form_avatar" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
+                                          <Component id="lbl_formReg_photoavatar" min="-2" pref="128" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btn_formA_Avatar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btn_formReg_Avatar" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtf_formAdm_name" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="txtf_formReg_name" min="-2" pref="19" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_nameERR" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="lbl_form_lastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lbl_form_hireDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lbl_formReg_nameERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="lbl_form_lastName" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="DC_formAdm_borndate" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DC_formReg_borndate" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lbl_formAdm_borndateERR" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbl_formReg_borndateERR" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtf_formAdm_lastname" min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="DC_formAdm_singdate" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtf_formReg_lastname" min="-2" pref="19" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_formAdm_lastnameERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="lbl_formAdm_singdateERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lbl_formReg_lastnameERR" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbl_form_email" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -602,11 +589,11 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtf_formAdm_email" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="CB_formAdm_state" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_email" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="CB_formReg_state" alignment="3" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="lbl_formAdm_emailERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="lbl_formReg_emailERR" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbl_form_phone" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -614,30 +601,24 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtf_formAdm_phone" pref="24" max="32767" attributes="0"/>
-                                      <Component id="txt_formAdm_activity" max="32767" attributes="0"/>
+                                      <Component id="txtf_formReg_phone" pref="24" max="32767" attributes="0"/>
+                                      <Component id="txt_formReg_activity" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_formAdm_phoneERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="lbl_formAdm_activityERR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_formReg_phoneERR" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="lbl_formReg_activityERR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_form_dni" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_salary" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lbl_form_dni" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtf_formAdm_dni" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="lbl_form_benefit" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtf_formReg_dni" min="-2" pref="24" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_formAdm_dniERR" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="lbl_formReg_dniERR" min="-2" pref="15" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btn_formAdmCreate_back" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_formAdmCreate_create" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_formRegCreate_back" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_formRegCreate_create" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -653,15 +634,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="com.toedter.calendar.JDateChooser" name="DC_formAdm_singdate">
-                  <Properties>
-                    <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_nameERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_nameERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -670,7 +643,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_lastnameERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_lastnameERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -697,7 +670,7 @@
                     <Property name="text" type="java.lang.String" value="Nombre de usuario"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_lusernameERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_usernameERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -707,7 +680,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_passERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_passERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -716,7 +689,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtf_formAdm_name">
+                <Component class="javax.swing.JTextField" name="txtf_formReg_name">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
@@ -727,7 +700,7 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="txtf_formAdm_lastname"/>
+                      <ComponentRef name="txtf_formReg_lastname"/>
                     </Property>
                     <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
@@ -737,7 +710,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtf_formAdm_email">
+                <Component class="javax.swing.JTextField" name="txtf_formReg_email">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
@@ -748,14 +721,14 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="txtf_formAdm_phone"/>
+                      <ComponentRef name="txtf_formReg_phone"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtf_formAdm_username">
+                <Component class="javax.swing.JTextField" name="txtf_formReg_username">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
@@ -766,25 +739,25 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="JPF_fromAdm_pass"/>
+                      <ComponentRef name="JPF_fromReg_pass"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="DC_formAdm_borndate">
+                <Component class="com.toedter.calendar.JDateChooser" name="DC_formReg_borndate">
                   <Properties>
                     <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="txtf_formAdm_username"/>
+                      <ComponentRef name="txtf_formReg_username"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="JPF_fromAdm_pass">
+                <Component class="javax.swing.JPasswordField" name="JPF_fromReg_pass">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Contrase&#xf1;a..."/>
@@ -792,14 +765,14 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="JPF_fromAdm_passconf"/>
+                      <ComponentRef name="JPF_fromReg_passconf"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_formA_Avatar">
+                <Component class="javax.swing.JButton" name="btn_formReg_Avatar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cargar Imagen"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
@@ -808,17 +781,17 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_formAdmCreate_back">
+                <Component class="javax.swing.JButton" name="btn_formRegCreate_back">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Volver"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_formAdmCreate_create">
+                <Component class="javax.swing.JButton" name="btn_formRegCreate_create">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Crear"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtf_formAdm_lastname">
+                <Component class="javax.swing.JTextField" name="txtf_formReg_lastname">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
@@ -829,14 +802,14 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="txtf_formAdm_email"/>
+                      <ComponentRef name="txtf_formReg_email"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="JPF_fromAdm_passconf">
+                <Component class="javax.swing.JPasswordField" name="JPF_fromReg_passconf">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="toolTipText" type="java.lang.String" value="Confirmar contrase&#xf1;a..."/>
@@ -844,7 +817,7 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="btn_formA_Avatar"/>
+                      <ComponentRef name="btn_formReg_Avatar"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -857,7 +830,7 @@
                     <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_passconfERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_passconfERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -878,7 +851,7 @@
                     <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_phoneERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_phoneERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -886,21 +859,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_singdateERR">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value=" "/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_form_hireDate">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Fecha de contrataci&#xf3;n"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_form_avatar">
                   <Properties>
@@ -914,7 +872,7 @@
                     <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_dniERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_dniERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -926,7 +884,7 @@
                 <Component class="javax.swing.JLabel" name="lblMainform">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Formulario de Administrador"/>
+                    <Property name="text" type="java.lang.String" value="Formulario de Usuario Registrado"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_form_dni">
@@ -935,7 +893,7 @@
                     <Property name="text" type="java.lang.String" value="DNI"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_emailERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_emailERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -962,7 +920,7 @@
                     <Property name="text" type="java.lang.String" value="Actividad"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_borndateERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_borndateERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -971,7 +929,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtf_formAdm_dni">
+                <Component class="javax.swing.JTextField" name="txtf_formReg_dni">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
@@ -981,14 +939,14 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="DC_formAdm_borndate"/>
+                      <ComponentRef name="DC_formReg_borndate"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtf_formAdm_phone">
+                <Component class="javax.swing.JTextField" name="txtf_formReg_phone">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="2"/>
@@ -998,14 +956,14 @@
                       <Border info="null"/>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="txtf_formAdm_dni"/>
+                      <ComponentRef name="txtf_formReg_dni"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="CB_formAdm_state">
+                <Component class="javax.swing.JComboBox" name="CB_formReg_state">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
@@ -1023,7 +981,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt_formAdm_activity">
+                <Component class="javax.swing.JTextField" name="txt_formReg_activity">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value="0"/>
@@ -1032,7 +990,7 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_activityERR">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_activityERR">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="text" type="java.lang.String" value=" "/>
@@ -1045,7 +1003,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbl_formAdm_photoavatar">
+                <Component class="javax.swing.JLabel" name="lbl_formReg_photoavatar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1056,24 +1014,6 @@
                       </Border>
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_form_salary">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value=" "/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_form_benefit">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value=" "/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1204,7 +1144,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="TABLA">
+                <Component class="javax.swing.JTable" name="TABLA_REG">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="4"/>
@@ -1257,7 +1197,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="CAJA">
+            <Component class="javax.swing.JTextField" name="CAJA_REG">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
