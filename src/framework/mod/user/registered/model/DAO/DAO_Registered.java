@@ -8,9 +8,11 @@ package framework.mod.user.registered.model.DAO;
 import framework.clss.DateO;
 import framework.mod.nav.controler.Controler_main;
 import framework.mod.nav.view.main;
+import static framework.mod.user.registered.controler.Controler_mainReg.MainReg;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.singletonReg;
 import framework.mod.user.registered.model.tools.LanguageReg;
+import framework.mod.user.registered.model.tools.dummieReg_gen;
 import framework.mod.user.registered.view.main_Reg;
 import framework.tools.format;
 import framework.tools.imageSaver;
@@ -34,29 +36,31 @@ public class DAO_Registered {
      * @return
      */
     public static boolean formCreateReg() {
-        RegisteredU regU = new RegisteredU();
+        RegisteredU reg = new RegisteredU();
         DateO born = new DateO();
         DateO sing = new DateO();
         String error = "";
         boolean valid = false;
-        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = true;
+        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkAvatar = true;
         try {
-            if(singletonAdmin.PATH_formAdm.equals(""))
-            singletonAdmin.PATH_formAdm = singletonAdmin.ephemeralAdmin.getAvataring();
+            if(singletonReg.PATH_formReg.equals(""))
+            singletonReg.PATH_formReg = singletonReg.ephemeralReg.getAvataring();
 
         } catch (Exception e) {
-            singletonAdmin.PATH_formAdm = dummieAdm_gen.rdmAvatar();
+            singletonReg.PATH_formReg = dummieReg_gen.rdmAvatar();
         }
         
-        if (chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkSingdate && chkAvatar) {
-            born = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
-            sing = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
-            adm = new Admin(singletonAdmin.PATH_formAdm, born, main_Admin.txtf_formAdm_dni.getText(), main_Admin.txtf_formAdm_email.getText(), main_Admin.txtf_formAdm_phone.getText(), main_Admin.txtf_formAdm_name.getText(), main_Admin.txtf_formAdm_lastname.getText(), singletonAdmin.passwd_formAdm, ((String) main_Admin.CB_formAdm_state.getSelectedItem()), main_Admin.txtf_formAdm_username.getText(), Integer.parseInt(main_Admin.txt_formAdm_activity.getText()), sing);
-            singletonAdmin.ephemeralAdmin = adm;
+        if (chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkAvatar) {
+            born = new DateO(main_Reg.DC_formReg_borndate.getCalendar());
+            reg = new RegisteredU(singletonReg.PATH_formReg, born, main_Reg.txtf_formReg_dni.getText(), main_Reg.txtf_formReg_email.getText(), 
+                    main_Reg.txtf_formReg_phone.getText(), main_Reg.txtf_formReg_name.getText(), main_Reg.txtf_formReg_lastname.getText(), singletonReg.passwd_formReg, 
+                    ((String) main_Reg.CB_formReg_state.getSelectedItem()), main_Reg.txtf_formReg_username.getText(), Integer.parseInt(main_Reg.txt_formReg_activity.getText()));
+            
+            singletonReg.ephemeralReg = reg;
             valid = true;
         }
         else{
-            error = LanguageAdm.getInstance().getProperty("err_createAdm") + "\n";
+            error = LanguageReg.getInstance().getProperty("err_createAdm") + "\n";
             
             if(chkActivity){
                 error+= "-Error actividad\n";
@@ -85,16 +89,13 @@ public class DAO_Registered {
             if(chkPhone){
                 error+=  "-Error en el teléfono\n";
             }
-            if(chkSingdate){
-                error+= "-Error en la fecha de contratación\n";
-            }
             if(chkUsername){
                 error+= "-Error en el nombre de usuario\n";
             }
-            main_Admin.lblMainform.setToolTipText(error);
-            main_Admin.lblMainform.setOpaque(true);
-            main_Admin.lblMainform.setBackground(Color.red);
-            main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("error"));
+            main_Reg.lblMainform.setToolTipText(error);
+            main_Reg.lblMainform.setOpaque(true);
+            main_Reg.lblMainform.setBackground(Color.red);
+            main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("error"));
         }
         return valid;
     }
@@ -772,7 +773,7 @@ public class DAO_Registered {
      */
     
     public static void DAO_FR_mainBack() {
-        main_Reg.DO_NOTHING_ON_CLOSE;
+        MainReg.dispose();
         new Controler_main(new main()).run();
     }
 

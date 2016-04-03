@@ -14,6 +14,7 @@ import framework.mod.user.registered.model.classes.singletonReg;
 import framework.mod.user.registered.model.tools.LanguageReg;
 import framework.mod.user.registered.model.tools.jsonReg;
 import framework.mod.user.registered.model.tools.pager.paginaReg;
+import framework.mod.user.registered.model.tools.txtReg;
 import framework.mod.user.registered.model.tools.xmlReg;
 import framework.mod.user.registered.view.main_Reg;
 import static framework.mod.user.registered.view.main_Reg.CB_tbl_entries;
@@ -214,7 +215,7 @@ public class BLL_Registered {
     }
 
     public static void BLL_UserSaveTXT() {
-        txt.AdminTxt_Save();
+        txtReg.RegTxt_Save();
     }
 
     /**
@@ -252,9 +253,9 @@ public class BLL_Registered {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.PNL_drawForm.isVisible()) {
+                if (main_Reg.PNL_drawForm.isVisible()) {
 
-                    main_Admin.PNL_drawForm.setVisible(false);
+                    main_Reg.PNL_drawForm.setVisible(false);
                 }
             }
         };
@@ -409,8 +410,8 @@ public class BLL_Registered {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.PNL_drawForm.isVisible()) {
-                    main_Admin.PNL_drawForm.setVisible(false);
+                if (main_Reg.PNL_drawForm.isVisible()) {
+                    main_Reg.PNL_drawForm.setVisible(false);
                 }
             }
         };
@@ -454,8 +455,8 @@ public class BLL_Registered {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (main_Admin.PNL_drawForm.isVisible()) {
-                    main_Admin.PNL_drawForm.setVisible(false);
+                if (main_Reg.PNL_drawForm.isVisible()) {
+                    main_Reg.PNL_drawForm.setVisible(false);
                 }
             }
         };
