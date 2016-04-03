@@ -222,7 +222,7 @@ public class BLL_Client {
     }
 
     public static void BLL_ClientSaveTXT() {
-        //txtClt;
+        txtClt.ClientTxt_Save();
     }
 
     /**
@@ -255,7 +255,7 @@ public class BLL_Client {
      *
      * @return
      */
-    public static boolean BLL_DeleteAdm() {
+    public static boolean BLL_DeleteClt() {
         ActionListener task = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -308,7 +308,7 @@ public class BLL_Client {
         return false;
     }
 
-    public static boolean BLL_DeleteAllAdm() {
+    public static boolean BLL_DeleteAllClt() {
         int pos = 0;
         ActionListener task = new ActionListener() {
             @Override

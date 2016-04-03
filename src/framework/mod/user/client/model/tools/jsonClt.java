@@ -171,7 +171,7 @@ public class jsonClt {
             xstream.alias("Client", Client.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/model/files/client_dummies.json";
+                    + singletonClient.PATH_CLT;
 
             JsonReader read = new JsonReader(new FileReader(PATH));
             JsonParser parseator = new JsonParser();

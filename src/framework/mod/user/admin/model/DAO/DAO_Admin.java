@@ -190,12 +190,12 @@ public class DAO_Admin {
         main_Admin.txtf_formAdm_username.setBorder(null);
         main_Admin.lbl_formAdm_lusernameERR.setText(" ");
 
-        main_Admin.btn_formAdmCreate_back.setBackground( Color.lightGray);
-        main_Admin.btn_formAdmCreate_back.setVisible(true);
-        main_Admin.btn_formAdmCreate_back.setText(LanguageAdm.getInstance().getProperty("new_BTMmodify"));
-        main_Admin.btn_formAdmCreate_create.setBackground( Color.lightGray);
-        main_Admin.btn_formAdmCreate_create.setVisible(true);
-        main_Admin.btn_formAdmCreate_create.setText(LanguageAdm.getInstance().getProperty("new_BTMcreate"));
+        main_Admin.btn_formAdmBack.setBackground( Color.lightGray);
+        main_Admin.btn_formAdmBack.setVisible(true);
+        main_Admin.btn_formAdmBack.setText(LanguageAdm.getInstance().getProperty("DRW_btnBack"));
+        main_Admin.btn_formAdm_Create.setBackground( Color.lightGray);
+        main_Admin.btn_formAdm_Create.setVisible(true);
+        main_Admin.btn_formAdm_Create.setText(LanguageAdm.getInstance().getProperty("new_BTMcreate"));
         
         main_Admin.lbl_form_salary.setText("");
         main_Admin.lbl_form_benefit.setText("");
@@ -226,7 +226,7 @@ public class DAO_Admin {
         main_Admin.lbl_formAdm_borndateERR.setToolTipText("");
         main_Admin.lbl_formAdm_borndateERR.setText("");
         
-        main_Admin.btn_formAdmCreate_create.setText(LanguageAdm.getInstance().getProperty("new_BTMmodify"));
+        main_Admin.btn_formAdm_Create.setText(LanguageAdm.getInstance().getProperty("new_BTMmodify"));
         
         main_Admin.txtf_formAdm_dni.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Admin.txtf_formAdm_dni.setText(singletonAdmin.ephemeralAdmin.getDni());
@@ -307,8 +307,12 @@ public class DAO_Admin {
         main_Admin.lbl_form_salary.setText("");
         main_Admin.lbl_form_benefit.setText("");
         
-        main_Admin.btn_formAdmCreate_create.setEnabled(true);
-        main_Admin.btn_formAdmCreate_create.setVisible(true);
+        main_Admin.btn_formAdmBack.setBackground( Color.lightGray);
+        main_Admin.btn_formAdmBack.setVisible(true);
+        main_Admin.btn_formAdmBack.setText(LanguageAdm.getInstance().getProperty("DRW_btnBack"));
+        main_Admin.btn_formAdm_Create.setEnabled(true);
+        main_Admin.btn_formAdm_Create.setVisible(true);
+        main_Admin.btn_formAdm_Create.setText(LanguageAdm.getInstance().getProperty("new_BTMmodify"));
         main_Admin.PNL_drawForm.setBackground(null);
         main_Admin.PNL_drawForm.setVisible(true);
         main_Admin.txtf_formAdm_username.requestFocus();
@@ -415,9 +419,12 @@ public class DAO_Admin {
         main_Admin.lbl_form_benefit.setText(LanguageAdm.getInstance().getProperty("view_benefit")+ " -> " + Float.toString(singletonAdmin.ephemeralAdmin.getBenefit()));
         main_Admin.lbl_form_benefit.setFont(new java.awt.Font("Serif", 1, 14));
         
+        main_Admin.btn_formAdmBack.setBackground( Color.lightGray);
+        main_Admin.btn_formAdmBack.setVisible(true);
+        main_Admin.btn_formAdmBack.setText(LanguageAdm.getInstance().getProperty("DRW_btnBack"));
         main_Admin.btn_formA_Avatar.setEnabled(false);
-        main_Admin.btn_formAdmCreate_create.setVisible(true);
-        main_Admin.btn_formAdmCreate_back.setBackground(new Color(0,0,0,0));
+        main_Admin.btn_formAdm_Create.setVisible(false);
+        main_Admin.btn_formAdmBack.setBackground(new Color(0,0,0,0));
         main_Admin.PNL_drawForm.setVisible(true);
         main_Admin.PNL_drawForm.setBackground(Color.WHITE);
         

@@ -35,7 +35,8 @@ public class paginaReg {
     public static void inicializa() {
         int rowCount = 0;
         
-        rowCount = ((miniSimpleTableModelReg)framework.mod.user.admin.view.main_Admin.TABLA.getModel()).getRowCount();
+        rowCount = ((miniSimpleTableModelReg)framework.mod.user.registered.view.main_Reg.TABLA_REG.getModel()).getRowCount();
+                
         
         int v = rowCount%itemsPerPage==0 ? 0 : 1;
         maxPageIndex = rowCount/itemsPerPage + v;

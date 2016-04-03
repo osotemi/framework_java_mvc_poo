@@ -11,6 +11,7 @@ import framework.mod.user.registered.model.classes.singletonReg;
 import framework.mod.user.registered.model.tools.LanguageReg;
 import framework.mod.user.registered.model.tools.autoComplete.AutoCompleteJComboBoxReg;
 import framework.mod.user.registered.model.tools.autoComplete.StringSearchableReg;
+import framework.mod.user.registered.model.tools.dummieReg_gen;
 import framework.mod.user.registered.model.tools.pager.paginaReg;
 import framework.mod.user.registered.view.main_Reg;
 import static framework.mod.user.registered.view.main_Reg.PNL_drawForm;
@@ -29,6 +30,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +70,6 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         _CB_state,
         
         _DC_bornDate,
-        _DC_singDate,
         
         _JPF_pass,
         _JPF_passConf,
@@ -192,21 +193,21 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         MainReg.btn_formReg_Avatar.setActionCommand("_BTN_avatar");
         MainReg.btn_formReg_Avatar.setName("_BTN_avatar");
         MainReg.btn_formReg_Avatar.setText(LanguageReg.getInstance().getProperty("DRW_btnAvatar"));
-        MainReg.btn_formReg_Avatar.addKeyListener(this);
+        MainReg.btn_formReg_Avatar.addActionListener(this);
         
         MainReg.btn_formRegCreate_create.setActionCommand("_BTN_formCreate");
         MainReg.btn_formRegCreate_create.setName("_BTN_formCreate");
         MainReg.btn_formRegCreate_create.setText("");
-        MainReg.btn_formRegCreate_create.addKeyListener(this);
+        MainReg.btn_formRegCreate_create.addActionListener(this);
         
         MainReg.btn_formRegCreate_back.setActionCommand("_BTN_formBack");
         MainReg.btn_formRegCreate_back.setName("_BTN_formBack");
-        MainReg.btn_formRegCreate_back.addKeyListener(this);
+        MainReg.btn_formRegCreate_back.addActionListener(this);
 
         MainReg.lbl_form_state.setText(LanguageReg.getInstance().getProperty("DRW_lblState"));
         MainReg.CB_formReg_state.setActionCommand("_CB_state");
         MainReg.CB_formReg_state.setName("_CB_state");
-        MainReg.CB_formReg_state.addKeyListener(this);
+        MainReg.CB_formReg_state.addActionListener(this);
         
         MainReg.lbl_form_bornDate.setText(LanguageReg.getInstance().getProperty("DRW_lblBornDate"));
         MainReg.DC_formReg_borndate.setName("_DC_bornDate");
@@ -297,58 +298,282 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent evt) {
+        switch (Accion.valueOf(evt.getActionCommand())) {
+            //PNL_menuBtn action buttons
+            case _BTN_back:
+                BLL_Registered.BLL_FR_mainBack();
+                break;
+            case _BTN_create:
+                BLL_Registered.BLL_CreateReg();
+                break;
+             case _BTN_createDummies:
+                dummieReg_gen.menu_dummie();
+                break;
+            case _BTN_delete:
+                BLL_Registered.BLL_DeleteReg();
+                break;
+            case _BTN_deleteALL:
+                BLL_Registered.BLL_DeleteAllRegistered();
+                break;
+            case _BTN_modify:
+                BLL_Registered.BLL_ModifyReg();
+                break;
+            case _BTN_saveJSON:
+                BLL_Registered.BLL_UserSaveJSON();
+                break;
+            case _BTN_saveTXT:
+                BLL_Registered.BLL_UserSaveTXT();
+                break;
+            case _BTN_saveXML:
+                BLL_Registered.BLL_UserSaveXML();
+                break;
+            case _BTN_view:
+                BLL_Registered.BLL_ViewReg();
+                break;
+            //BTNs of formAdmin
+            case _BTN_avatar:
+                BLL_Registered.BLL_Avatar();
+                break;
+            case _BTN_formBack:
+                BLL_Registered.BLL_FR_HideNewFormPanel();
+                break;
+            case _BTN_formCreate:
+                BLL_Registered.BLL_FR_formCreate();
+                break;
+            //BTNs of TablePager
+            case _BTN_ANTERIOR:
+                BLL_Registered.BLL_TBL_Previous();
+                break;
+            case _BTN_SIGUIENTE:
+                BLL_Registered.BLL_TBL_Next();
+                break;
+            case _BTN_primero:
+                BLL_Registered.BLL_TBL_First();
+                break;
+            case _BTN_ultimo:
+                BLL_Registered.BLL_TBL_Last();
+                break;
+            case _BTN_TBL_back:
+                BLL_Registered.BLL_FR_mainBack();
+                break;
+            case _CB_TBL_entries:
+                BLL_Registered.BLL_TBL_CB_entries();
+                break;
+            case _combo:
+                BLL_Registered.BLL_TBL_combo();
+                break;
+            case _JPF_passConf:
+                BLL_Registered.BLL_JPF_PassConfirm();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void keyTyped(KeyEvent evt) {
+        switch(Accion.valueOf(evt.getComponent().getName())){
+            case _JPF_pass:
+                BLL_Registered.BLL_JPF_Password();
+                break;
+            case _JPF_passConf:
+                BLL_Registered.BLL_JPF_PassConfirm();
+                break;
+            case _TXT_activity:
+                BLL_Registered.BLL_Activity();
+                break;
+            case _TXT_dni:
+                BLL_Registered.BLL_txtDNI();
+                break;
+            case _TXT_email:
+                BLL_Registered.BLL_txtEmail();
+                break;
+            case _TXT_lastName:
+                BLL_Registered.BLL_txtLastname();
+                break;
+            case _TXT_name:
+                BLL_Registered.BLL_txtName();
+                break;
+            case _TXT_phone:
+                BLL_Registered.BLL_txtPhone();
+                break;
+            case _TXT_userName:
+                BLL_Registered.BLL_txtUsername();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void keyPressed(KeyEvent evt) {
+        switch(Accion.valueOf(evt.getComponent().getName())){
+            case _JPF_pass:
+                BLL_Registered.BLL_JPF_Password();
+                break;
+            case _JPF_passConf:
+                BLL_Registered.BLL_JPF_PassConfirm();
+                break;
+            case _TXT_activity:
+                BLL_Registered.BLL_Activity();
+                break;
+            case _TXT_dni:
+                BLL_Registered.BLL_txtDNI();
+                break;
+            case _TXT_email:
+                BLL_Registered.BLL_txtEmail();
+                break;
+            case _TXT_lastName:
+                BLL_Registered.BLL_txtLastname();
+                break;
+            case _TXT_name:
+                BLL_Registered.BLL_txtName();
+                break;
+            case _TXT_phone:
+                BLL_Registered.BLL_txtPhone();
+                break;
+            case _TXT_userName:
+                BLL_Registered.BLL_txtUsername();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void keyReleased(KeyEvent evt) {
+        switch(Accion.valueOf(evt.getComponent().getName())){
+            case _JPF_pass:
+                BLL_Registered.BLL_JPF_Password();
+                break;
+            case _JPF_passConf:
+                BLL_Registered.BLL_JPF_PassConfirm();
+                break;
+            case _TXT_activity:
+                BLL_Registered.BLL_Activity();
+                break;
+            case _TXT_dni:
+                BLL_Registered.BLL_txtDNI();
+                break;
+            case _TXT_email:
+                BLL_Registered.BLL_txtEmail();
+                break;
+            case _TXT_lastName:
+                BLL_Registered.BLL_txtLastname();
+                break;
+            case _TXT_name:
+                BLL_Registered.BLL_txtName();
+                break;
+            case _TXT_phone:
+                BLL_Registered.BLL_txtPhone();
+                break;
+            case _TXT_userName:
+                BLL_Registered.BLL_txtUsername();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mouseClicked(MouseEvent evt) {
+        switch (Accion.valueOf(evt.getComponent().getName())) {
+            case _TABLA:
+                BLL_Registered.BLL_TableMouseClick(evt);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void focusGained(FocusEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void focusGained(FocusEvent evt) {
+        switch(Accion.valueOf(evt.getComponent().getName())){
+            case _JPF_pass:
+                BLL_Registered.BLL_JPF_Password();
+                break;
+            case _TXT_activity:
+                BLL_Registered.BLL_Activity();
+                break;
+            case _TXT_dni:
+                BLL_Registered.BLL_FR_CleanDNI();
+                break;
+            case _TXT_email:
+                BLL_Registered.BLL_FR_CleanEmail();
+                break;
+            case _TXT_lastName:
+                BLL_Registered.BLL_FR_CleanLastName();
+                break;
+            case _TXT_name:
+                BLL_Registered.BLL_FR_CleanName();
+                break;
+            case _TXT_phone:
+                BLL_Registered.BLL_FR_CleanPhone();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
-    public void focusLost(FocusEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void focusLost(FocusEvent evt) {
+        switch(Accion.valueOf(evt.getComponent().getName())){
+            case _JPF_pass:
+                BLL_Registered.BLL_JPF_Password();
+                break;
+            case _JPF_passConf:
+                BLL_Registered.BLL_JPF_PassConfirm();
+                break;
+            case _TXT_dni:
+                BLL_Registered.BLL_txtDNI();
+                break;
+            case _TXT_email:
+                BLL_Registered.BLL_txtEmail();
+                break;
+            case _TXT_lastName:
+                BLL_Registered.BLL_txtLastname();
+                break;
+            case _TXT_name:
+                BLL_Registered.BLL_txtName();
+                break;
+            case _TXT_phone:
+                BLL_Registered.BLL_Activity();
+                break;
+            case _TXT_userName:
+                BLL_Registered.BLL_txtUsername();
+                break;
+            default:
+                break;
+        }
     }
- 
+    public void propertyChange(PropertyChangeEvent evt){
+        switch(Accion.valueOf(evt.getPropertyName())){
+            case _DC_bornDate:
+                BLL_Registered.BLL_DCBornDate();
+                break;
+            default:
+                break;
+        }
+    }
 }

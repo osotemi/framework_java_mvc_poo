@@ -5,15 +5,9 @@
  */
 package framework.mod.settings.controler;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import framework.mod.settings.model.BLL.BLL_settings;
-import framework.mod.settings.model.DAO.DAO_settings;
 import framework.mod.settings.model.clss.Language;
-import framework.mod.settings.model.clss.Settings;
-import framework.mod.settings.model.clss.singleSettings;
-import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.view.wdwSettings;
-import framework.mod.user.admin.model.tools.LanguageAdm;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -28,8 +22,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
@@ -64,7 +56,6 @@ public class Controler_wdwSettings implements ActionListener, KeyListener, Mouse
         _BTN_LNGuk,
         _BTN_LNGvlc,
         //LookNFeel
-        
         
     }
 

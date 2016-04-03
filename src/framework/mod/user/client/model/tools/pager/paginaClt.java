@@ -7,6 +7,7 @@ package framework.mod.user.client.model.tools.pager;
 
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.tools.pager.LinkViewRadioButtonUI;
+import framework.mod.user.client.model.classes.miniSimpleTableModel_Client;
 import framework.mod.user.client.view.main_Client;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -36,7 +37,8 @@ public class paginaClt {
     public static void inicializa() {
         int rowCount = 0;
         
-        rowCount = ((miniSimpleTableModel_Admin)framework.mod.user.admin.view.main_Admin.TABLA.getModel()).getRowCount();
+        rowCount = ((miniSimpleTableModel_Client)framework.mod.user.client.view.main_Client.TABLA_CLT.getModel()).getRowCount();
+                
         
         int v = rowCount%itemsPerPage==0 ? 0 : 1;
         maxPageIndex = rowCount/itemsPerPage + v;
@@ -64,7 +66,7 @@ public class paginaClt {
 
         int rowCount = 0;
         
-        rowCount = ((miniSimpleTableModel_Admin)main_Client.TABLA_CLT.getModel()).getRowCount();
+        rowCount = ((miniSimpleTableModel_Client)main_Client.TABLA_CLT.getModel()).getRowCount();
                 
 
         int v = rowCount%itemsPerPage==0 ? 0 : 1;

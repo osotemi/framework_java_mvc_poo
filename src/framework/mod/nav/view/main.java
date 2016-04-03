@@ -59,8 +59,12 @@ public class main extends javax.swing.JFrame {
 
         panelImage3 = new org.edisoncor.gui.panel.PanelImage();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
-        btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
+        Pnl_head = new javax.swing.JPanel();
         btn_conf = new javax.swing.JButton();
+        Pnl_body = new javax.swing.JPanel();
+        btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
+        btn_RegGOTO_mainReg = new javax.swing.JButton();
+        btn_ClientGOTO_mainClient = new javax.swing.JButton();
         panelImage4 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -84,41 +88,104 @@ public class main extends javax.swing.JFrame {
         panelImage2.setAlignmentX(0.0F);
         panelImage2.setAlignmentY(0.0F);
         panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/Green-and-Blue-Abstract-Backgrounds-1024x768.jpg"))); // NOI18N
+        panelImage2.setMaximumSize(new java.awt.Dimension(1562, 465));
+
+        Pnl_head.setMaximumSize(new java.awt.Dimension(1562, 535));
+        Pnl_head.setOpaque(false);
+
+        btn_conf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/sett_icons.png"))); // NOI18N
+        btn_conf.setOpaque(false);
+
+        javax.swing.GroupLayout Pnl_headLayout = new javax.swing.GroupLayout(Pnl_head);
+        Pnl_head.setLayout(Pnl_headLayout);
+        Pnl_headLayout.setHorizontalGroup(
+            Pnl_headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pnl_headLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        Pnl_headLayout.setVerticalGroup(
+            Pnl_headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Pnl_headLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        Pnl_body.setMaximumSize(new java.awt.Dimension(1562, 535));
+        Pnl_body.setOpaque(false);
 
         btn_AdminGOTO_mainAdmin.setBackground(new java.awt.Color(0, 153, 0));
         btn_AdminGOTO_mainAdmin.setText("Admin");
         btn_AdminGOTO_mainAdmin.setAlignmentY(0.0F);
         btn_AdminGOTO_mainAdmin.setBorderPainted(false);
+        btn_AdminGOTO_mainAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_AdminGOTO_mainAdmin.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_AdminGOTO_mainAdmin.setPreferredSize(new java.awt.Dimension(70, 25));
 
-        btn_conf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/sett_icons.png"))); // NOI18N
-        btn_conf.setOpaque(false);
+        btn_RegGOTO_mainReg.setBackground(new java.awt.Color(0, 153, 0));
+        btn_RegGOTO_mainReg.setText("Registered user");
+        btn_RegGOTO_mainReg.setAlignmentY(0.0F);
+        btn_RegGOTO_mainReg.setBorderPainted(false);
+        btn_RegGOTO_mainReg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_RegGOTO_mainReg.setMinimumSize(new java.awt.Dimension(70, 25));
+        btn_RegGOTO_mainReg.setPreferredSize(new java.awt.Dimension(70, 25));
+
+        btn_ClientGOTO_mainClient.setBackground(new java.awt.Color(0, 153, 0));
+        btn_ClientGOTO_mainClient.setText("Client");
+        btn_ClientGOTO_mainClient.setAlignmentY(0.0F);
+        btn_ClientGOTO_mainClient.setBorderPainted(false);
+        btn_ClientGOTO_mainClient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_ClientGOTO_mainClient.setMinimumSize(new java.awt.Dimension(70, 25));
+        btn_ClientGOTO_mainClient.setPreferredSize(new java.awt.Dimension(70, 25));
+
+        javax.swing.GroupLayout Pnl_bodyLayout = new javax.swing.GroupLayout(Pnl_body);
+        Pnl_body.setLayout(Pnl_bodyLayout);
+        Pnl_bodyLayout.setHorizontalGroup(
+            Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Pnl_bodyLayout.createSequentialGroup()
+                .addGap(525, 525, 525)
+                .addGroup(Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(527, Short.MAX_VALUE))
+        );
+        Pnl_bodyLayout.setVerticalGroup(
+            Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Pnl_bodyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
+        );
+
+        btn_AdminGOTO_mainAdmin.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout panelImage2Layout = new javax.swing.GroupLayout(panelImage2);
         panelImage2.setLayout(panelImage2Layout);
         panelImage2Layout.setHorizontalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage2Layout.createSequentialGroup()
-                .addGap(402, 402, 402)
-                .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(462, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Pnl_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Pnl_head, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelImage2Layout.setVerticalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
-                .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addComponent(Pnl_head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Pnl_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        btn_AdminGOTO_mainAdmin.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(panelImage2, java.awt.BorderLayout.CENTER);
 
@@ -139,7 +206,7 @@ public class main extends javax.swing.JFrame {
         panelImage4Layout.setHorizontalGroup(
             panelImage4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage4Layout.createSequentialGroup()
-                .addContainerGap(466, Short.MAX_VALUE)
+                .addContainerGap(678, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,7 +229,11 @@ public class main extends javax.swing.JFrame {
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JPanel Pnl_body;
+    public static javax.swing.JPanel Pnl_head;
     public static javax.swing.JButton btn_AdminGOTO_mainAdmin;
+    public static javax.swing.JButton btn_ClientGOTO_mainClient;
+    public static javax.swing.JButton btn_RegGOTO_mainReg;
     public static javax.swing.JButton btn_conf;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;

@@ -317,13 +317,13 @@ public class BLL_Admin {
             }
         };
 
-        int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("askDelet"), LanguageAdm.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
+        int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("mes_DeletAll"), LanguageAdm.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
 
         if (opc == 0) {
             singletonAdmin.AdminTableArray = new ArrayList<>();
             Controler_mainAdmin.runTABLE();
             json.AdminJson_Autosave();
-            main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_DeletAll"));
+            main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_allDelOk"));
             main_Admin.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
             timer.setInitialDelay(2000);
@@ -380,7 +380,7 @@ public class BLL_Admin {
         if (n != 0) {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_emptyList"), LanguageAdm.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_noSelect"), LanguageAdm.getInstance().getProperty("error"), 2);
                 main_Admin.btn_viewAdmin.requestFocus();
                 return;
             } else {

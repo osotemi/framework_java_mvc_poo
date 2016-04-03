@@ -11,20 +11,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import framework.mod.nav.view.main;
 import framework.mod.settings.controler.Controler_wdwSettings;
-import framework.mod.settings.model.clss.Settings;
-import framework.mod.settings.model.clss.singleSettings;
 import framework.mod.settings.view.wdwSettings;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
-import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.view.main_Admin;
+import framework.mod.user.client.controler.Controler_mainClient;
+import framework.mod.user.client.model.tools.LanguageClt;
+import framework.mod.user.client.view.main_Client;
+import framework.mod.user.registered.controler.Controler_mainReg;
+import framework.mod.user.registered.model.tools.LanguageReg;
+import framework.mod.user.registered.view.main_Reg;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,13 +34,15 @@ public class Controler_main implements ActionListener {
 
     public static main MainMenu;
 
-    public Controler_main(main menu) {
-        MainMenu = (main) menu;
+    public Controler_main(main inicio) {
+        MainMenu = (main) inicio;
     }
 
     public enum Accion {
 
         _BTN_Admin,
+        _BTN_Client,
+        _BTN_Reg,
         _BTN_Config,
     }
 
@@ -71,6 +73,14 @@ public class Controler_main implements ActionListener {
         MainMenu.btn_AdminGOTO_mainAdmin.setName("_BTN_Admin");
         MainMenu.btn_AdminGOTO_mainAdmin.addActionListener(this);
         
+        MainMenu.btn_ClientGOTO_mainClient.setActionCommand("_BTN_Client");
+        MainMenu.btn_ClientGOTO_mainClient.setName("_BTN_Client");
+        MainMenu.btn_ClientGOTO_mainClient.addActionListener(this);
+        
+        MainMenu.btn_RegGOTO_mainReg.setActionCommand("_BTN_Reg");
+        MainMenu.btn_RegGOTO_mainReg.setName("_BTN_Reg");
+        MainMenu.btn_RegGOTO_mainReg.addActionListener(this);
+        
         MainMenu.btn_conf.setActionCommand("_BTN_Config");
         MainMenu.btn_conf.setName("_BTN_Config");
         MainMenu.btn_conf.addActionListener(this);
@@ -81,8 +91,21 @@ public class Controler_main implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
         switch (Accion.valueOf(evt.getActionCommand())) {
             case _BTN_Admin:     
-                //LanguageAdm.getInstance().loadProperties();
+                LanguageAdm.getInstance().loadProperties();
+                
                 new Controler_mainAdmin(new main_Admin()).run();
+                MainMenu.dispose();
+                
+                break;
+             case _BTN_Client:     
+                LanguageClt.getInstance().loadProperties();
+                new Controler_mainClient(new main_Client()).run();
+                MainMenu.dispose();
+                
+                break;
+             case _BTN_Reg:     
+                LanguageReg.getInstance().loadProperties();
+                new Controler_mainReg(new main_Reg()).run();
                 MainMenu.dispose();
                 
                 break;

@@ -30,11 +30,11 @@ public class txtReg {
 
     /**
      * ---------------------------------------------
-     * -------------------Admin---------------------
+     * -------------------Registered user---------------------
      * ---------------------------------------------
      */
     /**
-     * AdminTxt_save() function save from singletonU.Alist_adm to selected file
+     * RegTxt_save() function save from singletonReg.RegTableArray to selected file
      *
      */
     public static void RegTxt_Save() {
@@ -71,10 +71,10 @@ public class txtReg {
 
                 file.close();
 
-                functions.showString("Admin saved sucesfully on txt", "Admin txt save");
+                functions.showString("Registered user saved sucesfully on txt", "Registered user txt save");
             }
         } catch (HeadlessException | IOException e) {
-            functions.showString("ERR saving Admin", "Admin save ERR");
+            functions.showString("ERR saving Registered user", "Registered user save ERR");
         }
     }
 
@@ -109,14 +109,14 @@ public class txtReg {
             System.out.println("Registered user txt save");
 
         } catch (HeadlessException | IOException e) {
-            functions.showString("ERR saving Admin", "Admin save ERR");
+            functions.showString("ERR saving Registered user", "Registered user save ERR");
         }
     }
 
     /**
-     * AdminTxt_load() function load from selected file to singletonU.Alist_adm
+     * RegTxt_load() function load from selected file to singletonReg.RegTableArray
      *
-     * @return singletonU.Alist_adm
+     * @return singletonReg.RegTableArray
      */
     @SuppressWarnings({"unchecked"})
     public static void RegTxt_load() {
@@ -152,8 +152,8 @@ public class txtReg {
     }
 
     /**
-     * AdminTxt_Autoload load automatically from singletonU.Alist_adm to
-     * admin.xml in the path /src/framework/mod/user/model/files/admin.txt
+     * RegTxt_Autoload load automatically from singletonReg.RegTableArray to
+     * xmlRegDB.xml in the path /src/framework/mod/user/registered/model/files/RegTxtDB.txt
      *
      */
     @SuppressWarnings("unchecked")
@@ -173,10 +173,10 @@ public class txtReg {
             singletonReg.RegTableArray = (ArrayList<RegisteredU>) obj_input.readObject();
             obj_input.close();
 
-            functions.showString("Registered users load from .txt sucesfully", "Admin txt load");
+            functions.showString("Registered users load from .txt sucesfully", "Registered users txt load");
 
         } catch (HeadlessException | IOException | ClassNotFoundException e) {
-            functions.showString("ERR loading Registered users from .txt", "Admin .txt Autoload");
+            functions.showString("ERR loading Registered users from .txt", "Registered users .txt Autoload");
         }
     }
 }

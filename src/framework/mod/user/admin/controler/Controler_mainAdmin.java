@@ -5,9 +5,6 @@
  */
 package framework.mod.user.admin.controler;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
-import framework.mod.nav.controler.Controler_main;
-import framework.mod.nav.view.main;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
@@ -16,7 +13,6 @@ import framework.mod.user.admin.model.tools.autoComplete.AutocompleteJComboBox;
 import framework.mod.user.admin.model.tools.autoComplete.StringSearchable;
 import framework.mod.user.admin.model.tools.dummieAdm_gen;
 import framework.mod.user.admin.model.tools.pager.pagina;
-import framework.mod.user.admin.model.tools.txt;
 import framework.mod.user.admin.view.main_Admin;
 import static framework.mod.user.admin.view.main_Admin.DC_formAdm_borndate;
 import static framework.mod.user.admin.view.main_Admin.DC_formAdm_singdate;
@@ -205,21 +201,20 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         MainAdmin.btn_formA_Avatar.setActionCommand("_BTN_avatar");
         MainAdmin.btn_formA_Avatar.setName("_BTN_avatar");
         MainAdmin.btn_formA_Avatar.setText(LanguageAdm.getInstance().getProperty("DRW_btnAvatar"));
-        MainAdmin.btn_formA_Avatar.addKeyListener(this);
+        MainAdmin.btn_formA_Avatar.addActionListener(this);
         
-        MainAdmin.btn_formAdmCreate_create.setActionCommand("_BTN_formCreate");
-        MainAdmin.btn_formAdmCreate_create.setName("_BTN_formCreate");
-        MainAdmin.btn_formAdmCreate_create.setText("");
-        MainAdmin.btn_formAdmCreate_create.addKeyListener(this);
+        MainAdmin.btn_formAdm_Create.setActionCommand("_BTN_formCreate");
+        MainAdmin.btn_formAdm_Create.setName("_BTN_formCreate");
+        MainAdmin.btn_formAdm_Create.addActionListener(this);
         
-        MainAdmin.btn_formAdmCreate_back.setActionCommand("_BTN_formBack");
-        MainAdmin.btn_formAdmCreate_back.setName("_BTN_formBack");
-        MainAdmin.btn_formAdmCreate_back.addKeyListener(this);
+        MainAdmin.btn_formAdmBack.setActionCommand("_BTN_formBack");
+        MainAdmin.btn_formAdmBack.setName("_BTN_formBack");
+        MainAdmin.btn_formAdmBack.addActionListener(this);
 
         MainAdmin.lbl_form_state.setText(LanguageAdm.getInstance().getProperty("DRW_lblState"));
         MainAdmin.CB_formAdm_state.setActionCommand("_CB_state");
         MainAdmin.CB_formAdm_state.setName("_CB_state");
-        MainAdmin.CB_formAdm_state.addKeyListener(this);
+        MainAdmin.CB_formAdm_state.addActionListener(this);
         
         MainAdmin.lbl_form_bornDate.setText(LanguageAdm.getInstance().getProperty("DRW_lblBornDate"));
         MainAdmin.DC_formAdm_borndate.setName("_DC_bornDate");
@@ -236,7 +231,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         MainAdmin.lbl_form_passConf.setText(LanguageAdm.getInstance().getProperty("DRW_lblPassConf"));
         MainAdmin.JPF_fromAdm_passconf.setName("_JPF_passConf");
         MainAdmin.JPF_fromAdm_passconf.addKeyListener(this);
-        
+        //TXT fielda
         MainAdmin.lbl_form_activity.setText(LanguageAdm.getInstance().getProperty("DRW_lblActivity"));
         MainAdmin.txt_formAdm_activity.setActionCommand("_TXT_activity");
         MainAdmin.txt_formAdm_activity.setName("_TXT_activity");
