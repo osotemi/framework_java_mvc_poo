@@ -23,7 +23,7 @@ import framework.mod.user.admin.model.BLL.BLL_Admin;
 
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
-import framework.mod.nav.model.tools.menu_gen;
+import framework.tools.menu_gen;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.tools.format;
 import framework.tools.functions;

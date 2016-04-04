@@ -5,8 +5,8 @@
  */
 package framework;
 
-import framework.mod.nav.controler.Controler_main;
-import framework.mod.nav.view.main;
+import framework.mod.settings.controler.Controler_Main;
+import framework.mod.settings.view.main;
 import framework.mod.settings.model.clss.Settings;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -49,7 +49,7 @@ public class Framework_v161 {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Settings.getInstance();
-                new Controler_main(new main()).run();
+                new Controler_Main(new main(), 0).run(0);
             }
         });
     }

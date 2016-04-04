@@ -5,6 +5,7 @@
  */
 package framework.mod.settings.model.clss;
 
+import framework.mod.settings.model.tools.Language;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.mod.settings.model.tools.LooknFeel;
 import framework.mod.user.admin.model.BLL.BLL_Admin;

@@ -150,7 +150,7 @@ public class wdwSettings extends javax.swing.JFrame {
 
         TABgen.addTab("Date Format", TABfdate);
 
-        lbl_decimal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_decimal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_decimal.setText("_");
 
         javax.swing.GroupLayout TABdecimalLayout = new javax.swing.GroupLayout(TABdecimal);
@@ -158,20 +158,20 @@ public class wdwSettings extends javax.swing.JFrame {
         TABdecimalLayout.setHorizontalGroup(
             TABdecimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TABdecimalLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lbl_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(45, 45, 45)
                 .addComponent(JSP_decimals, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addComponent(lbl_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         TABdecimalLayout.setVerticalGroup(
             TABdecimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TABdecimalLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(35, 35, 35)
                 .addGroup(TABdecimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JSP_decimals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                    .addComponent(JSP_decimals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         TABgen.addTab("Decimal", TABdecimal);

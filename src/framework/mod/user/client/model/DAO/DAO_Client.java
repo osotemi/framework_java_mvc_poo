@@ -6,8 +6,8 @@
 package framework.mod.user.client.model.DAO;
 
 import framework.clss.DateO;
-import framework.mod.nav.controler.Controler_main;
-import framework.mod.nav.view.main;
+import framework.mod.settings.controler.Controler_Main;
+import framework.mod.settings.view.main;
 import static framework.mod.user.client.controler.Controler_mainClient.MainClient;
 import framework.mod.user.client.model.classes.Client;
 import framework.mod.user.client.model.classes.singletonClient;
@@ -808,7 +808,7 @@ public class DAO_Client {
     
     public static void DAO_FC_mainBack() {
         MainClient.dispose();
-        new Controler_main(new main()).run();
+        new Controler_Main(new main(), 0).run(0);
     }
 
     public static void DAO_FC_hideFormPanel() {

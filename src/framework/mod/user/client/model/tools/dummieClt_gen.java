@@ -6,7 +6,7 @@
 package framework.mod.user.client.model.tools;
 
 import framework.clss.DateO;
-import framework.mod.nav.model.tools.menu_gen;
+import framework.tools.menu_gen;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.user.client.controler.Controler_mainClient;
 import framework.mod.user.client.model.BLL.BLL_Client;

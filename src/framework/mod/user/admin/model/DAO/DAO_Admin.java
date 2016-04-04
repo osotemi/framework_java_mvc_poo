@@ -6,8 +6,8 @@
 package framework.mod.user.admin.model.DAO;
 
 import framework.clss.DateO;
-import framework.mod.nav.controler.Controler_main;
-import framework.mod.nav.view.main;
+import framework.mod.settings.controler.Controler_Main;
+import framework.mod.settings.view.main;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import static framework.mod.user.admin.controler.Controler_mainAdmin.MainAdmin;
@@ -805,7 +805,7 @@ public class DAO_Admin {
     
     public static void DAO_FA_mainBack() {
         MainAdmin.dispose();
-        new Controler_main(new main()).run();
+        new Controler_Main(new main(), 0).run(0);
     }
 
     public static void DAO_FA_hideFormPanel() {

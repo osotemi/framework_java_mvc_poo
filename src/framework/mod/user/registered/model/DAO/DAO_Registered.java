@@ -6,8 +6,8 @@
 package framework.mod.user.registered.model.DAO;
 
 import framework.clss.DateO;
-import framework.mod.nav.controler.Controler_main;
-import framework.mod.nav.view.main;
+import framework.mod.settings.controler.Controler_Main;
+import framework.mod.settings.view.main;
 import static framework.mod.user.registered.controler.Controler_mainReg.MainReg;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.singletonReg;
@@ -779,7 +779,7 @@ public class DAO_Registered {
     
     public static void DAO_FR_mainBack() {
         MainReg.dispose();
-        new Controler_main(new main()).run();
+        new Controler_Main(new main(), 0).run(0);
     }
 
     public static void DAO_FR_hideFormPanel() {

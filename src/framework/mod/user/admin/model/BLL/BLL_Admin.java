@@ -5,7 +5,7 @@
  */
 package framework.mod.user.admin.model.BLL;
 
-import framework.mod.nav.model.tools.menu_gen;
+import framework.tools.menu_gen;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;

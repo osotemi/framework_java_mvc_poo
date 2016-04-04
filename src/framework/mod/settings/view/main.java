@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package framework.mod.nav.view;
+package framework.mod.settings.view;
 
 import framework.mod.user.admin.view.main_Admin;
 import static framework.mod.user.admin.view.main_Admin.DC_formAdm_borndate;
@@ -93,49 +93,56 @@ public class main extends javax.swing.JFrame {
         Pnl_head.setMaximumSize(new java.awt.Dimension(1562, 535));
         Pnl_head.setOpaque(false);
 
+        btn_conf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btn_conf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/sett_icons.png"))); // NOI18N
+        btn_conf.setText("Configuracion");
+        btn_conf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_conf.setOpaque(false);
 
         javax.swing.GroupLayout Pnl_headLayout = new javax.swing.GroupLayout(Pnl_head);
         Pnl_head.setLayout(Pnl_headLayout);
         Pnl_headLayout.setHorizontalGroup(
             Pnl_headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pnl_headLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(Pnl_headLayout.createSequentialGroup()
+                .addComponent(btn_conf)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Pnl_headLayout.setVerticalGroup(
             Pnl_headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_headLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         Pnl_body.setMaximumSize(new java.awt.Dimension(1562, 535));
         Pnl_body.setOpaque(false);
 
         btn_AdminGOTO_mainAdmin.setBackground(new java.awt.Color(0, 153, 0));
+        btn_AdminGOTO_mainAdmin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btn_AdminGOTO_mainAdmin.setText("Admin");
         btn_AdminGOTO_mainAdmin.setAlignmentY(0.0F);
         btn_AdminGOTO_mainAdmin.setBorderPainted(false);
+        btn_AdminGOTO_mainAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_AdminGOTO_mainAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_AdminGOTO_mainAdmin.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_AdminGOTO_mainAdmin.setPreferredSize(new java.awt.Dimension(70, 25));
 
         btn_RegGOTO_mainReg.setBackground(new java.awt.Color(0, 153, 0));
+        btn_RegGOTO_mainReg.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btn_RegGOTO_mainReg.setText("Registered user");
         btn_RegGOTO_mainReg.setAlignmentY(0.0F);
         btn_RegGOTO_mainReg.setBorderPainted(false);
+        btn_RegGOTO_mainReg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_RegGOTO_mainReg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_RegGOTO_mainReg.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_RegGOTO_mainReg.setPreferredSize(new java.awt.Dimension(70, 25));
 
         btn_ClientGOTO_mainClient.setBackground(new java.awt.Color(0, 153, 0));
+        btn_ClientGOTO_mainClient.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btn_ClientGOTO_mainClient.setText("Client");
         btn_ClientGOTO_mainClient.setAlignmentY(0.0F);
         btn_ClientGOTO_mainClient.setBorderPainted(false);
+        btn_ClientGOTO_mainClient.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_ClientGOTO_mainClient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_ClientGOTO_mainClient.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_ClientGOTO_mainClient.setPreferredSize(new java.awt.Dimension(70, 25));
@@ -146,11 +153,11 @@ public class main extends javax.swing.JFrame {
             Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_bodyLayout.createSequentialGroup()
                 .addGap(525, 525, 525)
-                .addGroup(Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(527, Short.MAX_VALUE))
+                .addGroup(Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                    .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(515, Short.MAX_VALUE))
         );
         Pnl_bodyLayout.setVerticalGroup(
             Pnl_bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +168,7 @@ public class main extends javax.swing.JFrame {
                 .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         btn_AdminGOTO_mainAdmin.getAccessibleContext().setAccessibleDescription("");
@@ -182,8 +189,8 @@ public class main extends javax.swing.JFrame {
             .addGroup(panelImage2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Pnl_head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Pnl_body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(Pnl_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

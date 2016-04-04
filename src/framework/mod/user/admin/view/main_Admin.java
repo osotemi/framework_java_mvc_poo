@@ -9,7 +9,7 @@ import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
-import framework.mod.nav.view.main;
+import framework.mod.settings.view.main;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.autoComplete.AutocompleteJComboBox;
 import framework.mod.user.admin.model.tools.autoComplete.StringSearchable;

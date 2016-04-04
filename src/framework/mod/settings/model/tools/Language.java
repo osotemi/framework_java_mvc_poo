@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package framework.mod.settings.model.clss;
+package framework.mod.settings.model.tools;
 
+import framework.mod.settings.model.clss.Settings;
+import framework.mod.settings.model.clss.singleSettings;
 import java.io.IOException;
 import java.util.Properties;
 

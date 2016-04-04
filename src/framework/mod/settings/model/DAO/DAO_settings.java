@@ -5,9 +5,8 @@
  */
 package framework.mod.settings.model.DAO;
 
-import framework.mod.settings.controler.Controler_wdwSettings;
-import static framework.mod.settings.controler.Controler_wdwSettings.Conf;
-import framework.mod.settings.model.clss.Language;
+import static framework.mod.settings.controler.Controler_Main.Conf;
+import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
 import framework.mod.settings.view.wdwSettings;
@@ -68,7 +67,7 @@ public class DAO_settings {
     }
     
     public static void drawFormatDate(){
-        
+        wdwSettings.lbl_fdate.setText(Language.getInstance().getProperty("date_mess"));
     }
     
     public static void drawLanguange(){

@@ -6,7 +6,7 @@
 package framework.mod.user.registered.model.tools;
 
 import framework.clss.DateO;
-import framework.mod.nav.model.tools.menu_gen;
+import framework.tools.menu_gen;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.user.registered.controler.Controler_mainReg;
 import framework.mod.user.registered.model.BLL.BLL_Registered;
