@@ -5,7 +5,7 @@
  */
 package framework.mod.user.registered.model.BLL;
 
-import framework.mod.user.admin.model.BLL.BLL_Admin;
+
 import framework.mod.user.registered.controler.Controler_mainReg;
 import framework.mod.user.registered.model.DAO.DAO_Registered;
 import framework.mod.user.registered.model.classes.RegisteredU;
@@ -225,7 +225,7 @@ public class BLL_Registered {
         boolean modificar = false;
 
         if (evt.getClickCount() == 2) {
-            main_Reg.PNL_drawForm.setVisible(BLL_Admin.BLL_ModifyAdm());
+            main_Reg.PNL_drawForm.setVisible(BLL_Registered.BLL_ModifyReg());
         } else if ((evt.getModifiers() == InputEvent.BUTTON1_MASK)) {
             BLL_ViewReg();
             main_Reg.PNL_drawForm.setVisible(true);

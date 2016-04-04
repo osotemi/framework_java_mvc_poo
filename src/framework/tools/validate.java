@@ -32,7 +32,7 @@ public class validate {
     }
 
     public static boolean Numbers(String str) {
-        String Pattern_name = "^([0-9]{1,9})";
+        String Pattern_name = "^([0-9]{1,9} .)";
         return str.matches(Pattern_name);
     }
 

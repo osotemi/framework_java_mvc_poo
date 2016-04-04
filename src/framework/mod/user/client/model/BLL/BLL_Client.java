@@ -192,7 +192,7 @@ public class BLL_Client {
     }
 
     public static void BLL_Activity() {
-        DAO_Client.askActivity();
+        DAO_Client.askAccount();
 
     }
 

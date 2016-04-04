@@ -21,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
 public class miniSimpleTableModel_Client  extends AbstractTableModel{
     public static ArrayList<Client> dataClt = new ArrayList<Client>();
     public static ArrayList<Client> datosauxClt = new ArrayList<Client>();
-    String[] columns = {LanguageClt.getInstance().getProperty("col_name"), LanguageClt.getInstance().getProperty("col_lastName"), LanguageClt.getInstance().getProperty("col_hireDate"), LanguageClt.getInstance().getProperty("col_salary")};
+    String[] columns = {LanguageClt.getInstance().getProperty("col_name"), LanguageClt.getInstance().getProperty("col_lastName"), LanguageClt.getInstance().getProperty("DRW_lblBornDate"), LanguageClt.getInstance().getProperty("DRW_lblShopAccount")};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override

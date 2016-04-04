@@ -289,8 +289,13 @@ public class DAO_Registered {
         main_Reg.txtf_formReg_username.setBackground(Color.white);
         main_Reg.lbl_formReg_usernameERR.setText(" ");
         
+        main_Reg.btn_formRegCreate_back.setBackground( Color.lightGray);
+        main_Reg.btn_formRegCreate_back.setVisible(true);
+        main_Reg.btn_formRegCreate_back.setEnabled(true);
+        main_Reg.btn_formRegCreate_back.setText(LanguageReg.getInstance().getProperty("DRW_btnBack"));
         main_Reg.btn_formRegCreate_create.setEnabled(true);
         main_Reg.btn_formRegCreate_create.setVisible(true);
+        main_Reg.btn_formRegCreate_create.setText(LanguageReg.getInstance().getProperty("new_BTMmodify"));
         main_Reg.PNL_drawForm.setBackground(null);
         main_Reg.PNL_drawForm.setVisible(true);
         main_Reg.txtf_formReg_username.requestFocus();
@@ -389,7 +394,7 @@ public class DAO_Registered {
         main_Reg.lbl_formReg_usernameERR.setText(" ");
         
         main_Reg.btn_formReg_Avatar.setEnabled(false);
-        main_Reg.btn_formRegCreate_create.setVisible(true);
+        main_Reg.btn_formRegCreate_create.setVisible(false);
         main_Reg.btn_formRegCreate_back.setBackground(new Color(0,0,0,0));
         main_Reg.PNL_drawForm.setVisible(true);
         main_Reg.PNL_drawForm.setBackground(Color.WHITE);

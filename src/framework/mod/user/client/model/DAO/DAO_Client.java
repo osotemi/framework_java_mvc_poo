@@ -41,7 +41,7 @@ public class DAO_Client {
         DateO sing = new DateO();
         String error = "";
         boolean valid = false;
-        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = true;
+        boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askAccount(), chkBorndate = askBorndate(), chkSingdate = askSingDate(), chkAvatar = true;
         try {
             if(singletonClient.PATH_formClt.equals(""))
             singletonClient.PATH_formClt = singletonClient.ephemeralClient.getAvataring();
@@ -106,7 +106,7 @@ public class DAO_Client {
     
     
     public static void formNew() {
-
+        main_Client.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblShopAccount"));
         main_Client.txt_formClt_shopAccount.setEnabled(true);
         main_Client.txt_formClt_shopAccount.setFont(new java.awt.Font("Dialog", 0, 12));
         main_Client.txt_formClt_shopAccount.setBackground( Color.white);
@@ -190,7 +190,7 @@ public class DAO_Client {
 
         main_Client.btn_formCltCreate_back.setBackground( Color.lightGray);
         main_Client.btn_formCltCreate_back.setVisible(true);
-        main_Client.btn_formCltCreate_back.setText(LanguageClt.getInstance().getProperty("new_BTMmodify"));
+        main_Client.btn_formCltCreate_back.setText(LanguageClt.getInstance().getProperty("DRW_btnBack"));
         main_Client.btn_formCltCreate_create.setBackground( Color.lightGray);
         main_Client.btn_formCltCreate_create.setVisible(true);
         main_Client.btn_formCltCreate_create.setText(LanguageClt.getInstance().getProperty("new_BTMcreate"));
@@ -209,11 +209,12 @@ public class DAO_Client {
     }
 
     public static void forModifyClient() {
-        main_Client.txt_formClt_shopAccount.setText(Float.toString(singletonClient.ephemeralClient.getShop_acount()));
+        main_Client.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblShopAccount"));
+        main_Client.txt_formClt_shopAccount.setText(""+singletonClient.ephemeralClient.getShop_acount());
         main_Client.txt_formClt_shopAccount.setBorder(null);
         main_Client.txt_formClt_shopAccount.setBackground(Color.white);
         main_Client.txt_formClt_shopAccount.setEnabled(true);
-        main_Client.txt_formClt_shopAccount.setToolTipText(""+singletonClient.ephemeralClient.getShop_acount());
+        main_Client.txt_formClt_shopAccount.setToolTipText("");
         main_Client.lbl_formClt_shopAccountERR.setText("");
 
         main_Client.btn_formClt_Avatar.setEnabled(true);
@@ -309,8 +310,13 @@ public class DAO_Client {
         main_Client.lbl_form_shopAccount.setText(Float.toString(singletonClient.ephemeralClient.getShop_acount()));
         main_Client.lbl_form_benefit.setText("");
         
+        main_Client.btn_formCltCreate_back.setBackground( Color.lightGray);
+        main_Client.btn_formCltCreate_back.setVisible(true);
+        main_Client.btn_formCltCreate_back.setEnabled(true);
+        main_Client.btn_formCltCreate_back.setText(LanguageClt.getInstance().getProperty("DRW_btnBack"));
         main_Client.btn_formCltCreate_create.setEnabled(true);
         main_Client.btn_formCltCreate_create.setVisible(true);
+        main_Client.btn_formCltCreate_create.setText(LanguageClt.getInstance().getProperty("new_BTMmodify"));
         main_Client.PNL_drawForm.setBackground(null);
         main_Client.PNL_drawForm.setVisible(true);
         main_Client.txtf_formClt_username.requestFocus();
@@ -321,6 +327,7 @@ public class DAO_Client {
      * Draw the View Admin form
      */
     public static void formViewClient() {
+        main_Client.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblShopAccount"));
         main_Client.txt_formClt_shopAccount.setEnabled(false);
         main_Client.txt_formClt_shopAccount.setFont(new java.awt.Font("Serif", 0, 14));
         main_Client.txt_formClt_shopAccount.setBackground( new Color(0,0,0,0));
@@ -418,7 +425,7 @@ public class DAO_Client {
         main_Client.lbl_form_benefit.setFont(new java.awt.Font("Serif", 1, 14));
         
         main_Client.btn_formClt_Avatar.setEnabled(false);
-        main_Client.btn_formCltCreate_create.setVisible(true);
+        main_Client.btn_formCltCreate_create.setVisible(false);
         main_Client.btn_formCltCreate_back.setBackground(new Color(0,0,0,0));
         main_Client.PNL_drawForm.setVisible(true);
         main_Client.PNL_drawForm.setBackground(Color.WHITE);
@@ -684,13 +691,13 @@ public class DAO_Client {
         return valid;
     }
 
-    public static boolean askActivity() {
+    public static boolean askAccount() {
         boolean valid = false;
 
         if (!validate.Numbers(main_Client.txt_formClt_shopAccount.getText())) {
             main_Client.txt_formClt_shopAccount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Client.txt_formClt_shopAccount.setFont(new java.awt.Font("Dialog", 0, 12));
-            main_Client.txt_formClt_shopAccount.setToolTipText(LanguageClt.getInstance().getProperty("errVal_letters"));
+            main_Client.txt_formClt_shopAccount.setToolTipText(LanguageClt.getInstance().getProperty("error"));
             main_Client.lbl_formClt_shopAccountERR.setText(LanguageClt.getInstance().getProperty("error"));
             main_Client.lbl_formClt_shopAccountERR.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Client.lbl_formClt_shopAccountERR.setForeground(Color.red);

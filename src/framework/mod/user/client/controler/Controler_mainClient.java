@@ -69,6 +69,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         _BTN_formCreate,
         _BTN_formBack,
         _CB_state,
+        _CB_clType,
         _DC_bornDate,
         _DC_singDate,
         _JPF_pass,
@@ -206,6 +207,11 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         MainClient.CB_formClt_state.setActionCommand("_CB_state");
         MainClient.CB_formClt_state.setName("_CB_state");
         MainClient.CB_formClt_state.addActionListener(this);
+        
+        MainClient.lbl_form_clType.setText(LanguageClt.getInstance().getProperty("DRW_lblClType"));
+        MainClient.CB_formCLT_type.setActionCommand("_CB_clType");
+        MainClient.CB_formClt_state.setName("_CB_clType");
+        MainClient.CB_formClt_state.addActionListener(this);
 
         MainClient.lbl_form_bornDate.setText(LanguageClt.getInstance().getProperty("DRW_lblBornDate"));
         MainClient.DC_formClt_borndate.setName("_DC_bornDate");
@@ -223,7 +229,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         MainClient.JPF_fromClt_passconf.setName("_JPF_passConf");
         MainClient.JPF_fromClt_passconf.addKeyListener(this);
 
-        MainClient.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblActivity"));
+        MainClient.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblShopAccount"));
         MainClient.txt_formClt_shopAccount.setActionCommand("_TXT_activity");
         MainClient.txt_formClt_shopAccount.setName("_TXT_activity");
         MainClient.txt_formClt_shopAccount.addKeyListener(this);
