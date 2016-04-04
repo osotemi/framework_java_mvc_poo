@@ -6,6 +6,7 @@
 package framework.mod.settings.model.tools;
 
 import framework.mod.settings.model.clss.Settings;
+import framework.mod.settings.model.clss.singletonProfile;
 import javax.swing.UIManager;
 
 /**
@@ -15,14 +16,14 @@ import javax.swing.UIManager;
 public class LooknFeel {
     public static void LookFeel(){
         switch (Settings.getInstance().getLooknfeel()) {
-        case "Native":
+        case singletonProfile.THM_native:
             try{//predetermminated
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             }catch(Exception e){
                 System.out.println("No se pudo establecer el Look&Feel");
             }
             break;
-        case "Nimbus"://Nimbus
+        case singletonProfile.THM_nimbus://Nimbus
             try{
                 UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
@@ -30,14 +31,14 @@ public class LooknFeel {
                 System.out.println("No se pudo establecer el Look&Feel");
             }
             break;
-        case "Motif"://Motif
+        case singletonProfile.THM_motif://Motif
             try{
                 UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
             }catch(Exception e){
                 System.out.println("No se pudo establecer el Look&Feel");
             }
             break;
-        case "Windows"://Windows
+        case singletonProfile.THM_windows://Windows
             try{
                 UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             }catch(Exception e){
@@ -45,7 +46,7 @@ public class LooknFeel {
             }
             break;
 
-        case "WindowsC"://Windows Clasic
+        case singletonProfile.THM_win98://Windows Clasic
             try{
                 UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
             }catch(Exception e){

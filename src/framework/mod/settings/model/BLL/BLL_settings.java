@@ -5,12 +5,16 @@
  */
 package framework.mod.settings.model.BLL;
 
+import com.thoughtworks.xstream.converters.SingleValueConverterWrapper;
 import framework.mod.settings.model.DAO.DAO_settings;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
+import framework.mod.settings.model.clss.singletonProfile;
+import framework.mod.settings.model.tools.LooknFeel;
 import framework.mod.settings.view.wdwSettings;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import java.util.Locale;
+import javax.swing.LookAndFeel;
 
 /**
  *
@@ -93,4 +97,30 @@ public class BLL_settings {
         //guardar settings
         DAO_settings.drawLanguange();
     }
+    
+    public static void BLL_BTN_thm_native(){
+        Settings.getInstance().setLookfeel(singletonProfile.THM_native);
+        LooknFeel.LookFeel();
+    }
+            
+    public static void BLL_BTN_thm_nimbus(){
+        Settings.getInstance().setLookfeel(singletonProfile.THM_nimbus);
+        LooknFeel.LookFeel();
+    }    
+    
+    public static void BLL_BTN_thm_motif(){
+        Settings.getInstance().setLookfeel(singletonProfile.THM_motif);
+        LooknFeel.LookFeel();
+    }
+    
+    public static void BLL_BTN_thm_win(){
+        Settings.getInstance().setLookfeel(singletonProfile.THM_windows);
+        LooknFeel.LookFeel();
+    }
+    
+    public static void BLL_BTN_thm_win98(){
+        Settings.getInstance().setLookfeel(singletonProfile.THM_win98);
+        LooknFeel.LookFeel();
+    }
+    
 }

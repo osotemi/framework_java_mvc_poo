@@ -55,6 +55,12 @@ public class wdwSettings extends javax.swing.JFrame {
         JP_langVLC = new javax.swing.JPanel();
         btn_valencia = new javax.swing.JButton();
         TABlookNfeel = new javax.swing.JPanel();
+        lbl_theme = new javax.swing.JLabel();
+        btn_native = new javax.swing.JButton();
+        btn_nimbus = new javax.swing.JButton();
+        btn_motive = new javax.swing.JButton();
+        btn_windows = new javax.swing.JButton();
+        btn_win98 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -368,15 +374,59 @@ public class wdwSettings extends javax.swing.JFrame {
 
         TABgen.addTab("Languange", TABlanguage);
 
+        lbl_theme.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_theme.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_theme.setText("L");
+
+        btn_native.setText("Native");
+        btn_native.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btn_nimbus.setText("Nimbus");
+        btn_nimbus.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btn_motive.setText("Motif");
+        btn_motive.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btn_windows.setText("Windows");
+        btn_windows.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btn_win98.setText("Win98");
+        btn_win98.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout TABlookNfeelLayout = new javax.swing.GroupLayout(TABlookNfeel);
         TABlookNfeel.setLayout(TABlookNfeelLayout);
         TABlookNfeelLayout.setHorizontalGroup(
             TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGroup(TABlookNfeelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(TABlookNfeelLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addGroup(TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_native, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_nimbus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_motive, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_windows, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_win98, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         TABlookNfeelLayout.setVerticalGroup(
             TABlookNfeelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGroup(TABlookNfeelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_native)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_nimbus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_motive)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_windows)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_win98)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         TABgen.addTab("Look & Feel", TABlookNfeel);
@@ -466,10 +516,16 @@ public class wdwSettings extends javax.swing.JFrame {
     public static javax.swing.JButton btn_currEuro;
     public static javax.swing.JButton btn_currPound;
     public static javax.swing.JButton btn_galiza;
+    public static javax.swing.JButton btn_motive;
+    public static javax.swing.JButton btn_native;
+    public static javax.swing.JButton btn_nimbus;
     public static javax.swing.JButton btn_spain;
     public static javax.swing.JButton btn_unitedk;
     public static javax.swing.JButton btn_valencia;
+    public static javax.swing.JButton btn_win98;
+    public static javax.swing.JButton btn_windows;
     public static javax.swing.JLabel lbl_decimal;
     public static javax.swing.JLabel lbl_fdate;
+    private javax.swing.JLabel lbl_theme;
     // End of variables declaration//GEN-END:variables
 }

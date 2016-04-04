@@ -12,5 +12,11 @@ import java.util.ArrayList;
  * @author osotemi
  */
 public class singletonProfile {
+    public static final String THM_native = "Native";
+    public static final String THM_nimbus = "Nimbus";
+    public static final String THM_motif = "Motif";
+    public static final String THM_windows = "Windows";
+    public static final String THM_win98 = "WindowsC";
     public static ArrayList<Profiles> Alist_Profile;
+    
 }

@@ -6,6 +6,7 @@
 package framework.mod.settings.controler;
 
 import framework.mod.settings.model.BLL.BLL_settings;
+import framework.mod.settings.model.clss.profile_json;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main;
 import framework.mod.settings.view.wdwSettings;
@@ -18,6 +19,7 @@ import framework.mod.user.client.view.main_Client;
 import framework.mod.user.registered.controler.Controler_mainReg;
 import framework.mod.user.registered.model.tools.LanguageReg;
 import framework.mod.user.registered.view.main_Reg;
+import framework.tools.menu_gen;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -33,6 +35,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
@@ -79,7 +82,11 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         _BTN_LNGuk,
         _BTN_LNGvlc,
         //LookNFeel
-        
+        _BTN_Native,
+        _BTN_Nimbus,
+        _BTN_Motif,
+        _BTN_Windows,
+        _BTN_Win98,
         //___main window
         _BTN_Admin,
         _BTN_Client,
@@ -110,7 +117,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                         MainMenu.dispose();
                     }
                 });
-
+                drawMain();
                 MainMenu.btn_conf.setOpaque(false);
 
                 //Inicia los componentes
@@ -147,7 +154,8 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 Conf.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
                 this.Conf.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
-                        Conf.dispose();
+                        Conf.dispose();                        
+                        Controler_Main.drawMain();
                     }
                 });
 
@@ -194,7 +202,21 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
 
                 Conf.btn_valencia.setActionCommand("_BTN_LNGvlc");
                 Conf.btn_valencia.addActionListener(this);
-
+                
+                Conf.btn_native.setActionCommand("_BTN_Native");
+                Conf.btn_native.addActionListener(this);
+                        
+                Conf.btn_nimbus.setActionCommand("_BTN_Nimbus");
+                Conf.btn_nimbus.addActionListener(this);
+                        
+                Conf.btn_motive.setActionCommand("_BTN_Motif");
+                Conf.btn_motive.addActionListener(this);
+                
+                Conf.btn_windows.setActionCommand("_BTN_Windows");
+                Conf.btn_windows.addActionListener(this);
+                        
+                Conf.btn_win98.setActionCommand("_BTN_Win98");
+                Conf.btn_win98.addActionListener(this);
                 break;
             default:
                 break;
@@ -235,6 +257,14 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         //Look&feel
         Conf.TABgen.setTitleAt(5, Language.getInstance().getProperty("TABlookNfeel"));
         Conf.TABgen. setFont(new java.awt.Font("Dialog", 2, 14));
+    }
+    
+    public static void drawMain(){
+        MainMenu.setTitle(Language.getInstance().getProperty("main_title"));
+        MainMenu.btn_AdminGOTO_mainAdmin.setText(Language.getInstance().getProperty("BTN_Admin"));
+        MainMenu.btn_ClientGOTO_mainClient.setText(Language.getInstance().getProperty("BTN_Client"));
+        MainMenu.btn_RegGOTO_mainReg.setText(Language.getInstance().getProperty("BTN_Reg"));
+        MainMenu.btn_conf.setText(Language.getInstance().getProperty("LBL_Config"));
     }
     
     @Override
@@ -306,6 +336,41 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 BLL_settings.BLL_BTN_lang_valencia();
                 Language.getInstance().loadProperties();
                 writeConfigFrame();
+                break;
+            case _BTN_Native:
+                BLL_settings.BLL_BTN_thm_native();
+                MainMenu.dispose();
+                Conf.dispose();
+                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new wdwSettings(), 1).run(1);
+                break;
+            case _BTN_Nimbus:
+                BLL_settings.BLL_BTN_thm_nimbus();
+                MainMenu.dispose();
+                Conf.dispose();
+                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new wdwSettings(), 1).run(1);
+                break;
+            case _BTN_Motif:
+                BLL_settings.BLL_BTN_thm_motif();
+                MainMenu.dispose();
+                Conf.dispose();
+                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new wdwSettings(), 1).run(1);
+                break;
+            case _BTN_Windows:
+                BLL_settings.BLL_BTN_thm_win();
+                MainMenu.dispose();
+                Conf.dispose();
+                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new wdwSettings(), 1).run(1);
+                break;
+            case _BTN_Win98:
+                BLL_settings.BLL_BTN_thm_win98();
+                MainMenu.dispose();
+                Conf.dispose();
+                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new wdwSettings(), 1).run(1);
                 break;
             default:
                 break;
@@ -388,7 +453,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
     
     @Override
     public void focusGained(FocusEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

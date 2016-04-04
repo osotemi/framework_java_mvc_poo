@@ -495,7 +495,7 @@ public class main_Client extends javax.swing.JFrame {
         lbl_form_clType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_form_clType.setText(" Tipo de cliente");
 
-        CB_formCLT_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "\"Chrome\"", "\"Silver\"", "\"Gold\"", "\"Platinum\"" }));
+        CB_formCLT_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chrome", "Silver", "Gold", "Platinum" }));
 
         javax.swing.GroupLayout PNL_drawFormLayout = new javax.swing.GroupLayout(PNL_drawForm);
         PNL_drawForm.setLayout(PNL_drawFormLayout);
