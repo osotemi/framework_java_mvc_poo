@@ -266,7 +266,7 @@ public class BLL_Registered {
         if (n != 0) {
             int selec = main_Reg.TABLA_REG.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("errorTBL_selectUser"), LanguageReg.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("errTbl_selectUser"), LanguageReg.getInstance().getProperty("error"), 2);
                 
             } else {
                 selec += (paginaReg.currentPageIndex - 1) * paginaReg.itemsPerPage;
@@ -284,7 +284,7 @@ public class BLL_Registered {
                     singletonReg.RegTableArray.remove(regu);
                     miniSimpleTableModelReg.datosauxReg.remove(regu);
                     Controler_mainReg.runTABLE();
-                    jsonReg.RegJson_Autosave();
+                    autosaveMultiformat();
                     main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("mes_delok"));
                     main_Reg.lblMainform.setOpaque(true);
                     main_Reg.lblMainform.setBackground(Color.red);
@@ -319,7 +319,7 @@ public class BLL_Registered {
         if (opc == 0) {
             singletonReg.RegTableArray = new ArrayList<>();
             Controler_mainReg.runTABLE();
-            jsonReg.RegJson_Autosave();
+            autosaveMultiformat();
             main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("mes_DeletAll"));
             main_Reg.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
@@ -347,7 +347,7 @@ public class BLL_Registered {
             selec = main_Reg.TABLA_REG.getSelectedRow();
 
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("errorTBL_selectUser"), "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("errTbl_selectUser"), "Error!", 2);
             } else {
                 selec += (paginaReg.currentPageIndex - 1) * paginaReg.itemsPerPage;
                 dni = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 4);
@@ -377,7 +377,7 @@ public class BLL_Registered {
         if (n != 0) {
             int selec = main_Reg.TABLA_REG.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("error_emptyList"), LanguageReg.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("errTbl_selectUser"), LanguageReg.getInstance().getProperty("error"), 2);
                 main_Reg.btn_viewReg.requestFocus();
                 return;
             } else {
@@ -484,7 +484,7 @@ public class BLL_Registered {
         }
 
         if (valid) {
-            jsonReg.RegJson_Autosave();
+            autosaveMultiformat();
             Controler_mainReg.runTABLE();
             main_Reg.lblMainform.setOpaque(true);
             main_Reg.lblMainform.setBackground(Color.GREEN);
@@ -509,12 +509,13 @@ public class BLL_Registered {
         pos = searchAL();
         if (pos == -1) {
             singletonReg.RegTableArray.add(singletonReg.ephemeralReg);
-            jsonReg.RegJson_Autosave();
+            autosaveMultiformat();
             Controler_mainReg.runTABLE();
             valid = true;
         } else {
             main_Reg.lbl_formReg_dniERR.setText(LanguageReg.getInstance().getProperty("errVal_dni"));
             main_Reg.JPF_fromReg_pass.setToolTipText(LanguageReg.getInstance().getProperty("mes_dniAlreadyExist"));
+            main_Reg.txtf_formReg_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             valid = false;
         }
         return valid;
@@ -528,7 +529,7 @@ public class BLL_Registered {
         int pos = -1;
         if (singletonReg.RegTableArray != null) {
             for (int i = 0; i < singletonReg.RegTableArray.size(); i++) {
-                if (singletonReg.RegTableArray.get(i).getDni().equals(singletonReg.ephemeralReg.getDni())) {//search by dni
+                if (singletonReg.RegTableArray.get(i).getDni().toUpperCase().equals(singletonReg.ephemeralReg.getDni().toUpperCase())) {//search by dni
                     pos = i;
                     i = singletonReg.RegTableArray.size();
                 }
@@ -542,5 +543,10 @@ public class BLL_Registered {
     public static void loadArray() {
         singletonReg.loadSingletonReg();
         jsonReg.RegJson_Autoload();
+    }
+    public static void autosaveMultiformat(){ 
+        jsonReg.RegJson_Autosave();
+        xmlReg.RegUXml_Autosave();
+        txtReg.RegTxt_Autosave();
     }
 }

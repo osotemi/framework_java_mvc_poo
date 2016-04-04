@@ -117,7 +117,7 @@ public class xml {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonAdmin.PATH;
+                    + singletonAdmin.PATH_XML;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -165,7 +165,7 @@ public class xml {
             Annotations.configureAliases(xstream, Admin.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonAdmin.PATH;
+                    + singletonAdmin.PATH_XML;
 
             File path = new File(PATH);
 

@@ -88,7 +88,7 @@ public class jsonReg {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonReg.PATH_REG;
+                    + singletonReg.PATH_JSON;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -171,7 +171,7 @@ public class jsonReg {
             xstream.alias("RegU", RegisteredU.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonReg.PATH_REG;
+                    + singletonReg.PATH_JSON;
 
             JsonReader read = new JsonReader(new FileReader(PATH));
             JsonParser parseator = new JsonParser();

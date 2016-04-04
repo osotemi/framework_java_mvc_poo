@@ -93,7 +93,7 @@ public class json {
 		
 		try{
 			PATH = new java.io.File(".").getCanonicalPath()
-					+ singletonAdmin.PATH;
+					+ singletonAdmin.PATH_JSON;
 		} catch (IOException e){
 			e.printStackTrace();
 		}
@@ -179,7 +179,7 @@ public class json {
 			xstream.alias("Admin", Admin.class);
 			
 			PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonAdmin.PATH;
+                    + singletonAdmin.PATH_JSON;
 			
 			JsonReader read = new JsonReader(new FileReader(PATH));
 			JsonParser parseator = new JsonParser();

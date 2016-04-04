@@ -664,7 +664,7 @@ public class DAO_Registered {
     public static boolean askActivity() {
         boolean valid = false;
 
-        if (!validate.Numbers(main_Reg.txt_formReg_activity.getText())) {
+        if (!validate.Float(main_Reg.txt_formReg_activity.getText())) {
             main_Reg.txt_formReg_activity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Reg.txt_formReg_activity.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Reg.txt_formReg_activity.setToolTipText(LanguageReg.getInstance().getProperty("errVal_letters"));

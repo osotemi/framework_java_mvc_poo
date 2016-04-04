@@ -111,7 +111,7 @@ public class xmlReg {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/model/files/reg_user.xml";
+                    + singletonReg.PATH_XML;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -159,7 +159,7 @@ public class xmlReg {
             Annotations.configureAliases(xstream, RegisteredU.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/model/files/reg_user.xml";
+                    + singletonReg.PATH_XML;
 
             File path = new File(PATH);
 

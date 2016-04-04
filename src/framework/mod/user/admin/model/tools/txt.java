@@ -92,7 +92,7 @@ public class txt {
 
         try {
 
-            PATH = new java.io.File(".").getCanonicalPath() + singletonAdmin.PATH;
+            PATH = new java.io.File(".").getCanonicalPath() + singletonAdmin.PATH_TXT;
 
             if (!PATH.endsWith(".txt")) {
                 PATH = PATH + ".txt";
@@ -166,7 +166,7 @@ public class txt {
             File file;
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/model/files/admin.txt";
+                    + singletonAdmin.PATH_TXT;
             file = new File(PATH);
 
             FileInputStream file_input = new FileInputStream(file);

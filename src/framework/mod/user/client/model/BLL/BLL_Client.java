@@ -272,7 +272,7 @@ public class BLL_Client {
         if (n != 0) {
             int selec = main_Client.TABLA_CLT.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errorTBL_selectUser"), LanguageClt.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errTbl_selectUser"), LanguageClt.getInstance().getProperty("error"), 2);
                 
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
@@ -290,7 +290,7 @@ public class BLL_Client {
                     singletonClient.ClienTableArray.remove(clt);
                     miniSimpleTableModel_Client.datosauxClt.remove(clt);
                     Controler_mainClient.runTABLE();
-                    jsonClt.ClientJson_Autosave();
+                    autosaveMultiformat();
                     main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_delok"));
                     main_Client.lblMainform.setOpaque(true);
                     main_Client.lblMainform.setBackground(Color.red);
@@ -324,7 +324,7 @@ public class BLL_Client {
         if (opc == 0) {
             singletonClient.ClienTableArray = new ArrayList<>();
             Controler_mainClient.runTABLE();
-            jsonClt.ClientJson_Autosave();
+            autosaveMultiformat();
             main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_DeletAll"));
             main_Client.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
@@ -352,7 +352,7 @@ public class BLL_Client {
             selec = main_Client.TABLA_CLT.getSelectedRow();
 
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errorTBL_selectUser"), "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errTbl_selectUser"), "Error!", 2);
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
                 dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 4);
@@ -382,7 +382,7 @@ public class BLL_Client {
         if (n != 0) {
             int selec = main_Client.TABLA_CLT.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("error_emptyList"), LanguageClt.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errTbl_selectUser"), LanguageClt.getInstance().getProperty("error"), 2);
                 main_Client.btn_viewClient.requestFocus();
                 return;
             } else {
@@ -489,7 +489,7 @@ public class BLL_Client {
         }
 
         if (valid) {
-            jsonClt.ClientJson_Autosave();
+            autosaveMultiformat();
             Controler_mainClient.runTABLE();
             main_Client.lblMainform.setOpaque(true);
             main_Client.lblMainform.setBackground(Color.GREEN);
@@ -514,12 +514,13 @@ public class BLL_Client {
         pos = searchAL();
         if (pos == -1) {
             singletonClient.ClienTableArray.add(singletonClient.ephemeralClient);
-            jsonClt.ClientJson_Autosave();
+            autosaveMultiformat();
             Controler_mainClient.runTABLE();
             valid = true;
         } else {
             main_Client.lbl_formClt_dniERR.setText(LanguageClt.getInstance().getProperty("errVal_dni"));
             main_Client.JPF_fromClt_pass.setToolTipText(LanguageClt.getInstance().getProperty("mes_dniAlreadyExist"));
+            main_Client.txtf_formClt_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             valid = false;
         }
         return valid;
@@ -533,7 +534,7 @@ public class BLL_Client {
         int pos = -1;
         if (singletonClient.ClienTableArray != null) {
             for (int i = 0; i < singletonClient.ClienTableArray.size(); i++) {
-                if (singletonClient.ClienTableArray.get(i).getDni().equals(singletonClient.ephemeralClient.getDni())) {//search by dni
+                if (singletonClient.ClienTableArray.get(i).getDni().toUpperCase().equals(singletonClient.ephemeralClient.getDni().toUpperCase())) {//search by dni
                     pos = i;
                     i = singletonClient.ClienTableArray.size();
                 }
@@ -545,5 +546,11 @@ public class BLL_Client {
     public static void loadArray() {
         singletonClient.loadSingletonClient();
         jsonClt.ClientJson_Autoload();
+    }
+    
+    public static void autosaveMultiformat(){ 
+        jsonClt.ClientJson_Autosave();
+        xmlClt.ClientXml_Autosave();
+        txtClt.ClienTxt_Autosave();
     }
 }

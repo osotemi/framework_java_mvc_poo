@@ -32,8 +32,17 @@ public class validate {
     }
 
     public static boolean Numbers(String str) {
-        String Pattern_name = "^([0-9]{1,9} .)";
+        String Pattern_name = "^([0-9]{1,9})";
         return str.matches(Pattern_name);
+    }
+    
+    public static boolean Float(String str){
+        try{
+            Float.parseFloat(str);
+            return true;
+        } catch(NumberFormatException nfe){
+            return false;
+        }
     }
 
     public static boolean Phone(String phone_num) {

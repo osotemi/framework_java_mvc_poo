@@ -18,7 +18,6 @@ import framework.mod.user.admin.model.tools.json;
 import framework.mod.user.admin.model.tools.txt;
 import framework.mod.user.admin.model.tools.xml;
 import static framework.mod.user.admin.view.main_Admin.CB_tbl_entries;
-import static framework.mod.user.admin.view.main_Admin.combo;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -270,7 +269,7 @@ public class BLL_Admin {
         if (n != 0) {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errorTBL_selectUser"), LanguageAdm.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errTbl_selectUser"), LanguageAdm.getInstance().getProperty("error"), 2);
                 
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
@@ -288,7 +287,7 @@ public class BLL_Admin {
                     singletonAdmin.AdminTableArray.remove(adm);
                     miniSimpleTableModel_Admin.datosaux.remove(adm);
                     Controler_mainAdmin.runTABLE();
-                    json.AdminJson_Autosave();
+                    autosaveMultiformat();
                     main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_delok"));
                     main_Admin.lblMainform.setOpaque(true);
                     main_Admin.lblMainform.setBackground(Color.red);
@@ -322,7 +321,7 @@ public class BLL_Admin {
         if (opc == 0) {
             singletonAdmin.AdminTableArray = new ArrayList<>();
             Controler_mainAdmin.runTABLE();
-            json.AdminJson_Autosave();
+            autosaveMultiformat();
             main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_allDelOk"));
             main_Admin.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
@@ -350,7 +349,7 @@ public class BLL_Admin {
             selec = main_Admin.TABLA.getSelectedRow();
 
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errorTBL_selectUser"), "Error!", 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errTbl_selectUser"), "Error!", 2);
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
@@ -380,7 +379,7 @@ public class BLL_Admin {
         if (n != 0) {
             int selec = main_Admin.TABLA.getSelectedRow();
             if (selec == -1) {
-                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("error_noSelect"), LanguageAdm.getInstance().getProperty("error"), 2);
+                JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errTbl_selectUser"), LanguageAdm.getInstance().getProperty("error"), 2);
                 main_Admin.btn_viewAdmin.requestFocus();
                 return;
             } else {
@@ -482,12 +481,12 @@ public class BLL_Admin {
                 }
             }
         }else {
-        DAO_Admin.DAO_ERR_Modify();
+            DAO_Admin.DAO_ERR_Modify();
 
         }
 
         if (valid) {
-            json.AdminJson_Autosave();
+            autosaveMultiformat();
             Controler_mainAdmin.runTABLE();
             main_Admin.lblMainform.setOpaque(true);
             main_Admin.lblMainform.setBackground(Color.GREEN);
@@ -512,12 +511,13 @@ public class BLL_Admin {
         pos = searchAL();
         if (pos == -1) {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
-            json.AdminJson_Autosave();
+            autosaveMultiformat();
             Controler_mainAdmin.runTABLE();
             valid = true;
         } else {
             main_Admin.lbl_formAdm_dniERR.setText(LanguageAdm.getInstance().getProperty("errVal_dni"));
             main_Admin.JPF_fromAdm_pass.setToolTipText(LanguageAdm.getInstance().getProperty("mes_dniAlreadyExist"));
+            main_Admin.txtf_formAdm_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             valid = false;
         }
         return valid;
@@ -531,7 +531,7 @@ public class BLL_Admin {
         int pos = -1;
         if (singletonAdmin.AdminTableArray != null) {
             for (int i = 0; i < singletonAdmin.AdminTableArray.size(); i++) {
-                if (singletonAdmin.AdminTableArray.get(i).getDni().equals(singletonAdmin.ephemeralAdmin.getDni())) {//search by dni
+                if (singletonAdmin.AdminTableArray.get(i).getDni().toUpperCase().equals(singletonAdmin.ephemeralAdmin.getDni().toUpperCase())) {//search by dni
                     pos = i;
                     i = singletonAdmin.AdminTableArray.size();
                 }
@@ -588,5 +588,9 @@ public class BLL_Admin {
         singletonAdmin.loadSingletonAdmin();
         json.AdminJson_Autoload();
     }
-
+    public static void autosaveMultiformat(){ 
+        json.AdminJson_Autosave();
+        xml.AdminXml_Autosave();
+        txt.AdminTxt_Autosave();
+    }
 }

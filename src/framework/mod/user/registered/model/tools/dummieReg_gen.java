@@ -105,22 +105,14 @@ public class dummieReg_gen {
         return avatar;
     }
 
-    public static String rdmEmail(String name, String lastname) {
+   public static String rdmEmail(String name, String lastname) {
         String[] spltName = name.split(" ");
-        String[] spltLastname = name.split(" ");
+        String[] spltLastname = lastname.split(" ");
         String email = "";
         float opt_com = (float) (Math.random() * 2);
-
-        if (spltName.length > 1) {
-            email += spltName[0] + spltName[1] + ".";
-        } else {
-            email += name + ".";
-        }
-        if (spltLastname.length > 1) {
-            email += spltLastname[0] + spltLastname[1];
-        } else {
-            email += lastname;
-        }
+        email = spltName[0] +  ".";
+        email += spltLastname[0];
+        
         email = email.toLowerCase();
         email = format.formRmAccent(email);
         if (opt_com > 0.5f) {

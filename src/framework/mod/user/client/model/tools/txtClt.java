@@ -91,7 +91,7 @@ public class txtClt {
 
         try {
 
-            PATH = new java.io.File(".").getCanonicalPath() + singletonClient.PATH_CLT;
+            PATH = new java.io.File(".").getCanonicalPath() + singletonClient.PATH_TXT;
 
             if (!PATH.endsWith(".txt")) {
                 PATH = PATH + ".txt";
@@ -165,7 +165,7 @@ public class txtClt {
             File file;
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/registered/model/files/clientDB.txt";
+                    + singletonClient.PATH_TXT;
             file = new File(PATH);
 
             FileInputStream file_input = new FileInputStream(file);

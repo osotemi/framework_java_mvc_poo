@@ -114,7 +114,7 @@ public class xmlClt {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/model/files/client.xml";
+                    + singletonClient.PATH_XML;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -162,7 +162,7 @@ public class xmlClt {
             Annotations.configureAliases(xstream, Client.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/model/files/client.xml";
+                    + singletonClient.PATH_XML;
 
             File path = new File(PATH);
 

@@ -17,7 +17,9 @@ public class singletonClient {
     public final static String CREATE_CLT = "Create";
     public static ArrayList<Client> ClienTableArray;
     public static Client ephemeralClient;
-    public static String PATH_CLT;
+    public static String PATH_JSON;
+    public static String PATH_TXT;
+    public static String PATH_XML;
     /** buffer variables     */
     public static String currentCltForm;
     public static boolean passCltModf;//Tells if on modifay the password was prebiously changed
@@ -34,7 +36,9 @@ public class singletonClient {
      */
     public static void loadSingletonClient(){
         ClienTableArray = new ArrayList<Client>();
-        PATH_CLT ="/src/framework/mod/user/client/model/files/clientDB.json";
+        PATH_JSON ="/src/framework/mod/user/client/model/files/clientJsonDB.json";
+        PATH_TXT ="/src/framework/mod/user/client/model/files/clientTxtDB.txt";
+        PATH_XML ="/src/framework/mod/user/client/model/files/clientXmlDB.xml";
         passwd_formClt = "";
         selectedPOSmodifyClt =-1;
         changesClt = false;

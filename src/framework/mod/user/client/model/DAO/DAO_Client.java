@@ -56,7 +56,7 @@ public class DAO_Client {
             clt = new Client(singletonClient.PATH_formClt, born, main_Client.txtf_formClt_dni.getText(), main_Client.txtf_formClt_email.getText(),
                     main_Client.txtf_formClt_phone.getText(), main_Client.txtf_formClt_name.getText(), main_Client.txtf_formClt_lastname.getText(), 
                     singletonClient.passwd_formClt, ((String) main_Client.CB_formClt_state.getSelectedItem()), main_Client.txtf_formClt_username.getText(), 
-                    ((String) main_Client.CB_formCLT_type.getSelectedItem()), main_Client.JCK_form_premium.isSelected(), sing, Integer.parseInt(main_Client.txt_formClt_shopAccount.getText()));
+                    ((String) main_Client.CB_formCLT_type.getSelectedItem()), main_Client.JCK_form_premium.isSelected(), sing, Float.parseFloat(main_Client.txt_formClt_shopAccount.getText()));
             singletonClient.ephemeralClient = clt;
             valid = true;
         }
@@ -307,7 +307,6 @@ public class DAO_Client {
         main_Client.txtf_formClt_username.setBackground(Color.white);
         main_Client.lbl_formClt_lusernameERR.setText(" ");
         
-        main_Client.lbl_form_shopAccount.setText(Float.toString(singletonClient.ephemeralClient.getShop_acount()));
         main_Client.lbl_form_benefit.setText("");
         
         main_Client.btn_formCltCreate_back.setBackground( Color.lightGray);
@@ -694,7 +693,7 @@ public class DAO_Client {
     public static boolean askAccount() {
         boolean valid = false;
 
-        if (!validate.Numbers(main_Client.txt_formClt_shopAccount.getText())) {
+        if (!validate.Float(main_Client.txt_formClt_shopAccount.getText())) {
             main_Client.txt_formClt_shopAccount.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Client.txt_formClt_shopAccount.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Client.txt_formClt_shopAccount.setToolTipText(LanguageClt.getInstance().getProperty("error"));

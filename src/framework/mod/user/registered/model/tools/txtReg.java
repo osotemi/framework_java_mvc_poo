@@ -90,7 +90,7 @@ public class txtReg {
 
         try {
 
-            PATH = new java.io.File(".").getCanonicalPath() + singletonReg.PATH_REG;
+            PATH = new java.io.File(".").getCanonicalPath() + singletonReg.PATH_TXT;
 
             if (!PATH.endsWith(".txt")) {
                 PATH = PATH + ".txt";
@@ -164,7 +164,7 @@ public class txtReg {
             File file;
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + "/src/framework/mod/user/registered/model/files/RegTxtDB.txt";
+                    + singletonReg.PATH_TXT;
             file = new File(PATH);
 
             FileInputStream file_input = new FileInputStream(file);

@@ -17,7 +17,9 @@ public class singletonReg {
     public final static String CREATE_REG = "Create";
     public static ArrayList<RegisteredU> RegTableArray;
     public static RegisteredU ephemeralReg;
-    public static String PATH_REG;
+    public static String PATH_JSON;
+    public static String PATH_TXT;
+    public static String PATH_XML;
     /** buffer variables     */
     public static String currentRegForm;
     public static boolean passRegModf;//Tells if on modifay the password was prebiously changed
@@ -34,7 +36,9 @@ public class singletonReg {
      */
     public static void loadSingletonReg(){
         RegTableArray = new ArrayList<RegisteredU>();
-        PATH_REG ="/src/framework/mod/user/registered/model/files/RegDB.json";
+        PATH_JSON ="/src/framework/mod/user/registered/model/files/RegJsonDB.json";
+        PATH_TXT ="/src/framework/mod/user/registered/model/files/RegTxtDB.txt";
+        PATH_XML ="/src/framework/mod/user/registered/model/files/RegXmlDB.xml";
         passwd_formReg = "";
         selectedPOSmodifyReg =-1;
         changesReg = false;

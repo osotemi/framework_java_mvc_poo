@@ -691,7 +691,7 @@ public class DAO_Admin {
     public static boolean askActivity() {
         boolean valid = false;
 
-        if (!validate.Numbers(main_Admin.txt_formAdm_activity.getText())) {
+        if (!validate.Float(main_Admin.txt_formAdm_activity.getText())) {
             main_Admin.txt_formAdm_activity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_Admin.txt_formAdm_activity.setFont(new java.awt.Font("Dialog", 0, 12));
             main_Admin.txt_formAdm_activity.setToolTipText(LanguageAdm.getInstance().getProperty("errVal_letters"));

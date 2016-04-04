@@ -17,7 +17,9 @@ public class singletonAdmin {
     public final static String CREATE = "Create";
     public static ArrayList<Admin> AdminTableArray;
     public static Admin ephemeralAdmin;
-    public static String PATH;
+    public static String PATH_JSON;
+    public static String PATH_TXT;
+    public static String PATH_XML;
     /** buffer variables     */
     public static String currentForm;
     public static boolean passModf;//Tells if on modifay the password was prebiously changed
@@ -34,7 +36,10 @@ public class singletonAdmin {
      */
     public static void loadSingletonAdmin(){
         AdminTableArray = new ArrayList<Admin>();
-        PATH ="/src/framework/mod/user/admin/model/files/admin_dummies.json";
+        PATH_JSON ="/src/framework/mod/user/admin/model/files/adminJsonDB.json";
+        PATH_TXT ="/src/framework/mod/user/admin/model/files/adminTxtDB.txt";
+        PATH_XML ="/src/framework/mod/user/admin/model/files/adminXmlDB.xml";
+        
         passwd_formAdm = "";
         selectedPOSmodify=-1;
         changes = false;

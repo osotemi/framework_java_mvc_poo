@@ -87,7 +87,7 @@ public class jsonClt {
 
         try {
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonClient.PATH_CLT;
+                    + singletonClient.PATH_JSON;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -171,7 +171,7 @@ public class jsonClt {
             xstream.alias("Client", Client.class);
 
             PATH = new java.io.File(".").getCanonicalPath()
-                    + singletonClient.PATH_CLT;
+                    + singletonClient.PATH_JSON;
 
             JsonReader read = new JsonReader(new FileReader(PATH));
             JsonParser parseator = new JsonParser();
