@@ -9,6 +9,7 @@ import framework.mod.settings.model.BLL.BLL_settings;
 import framework.mod.settings.model.clss.profile_json;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main;
+import framework.mod.settings.view.main_login;
 import framework.mod.settings.view.wdwSettings;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
@@ -46,14 +47,18 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
 
     public static wdwSettings Conf;
     public static main MainMenu;
+    public static main_login LoginLayout;
 
-    public Controler_Main(JFrame frame_wdw, int option) {
+    public Controler_Main(JFrame layout, int option) {
         switch(option){
             case 0://Menu principal
-                MainMenu = (main) frame_wdw;
+                MainMenu = (main) layout;
                 break;
             case 1://Menu Config
-                Conf = (wdwSettings) frame_wdw;
+                Conf = (wdwSettings) layout;
+                break;
+            case 2://
+                LoginLayout = (main_login) layout;
                 break;
             default:
                 System.err.println("Error controler main");
@@ -267,6 +272,12 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         MainMenu.btn_conf.setText(Language.getInstance().getProperty("LBL_Config"));
     }
     
+    public static void drawLogin (){
+        LoginLayout.lbl_userName.setText("");
+        LoginLayout.lbl_passWord.setText("");
+        
+        
+    }
     @Override
     public void actionPerformed(ActionEvent evt) {
         switch ( Accion.valueOf(evt.getActionCommand()) ){

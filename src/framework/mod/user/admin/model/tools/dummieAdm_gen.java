@@ -12,10 +12,8 @@ package framework.mod.user.admin.model.tools;
  * @version 2.0 19/03/2016
  *
  */
+import framework.clss.ConnectionBD;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Random;
 
 import framework.clss.DateO;
 import framework.mod.settings.model.clss.Settings;
@@ -28,7 +26,9 @@ import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.tools.format;
 import framework.tools.functions;
 import framework.tools.validate;
-import framework.mod.user.admin.view.main_Admin;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class dummieAdm_gen {
@@ -65,9 +65,54 @@ public class dummieAdm_gen {
         } while (!back);
     }
 
-    public static void Dum_loader() {
-        json.AdminJson_Autoload();
+    public static void Dum_loader() throws SQLException {
+        Connection _con = null;
+        ConnectionBD _connection_DB = new ConnectionBD();
+        PreparedStatement stmt = null;
+        String name, lastname, dni;
+        int valid_dni = 0, valid_update = 0, state=0;
 
+        DateO born = dummieAdm_gen.rdmBorndate();
+        DateO sing = dummieAdm_gen.rdmSingdate(born);
+        name = rdmName();
+        lastname = rdmLastName();
+
+        do {
+            dni = rdmDNI();
+            singletonAdmin.ephemeralAdmin = new Admin(dni);
+            valid_dni = BLL_Admin.searchAL();
+        } while (valid_dni != -1);
+        
+        
+        
+        _con = _connection_DB.OpenConnection();
+        JOptionPane.showMessageDialog(null, "Hola DB!!");
+        for (int i = 0; i < 1; i++) {
+            singletonAdmin.ephemeralAdmin = new Admin(rdmAvatar(), born, dni, rdmEmail(name, lastname), rdmPhone(), name, lastname + " " + rdmLastName(), rdmPasswd(), rdmState(), dummieAdm_gen.rdmUser(name, lastname), rdmActivity(sing), dummieAdm_gen.rdmSingdate(born));
+            singletonAdmin.ephemeralAdmin.toString();
+            stmt = _con.prepareStatement("INSERT INTO db_framework.admin "
+                    + "(age,avatar,date_birthday,dni,email,phone,name,lastname,password,state,user,benefit,activity,antiqueness,date_hiredate,salary) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt.setInt(1, singletonAdmin.ephemeralAdmin.getAge());
+            stmt.setString(2, singletonAdmin.ephemeralAdmin.getAvataring());
+            stmt.setString(3, singletonAdmin.ephemeralAdmin.getBorn_date().toString());
+            stmt.setString(4, singletonAdmin.ephemeralAdmin.getDni());
+            stmt.setString(5, singletonAdmin.ephemeralAdmin.getEmail());
+            stmt.setString(6, singletonAdmin.ephemeralAdmin.getMovile());
+            stmt.setString(7, singletonAdmin.ephemeralAdmin.getName());
+            stmt.setString(8, singletonAdmin.ephemeralAdmin.getLastname());
+            stmt.setString(9, singletonAdmin.ephemeralAdmin.getPassword());
+            stmt.setString(10,singletonAdmin.ephemeralAdmin.getState()); 
+            stmt.setString(11,singletonAdmin.ephemeralAdmin.getUser()); 
+            stmt.setFloat(12,singletonAdmin.ephemeralAdmin.getBenefit()); 
+            stmt.setInt(13,singletonAdmin.ephemeralAdmin.getActivity()); 
+            stmt.setInt(14, singletonAdmin.ephemeralAdmin.getAntiqueness());
+            stmt.setString(15, singletonAdmin.ephemeralAdmin.getContract_data().toString());
+            stmt.setFloat(16, singletonAdmin.ephemeralAdmin.getSalary());
+
+            int executeUpdate = stmt.executeUpdate();
+        }
+        _connection_DB.CloseConnection(_con);
     }
 
     /**
@@ -78,7 +123,7 @@ public class dummieAdm_gen {
     public static void dummieAdmin() {
         String name, lastname, dni;
         int valid_dni = 0;
-        
+
         DateO born = dummieAdm_gen.rdmBorndate();
         DateO sing = dummieAdm_gen.rdmSingdate(born);
         name = rdmName();
@@ -99,7 +144,7 @@ public class dummieAdm_gen {
     }
 
     public static String rdmAvatar() {
-        String avatar="";
+        String avatar = "";
         try {
             avatar = new java.io.File(".").getCanonicalPath() + "/src/framework/img/profile_pictures/people-";
         } catch (IOException e) {
@@ -120,9 +165,9 @@ public class dummieAdm_gen {
         String[] spltLastname = lastname.split(" ");
         String email = "";
         float opt_com = (float) (Math.random() * 2);
-        email = spltName[0] +  ".";
+        email = spltName[0] + ".";
         email += spltLastname[0];
-        
+
         email = email.toLowerCase();
         email = format.formRmAccent(email);
         if (opt_com > 0.5f) {
@@ -303,12 +348,12 @@ public class dummieAdm_gen {
         return "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
     }
 
-    public static int rdmActivity(DateO singDate){
+    public static int rdmActivity(DateO singDate) {
         DateO today = new DateO();
         int diff = 0;
         today.getTodaydate();
         diff = today.getYear() - singDate.getYear();
-        int activity = (int) ((Math.random() * 1000)* diff);
+        int activity = (int) ((Math.random() * 1000) * diff);
         return activity;
     }
 }
