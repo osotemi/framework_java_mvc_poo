@@ -7,6 +7,7 @@ package framework.mod.user.admin.model.classes;
 
 import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.clss.DateO;
+import framework.mod.user.admin.model.BLL.BLL_DB_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
@@ -116,9 +117,8 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
     public void cargar() {
         data.clear();
         datosaux.clear();
-        
+        BLL_DB_Admin.BLL_DB_listAdmin();
         Admin _adm = null;
-        java.util.Date date= new java.util.Date();
         for(int i=0; i<singletonAdmin.AdminTableArray.size(); i++) {
             _adm = singletonAdmin.AdminTableArray.get(i);
             addRow(_adm);

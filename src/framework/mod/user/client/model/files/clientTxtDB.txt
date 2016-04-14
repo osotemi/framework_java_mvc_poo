@@ -62,14 +62,14 @@ Shop acount: 13943.0
 ----------------------------------------
 
 Name: Jhonny
-Last name: Otero Giadas
+Last name: pep Giadas
 Age: 58 years old
 DNI: 28670092-V
 User name: JhoOte
 Password: ********
 Email: jhonny.otero@gmail.com
 Movile: +34 636 859 828 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-15.png
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
 Birthday date: 13/06/1957
 State: Offline
 Benefit: 6.0
@@ -561,6 +561,111 @@ Client typeSilver
 Premium: false
 Register Date: 20/06/2006
 Shop acount: 4752.0
+
+
+----------------------------------------
+
+Name: Inés
+Last name: Rodríguez Rúbio
+Age: 53 years old
+DNI: 33636144-R
+User name: InéRod
+Password: ***********
+Email: ines.rodriguez@gmail.com
+Movile: +34 630 888 471 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png
+Birthday date: 24/05/1962
+State: Online
+Benefit: 0.0
+Antiqueness: 3 years, 3 months
+Client typeSilver
+Premium: false
+Register Date: 04/01/2013
+Shop acount: 100.0
+
+
+----------------------------------------
+
+Name: Joey
+Last name: Márquez Navarro
+Age: 48 years old
+DNI: 17091218-X
+User name: JoeMár
+Password: **********
+Email: joey.marquez@omail.com
+Movile: +34 652 754 684 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
+Birthday date: 02/03/1968
+State: Online
+Benefit: 5.0
+Antiqueness: 4 years, 4 months
+Client typeGold
+Premium: true
+Register Date: 19/11/2011
+Shop acount: 2074.0
+
+
+----------------------------------------
+
+Name: Xorx
+Last name: Márquez Navarro
+Age: 42 years old
+DNI: 28361407-S
+User name: XorMár
+Password: **************
+Email: xorx.marquez@gmail.com
+Movile: +34 610 549 210 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-25.png
+Birthday date: 13/02/1974
+State: Offline
+Benefit: 2.0
+Antiqueness: 21 years, 8 months
+Client typeGold
+Premium: false
+Register Date: 23/07/1994
+Shop acount: 10716.0
+
+
+----------------------------------------
+
+Name: Guillem
+Last name: Mercado Márquez
+Age: 52 years old
+DNI: 97367571-S
+User name: GuiMer
+Password: ********
+Email: guillem.mercado@gmail.com
+Movile: +34 687 392 827 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
+Birthday date: 23/06/1963
+State: Online
+Benefit: 3.0
+Antiqueness: 26 years, 11 months
+Client typeSilver
+Premium: false
+Register Date: 11/04/1989
+Shop acount: 6554.0
+
+
+----------------------------------------
+
+Name: Araceli
+Last name: Rúbio Sanz
+Age: 47 years old
+DNI: 93098519-Q
+User name: AraRúb
+Password: ************
+Email: araceli.rubio@omail.com
+Movile: +34 668 506 638 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png
+Birthday date: 01/03/1969
+State: Offline
+Benefit: 2.0
+Antiqueness: 16 years, 11 months
+Client typeChrome
+Premium: false
+Register Date: 03/05/1999
+Shop acount: 5026.0
 
 
 ----------------------------------------

@@ -113,7 +113,7 @@
   </Client>
   <Client>
     <age>58</age>
-    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-15.png</avataring>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png</avataring>
     <born__date>
       <milsec>0</milsec>
       <second>0</second>
@@ -128,7 +128,7 @@
     <email>jhonny.otero@gmail.com</email>
     <movile>636859828</movile>
     <name>Jhonny</name>
-    <lastname>Otero Giadas</lastname>
+    <lastname>pep Giadas</lastname>
     <password>7OaMNpND</password>
     <state>Offline</state>
     <user>JhoOte</user>
@@ -998,5 +998,190 @@
       <sdate>20/6/2006</sdate>
     </register__date>
     <shop__acount>4752.0</shop__acount>
+  </Client>
+  <Client>
+    <age>53</age>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>24</day>
+      <month>5</month>
+      <year>1962</year>
+      <sdate>24/05/1962</sdate>
+    </born__date>
+    <dni>33636144-R</dni>
+    <email>ines.rodriguez@gmail.com</email>
+    <movile>630888471</movile>
+    <name>Inés</name>
+    <lastname>Rodríguez Rúbio</lastname>
+    <password>j1WF4tGJdCv</password>
+    <state>Online</state>
+    <user>InéRod</user>
+    <benefit>0.0</benefit>
+    <antiqueness>39</antiqueness>
+    <client__type>Silver</client__type>
+    <premium>false</premium>
+    <register__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>4</day>
+      <month>1</month>
+      <year>2013</year>
+      <sdate>4/1/2013</sdate>
+    </register__date>
+    <shop__acount>100.0</shop__acount>
+  </Client>
+  <Client>
+    <age>48</age>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>2</day>
+      <month>3</month>
+      <year>1968</year>
+      <sdate>02/03/1968</sdate>
+    </born__date>
+    <dni>17091218-X</dni>
+    <email>joey.marquez@omail.com</email>
+    <movile>652754684</movile>
+    <name>Joey</name>
+    <lastname>Márquez Navarro</lastname>
+    <password>WM0mo5eHWs</password>
+    <state>Online</state>
+    <user>JoeMár</user>
+    <benefit>5.0</benefit>
+    <antiqueness>52</antiqueness>
+    <client__type>Gold</client__type>
+    <premium>true</premium>
+    <register__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>19</day>
+      <month>11</month>
+      <year>2011</year>
+      <sdate>19/11/2011</sdate>
+    </register__date>
+    <shop__acount>2074.0</shop__acount>
+  </Client>
+  <Client>
+    <age>42</age>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-25.png</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>13</day>
+      <month>2</month>
+      <year>1974</year>
+      <sdate>13/02/1974</sdate>
+    </born__date>
+    <dni>28361407-S</dni>
+    <email>xorx.marquez@gmail.com</email>
+    <movile>610549210</movile>
+    <name>Xorx</name>
+    <lastname>Márquez Navarro</lastname>
+    <password>08HIN2HP3B7ZgK</password>
+    <state>Offline</state>
+    <user>XorMár</user>
+    <benefit>2.0</benefit>
+    <antiqueness>260</antiqueness>
+    <client__type>Gold</client__type>
+    <premium>false</premium>
+    <register__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>23</day>
+      <month>7</month>
+      <year>1994</year>
+      <sdate>23/7/1994</sdate>
+    </register__date>
+    <shop__acount>10716.0</shop__acount>
+  </Client>
+  <Client>
+    <age>52</age>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>23</day>
+      <month>6</month>
+      <year>1963</year>
+      <sdate>23/06/1963</sdate>
+    </born__date>
+    <dni>97367571-S</dni>
+    <email>guillem.mercado@gmail.com</email>
+    <movile>687392827</movile>
+    <name>Guillem</name>
+    <lastname>Mercado Márquez</lastname>
+    <password>TLi3r7om</password>
+    <state>Online</state>
+    <user>GuiMer</user>
+    <benefit>3.0</benefit>
+    <antiqueness>323</antiqueness>
+    <client__type>Silver</client__type>
+    <premium>false</premium>
+    <register__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>11</day>
+      <month>4</month>
+      <year>1989</year>
+      <sdate>11/4/1989</sdate>
+    </register__date>
+    <shop__acount>6554.0</shop__acount>
+  </Client>
+  <Client>
+    <age>47</age>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>1</day>
+      <month>3</month>
+      <year>1969</year>
+      <sdate>01/03/1969</sdate>
+    </born__date>
+    <dni>93098519-Q</dni>
+    <email>araceli.rubio@omail.com</email>
+    <movile>668506638</movile>
+    <name>Araceli</name>
+    <lastname>Rúbio Sanz</lastname>
+    <password>7MW7eP302B6p</password>
+    <state>Offline</state>
+    <user>AraRúb</user>
+    <benefit>2.0</benefit>
+    <antiqueness>203</antiqueness>
+    <client__type>Chrome</client__type>
+    <premium>false</premium>
+    <register__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>3</day>
+      <month>5</month>
+      <year>1999</year>
+      <sdate>3/5/1999</sdate>
+    </register__date>
+    <shop__acount>5026.0</shop__acount>
   </Client>
 </list>

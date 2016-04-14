@@ -6,6 +6,7 @@
 package framework.mod.user.admin.model.BLL;
 
 import framework.clss.ConnectionBD;
+import framework.mod.user.admin.model.DAO.DAO_DB_Admin;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -23,8 +24,8 @@ public class BLL_DB_Admin {
 
         _con = _conexion_DB.OpenConnection();
 
-        //out = DAOBD.nuevoEmpleadoDAO(_con);
-
+        output = DAO_DB_Admin.DAO_newAdmin(_con);
+        
         _conexion_DB.CloseConnection(_con);
 
         return output;
@@ -37,10 +38,11 @@ public class BLL_DB_Admin {
         ConnectionBD _conexion_DB = new ConnectionBD();
 
         _con = _conexion_DB.OpenConnection();
-        //DAOBD _empleadoDAO = new DAOBD();
+        
+        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
 
         try {
-            //_empleadoDAO.listarEmpleadoDAO(_con);//Recuperamos los empleados 
+            _adminDAO.DAO_listAdmin(_con);
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error Logger2!");
@@ -57,9 +59,10 @@ public class BLL_DB_Admin {
         ConnectionBD _conexion_DB = new ConnectionBD();
 
         _con = _conexion_DB.OpenConnection();
-        //DAOBD _empleadoDAO = new DAOBD();
+        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
 
-        //_empleadoDAO.modificarEmpleadoDAO(_con);
+        _adminDAO.DAO_modifyAdmin(_con);
+        
         _conexion_DB.CloseConnection(_con);
 
     }
@@ -73,9 +76,9 @@ public class BLL_DB_Admin {
         ConnectionBD _conexion_DB = new ConnectionBD();
 
         _con = _conexion_DB.OpenConnection();
-        //DAOBD _empleadoDAO = new DAOBD();
-
-        //correcto = _empleadoDAO.borrarEmpleadoDAO(_con);
+        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
+        
+        correcto = _adminDAO.DAO_deleteAdm(_con);
         _conexion_DB.CloseConnection(_con);
 
         return correcto;
@@ -90,9 +93,9 @@ public class BLL_DB_Admin {
         ConnectionBD _conexion_DB = new ConnectionBD();
 
         _con = _conexion_DB.OpenConnection();
-        //DAOBD _empleadoDAO = new DAOBD();
-
-        //correcto = _empleadoDAO.buscarPorDniDAO(_con);
+        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
+        
+        correcto = _adminDAO.DAO_searchAdminBYdni(_con);
         _conexion_DB.CloseConnection(_con);
 
         return correcto;

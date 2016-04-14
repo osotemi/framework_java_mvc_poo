@@ -52,7 +52,7 @@
   </RegU>
   <RegU>
     <age>44</age>
-    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-19.png</avataring>
+    <avataring>mK16B5dtFL2ruN</avataring>
     <born__date>
       <milsec>0</milsec>
       <second>0</second>
@@ -66,10 +66,10 @@
     <dni>18089570-R</dni>
     <email>pepe.mercado@gmail.com</email>
     <movile>672001953</movile>
-    <name>Pepe</name>
+    <name>manolo</name>
     <lastname>Mercado Paz</lastname>
-    <password>mK16B5dtFL2ruN</password>
-    <state>Logged</state>
+    <password></password>
+    <state>Offline</state>
     <user>PepMer</user>
     <benefit>10882.5</benefit>
     <activity>7255</activity>

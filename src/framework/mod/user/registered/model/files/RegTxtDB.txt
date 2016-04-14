@@ -58,29 +58,29 @@ Karma: high
 
 ----------------------------------------
 
-Name: Pepe
+Name: manolo
 Last name: Mercado Paz
 Age: 44 years old
 DNI: 18089570-R
 User name: PepMer
-Password: **************
+Password: 
 Email: pepe.mercado@gmail.com
 Movile: +34 672 001 953 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-19.png
+Avataring: mK16B5dtFL2ruN
 Birthday date: 15/05/1971
-State: Logged
+State: Offline
 Benefit: 10882.5
-Name: Pepe
+Name: manolo
 Last name: Mercado Paz
 Age: 44 years old
 DNI: 18089570-R
 User name: PepMer
-Password: **************
+Password: 
 Email: pepe.mercado@gmail.com
 Phone: +34 672 001 953 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-19.png
+Avataring: mK16B5dtFL2ruN
 Birthday date: 15/05/1971
-State: Logged
+State: Offline
 Points: 10882.5
 Activity: 7255
 Karma: high

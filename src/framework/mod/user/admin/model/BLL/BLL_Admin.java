@@ -5,7 +5,6 @@
  */
 package framework.mod.user.admin.model.BLL;
 
-import framework.tools.menu_gen;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import framework.mod.user.admin.model.DAO.DAO_Admin;
 import framework.mod.user.admin.model.classes.Admin;
@@ -286,8 +285,13 @@ public class BLL_Admin {
                     adm = singletonAdmin.AdminTableArray.get(pos);
                     singletonAdmin.AdminTableArray.remove(adm);
                     miniSimpleTableModel_Admin.datosaux.remove(adm);
+                    //Guardar en base de datos
+                    BLL_DB_Admin.BLL_DB_deleteAdmin();
+                    //Recargar de base de datos
                     Controler_mainAdmin.runTABLE();
-                    autosaveMultiformat();
+                    //autosaveMultiformat();
+                    
+                    
                     main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_delok"));
                     main_Admin.lblMainform.setOpaque(true);
                     main_Admin.lblMainform.setBackground(Color.red);
@@ -320,8 +324,12 @@ public class BLL_Admin {
 
         if (opc == 0) {
             singletonAdmin.AdminTableArray = new ArrayList<>();
+           
+            //autosaveMultiformat();
+            //Guardar en base de datos
+            //BLL_DB_Admin.deleteAll;
+            //Recargar de base de datos
             Controler_mainAdmin.runTABLE();
-            autosaveMultiformat();
             main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("mes_allDelOk"));
             main_Admin.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
@@ -474,11 +482,8 @@ public class BLL_Admin {
             } else if (DAO_Admin.formCreateAdmin()) { //ephemeralAdmin is created with form data
 
                 singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);//POSmodify taken from original 
-
-                if (DAO_Admin.formCreateAdmin()) { //ephemeralAdmin is created with form data
-                    singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);
-                    valid = true;
-                }
+                valid = true;
+                
             }
         }else {
             DAO_Admin.DAO_ERR_Modify();
@@ -486,7 +491,11 @@ public class BLL_Admin {
         }
 
         if (valid) {
-            autosaveMultiformat();
+            //autosaveMultiformat();
+            //Guardar en base de datos
+            BLL_DB_Admin.BLL_DB_modifyAdmin();
+            
+            //Recargar de base de datos
             Controler_mainAdmin.runTABLE();
             main_Admin.lblMainform.setOpaque(true);
             main_Admin.lblMainform.setBackground(Color.GREEN);
@@ -511,7 +520,9 @@ public class BLL_Admin {
         pos = searchAL();
         if (pos == -1) {
             singletonAdmin.AdminTableArray.add(singletonAdmin.ephemeralAdmin);
-            autosaveMultiformat();
+            //autosaveMultiformat();
+            BLL_DB_Admin.BLL_DB_newAdmin();
+            //Recargar de base de datos
             Controler_mainAdmin.runTABLE();
             valid = true;
         } else {
@@ -586,9 +597,11 @@ public class BLL_Admin {
      */
     public static void loadArray() {
         singletonAdmin.loadSingletonAdmin();
+        //BLL_DB_Admin.BLL_DB_listAdmin();
         json.AdminJson_Autoload();
     }
     public static void autosaveMultiformat(){ 
+        //BLL_DB_Admin.
         json.AdminJson_Autosave();
         xml.AdminXml_Autosave();
         txt.AdminTxt_Autosave();
