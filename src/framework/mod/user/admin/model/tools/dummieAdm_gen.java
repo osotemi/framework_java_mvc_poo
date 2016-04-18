@@ -85,7 +85,7 @@ public class dummieAdm_gen {
         
         
         
-        _con = _connection_DB.OpenConnection();
+        _con = ConnectionBD.getConexion();
         JOptionPane.showMessageDialog(null, "Hola DB!!");
         for (int i = 0; i < 1; i++) {
             singletonAdmin.ephemeralAdmin = new Admin(rdmAvatar(), born, dni, rdmEmail(name, lastname), rdmPhone(), name, lastname + " " + rdmLastName(), rdmPasswd(), rdmState(), dummieAdm_gen.rdmUser(name, lastname), rdmActivity(sing), dummieAdm_gen.rdmSingdate(born));
@@ -112,7 +112,7 @@ public class dummieAdm_gen {
 
             int executeUpdate = stmt.executeUpdate();
         }
-        _connection_DB.CloseConnection(_con);
+        ConnectionBD.liberaConexion(_con);
     }
 
     /**

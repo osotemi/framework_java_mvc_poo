@@ -5,6 +5,7 @@
  */
 package framework;
 
+import framework.clss.ConnectionBD;
 import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
 import framework.mod.settings.model.clss.Settings;
@@ -52,12 +53,7 @@ public class Framework_v161 {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Settings.getInstance();
-                /*try {
-                    dummieAdm_gen.Dum_loader();
-                } catch (SQLException ex) {
-                    Logger.getLogger(Framework_v161.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null, "ERROR DB");
-                }*/
+                ConnectionBD.inicializa_BasicDataSourceFactory();
                 new Controler_Main(new main(), 0).run(0);
             }
         });

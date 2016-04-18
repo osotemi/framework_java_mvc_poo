@@ -121,8 +121,8 @@ public class DAO_DB_Admin {
     }
 
     //Modificamos un empleado
-    public boolean DAO_modifyAdmin(Connection con) {
-        boolean valid = false;
+    public static int DAO_modifyAdmin(Connection con) {
+        int valid = 0;
         PreparedStatement stmt = null;
 
         try {
@@ -149,8 +149,8 @@ public class DAO_DB_Admin {
             stmt.setFloat(16, singletonAdmin.ephemeralAdmin.getSalary());
 
             stmt.setString(17, singletonAdmin.ephemeralAdmin.getDni());
-            stmt.executeUpdate();
-            valid = true;
+            valid = stmt.executeUpdate();
+           
             JOptionPane.showMessageDialog(null, "El usuario ha sido modificado correctamente!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al actualizar el usuario!");
@@ -167,16 +167,16 @@ public class DAO_DB_Admin {
     }
 
     //Borramos un empleado
-    public boolean DAO_deleteAdm(Connection con) {
+    public static int DAO_deleteAdm(Connection con) {
 
         PreparedStatement stmt = null;
-        boolean valid = false;
+        int valid = 0;
 
         try {
             stmt = con.prepareStatement("DELETE FROM db_framework.admin WHERE dni=?");
-            //stmt.setString(1, Singletons.e.getDni());
-            stmt.executeUpdate();
-            valid = true;
+            stmt.setString(1, singletonAdmin.ephemeralAdmin.getDni());
+            valid = stmt.executeUpdate();
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario!");
         } finally {
@@ -192,11 +192,11 @@ public class DAO_DB_Admin {
     }
 
     //Buscamos por dni un empleado
-    public boolean DAO_searchAdminBYdni(Connection con) {
+    public static int DAO_searchAdminBYdni(Connection con) {
 
         ResultSet rs = null;
         PreparedStatement stmt = null;
-        boolean valid = false;
+        int valid = 0;
 
         try {
             stmt = con.prepareStatement("SELECT * FROM db_framework.admin WHERE DNI=?");
@@ -204,9 +204,9 @@ public class DAO_DB_Admin {
             rs = stmt.executeQuery();
             while (rs.next()) {
 
-                obtenEmpleadoFila(rs);
+                getAdminRow(rs);
             }
-            valid = true;
+            valid = 1;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al buscar el usuario por DNI");
         } finally {
@@ -228,7 +228,7 @@ public class DAO_DB_Admin {
         return valid;
     }
 
-    private void obtenEmpleadoFila(ResultSet rs) {
+    private static void getAdminRow(ResultSet rs) {
         DateO birth_date = null;
         DateO hire_date = null;    
         //(age,avatar,date_birthday,dni,email,phone,name,lastname,password,state,user,benefit,activity,antiqueness,date_hiredate,salary)

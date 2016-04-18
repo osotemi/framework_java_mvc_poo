@@ -118,6 +118,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
         data.clear();
         datosaux.clear();
         BLL_DB_Admin.BLL_DB_listAdmin();
+        
         Admin _adm = null;
         for(int i=0; i<singletonAdmin.AdminTableArray.size(); i++) {
             _adm = singletonAdmin.AdminTableArray.get(i);

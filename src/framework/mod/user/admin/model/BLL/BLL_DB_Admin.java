@@ -20,13 +20,13 @@ public class BLL_DB_Admin {
         int output=0;
         Connection _con = null;
 
-        ConnectionBD _conexion_DB = new ConnectionBD();
-
-        _con = _conexion_DB.OpenConnection();
+        //ConnectionBD _conexion_DB = new ConnectionBD();
+        //_con = _conexion_DB.OpenConnection();
+        _con = ConnectionBD.getConexion();
 
         output = DAO_DB_Admin.DAO_newAdmin(_con);
         
-        _conexion_DB.CloseConnection(_con);
+        ConnectionBD.liberaConexion(_con);
 
         return output;
     }
@@ -35,9 +35,8 @@ public class BLL_DB_Admin {
     public static void BLL_DB_listAdmin() {
 
         Connection _con = null;
-        ConnectionBD _conexion_DB = new ConnectionBD();
-
-        _con = _conexion_DB.OpenConnection();
+        
+        _con = ConnectionBD.getConexion();
         
         DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
 
@@ -47,8 +46,8 @@ public class BLL_DB_Admin {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error Logger2!");
         }
-        _conexion_DB.CloseConnection(_con);
-
+        
+        ConnectionBD.liberaConexion(_con);
     }
 
     // modificar un empleado existente en la BD
@@ -56,47 +55,42 @@ public class BLL_DB_Admin {
 
         Connection _con;
 
-        ConnectionBD _conexion_DB = new ConnectionBD();
-
-        _con = _conexion_DB.OpenConnection();
+        _con = ConnectionBD.getConexion();
         DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
 
         _adminDAO.DAO_modifyAdmin(_con);
         
-        _conexion_DB.CloseConnection(_con);
-
+        ConnectionBD.liberaConexion(_con);
     }
 
     // eliminar un empleado de la BD
-    public static boolean BLL_DB_deleteAdmin() {
+    public static int BLL_DB_deleteAdmin() {
 
         Connection _con;
-        boolean correcto = false;
+        int correcto = 0;
 
-        ConnectionBD _conexion_DB = new ConnectionBD();
-
-        _con = _conexion_DB.OpenConnection();
+        _con = ConnectionBD.getConexion();
         DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
         
         correcto = _adminDAO.DAO_deleteAdm(_con);
-        _conexion_DB.CloseConnection(_con);
+        ConnectionBD.liberaConexion(_con);
 
         return correcto;
     }
 
     //* buscar en la BD un empleado por su DNI
-    public static boolean BLL_DB_searchByDni() {
+    public static int BLL_DB_searchByDni() {
 
         Connection _con;
-        boolean correcto = false;
+        int correcto = 0;
 
         ConnectionBD _conexion_DB = new ConnectionBD();
 
-        _con = _conexion_DB.OpenConnection();
+        _con = ConnectionBD.getConexion();
         DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
         
         correcto = _adminDAO.DAO_searchAdminBYdni(_con);
-        _conexion_DB.CloseConnection(_con);
+        ConnectionBD.liberaConexion(_con);
 
         return correcto;
     }
