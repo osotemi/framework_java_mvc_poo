@@ -56,9 +56,7 @@ public class BLL_DB_Admin {
         Connection _con;
 
         _con = ConnectionBD.getConexion();
-        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
-
-        _adminDAO.DAO_modifyAdmin(_con);
+        DAO_DB_Admin.DAO_modifyAdmin(_con);
         
         ConnectionBD.liberaConexion(_con);
     }
@@ -70,9 +68,7 @@ public class BLL_DB_Admin {
         int correcto = 0;
 
         _con = ConnectionBD.getConexion();
-        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
-        
-        correcto = _adminDAO.DAO_deleteAdm(_con);
+        DAO_DB_Admin.DAO_deleteAdm(_con);
         ConnectionBD.liberaConexion(_con);
 
         return correcto;
@@ -87,9 +83,7 @@ public class BLL_DB_Admin {
         ConnectionBD _conexion_DB = new ConnectionBD();
 
         _con = ConnectionBD.getConexion();
-        DAO_DB_Admin _adminDAO = new DAO_DB_Admin();
-        
-        correcto = _adminDAO.DAO_searchAdminBYdni(_con);
+        DAO_DB_Admin.DAO_searchAdminBYdni(_con);
         ConnectionBD.liberaConexion(_con);
 
         return correcto;
