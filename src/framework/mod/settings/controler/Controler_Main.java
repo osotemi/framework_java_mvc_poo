@@ -5,6 +5,7 @@
  */
 package framework.mod.settings.controler;
 
+import framework.clss.singletonGen;
 import framework.mod.settings.model.BLL.BLL_settings;
 import framework.mod.settings.model.clss.profile_json;
 import framework.mod.settings.model.tools.Language;
@@ -122,6 +123,14 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                         MainMenu.dispose();
                     }
                 });
+                MainMenu.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                this.MainMenu.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+                        MainMenu.dispose();                        
+                        singletonGen.mongo.disconnect();
+                    }
+                });
+                
                 drawMain();
                 MainMenu.btn_conf.setOpaque(false);
 

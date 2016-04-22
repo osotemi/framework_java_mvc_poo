@@ -7,12 +7,19 @@ package framework.mod.settings.model.clss;
 
 import framework.mod.settings.model.tools.Language;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import framework.clss.MongoDB;
+import framework.clss.singletonGen;
 import framework.mod.settings.model.tools.LooknFeel;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.client.model.classes.singletonClient;
+import framework.mod.user.registered.model.classes.singletonReg;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -68,12 +75,19 @@ public class Settings implements Serializable {
     public static Settings getInstance() {
         if (instance == null) {
             instance = new Settings();
+            try {
+                singletonGen.mongo = new MongoDB();
+            } catch (IOException ex) {
+                Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+            }
             singletonProfile.Alist_Profile = new ArrayList<>();
             profile_json.Profiles_Autoload();
             singletonProfile.Alist_Profile.get(0).ProfilesTOSettings();
             //LooknFeel.LookFeel();
             //Language.getInstance();
             singletonAdmin.loadSingletonAdmin();
+            singletonClient.loadSingletonClient();
+            singletonReg.loadSingletonReg();
             fdate = "dd/MM/yyyy";//Temporally
         }
         return instance;

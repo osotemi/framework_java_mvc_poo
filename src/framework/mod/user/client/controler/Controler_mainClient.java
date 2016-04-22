@@ -93,7 +93,6 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
     }
 
     public void run() {
-        BLL_Client.loadArray();
         LanguageClt.getInstance().loadProperties();
         //Initializate components
         Image icono = null;
@@ -280,6 +279,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
 
     public static void runTABLE() {
         TABLA_CLT.setModel(new miniSimpleTableModel_Client());
+        singletonClient.ClienTableArray = new ArrayList<>();
         ((miniSimpleTableModel_Client) TABLA_CLT.getModel()).cargar();
         TABLA_CLT.setFillsViewportHeight(true);
         TABLA_CLT.setRowSorter(sorterClt);

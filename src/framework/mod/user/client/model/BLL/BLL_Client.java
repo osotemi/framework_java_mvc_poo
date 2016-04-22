@@ -285,12 +285,10 @@ public class BLL_Client {
                 int opc = JOptionPane.showConfirmDialog(null, LanguageClt.getInstance().getProperty("mes_askDelet_I") + lastname + ", " + name + LanguageClt.getInstance().getProperty("mes_askDelet_II") + dni, LanguageClt.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
 
                 if (opc == 0) {
-                    ((miniSimpleTableModel_Client) main_Client.TABLA_CLT.getModel()).removeRow(selec);
-                    clt = singletonClient.ClienTableArray.get(pos);
-                    singletonClient.ClienTableArray.remove(clt);
-                    miniSimpleTableModel_Client.datosauxClt.remove(clt);
+                    singletonClient.dniClt = dni;
+                    BLL_DB_Client.BLL_DB_deleteClient();
+                    
                     Controler_mainClient.runTABLE();
-                    autosaveMultiformat();
                     main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_delok"));
                     main_Client.lblMainform.setOpaque(true);
                     main_Client.lblMainform.setBackground(Color.red);
@@ -388,8 +386,8 @@ public class BLL_Client {
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
                 dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 4);
-                Client clt = new Client(dni);
-                singletonClient.ephemeralClient = clt;
+                //usar funcion buscar por dni
+                singletonClient.ephemeralClient = new Client(dni);
                 pos = searchAL();
                 if (pos != -1) {
                     singletonClient.ephemeralClient = singletonClient.ClienTableArray.get(pos);
@@ -471,7 +469,8 @@ public class BLL_Client {
             pos = searchAL();
             if (pos != -1) {
                 if (DAO_Client.formCreateClient()) {
-                    singletonClient.ClienTableArray.set(pos, singletonClient.ephemeralClient);
+                    BLL_DB_Client.BLL_DB_modifyClient();
+                    //singletonClient.ClienTableArray.set(pos, singletonClient.ephemeralClient);
                     valid = true;
                 }
             } else if (DAO_Client.formCreateClient()) { //ephemeralAdmin is created with form data
@@ -513,8 +512,7 @@ public class BLL_Client {
 
         pos = searchAL();
         if (pos == -1) {
-            singletonClient.ClienTableArray.add(singletonClient.ephemeralClient);
-            autosaveMultiformat();
+            BLL_DB_Client.BLL_DB_newClient();
             Controler_mainClient.runTABLE();
             valid = true;
         } else {

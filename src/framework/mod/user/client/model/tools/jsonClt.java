@@ -121,6 +121,7 @@ public class jsonClt {
      *
      * @return singletonU.Alist_clt
      */
+    /*
     public static ArrayList<Client> ClientJson_load() {
         String PATH = null;
         Client clt = new Client();
@@ -154,7 +155,7 @@ public class jsonClt {
         }
         return singletonClient.ClienTableArray;
     }
-
+    */
     /**
      * ClientJson_Autoload load automatically the file client_dummies.json from
      * the path /src/framework/mod/user/model/files/client_dummies.json to

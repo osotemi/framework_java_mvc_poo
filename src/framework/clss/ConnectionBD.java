@@ -6,6 +6,7 @@
 package framework.clss;
 
 import static framework.clss.singletonGen.dataSource;
+import framework.mod.settings.model.clss.singleSettings;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -55,6 +56,7 @@ public class ConnectionBD {
         }
     }
     
+    
     public static Connection getConexion() {
         Connection conexion=null;
         try {
@@ -75,8 +77,6 @@ public class ConnectionBD {
         }
     }
      
-    
-    
     /*public Connection OpenConnection() {
 
         Connection con = null;

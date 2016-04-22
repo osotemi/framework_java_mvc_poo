@@ -10,6 +10,7 @@ import framework.tools.menu_gen;
 import framework.mod.settings.model.clss.Settings;
 import framework.mod.user.client.controler.Controler_mainClient;
 import framework.mod.user.client.model.BLL.BLL_Client;
+import framework.mod.user.client.model.BLL.BLL_DB_Client;
 import framework.mod.user.client.model.classes.Client;
 import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.registered.controler.Controler_mainReg;
@@ -49,7 +50,7 @@ public class dummieClt_gen {
                     for (int i = 0; i < num_dum; i++) {
                         dummieClt_gen.dummieClient();
                     }
-                    jsonClt.ClientJson_Autosave();
+                    
                     Controler_mainClient.runTABLE();
                     back = true;
                 } catch (Exception e) {
@@ -57,11 +58,6 @@ public class dummieClt_gen {
                 }
             }
         } while (!back);
-    }
-
-    public static void Dum_loader() {
-        jsonClt.ClientJson_Autoload();
-
     }
 
     /**
@@ -87,7 +83,7 @@ public class dummieClt_gen {
         singletonClient.ephemeralClient = new Client(rdmAvatar(), born, dni, rdmEmail(name, lastname), rdmPhone(), name, lastname , rdmPasswd(), rdmState(), dummieClt_gen.rdmUser(name, lastname),  rdmClType(),rdmPremium(), sing, rdmShopAccount(sing));
         
         try {
-            singletonClient.ClienTableArray.add(singletonClient.ephemeralClient);
+            BLL_DB_Client.BLL_DB_newClient();
         } catch (Exception ex) {
             System.out.println("ERR dummie generation");
         }

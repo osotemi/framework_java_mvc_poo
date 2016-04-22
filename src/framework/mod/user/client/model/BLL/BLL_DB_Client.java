@@ -5,9 +5,7 @@
  */
 package framework.mod.user.client.model.BLL;
 
-import framework.mod.user.client.model.DAO.DAO_Client;
 import framework.mod.user.client.model.DAO.DAO_DB_Client;
-import framework.mod.user.client.model.classes.singletonClient;
 
 /**
  *
@@ -15,19 +13,20 @@ import framework.mod.user.client.model.classes.singletonClient;
  */
 public class BLL_DB_Client {
     public static void BLL_DB_newClient() {
-        DAO_DB_Client.insert_Client(clientDB, client, singletonClient.ephemeralClient);
+        DAO_DB_Client.insert_Client();
     }
     
     public static void BLL_DB_listClient() {
-        DAO_DB_Client.print_table(clientDB, client);
+        DAO_DB_Client.mongoDB_load_clientAL();
+        
     }
     
     public static void BLL_DB_modifyClient() {
-        DAO_DB_Client.update_Client(clientDB, client, nombre, 0);
+        DAO_DB_Client.update_Client( );
     }
     
     public static void BLL_DB_deleteClient() {
-        DAO_DB_Client.delete_Client_by_name(clientDB, client, nombre);
+        DAO_DB_Client.delete_Client_by_dni();
     }
     
     public static int BLL_DB_searchByDni() {

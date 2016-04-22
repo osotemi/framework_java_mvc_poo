@@ -6,12 +6,14 @@
 package framework.mod.user.client.model.classes;
 
 import framework.clss.DateO;
+import framework.mod.user.client.model.BLL.BLL_DB_Client;
 import framework.mod.user.client.model.tools.LanguageClt;
 import framework.mod.user.client.model.tools.pager.paginaClt;
 import framework.mod.user.client.view.main_Client;
 import framework.tools.format;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -113,20 +115,15 @@ public class miniSimpleTableModel_Client  extends AbstractTableModel{
     public void cargar() {
         dataClt.clear();
         datosauxClt.clear();
+        BLL_DB_Client.BLL_DB_listClient();
         
-        Client _adm = null;
-        java.util.Date date= new java.util.Date();
-        for(int i=0; i<singletonClient.ClienTableArray.size(); i++) {
-            _adm = singletonClient.ClienTableArray.get(i);
-            addRow(_adm);
-            datosauxClt.add(_adm);
-            
-            try {
-                //Thread.sleep(1); //1 milliseconds
-            } catch (Exception e) {
-              System.out.println(e);
+        if(singletonClient.ClienTableArray != null){
+            for(Client clt : singletonClient.ClienTableArray) {
+                addRow(clt);
+                datosauxClt.add(singletonClient.ephemeralClient);
             }
         }
+        
     }
 
     public void filtrar() {

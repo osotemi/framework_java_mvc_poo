@@ -5,7 +5,10 @@
  */
 package framework.clss;
 
-import java.util.logging.Logger;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.Mongo;
+import framework.clss.MongoDB;
 import org.apache.commons.dbcp.BasicDataSource;
 
 /**
@@ -15,4 +18,9 @@ import org.apache.commons.dbcp.BasicDataSource;
 public class singletonGen {
     /* Pool de conexiones */
     public static BasicDataSource dataSource;
+    
+    /*Client mongo variables*/
+    public static MongoDB mongo;
+    public static DBCollection collection;
+    public static DB db;
 }

@@ -9,7 +9,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -17,50 +17,44 @@ import java.util.Properties;
  *
  * @author osotemi
  */
-public class mongoClientDB {
+public class MongoDB {
     private static Properties prop = new Properties();
     private static InputStream input = null;
     private static String machine = null;
     private static String port = null;
     private static Mongo client = null;
-    private static DB db = null;
     private static String nom_bd = null;
-    private static DBCollection collection = null;
     private static String nom_table = null;
    
-    public mongoClientDB() {
+    public MongoDB() throws IOException {
         try {
-            input = new FileInputStream("src/MongoDB/ejer1_CRUD/mongo.properties"); 
-            try {
-                prop.load(input);
-            } catch (Exception e) {
-                System.out.println("Unable to open mongo.properties");
-                e.printStackTrace();
-            }
-            machine = prop.getProperty("machine");
-            port = prop.getProperty("port");
-            nom_bd = prop.getProperty("db");
-            nom_table = prop.getProperty("collection");      
-        } catch (FileNotFoundException e) {
+            input = new FileInputStream( new java.io.File(".").getCanonicalPath()
+                    + "/src/framework/clss/mongo.properties"); 
+            
+            prop.load(input);
+        } catch (Exception e) {
             System.out.println("Unable to open mongo.properties");
             e.printStackTrace();
-        }finally {
-            if (input != null) {
-		try {
-                    input.close();
-		} catch (Exception e) {
-                    e.printStackTrace();
-                    System.out.println("Unable to close mongo.properties"); 
-		}
+        }
+        machine = prop.getProperty("machine");
+        port = prop.getProperty("port");
+        nom_bd = prop.getProperty("db");
+        nom_table = prop.getProperty("collection");
+        if (input != null) {
+            try {
+                input.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Unable to close mongo.properties");
             }
-	}
+        }
     }
     
     public static Mongo connect() {
         try {
             client = new Mongo(getMachine(), Integer.parseInt(getPort()));
-            db = client.getDB(getNom_bd());
-            collection = db.getCollection(getNom_table());
+            singletonGen.db = client.getDB(getNom_bd());
+            singletonGen.collection = singletonGen.db.getCollection(getNom_table());
         } catch (Exception e) {
             System.out.println("Unable to open client");
             e.printStackTrace();
@@ -92,32 +86,16 @@ public class mongoClientDB {
         return client;
     }
 
-    public static DB getDb() {
-        return db;
-    }
-
-    public static DBCollection getCollection() {
-        return collection;
-    }
-
     public static void setProp(Properties prop) {
-        mongoClientDB.prop = prop;
+        MongoDB.prop = prop;
     }
 
     public static void setInput(InputStream input) {
-        mongoClientDB.input = input;
+        MongoDB.input = input;
     }
 
     public static void setClient(Mongo client) {
-        mongoClientDB.client = client;
-    }
-
-    public static void setDb(DB db) {
-        mongoClientDB.db = db;
-    }
-
-    public static void setCollection(DBCollection collection) {
-        mongoClientDB.collection = collection;
+        MongoDB.client = client;
     }
 
     public static String getNom_bd() {
@@ -125,7 +103,7 @@ public class mongoClientDB {
     }
 
     public static void setNom_bd(String nom_bd) {
-        mongoClientDB.nom_bd = nom_bd;
+        MongoDB.nom_bd = nom_bd;
     }
 
     public static String getNom_table() {
@@ -133,7 +111,7 @@ public class mongoClientDB {
     }
 
     public static void setNom_table(String nom_table) {
-        mongoClientDB.nom_table = nom_table;
+        MongoDB.nom_table = nom_table;
     }
 
     public static String getMachine() {
@@ -145,10 +123,10 @@ public class mongoClientDB {
     }
 
     public static void setMachine(String machine) {
-        mongoClientDB.machine = machine;
+        MongoDB.machine = machine;
     }
 
     public static void setPort(String port) {
-        mongoClientDB.port = port;
+        MongoDB.port = port;
     }
 }

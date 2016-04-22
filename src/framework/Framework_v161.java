@@ -6,15 +6,10 @@
 package framework;
 
 import framework.clss.ConnectionBD;
+import framework.clss.singletonGen;
 import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
 import framework.mod.settings.model.clss.Settings;
-import framework.mod.user.admin.model.tools.dummieAdm_gen;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,6 +49,11 @@ public class Framework_v161 {
             public void run() {
                 Settings.getInstance();
                 ConnectionBD.inicializa_BasicDataSourceFactory();
+                
+                if (singletonGen.mongo.connect() == null){
+                    System.out.println("ERROR al connectar mongoDB");
+                }
+                
                 new Controler_Main(new main(), 0).run(0);
             }
         });

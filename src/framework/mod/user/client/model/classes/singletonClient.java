@@ -35,7 +35,8 @@ public class singletonClient {
      * Initialite Array List
      */
     public static void loadSingletonClient(){
-        ClienTableArray = new ArrayList<Client>();
+        ClienTableArray = new ArrayList<>();
+        ephemeralClient = new Client();
         PATH_JSON ="/src/framework/mod/user/client/model/files/clientJsonDB.json";
         PATH_TXT ="/src/framework/mod/user/client/model/files/clientTxtDB.txt";
         PATH_XML ="/src/framework/mod/user/client/model/files/clientXmlDB.xml";

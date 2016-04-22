@@ -1,671 +1,83 @@
-Name: Araceli
-Last name: Otero Rebate
-Age: 19 years old
-DNI: 32307148-Z
-User name: AraOte
-Password: **********
-Email: araceli.otero@gmail.com
-Movile: +34 646 459 949 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-14.png
-Birthday date: 28/06/1996
-State: Offline
-Benefit: 1.0
-Antiqueness: 1 years, 1 months
-Client typeGold
-Premium: true
-Register Date: 11/02/2015
-Shop acount: 14.0
-
-
-----------------------------------------
-
-Name: Alba
-Last name: Giadas Rabadan
-Age: 38 years old
-DNI: 30964370-E
-User name: AlbGia
+Name: Ines
+Last name: Parra Pavia
+Age: 28 years old
+DNI: 48600913g
+User name: Ines
 Password: ********
-Email: alba.giadas@gmail.com
-Movile: +34 693 070 583 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png
-Birthday date: 21/08/1977
-State: Online
-Benefit: 3.0
-Antiqueness: 2 years, 9 months
+Email: inparpav@gmail.com
+Movile: +34 666 777 888 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-23.png
+Birthday date: 23/06/1987
+State: Loged
+Benefit: 34.0
+Antiqueness: 28 years, 9 months
 Client typeSilver
 Premium: true
-Register Date: 24/06/2013
-Shop acount: 1522.0
+Register Date: 23/06/1987
+Shop acount: 4560.0
 
 
 ----------------------------------------
 
-Name: Alfons
-Last name: Pavía Rúbio
-Age: 62 years old
-DNI: 18456608-M
-User name: AlfPav
-Password: **********
-Email: alfons.pavia@gmail.com
-Movile: +34 640 115 785 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-5.png
-Birthday date: 12/03/1954
-State: Online
-Benefit: 4.0
-Antiqueness: 38 years, 6 months
-Client typeChrome
-Premium: false
-Register Date: 24/09/1977
-Shop acount: 13943.0
-
-
-----------------------------------------
-
-Name: Jhonny
-Last name: pep Giadas
-Age: 58 years old
-DNI: 28670092-V
-User name: JhoOte
-Password: ********
-Email: jhonny.otero@gmail.com
-Movile: +34 636 859 828 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
-Birthday date: 13/06/1957
-State: Offline
-Benefit: 6.0
-Antiqueness: 5 years, 4 months
-Client typeSilver
-Premium: true
-Register Date: 15/11/2010
-Shop acount: 8045.0
-
-
-----------------------------------------
-
-Name: Paco
-Last name: Parra Millán
-Age: 52 years old
-DNI: 54529699-B
-User name: PacParra
-Password: ***********
-Email: paco.parra@gmail.com
-Movile: +34 664 902 004 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-9.png
-Birthday date: 08/05/1963
-State: Online
-Benefit: 1.0
-Antiqueness: 14 years, 10 months
-Client type"Chrome"
-Premium: false
-Register Date: 26/05/2001
-Shop acount: 179176.0
-
-
-----------------------------------------
-
-Name: Roser
-Last name: Mercado Gargallo
-Age: 26 years old
-DNI: 81700324-T
-User name: RosMer
-Password: ********
-Email: roser.mercado@omail.com
-Movile: +34 657 861 632 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-4.png
-Birthday date: 09/05/1989
-State: Logged
-Benefit: 5.0
-Antiqueness: 4 years, 4 months
-Client typeChrome
-Premium: true
-Register Date: 05/11/2011
-Shop acount: 573.0
-
-
-----------------------------------------
-
-Name: Juanjo
-Last name: Paz Marín
-Age: 31 years old
-DNI: 44802687-K
-User name: JuaPaz
-Password: ****************
-Email: juanjo.paz@gmail.com
-Movile: +34 611 009 228 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-24.png
-Birthday date: 28/09/1984
-State: Offline
-Benefit: 1.0
-Antiqueness: 12 years, 11 months
-Client typeGold
-Premium: false
-Register Date: 04/05/2003
-Shop acount: 25600.0
-
-
-----------------------------------------
-
-Name: Uxia
-Last name: Paz Gargallo
-Age: 52 years old
-DNI: 30585831-V
-User name: UxiPaz
-Password: ********
-Email: uxia.paz@gmail.com
-Movile: +34 697 457 411 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-9.png
-Birthday date: 21/02/1964
-State: Logged
-Benefit: 2.0
-Antiqueness: 19 years
-Client typeChrome
-Premium: false
-Register Date: 17/03/1997
-Shop acount: 1556.0
-
-
-----------------------------------------
-
-Name: Jaume
-Last name: Nebot Plaza
-Age: 46 years old
-DNI: 28366530-D
-User name: JauNeb
-Password: ********
-Email: jaume.nebot@omail.com
-Movile: +34 625 131 370 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
-Birthday date: 08/06/1969
-State: Offline
-Benefit: 0.0
-Antiqueness: 9 months
-Client typeGold
-Premium: true
-Register Date: 17/06/2015
-Shop acount: 701.0
-
-
-----------------------------------------
-
-Name: Manuel
-Last name: Pavía Parra
-Age: 39 years old
-DNI: 45038512-G
-User name: ManPav
-Password: **************
-Email: manuel.pavia@gmail.com
-Movile: +34 643 998 770 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-19.png
-Birthday date: 22/11/1976
-State: Logged
-Benefit: 2.0
-Antiqueness: 18 years, 1 months
-Client typeChrome
-Premium: false
-Register Date: 08/02/1998
-Shop acount: 857.0
-
-
-----------------------------------------
-
-Name: Guillermo
-Last name: Teruel Serrano
-Age: 42 years old
-DNI: 55735323-K
-User name: GuiTer
-Password: ***********
-Email: guillermo.teruel@gmail.com
-Movile: +34 686 111 198 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
-Birthday date: 13/05/1973
-State: Offline
-Benefit: 1.0
-Antiqueness: 9 years, 11 months
-Client typeChrome
-Premium: false
-Register Date: 18/04/2006
-Shop acount: 2319.0
-
-
-----------------------------------------
-
-Name: Araceli
-Last name: Callaú Beltrán
-Age: 33 years old
-DNI: 84890465-H
-User name: AraCal
-Password: ************
-Email: araceli.callau@gmail.com
-Movile: +34 695 170 528 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-24.png
-Birthday date: 02/05/1982
-State: Offline
-Benefit: 0.0
-Antiqueness: 11 months
-Client typeSilver
-Premium: false
-Register Date: 06/04/2015
-Shop acount: 157.0
-
-
-----------------------------------------
-
-Name: Ramon
-Last name: Mercado Rúbio
-Age: 46 years old
-DNI: 59715192-Q
-User name: RamMer
-Password: ********
-Email: ramon.mercado@gmail.com
-Movile: +34 608 952 027 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-8.png
-Birthday date: 28/01/1970
-State: Logged
-Benefit: 28.0
-Antiqueness: 24 years
-Client typeChrome
-Premium: true
-Register Date: 20/03/1992
-Shop acount: 718.0
-
-
-----------------------------------------
-
-Name: Uxia
-Last name: Navarro Beltrán
-Age: 37 years old
-DNI: 20473642-P
-User name: UxiNav
-Password: **********
-Email: uxia.navarro@gmail.com
-Movile: +34 646 883 657 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png
-Birthday date: 07/11/1978
-State: Online
-Benefit: 1.0
-Antiqueness: 16 years, 7 months
-Client typeSilver
-Premium: false
-Register Date: 05/08/1999
-Shop acount: 2023.0
-
-
-----------------------------------------
-
-Name: Tommy
-Last name: Plaza Ramone
-Age: 63 years old
-DNI: 26732224-Z
-User name: TomPla
-Password: ************
-Email: tommy.plaza@omail.com
-Movile: +34 612 563 705 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-20.png
-Birthday date: 15/08/1952
-State: Online
-Benefit: 3.0
-Antiqueness: 32 years
-Client typeGold
-Premium: false
-Register Date: 03/04/1984
-Shop acount: 793.0
-
-
-----------------------------------------
-
-Name: Consolación
-Last name: Martínez Paz
-Age: 23 years old
-DNI: 17952711-S
-User name: ConMar
-Password: ********
-Email: consolacion.martinez@omail.com
-Movile: +34 693 881 285 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-20.png
-Birthday date: 15/11/1992
-State: Logged
-Benefit: 3.0
-Antiqueness: 2 years, 7 months
-Client typeGold
-Premium: true
-Register Date: 10/08/2013
-Shop acount: 1730.0
-
-
-----------------------------------------
-
-Name: Xorx
-Last name: De Castro Salvador
-Age: 43 years old
-DNI: 29819595-A
-User name: XorDe 
-Password: *************
-Email: xorx.de@gmail.com
-Movile: +34 667 820 447 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
-Birthday date: 10/03/1973
-State: Logged
-Benefit: 2.0
-Antiqueness: 21 years, 10 months
-Client typeChrome
-Premium: false
-Register Date: 21/05/1994
-Shop acount: 113.0
-
-
-----------------------------------------
-
-Name: Lola
-Last name: Martínez Falcó
+Name: Lorelay
+Last name: Pagés Martínez
 Age: 21 years old
-DNI: 51365527-H
-User name: LolMar
-Password: **************
-Email: lola.martinez@gmail.com
-Movile: +34 680 579 320 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png
-Birthday date: 07/08/1994
-State: Online
-Benefit: 0.0
-Antiqueness: 1 years, 1 months
-Client typeSilver
-Premium: false
-Register Date: 18/02/2015
-Shop acount: 321.0
-
-
-----------------------------------------
-
-Name: Jim
-Last name: Ramone Rúbio
-Age: 62 years old
-DNI: 38653855-D
-User name: JimRam
-Password: ***************
-Email: jim.ramone@gmail.com
-Movile: +34 657 642 539 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-12.png
-Birthday date: 02/11/1953
-State: Online
-Benefit: 44.0
-Antiqueness: 36 years, 9 months
-Client typeChrome
-Premium: true
-Register Date: 16/06/1979
-Shop acount: 18837.0
-
-
-----------------------------------------
-
-Name: Paco
-Last name: Falcó Gayá
-Age: 25 years old
-DNI: 81959080-Y
-User name: PacFal
-Password: ********
-Email: paco.falco@gmail.com
-Movile: +34 696 405 993 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-0.png
-Birthday date: 21/05/1990
-State: Online
-Benefit: 0.0
-Antiqueness: 8 months
-Client typeSilver
-Premium: false
-Register Date: 18/07/2015
-Shop acount: 235.0
-
-
-----------------------------------------
-
-Name: Ismael
-Last name: Callaú Castelló
-Age: 45 years old
-DNI: 25158449-Z
-User name: IsmCal
+DNI: 50620485-S
+User name: LorPag
 Password: **********
-Email: ismael.callau@gmail.com
-Movile: +34 690 271 084 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-4.png
-Birthday date: 22/02/1971
+Email: lorelay.pages@omail.com
+Movile: +34 612 429 838 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
+Birthday date: 17/05/1994
 State: Online
-Benefit: 2.0
-Antiqueness: 17 years, 1 months
-Client typeChrome
-Premium: false
-Register Date: 02/03/1999
-Shop acount: 1520.0
-
-
-----------------------------------------
-
-Name: Daniel
-Last name: Banús Nebot
-Age: 49 years old
-DNI: 20742384-H
-User name: DanBan
-Password: ****************
-Email: daniel.banus@gmail.com
-Movile: +34 673 321 851 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-0.png
-Birthday date: 27/04/1966
-State: Offline
-Benefit: 18.0
-Antiqueness: 15 years, 1 months
+Benefit: 26.0
+Antiqueness: 21 years, 11 months
 Client typeSilver
 Premium: true
-Register Date: 20/02/2001
-Shop acount: 1552.0
+Register Date: 17/05/1994
+Shop acount: 6993.0
 
 
 ----------------------------------------
 
-Name: Guillermo
-Last name: Navarro Cobain
-Age: 59 years old
-DNI: 43576164-L
-User name: GuiNav
-Password: *********
-Email: guillermo.navarro@gmail.com
-Movile: +34 613 462 539 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-13.png
-Birthday date: 01/02/1957
-State: Logged
-Benefit: 4.0
-Antiqueness: 35 years, 2 months
-Client typeChrome
-Premium: false
-Register Date: 23/01/1981
-Shop acount: 7664.0
-
-
-----------------------------------------
-
-Name: Michael
-Last name: Cobain Hendrix
-Age: 63 years old
-DNI: 73369326-Q
-User name: MicCob
-Password: ***************
-Email: michael.cobain@omail.com
-Movile: +34 621 483 368 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-14.png
-Birthday date: 21/05/1952
-State: Logged
-Benefit: 5.0
-Antiqueness: 43 years, 2 months
-Client typeGold
-Premium: false
-Register Date: 29/01/1973
-Shop acount: 25382.0
-
-
-----------------------------------------
-
-Name: Felip
-Last name: Rodríguez Navarro
-Age: 30 years old
-DNI: 49055317-C
-User name: FelRod
-Password: *********
-Email: felip.rodriguez@gmail.com
-Movile: +34 683 594 754 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png
-Birthday date: 16/03/1986
-State: Logged
-Benefit: 10.0
-Antiqueness: 8 years, 5 months
-Client typeGold
-Premium: true
-Register Date: 10/10/2007
-Shop acount: 2933.0
-
-
-----------------------------------------
-
-Name: Fina
-Last name: Sanz Ramone
-Age: 52 years old
-DNI: 99632475-V
-User name: FinSan
-Password: ***************
-Email: fina.sanz@gmail.com
-Movile: +34 678 547 531 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-24.png
-Birthday date: 08/10/1963
-State: Offline
-Benefit: 24.0
-Antiqueness: 20 years, 3 months
-Client typeGold
-Premium: true
-Register Date: 03/01/1996
-Shop acount: 5244.0
-
-
-----------------------------------------
-
-Name: Guillem
-Last name: Millán Hendrix
-Age: 39 years old
-DNI: 12380815-F
-User name: GuiMil
-Password: ***************
-Email: guillem.millan@omail.com
-Movile: +34 667 795 534 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
-Birthday date: 21/04/1976
-State: Logged
-Benefit: 1.0
-Antiqueness: 9 years, 9 months
-Client typeSilver
-Premium: false
-Register Date: 20/06/2006
-Shop acount: 4752.0
-
-
-----------------------------------------
-
-Name: Inés
-Last name: Rodríguez Rúbio
-Age: 53 years old
-DNI: 33636144-R
-User name: InéRod
-Password: ***********
-Email: ines.rodriguez@gmail.com
-Movile: +34 630 888 471 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png
-Birthday date: 24/05/1962
-State: Online
-Benefit: 0.0
-Antiqueness: 3 years, 3 months
-Client typeSilver
-Premium: false
-Register Date: 04/01/2013
-Shop acount: 100.0
-
-
-----------------------------------------
-
-Name: Joey
-Last name: Márquez Navarro
-Age: 48 years old
-DNI: 17091218-X
-User name: JoeMár
+Name: Jordi
+Last name: Paz Rabadan
+Age: 58 years old
+DNI: 50183398-C
+User name: JorPaz
 Password: **********
-Email: joey.marquez@omail.com
-Movile: +34 652 754 684 
+Email: jordi.paz@gmail.com
+Movile: +34 624 491 225 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
-Birthday date: 02/03/1968
+Birthday date: 09/06/1957
 State: Online
-Benefit: 5.0
-Antiqueness: 4 years, 4 months
-Client typeGold
-Premium: true
-Register Date: 19/11/2011
-Shop acount: 2074.0
-
-
-----------------------------------------
-
-Name: Xorx
-Last name: Márquez Navarro
-Age: 42 years old
-DNI: 28361407-S
-User name: XorMár
-Password: **************
-Email: xorx.marquez@gmail.com
-Movile: +34 610 549 210 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-25.png
-Birthday date: 13/02/1974
-State: Offline
-Benefit: 2.0
-Antiqueness: 21 years, 8 months
-Client typeGold
-Premium: false
-Register Date: 23/07/1994
-Shop acount: 10716.0
-
-
-----------------------------------------
-
-Name: Guillem
-Last name: Mercado Márquez
-Age: 52 years old
-DNI: 97367571-S
-User name: GuiMer
-Password: ********
-Email: guillem.mercado@gmail.com
-Movile: +34 687 392 827 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
-Birthday date: 23/06/1963
-State: Online
-Benefit: 3.0
-Antiqueness: 26 years, 11 months
-Client typeSilver
-Premium: false
-Register Date: 11/04/1989
-Shop acount: 6554.0
-
-
-----------------------------------------
-
-Name: Araceli
-Last name: Rúbio Sanz
-Age: 47 years old
-DNI: 93098519-Q
-User name: AraRúb
-Password: ************
-Email: araceli.rubio@omail.com
-Movile: +34 668 506 638 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png
-Birthday date: 01/03/1969
-State: Offline
-Benefit: 2.0
-Antiqueness: 16 years, 11 months
+Benefit: 7.0
+Antiqueness: 58 years, 10 months
 Client typeChrome
 Premium: false
-Register Date: 03/05/1999
-Shop acount: 5026.0
+Register Date: 09/06/1957
+Shop acount: 3757.0
+
+
+----------------------------------------
+
+Name: Rosendo
+Last name: Gayo Millán
+Age: 55 years old
+DNI: 87042585M
+User name: RosGay
+Password: *********
+Email: rosendo.gaya@omail.com
+Movile: +34 699 646 281 
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
+Birthday date: 14/07/1960
+State: Online
+Benefit: 2.0
+Antiqueness: 18 years, 9 months
+Client typeSilver
+Premium: false
+Register Date: 18/07/1997
+Shop acount: 449.0
 
 
 ----------------------------------------

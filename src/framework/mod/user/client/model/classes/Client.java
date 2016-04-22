@@ -5,6 +5,8 @@
  */
 package framework.mod.user.client.model.classes;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.clss.DateO;
 import framework.mod.user.model.clss.User;
@@ -338,4 +340,53 @@ public class Client extends User implements Serializable{
 		
 		return benefit; 
 	}
+        
+        public Client DB_to_Client( DBObject dbObjectClient ){
+            DateO birth_date = new DateO((String) dbObjectClient.get("birth_date"));
+            DateO register = new DateO((String) dbObjectClient.get("register_date"));
+            
+            this.setAge((int) dbObjectClient.get("age"));
+            this.setAvataring((String) dbObjectClient.get("avataring"));
+            this.setBorn_date(birth_date);
+            this.setDni((String) dbObjectClient.get("dni"));
+            this.setEmail((String) dbObjectClient.get("email"));
+            this.setMovile((String) dbObjectClient.get("movile"));
+            this.setName((String) dbObjectClient.get("name"));
+            this.setLastname((String) dbObjectClient.get("lastname"));
+            this.setPassword((String) dbObjectClient.get("password"));
+            this.setState((String) dbObjectClient.get("state"));
+            this.setUser((String) dbObjectClient.get("user"));
+            this.setAntiqueness((int) dbObjectClient.get("antiqueness"));
+            this.setShop_acount(Float.parseFloat(Double.toString((double)dbObjectClient.get("amount"))));
+            this.setClient_type((String) dbObjectClient.get("type"));
+            this.setPremium((boolean) dbObjectClient.get("premium"));
+            this.setRegister_date(register);
+            
+            return new Client( this.getAvataring(), this.getBorn_date(), this.getDni(), this.getEmail(), this.getMovile(), 
+            this.getName(), this.getLastname(), this.getPassword(), this.getState(), this.getUser(), 
+                    this.getClient_type(), this.isPremium(), this.getRegister_date(), this.getShop_acount());
+            
+        }
+        
+        public BasicDBObject Client_to_DB(){
+            BasicDBObject dbObjectClient = new BasicDBObject();
+            dbObjectClient.append("age", this.getAge());
+            dbObjectClient.append("avataring", this.getAvataring());
+            dbObjectClient.append("birth_date", this.getBorn_date().toString());
+            dbObjectClient.append("dni", this.getDni());
+            dbObjectClient.append("email", this.getEmail());
+            dbObjectClient.append("movile", this.getMovile());
+            dbObjectClient.append("name", this.getName());
+            dbObjectClient.append("lastname", this.getLastname());
+            dbObjectClient.append("password", this.getPassword());
+            dbObjectClient.append("state", this.getState());
+            dbObjectClient.append("user", this.getUser());
+            dbObjectClient.append("antiqueness", this.getAntiqueness());
+            dbObjectClient.append("amount", Double.parseDouble(Float.toString(this.getShop_acount())));
+            dbObjectClient.append("type", this.getClient_type());
+            dbObjectClient.append("premium", this.isPremium());
+            dbObjectClient.append("register_date", this.getBorn_date().toString());
+            
+            return dbObjectClient;
+        }
 }
