@@ -385,7 +385,7 @@ public class Client extends User implements Serializable{
             dbObjectClient.append("amount", Double.parseDouble(Float.toString(this.getShop_acount())));
             dbObjectClient.append("type", this.getClient_type());
             dbObjectClient.append("premium", this.isPremium());
-            dbObjectClient.append("register_date", this.getBorn_date().toString());
+            dbObjectClient.append("register_date", this.getRegister_date().toString());
             
             return dbObjectClient;
         }

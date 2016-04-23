@@ -22,10 +22,6 @@ import javax.swing.JOptionPane;
  */
 public class DAO_DB_Client {
     
-    public static void insert_Client() {
-        singletonGen.collection.insert(singletonClient.ephemeralClient.Client_to_DB());
-    }
-    
     /**LOAD MONGO CLIENT DB
      * 
      * Function that count the elements on singletonGen.table. 
@@ -43,8 +39,8 @@ public class DAO_DB_Client {
             if(index.count()!=0){
                 while(index.hasNext()){
                     BasicDBObject document = (BasicDBObject) index.next();
-                    singletonClient.ephemeralClient = singletonClient.ephemeralClient.DB_to_Client(document);
-                    singletonClient.ClienTableArray.add(singletonClient.ephemeralClient);
+                    //singletonClient.ephemeralClient = singletonClient.ephemeralClient.DB_to_Client(document);
+                    singletonClient.ClienTableArray.add(singletonClient.ephemeralClient.DB_to_Client(document));
                 }
             }else{
                 System.out.println("NOT DATA"); 
@@ -55,6 +51,34 @@ public class DAO_DB_Client {
             }
 	}
     }
+    
+    /**INSERT CLIENT
+     * 
+     * Inserts Client on collectionh
+     * 
+     */
+    public static void insert_Client() {
+        singletonGen.collection.insert(singletonClient.ephemeralClient.Client_to_DB());
+    }
+    
+    public static void update_Client( ) {
+        //Prepara para insertar un nuevo campo
+        BasicDBObject updateAtribute = new BasicDBObject();
+        updateAtribute.append("$set", singletonClient.ephemeralClient.Client_to_DB());
+        
+        //look for register with primariKey
+        BasicDBObject searchById = new BasicDBObject();
+        searchById.append("dni", singletonClient.dniClt);
+        
+        //update
+        singletonGen.collection.updateMulti(searchById, updateAtribute);
+    }
+    
+        
+    public static void delete_Client_by_dni() {
+        singletonGen.collection.remove(new BasicDBObject().append("dni", singletonClient.dniClt));
+    }
+    
     /**Filtrar por
      * 
      * @return 
@@ -84,37 +108,6 @@ public class DAO_DB_Client {
 	}
     }
     
-    public static void update_Client( ) {
-        //Prepara para insertar un nuevo campo
-        BasicDBObject updateAtribute = new BasicDBObject();
-        updateAtribute.append("$set", new BasicDBObject().append("age", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("avataring", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("birth_date", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("dni", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("email", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("movile", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("name", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("lastname", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("password", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("state", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("user", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("antiqueness", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("type", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("premium", singletonClient.dniClt));
-        updateAtribute.append("$set", new BasicDBObject().append("register_date", singletonClient.dniClt));
-        
-        //look for register with primariKey
-        BasicDBObject searchById = new BasicDBObject();
-        searchById.append("dni", singletonClient.dniClt);
-        
-        //update
-        singletonGen.collection.updateMulti(searchById, updateAtribute);
-    }
-    
-        
-    public static void delete_Client_by_dni() {
-        singletonGen.collection.remove(new BasicDBObject().append("dni", singletonClient.dniClt));
-    }
     /*
     public static void delete_Client_age_gt(DB db, DBCollection table, int anyos) {
         BasicDBObject query = new BasicDBObject();

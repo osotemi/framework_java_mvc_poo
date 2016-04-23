@@ -322,7 +322,7 @@ public class BLL_Client {
         if (opc == 0) {
             singletonClient.ClienTableArray = new ArrayList<>();
             Controler_mainClient.runTABLE();
-            autosaveMultiformat();
+            //autosaveMultiformat();
             main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_DeletAll"));
             main_Client.lblMainform.setBackground(Color.red);
             Timer timer = new Timer(1000, task);
@@ -488,7 +488,7 @@ public class BLL_Client {
         }
 
         if (valid) {
-            autosaveMultiformat();
+            //autosaveMultiformat();
             Controler_mainClient.runTABLE();
             main_Client.lblMainform.setOpaque(true);
             main_Client.lblMainform.setBackground(Color.GREEN);
@@ -545,10 +545,11 @@ public class BLL_Client {
         singletonClient.loadSingletonClient();
         jsonClt.ClientJson_Autoload();
     }
-    
+    /*
     public static void autosaveMultiformat(){ 
         jsonClt.ClientJson_Autosave();
         xmlClt.ClientXml_Autosave();
         txtClt.ClienTxt_Autosave();
     }
+    */
 }
