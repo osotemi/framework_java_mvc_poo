@@ -54,7 +54,7 @@ public class DAO_DB_Client {
     
     /**INSERT CLIENT
      * 
-     * Inserts Client on collectionh
+     * Inserts Client on collection
      * 
      */
     public static void insert_Client() {

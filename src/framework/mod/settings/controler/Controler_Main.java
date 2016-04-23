@@ -232,6 +232,52 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 Conf.btn_win98.setActionCommand("_BTN_Win98");
                 Conf.btn_win98.addActionListener(this);
                 break;
+            case 2:
+                LoginLayout.setVisible(true);
+                
+                //Inicia la vista
+                LoginLayout.setTitle("Servicios farmaceúticos");
+                LoginLayout.setLocationRelativeTo(null);//centrado
+                try {
+                    icono = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
+                } catch (IOException e) {
+
+                }
+                LoginLayout.setIconImage(icono);
+                LoginLayout.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+                LoginLayout.addWindowFocusListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+                        LoginLayout.dispose();
+                    }
+                });
+                LoginLayout.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                this.LoginLayout.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+                        LoginLayout.dispose();                        
+                        singletonGen.mongo.disconnect();
+                    }
+                });
+                
+                //Inicia los componentes
+                LoginLayout.btn_AdminGOTO_mainAdmin.setActionCommand("_BTN_Admin");
+                LoginLayout.btn_AdminGOTO_mainAdmin.setName("_BTN_Admin");
+                LoginLayout.btn_AdminGOTO_mainAdmin.addActionListener(this);
+
+                LoginLayout.btn_ClientGOTO_mainClient.setActionCommand("_BTN_Client");
+                LoginLayout.btn_ClientGOTO_mainClient.setName("_BTN_Client");
+                LoginLayout.btn_ClientGOTO_mainClient.addActionListener(this);
+
+                LoginLayout.btn_RegGOTO_mainReg.setActionCommand("_BTN_Reg");
+                LoginLayout.btn_RegGOTO_mainReg.setName("_BTN_Reg");
+                LoginLayout.btn_RegGOTO_mainReg.addActionListener(this);
+
+                LoginLayout.btn_conf.setActionCommand("_BTN_Config");
+                LoginLayout.btn_conf.setName("_BTN_Config");
+                LoginLayout.btn_conf.addActionListener(this);
+ 
+                LoginLayout.pnl_userType.setVisible(false);
+                break;
             default:
                 break;
         }
@@ -284,8 +330,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
     public static void drawLogin (){
         LoginLayout.lbl_userName.setText("");
         LoginLayout.lbl_passWord.setText("");
-        
-        
+                
     }
     @Override
     public void actionPerformed(ActionEvent evt) {

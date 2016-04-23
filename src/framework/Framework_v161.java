@@ -10,6 +10,7 @@ import framework.clss.singletonGen;
 import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
 import framework.mod.settings.model.clss.Settings;
+import framework.mod.settings.view.main_login;
 
 /**
  *
@@ -54,7 +55,7 @@ public class Framework_v161 {
                     System.out.println("ERROR al connectar mongoDB");
                 }
                 
-                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new main_login(), 2).run(2);
             }
         });
     }
