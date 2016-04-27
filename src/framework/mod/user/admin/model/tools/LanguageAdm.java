@@ -9,8 +9,6 @@ import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singleSettings;
 import java.io.IOException;
 import java.util.Properties;
-import javax.swing.JOptionPane;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.JOniException;
 
 /**
  *

@@ -14,13 +14,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
+/**DAO_DB_Admin
  *
  * @author osotemi
  */
 public class DAO_DB_Admin {
 
-    //Dar de alta a un empleado
+    /**DAO_newAdmin
+     * Makes an INSERT INTO db_framework.admin of singletonAdmin.ephemeralAdmin
+     * 
+     * @param _con
+     * @return 
+     */
     public static int DAO_newAdmin(Connection _con) {
         PreparedStatement stmt = null;
         int correcto = 0;
@@ -46,7 +51,7 @@ public class DAO_DB_Admin {
             stmt.setString(15, singletonAdmin.ephemeralAdmin.getContract_data().toString());
             stmt.setFloat(16, singletonAdmin.ephemeralAdmin.getSalary());
 
-            int executeUpdate = stmt.executeUpdate();
+            correcto = stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
 
         } catch (SQLException ex) {
@@ -60,13 +65,15 @@ public class DAO_DB_Admin {
                 }
             }
         }
-        
-        System.out.println("ERROR creando admin");
-        
+                
         return correcto;
     }
 
-    //Listamos todos los empleados y los metemos en su array
+    /**DAO_listAdmin
+     * Connects to DB and adds users to the array
+     * 
+     * @param Connection   
+    */
     public void DAO_listAdmin(Connection con) {
 
         ResultSet rs = null;
@@ -120,7 +127,12 @@ public class DAO_DB_Admin {
         
     }
 
-    //Modificamos un empleado
+    /**DAO_modifyAdmin
+     * Gived singletonAdmin.ephemeralAdmin, looks for it on DB and update it
+     * 
+     * @param con
+     * @return int ERROR
+     */
     public static int DAO_modifyAdmin(Connection con) {
         int valid = 0;
         PreparedStatement stmt = null;
@@ -166,8 +178,13 @@ public class DAO_DB_Admin {
         return valid;
     }
 
-    //Borramos un empleado
-    public static int DAO_deleteAdm(Connection con) {
+    /**DAO_deleteAdmin
+     * Gived singletonAdmin.ephemeralAdmin, makes a DELETE FROM db_framework.admin
+     * 
+     * @param con
+     * @return 
+     */
+    public static int DAO_deleteAdmin(Connection con) {
 
         PreparedStatement stmt = null;
         int valid = 0;
@@ -191,21 +208,24 @@ public class DAO_DB_Admin {
         return valid;
     }
 
-    //Buscamos por dni un empleado
+    /**DAO_searchAdminBYdni
+     * Makes a SELECT FROM db_framework.admin
+     * 
+     * @param con
+     * @return 
+     */
     public static int DAO_searchAdminBYdni(Connection con) {
 
         ResultSet rs = null;
         PreparedStatement stmt = null;
         int valid = 0;
-
+        
         try {
             stmt = con.prepareStatement("SELECT * FROM db_framework.admin WHERE DNI=?");
-            //stmt.setString(1, Singletons.e.getDni());
+            stmt.setString(1, singletonAdmin.ephemeralAdmin.getDni());
             rs = stmt.executeQuery();
-            while (rs.next()) {
-
-                getAdminRow(rs);
-            }
+            getAdminRow(rs);
+            
             valid = 1;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al buscar el usuario por DNI");

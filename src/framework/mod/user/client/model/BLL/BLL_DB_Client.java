@@ -28,12 +28,4 @@ public class BLL_DB_Client {
     public static void BLL_DB_deleteClient() {
         DAO_DB_Client.delete_Client_by_dni();
     }
-    
-    public static int BLL_DB_searchByDni() {
-        int pos = 0;
-        
-        
-        
-        return pos;
-    }
 }

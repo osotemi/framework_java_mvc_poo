@@ -6,8 +6,10 @@
 package framework.mod.settings.controler;
 
 import framework.clss.singletonGen;
+import framework.mod.settings.model.BLL.BLL_login;
 import framework.mod.settings.model.BLL.BLL_settings;
 import framework.mod.settings.model.clss.profile_json;
+import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main;
 import framework.mod.settings.view.main_login;
@@ -36,9 +38,11 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -98,6 +102,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         _BTN_Client,
         _BTN_Reg,
         _BTN_Config,
+        _BTN_Login,
         
     }
 
@@ -169,7 +174,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 this.Conf.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
                         Conf.dispose();                        
-                        Controler_Main.drawMain();
+                        Controler_Main.drawLogin();
                     }
                 });
 
@@ -258,7 +263,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                         singletonGen.mongo.disconnect();
                     }
                 });
-                
+                drawLogin();
                 //Inicia los componentes
                 LoginLayout.btn_AdminGOTO_mainAdmin.setActionCommand("_BTN_Admin");
                 LoginLayout.btn_AdminGOTO_mainAdmin.setName("_BTN_Admin");
@@ -275,7 +280,13 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 LoginLayout.btn_conf.setActionCommand("_BTN_Config");
                 LoginLayout.btn_conf.setName("_BTN_Config");
                 LoginLayout.btn_conf.addActionListener(this);
- 
+                
+                LoginLayout.btn_sing.setActionCommand("_BTN_Login");
+                LoginLayout.btn_sing.setName("_BTN_Login");
+                LoginLayout.btn_sing.addActionListener(this);
+                
+                LoginLayout.lbl_singINerror.setText("");
+                
                 LoginLayout.pnl_userType.setVisible(false);
                 break;
             default:
@@ -328,9 +339,16 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
     }
     
     public static void drawLogin (){
-        LoginLayout.lbl_userName.setText("");
-        LoginLayout.lbl_passWord.setText("");
-                
+        LoginLayout.lbl_userName.setText(Language.getInstance().getProperty("lblUserName"));
+        LoginLayout.lbl_passWord.setText(Language.getInstance().getProperty("lblPass"));
+        LoginLayout.lbl_singINerror.setText("");
+        LoginLayout.btn_sing.setText(Language.getInstance().getProperty("lblLogin"));
+        LoginLayout.btn_conf.setText(Language.getInstance().getProperty("LBL_Config"));
+        TitledBorder txtBorder = BorderFactory.createTitledBorder(Language.getInstance().getProperty("lbl_pnlLogin"));
+        LoginLayout.pnl_login.setBorder(txtBorder);
+        TitledBorder txtBorderBtn = BorderFactory.createTitledBorder(Language.getInstance().getProperty("lbl_pnlButtons"));
+        //LoginLayout.pnl_userType.setBorder(null);
+        LoginLayout.pnl_userType.setBorder(txtBorderBtn);
     }
     @Override
     public void actionPerformed(ActionEvent evt) {
@@ -339,19 +357,19 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 LanguageAdm.getInstance().loadProperties();
                 
                 new Controler_mainAdmin(new main_Admin()).run();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 
                 break;
              case _BTN_Client:     
                 LanguageClt.getInstance().loadProperties();
                 new Controler_mainClient(new main_Client()).run();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 
                 break;
              case _BTN_Reg:     
                 LanguageReg.getInstance().loadProperties();
                 new Controler_mainReg(new main_Reg()).run();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 
                 break;
             case _BTN_Config:
@@ -436,6 +454,26 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 Conf.dispose();
                 new Controler_Main(new main(), 0).run(0);
                 new Controler_Main(new wdwSettings(), 1).run(1);
+                break;
+            case _BTN_Login:
+                if(BLL_login.logIN()){
+                    switch (singletonProfile.userType){
+                        case "Admin":
+                            LoginLayout.pnl_userType.setVisible(true);
+                            break;
+                        case "Client":
+                            //ir a ver cliente con sus datos
+                            break;
+                        case "RegU":
+                            //ir a ver user Reg con sus datos
+                            break;
+                        default:
+                            
+                            break;
+                    }
+                }else{
+                    LoginLayout.lbl_singINerror.setText(Language.getInstance().getProperty("lbl_loginERR"));
+                }
                 break;
             default:
                 break;

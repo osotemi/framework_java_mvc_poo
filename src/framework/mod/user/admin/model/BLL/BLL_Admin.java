@@ -275,16 +275,15 @@ public class BLL_Admin {
                 dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
                 name = (String) main_Admin.TABLA.getModel().getValueAt(selec, 0);
                 lastname = (String) main_Admin.TABLA.getModel().getValueAt(selec, 1);
-                Admin adm = new Admin(dni);
-                singletonAdmin.ephemeralAdmin = adm;
+                singletonAdmin.ephemeralAdmin = new Admin(dni);
                 pos = searchAL();
                 int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("mes_askDelet_I") + lastname + ", " + name + LanguageAdm.getInstance().getProperty("mes_askDelet_II") + dni, LanguageAdm.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
 
                 if (opc == 0) {
                     ((miniSimpleTableModel_Admin) main_Admin.TABLA.getModel()).removeRow(selec);
-                    adm = singletonAdmin.AdminTableArray.get(pos);
-                    singletonAdmin.AdminTableArray.remove(adm);
-                    miniSimpleTableModel_Admin.datosaux.remove(adm);
+                    singletonAdmin.ephemeralAdmin = singletonAdmin.AdminTableArray.get(pos);
+                    singletonAdmin.AdminTableArray.remove(singletonAdmin.ephemeralAdmin);
+                    miniSimpleTableModel_Admin.datosaux.remove(singletonAdmin.ephemeralAdmin);
                     //Guardar en base de datos
                     BLL_DB_Admin.BLL_DB_deleteAdmin();
                     //Recargar de base de datos
@@ -452,8 +451,8 @@ public class BLL_Admin {
         }
     }
 
-    /**
-     * Modify an admin and overwrite-it on the ArrayList, save changes on Json,
+    /**FORM_BTN_modifyAdm
+     * Modify an admin and overwrite-it on the ArrayList, save changes on DB,
      * draws it and returns
      */
     public static void FORM_BTN_modifyAdm() throws InterruptedException {      
@@ -476,11 +475,13 @@ public class BLL_Admin {
             pos = searchAL();
             if (pos != -1) {
                 if (DAO_Admin.formCreateAdmin()) {
-                    singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
+                    BLL_DB_Admin.BLL_DB_modifyAdmin();
+                    Controler_mainAdmin.runTABLE();
+                    //singletonAdmin.AdminTableArray.set(pos, singletonAdmin.ephemeralAdmin);
                     valid = true;
                 }
             } else if (DAO_Admin.formCreateAdmin()) { //ephemeralAdmin is created with form data
-
+                BLL_DB_Admin.BLL_DB_newAdmin();
                 singletonAdmin.AdminTableArray.set(singletonAdmin.selectedPOSmodify, singletonAdmin.ephemeralAdmin);//POSmodify taken from original 
                 valid = true;
                 
@@ -505,7 +506,7 @@ public class BLL_Admin {
             timer.setRepeats(false);
             timer.start();
         }
-}
+    }
         /**
          * Function that create an user object in his AdminTableArray Array list
          *
@@ -597,8 +598,8 @@ public class BLL_Admin {
      */
     public static void loadArray() {
         singletonAdmin.loadSingletonAdmin();
-        //BLL_DB_Admin.BLL_DB_listAdmin();
-        json.AdminJson_Autoload();
+        BLL_DB_Admin.BLL_DB_listAdmin();
+        //json.AdminJson_Autoload();
     }
     public static void autosaveMultiformat(){ 
         //BLL_DB_Admin.

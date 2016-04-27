@@ -54,8 +54,10 @@ public class main_login extends javax.swing.JFrame {
         lbl_userName = new javax.swing.JLabel();
         lbl_passWord = new javax.swing.JLabel();
         txt_userName = new javax.swing.JTextField();
-        txt_pass = new javax.swing.JTextField();
         btn_conf = new javax.swing.JButton();
+        lbl_singINerror = new javax.swing.JLabel();
+        btn_sing = new javax.swing.JButton();
+        jpf_pass = new javax.swing.JPasswordField();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         pnl_userType = new org.edisoncor.gui.panel.PanelImage();
         btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
@@ -116,13 +118,20 @@ public class main_login extends javax.swing.JFrame {
 
         txt_userName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        txt_pass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         btn_conf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btn_conf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framework/img/sett_icons.png"))); // NOI18N
         btn_conf.setText("Configuracion");
         btn_conf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_conf.setOpaque(false);
+
+        lbl_singINerror.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_singINerror.setText("_");
+
+        btn_sing.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btn_sing.setForeground(new java.awt.Color(255, 51, 51));
+        btn_sing.setText("Sing in");
+        btn_sing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_sing.setOpaque(false);
 
         javax.swing.GroupLayout pnl_loginLayout = new javax.swing.GroupLayout(pnl_login);
         pnl_login.setLayout(pnl_loginLayout);
@@ -131,11 +140,13 @@ public class main_login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_loginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jpf_pass)
                     .addComponent(btn_conf, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                    .addComponent(txt_pass, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_passWord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_userName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_userName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_userName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_singINerror, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_sing, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_loginLayout.setVerticalGroup(
@@ -147,10 +158,14 @@ public class main_login extends javax.swing.JFrame {
                 .addComponent(txt_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_passWord, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpf_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_singINerror, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(btn_sing, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -236,7 +251,7 @@ public class main_login extends javax.swing.JFrame {
             .addGroup(panelImage1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnl_userType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1050, Short.MAX_VALUE))
         );
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,9 +335,12 @@ public class main_login extends javax.swing.JFrame {
     public static javax.swing.JButton btn_ClientGOTO_mainClient;
     public static javax.swing.JButton btn_RegGOTO_mainReg;
     public static javax.swing.JButton btn_conf;
+    public static javax.swing.JButton btn_sing;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JPasswordField jpf_pass;
     public static javax.swing.JLabel lbl_passWord;
+    public static javax.swing.JLabel lbl_singINerror;
     public static javax.swing.JLabel lbl_userName;
     public static org.edisoncor.gui.panel.PanelImage panelImage1;
     public static org.edisoncor.gui.panel.PanelImage panelImage2;
@@ -330,7 +348,6 @@ public class main_login extends javax.swing.JFrame {
     public static org.edisoncor.gui.panel.PanelImage panelImage4;
     public static javax.swing.JPanel pnl_login;
     public static org.edisoncor.gui.panel.PanelImage pnl_userType;
-    public static javax.swing.JTextField txt_pass;
     public static javax.swing.JTextField txt_userName;
     // End of variables declaration//GEN-END:variables
 }

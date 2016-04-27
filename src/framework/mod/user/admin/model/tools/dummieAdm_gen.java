@@ -23,6 +23,7 @@ import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.tools.menu_gen;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
+import framework.mod.user.admin.model.BLL.BLL_DB_Admin;
 import framework.tools.format;
 import framework.tools.functions;
 import framework.tools.validate;
@@ -55,9 +56,11 @@ public class dummieAdm_gen {
                     for (int i = 0; i < num_dum; i++) {
                         dummieAdm_gen.dummieAdmin();
                     }
-                    json.AdminJson_Autosave();
-                    Controler_mainAdmin.runTABLE();
-                    back = true;
+                    if (BLL_DB_Admin.BLL_DB_searchByDni() != 0){
+                        BLL_DB_Admin.BLL_DB_newAdmin();
+                        Controler_mainAdmin.runTABLE();
+                        back = true;
+                    }
                 } catch (Exception e) {
                     functions.showERR("ERR on dummie creation. Please try again");
                 }
