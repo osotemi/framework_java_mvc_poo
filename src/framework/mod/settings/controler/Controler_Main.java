@@ -8,7 +8,6 @@ package framework.mod.settings.controler;
 import framework.clss.singletonGen;
 import framework.mod.settings.model.BLL.BLL_login;
 import framework.mod.settings.model.BLL.BLL_settings;
-import framework.mod.settings.model.clss.profile_json;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main;
@@ -23,7 +22,6 @@ import framework.mod.user.client.view.main_Client;
 import framework.mod.user.registered.controler.Controler_mainReg;
 import framework.mod.user.registered.model.tools.LanguageReg;
 import framework.mod.user.registered.view.main_Reg;
-import framework.tools.menu_gen;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -40,7 +38,6 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.TitledBorder;
 
@@ -105,7 +102,11 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         _BTN_Login,
         
     }
-
+    /**run()
+     * Runs optionFrame relative to int gived with specifications
+     * 
+     * @param optionFrame 
+     */
     public void run(int optionFrame) {
         Image icono = null;
         switch(optionFrame){
@@ -113,7 +114,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 MainMenu.setVisible(true);
                 
                 //Inicia la vista
-                MainMenu.setTitle("Servicios farmaceúticos");
+                MainMenu.setTitle(Language.getInstance().getProperty("main_title"));
                 MainMenu.setLocationRelativeTo(null);//centrado
                 try {
                     icono = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
@@ -240,8 +241,8 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
             case 2:
                 LoginLayout.setVisible(true);
                 
-                //Inicia la vista
-                LoginLayout.setTitle("Servicios farmaceúticos");
+                //Starts the view
+                LoginLayout.setTitle(Language.getInstance().getProperty("main_title"));
                 LoginLayout.setLocationRelativeTo(null);//centrado
                 try {
                     icono = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
@@ -294,7 +295,10 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         }
         
     }
-
+    /**writeConfigFrame()
+     * Get Language.getInstance().getProperty() to the labels of config frame
+     * 
+     */
     public static void writeConfigFrame(){
         //Inicializa los mensajes de properties
         Conf.setTitle(Language.getInstance().getProperty("wdwSettings_title"));
@@ -329,7 +333,10 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         Conf.TABgen.setTitleAt(5, Language.getInstance().getProperty("TABlookNfeel"));
         Conf.TABgen. setFont(new java.awt.Font("Dialog", 2, 14));
     }
-    
+    /**drawMain()
+     * Get Language.getInstance().getProperty() to the labels of Main paneLogin
+     * 
+     */
     public static void drawMain(){
         MainMenu.setTitle(Language.getInstance().getProperty("main_title"));
         MainMenu.btn_AdminGOTO_mainAdmin.setText(Language.getInstance().getProperty("BTN_Admin"));
@@ -337,7 +344,9 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         MainMenu.btn_RegGOTO_mainReg.setText(Language.getInstance().getProperty("BTN_Reg"));
         MainMenu.btn_conf.setText(Language.getInstance().getProperty("LBL_Config"));
     }
-    
+    /**drawLogin
+     * Get Language.getInstance().getProperty() to the labels of Login paneLogin
+     */
     public static void drawLogin (){
         LoginLayout.lbl_userName.setText(Language.getInstance().getProperty("lblUserName"));
         LoginLayout.lbl_passWord.setText(Language.getInstance().getProperty("lblPass"));

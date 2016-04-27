@@ -26,6 +26,11 @@ public class MongoDB {
     private static String nom_bd = null;
     private static String nom_table = null;
    
+    /**MongoDB
+     * Gets the properties of mongo data base
+     * 
+     * @throws IOException 
+     */
     public MongoDB() throws IOException {
         try {
             input = new FileInputStream( new java.io.File(".").getCanonicalPath()
@@ -49,7 +54,11 @@ public class MongoDB {
             }
         }
     }
-    
+    /**connect
+     * Open a client with mongo data base
+     * 
+     * @return 
+     */
     public static Mongo connect() {
         try {
             client = new Mongo(getMachine(), Integer.parseInt(getPort()));

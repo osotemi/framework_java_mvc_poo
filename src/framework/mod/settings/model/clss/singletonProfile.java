@@ -27,6 +27,7 @@ public class singletonProfile {
     public static String userType;
     public static String userName;
     public static String userPass;
+    public static boolean loged;
     public static Admin adm;
     public static Client clt;
     public static RegisteredU RegU;

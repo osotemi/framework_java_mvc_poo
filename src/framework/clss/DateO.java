@@ -13,7 +13,6 @@ import java.util.Locale;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.mod.settings.model.clss.Settings;
-import javax.swing.JOptionPane;
 
 /**
  * @version 1.6.1 23/2/2016
@@ -300,7 +299,8 @@ public class DateO implements Serializable {
     }
 
     /**
-     * --------------objectTOObject methods------------+/ /**toDatecl
+     * --------------objectTOObject methods------------
+    /**toDatecl
      *
      * @param String standard format date
      *
@@ -354,9 +354,9 @@ public class DateO implements Serializable {
 
     /**
      * Compare (is later) date where date1 is the caller object and date2 is the
-     * string gived
+     * DateO gived
      *
-     * @param string date2
+     * @param DateO 
      *
      * @return -1 if date2/cal2 is later, 1 if date1/cal1 is later, 0 if equals
      */
@@ -384,7 +384,7 @@ public class DateO implements Serializable {
      * function string gived returns if contains a well format and real date
      * type string in 4 formats
      *
-     * @param string Date
+     * @param string 
      *
      * @return bool-> if is a valid date
      */

@@ -16,10 +16,10 @@ import org.apache.commons.dbcp.BasicDataSource;
  * @author osotemi
  */
 public class singletonGen {
-    /* Pool de conexiones */
+    /** Pool de conexiones */
     public static BasicDataSource dataSource;
     
-    /*Client mongo variables*/
+    /**Client mongo variables*/
     public static MongoDB mongo;
     public static DBCollection collection;
     public static DB db;

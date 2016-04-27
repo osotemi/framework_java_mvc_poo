@@ -6,7 +6,6 @@
 package framework.clss;
 
 import static framework.clss.singletonGen.dataSource;
-import framework.mod.settings.model.clss.singleSettings;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -70,7 +69,6 @@ public class ConnectionBD {
     public static void liberaConexion(Connection conexion) {
         try {
             if (null != conexion) 
-                // En realidad no cierra, solo libera la conexion.
                 conexion.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());

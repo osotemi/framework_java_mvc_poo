@@ -6,15 +6,10 @@
 package framework.mod.user.client.model.DAO;
 
 import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
-import com.mongodb.WriteResult;
 import framework.clss.singletonGen;
 import framework.mod.user.client.model.classes.Client;
 import framework.mod.user.client.model.classes.singletonClient;
-import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,7 +24,7 @@ public class DAO_DB_Client {
      * transform and saves it on singletonClient.ephemeralClient.
      * Finally adds singletonClient.ephemeralClient on singletonClient.ClienTableArray
      * 
-     * @return 
+     * @return void
      */
     public static void mongoDB_load_clientAL() {
         DBCursor index = null;
@@ -108,13 +103,8 @@ public class DAO_DB_Client {
 	}
     }
     
-    /*
-    public static void delete_Client_age_gt(DB db, DBCollection table, int anyos) {
-        BasicDBObject query = new BasicDBObject();
-        query.put("edad", new BasicDBObject("$gt", anyos));
-        table.remove(query);
-    }
     
+    /*
     public static void delete_Client_in_list(DB db, DBCollection table, List lista) {
         BasicDBObject query = new BasicDBObject();
         query.put("apellidos", new BasicDBObject("$in", lista));

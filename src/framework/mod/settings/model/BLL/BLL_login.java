@@ -16,12 +16,18 @@ import java.sql.Connection;
  * @author osotemi
  */
 public class BLL_login {
+    /**BLL_DB_srchAdminBYname()
+     * Check LoginFrame txt_fields user and password 
+     * ands looks for it on MySQL database admin table
+     * 
+     * @return 
+     */
     public static boolean BLL_DB_srchAdminBYname() {
         boolean valid = false;
         Connection _con;
         if(DAO_login.askUsername() && DAO_login.askPassword()){
             _con = ConnectionBD.getConexion();
-            int correcto = DAO_DB_Admin.DAO_searchAdminBYdni(_con);
+            int correcto = DAO_login.DAO_srcAdminBYname(_con);
             ConnectionBD.liberaConexion(_con);
             if(correcto == 0){
                valid = true;
@@ -30,16 +36,25 @@ public class BLL_login {
         
         return valid;
     }
-    public static int BLL_DB_searchClientByDni() {
-        int pos = 0;
-        
-        
-        
-        return pos;
+    public static boolean BLL_DB_searchClientBYname() {
+        if(DAO_login.askUsername() && DAO_login.askPassword())
+            return DAO_login.DAO_searchONclient();
+                
+        return false;
     }
     
-    
-    
+    public static boolean BLL_DB_searchReguBYname() {
+        if(DAO_login.askUsername() && DAO_login.askPassword())      
+            return DAO_login.DAO_searchONreg();
+        
+        return false;
+    }
+    /**logIN()
+     * Checks BLL_DB_srchAdminBYname() , BLL_DB_srchClientBYname(), BLL_DB_srchReguBYname()
+     * Return if the user it's found and saves type on singletonProfile.userType
+     * 
+     * @return boolean
+     */
     public static boolean logIN(){
         boolean valid = false;
         

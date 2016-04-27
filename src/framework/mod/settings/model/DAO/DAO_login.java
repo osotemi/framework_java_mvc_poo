@@ -5,11 +5,16 @@
  */
 package framework.mod.settings.model.DAO;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import framework.clss.DateO;
+import framework.clss.singletonGen;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main_login;
-import framework.mod.user.admin.model.classes.singletonAdmin;
+import framework.mod.user.client.model.classes.Client;
+import framework.mod.user.registered.model.classes.RegisteredU;
+import framework.mod.user.registered.model.classes.singletonReg;
 import framework.tools.validate;
 import java.awt.Color;
 import java.sql.Connection;
@@ -23,21 +28,20 @@ import javax.swing.JOptionPane;
  * @author osotemi
  */
 public class DAO_login {
-    public static boolean DAO_searchONadmin(Connection con){
+
+    public static boolean DAO_searchONadmin(Connection con) {
         boolean valid = false;
         DAO_srcAdminBYname(con);
-        
+
         return valid;
     }
-    /**DAO_srcAdminBYname
-   Makes 
- SELECT * 
- FROM db_framework.admin 
- WHERE name = singletonProfile.userName
- AND pass = singletonProfile.userPass
-     * 
+
+    /**
+     * DAO_srcAdminBYname Makes SELECT * FROM db_framework.admin WHERE name =
+     * singletonProfile.userName AND pass = singletonProfile.userPass
+     *
      * @param con
-     * @return boolean 
+     * @return boolean
      */
     public static int DAO_srcAdminBYname(Connection con) {
 
@@ -51,37 +55,38 @@ public class DAO_login {
             stmt.setString(1, singletonProfile.userPass);
             rs = stmt.executeQuery();
             getAdminRow(rs);
-            
+
             valid = 1;
         } catch (SQLException ex) {
-            System.out.println( "Ha habido un problema al buscar el usuario por nombre y contraseña");
+            System.out.println("Ha habido un problema al buscar el usuario por nombre y contraseña");
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException ex) {
-                    System.out.println( "Error en el Logger");
+                    System.out.println("Error en el Logger");
                 }
             }
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    System.out.println( "Error en el Logger");
+                    System.out.println("Error en el Logger");
                 }
             }
         }
-                
+
         return valid;
     }
-    /**getAdminRow
-     * Saves and Admin on rs to singletonAdmin.ephemeralAdmin
-     * 
-     * @param ResultSet rs 
+
+    /**
+     * getAdminRow Saves and Admin on rs to singletonAdmin.ephemeralAdmin
+     *
+     * @param ResultSet rs
      */
     private static void getAdminRow(ResultSet rs) {
         DateO birth_date = null;
-        DateO hire_date = null;    
+        DateO hire_date = null;
         //(age,avatar,date_birthday,dni,email,phone,name,lastname,password,state,user,benefit,activity,antiqueness,date_hiredate,salary)
         try {
             birth_date = new DateO(rs.getString("date_birthday"));
@@ -106,25 +111,69 @@ public class DAO_login {
             JOptionPane.showMessageDialog(null, "Error en el Logger");
         }
     }
-    
+
+    /**Filtrar por
+     * 
+     * @return 
+     */
     public static boolean DAO_searchONclient(){
-        boolean valid = false;
-        
+        boolean valid=false;
+        DBCursor cursor = null;
+        Client clt = new Client();
+        try {
+            BasicDBObject query = new BasicDBObject();
+            query.put("name", singletonProfile.userName);
+            
+            cursor = singletonGen.collection.find(query);
+            if(cursor.count()!=0){
+                if(cursor.count()==1){
+                    BasicDBObject document = (BasicDBObject) cursor.curr();
+                    clt = singletonProfile.clt.DB_to_Client(document);
+                    if(clt.getPassword().equals(singletonProfile.userPass)){
+                        valid=true;
+                    }
+                }
+                while(cursor.hasNext()){
+                    BasicDBObject document = (BasicDBObject) cursor.next();
+                    clt = singletonProfile.clt.DB_to_Client(document);
+                    if(clt.getPassword().equals(singletonProfile.userPass)){
+                        valid=true;
+                        System.out.println("ERROR Login for while!!!");
+                    }
+                }
+            }else{
+                System.out.println("NOT DATA"); 
+            }
+        } finally {
+            if (cursor != null){
+		cursor.close();
+            }
+	}
         return valid;
     }
     
-    public static boolean DAO_searchONreg(){
+
+    public static boolean DAO_searchONreg() {
         boolean valid = false;
+        singletonProfile.RegU.setUser(singletonProfile.userName);
+        singletonProfile.RegU.setPassword(singletonProfile.userPass);
         
+        int pos = -1;
+        if (singletonReg.RegTableArray != null) {
+            for (RegisteredU regu : singletonReg.RegTableArray) {
+                if (regu.getUser().equals(singletonProfile.RegU.getUser()) && regu.getPassword().equals(singletonProfile.RegU.getPassword())) {//search by username/password
+                    singletonProfile.RegU = regu;
+                    valid = true;
+                }
+            }
+        }
         return valid;
     }
-    
-    /**
-     * askUsername function check if the main_Admin.txtf_formAdm_username text
-     * field is valid
+
+    /**askUsername
+     * Check if the main_Login.txt_userName text field is valid
      *
-     *
-     * @return
+     * @return boolean
      */
     public static boolean askUsername() {
         boolean valid = false;
@@ -152,14 +201,18 @@ public class DAO_login {
         }
         return valid;
     }
-    
+    /**askUsername
+     * Check if the main_Login.jpf_pass field is valid
+     *
+     * @return boolean
+     */
     public static boolean askPassword() {
         boolean valid = false;
         String pass = "";
         for (int i = 0; i < main_login.jpf_pass.getPassword().length; i++) {
-            if(main_login.jpf_pass.getPassword()[i] != '-'){
+            if (main_login.jpf_pass.getPassword()[i] != '-') {
                 pass += main_login.jpf_pass.getPassword()[i];
-            }   
+            }
         }
         if (pass.equals("")) {
             main_login.jpf_pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
