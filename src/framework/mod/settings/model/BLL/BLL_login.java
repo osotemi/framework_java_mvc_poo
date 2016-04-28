@@ -68,14 +68,10 @@ public class BLL_login {
             singletonProfile.userType = "Admin";
         }
         else if( DAO_login.DAO_searchONclient() ){
-            System.out.println("Encontrado en client");
-            JOptionPane.showMessageDialog(null, singletonProfile.clt.toString());
             valid = true;
             singletonProfile.userType = "Client";
         } 
         else if( DAO_login.DAO_searchONreg() ){
-            System.out.println("Encontrado en regu");
-            JOptionPane.showMessageDialog(null, singletonProfile.RegU.toString());
             valid = true;
             singletonProfile.userType = "RegU";
         }

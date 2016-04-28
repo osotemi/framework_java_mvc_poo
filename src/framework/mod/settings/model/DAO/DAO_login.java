@@ -8,6 +8,7 @@ package framework.mod.settings.model.DAO;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import framework.clss.DateO;
+import framework.clss.MongoDB;
 import framework.clss.singletonGen;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.model.tools.Language;
@@ -153,18 +154,17 @@ public class DAO_login {
         boolean valid=false;
         DBCursor cursor = null;
         Client clt = new Client();
+        
         try {
             BasicDBObject query = new BasicDBObject();
             query.put("user", singletonProfile.userName);
             
             cursor = singletonGen.collection.find(query);
             if(cursor.count()!=0){
-                System.out.println("Hay count");
                 while(cursor.hasNext()){
-                    System.out.println("Hay next");
                     BasicDBObject document = (BasicDBObject) cursor.next();
                     clt = singletonProfile.clt.DB_to_Client(document);
-                    clt.toString();
+                    
                     if(clt.getPassword().equals(singletonProfile.userPass)){
                         valid=true;
                         System.out.println("ERROR Login for while!!!");
@@ -238,12 +238,15 @@ public class DAO_login {
      */
     public static boolean askPassword() {
         boolean valid = false;
-        String pass = "";
+        
+        String pass =  new String(main_login.jpf_pass.getPassword());
+        /*
         for (int i = 0; i < main_login.jpf_pass.getPassword().length; i++) {
             if (main_login.jpf_pass.getPassword()[i] != '-') {
                 pass += main_login.jpf_pass.getPassword()[i];
             }
         }
+        */
         if (pass.equals("")) {
             main_login.jpf_pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
             main_login.lbl_singINerror.setToolTipText(Language.getInstance().getProperty("errAsk_pass"));
@@ -256,7 +259,8 @@ public class DAO_login {
             main_login.lbl_singINerror.setText(Language.getInstance().getProperty("error"));
             main_login.lbl_singINerror.setForeground(Color.red);
         } else {
-            singletonProfile.userPass = main_login.jpf_pass.getPassword().toString();
+            singletonProfile.userPass = pass;
+            JOptionPane.showMessageDialog(null, singletonProfile.userPass);
             main_login.jpf_pass.setBorder(null);
             main_login.lbl_singINerror.setToolTipText("");
             main_login.lbl_singINerror.setText("");

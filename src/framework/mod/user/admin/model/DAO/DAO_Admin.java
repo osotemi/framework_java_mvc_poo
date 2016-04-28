@@ -9,6 +9,7 @@ import framework.clss.DateO;
 import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
 import framework.mod.settings.model.clss.Settings;
+import framework.mod.settings.view.main_login;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import static framework.mod.user.admin.controler.Controler_mainAdmin.MainAdmin;
 import framework.mod.user.admin.model.classes.Admin;
@@ -584,6 +585,7 @@ public class DAO_Admin {
 
     public static boolean askConfirmPassword() {
         boolean valid = false;
+        
         String pass = new String(main_Admin.JPF_fromAdm_pass.getPassword());
         String conf_pass = new String(main_Admin.JPF_fromAdm_passconf.getPassword());
 
@@ -805,7 +807,7 @@ public class DAO_Admin {
     
     public static void DAO_FA_mainBack() {
         MainAdmin.dispose();
-        new Controler_Main(new main(), 0).run(0);
+        new Controler_Main(new main_login(), 2).run(2);
     }
 
     public static void DAO_FA_hideFormPanel() {

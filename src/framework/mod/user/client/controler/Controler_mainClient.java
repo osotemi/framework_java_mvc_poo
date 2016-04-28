@@ -8,6 +8,7 @@ package framework.mod.user.client.controler;
 import framework.clss.singletonGen;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.client.model.BLL.BLL_Client;
+import framework.mod.user.client.model.DAO.DAO_Client;
 import framework.mod.user.client.model.classes.miniSimpleTableModel_Client;
 import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.client.model.tools.LanguageClt;
@@ -290,6 +291,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 break;
             case "Client":
                 PNL_drawForm.setVisible(true);
+                MainClient.PNL_mainTablePager.setVisible(false);
                 MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));
                 
                 //Inicia los componentes del menu de botones
@@ -371,7 +373,16 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 BLL_Client.BLL_DeleteAllClt();
                 break;
             case _BTN_modify:
-                BLL_Client.BLL_ModifyClt();
+                switch(singletonProfile.userType){
+                    case "Admin":
+                        BLL_Client.BLL_ModifyClt();
+                        break;
+                    case "Client":
+                        BLL_Client.BLL_ModifyCltProfile();
+                        break;
+                    default:
+                        break;
+                }  
                 break;
             case _BTN_saveJSON:
                 BLL_Client.BLL_ClientSaveJSON();

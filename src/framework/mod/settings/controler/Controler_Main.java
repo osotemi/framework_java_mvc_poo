@@ -472,11 +472,15 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                             break;
                         case "Client":
                             LanguageClt.getInstance().loadProperties();
+                            LoginLayout.dispose();
                             new Controler_mainClient(new main_Client()).run();
                             //pintar usuario
-                            LoginLayout.dispose();
+                            
                             break;
                         case "RegU":
+                            LanguageReg.getInstance().loadProperties();
+                            LoginLayout.dispose();
+                            new Controler_mainReg(new main_Reg()).run();
                             //ir a ver user Reg con sus datos
                             break;
                         default:

@@ -3,19 +3,7 @@ Last name: Millán Puente
 Age: 34 years old
 DNI: 36720207-V
 User name: XorMil
-Password: ********
-Email: xorx.millan@gmail.com
-Movile: +34 662 201 483 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
-Birthday date: 13/03/1982
-State: Offline
-Benefit: 4275.0
-Name: Xorx
-Last name: Millán Puente
-Age: 34 years old
-DNI: 36720207-V
-User name: XorMil
-Password: ********
+Password: 9EuNLvLt
 Email: xorx.millan@gmail.com
 Phone: +34 662 201 483 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
@@ -33,19 +21,7 @@ Last name: Serrano Sanz
 Age: 34 years old
 DNI: 11687419-S
 User name: JoaSer
-Password: ***********
-Email: joan.serrano@omail.com
-Movile: +34 600 227 004 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-13.png
-Birthday date: 03/06/1981
-State: Online
-Benefit: 5724.0
-Name: Joan
-Last name: Serrano Sanz
-Age: 34 years old
-DNI: 11687419-S
-User name: JoaSer
-Password: ***********
+Password: BS9ncadOPvb
 Email: joan.serrano@omail.com
 Phone: +34 600 227 004 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-13.png
@@ -58,18 +34,6 @@ Karma: high
 
 ----------------------------------------
 
-Name: manolo
-Last name: Mercado Paz
-Age: 44 years old
-DNI: 18089570-R
-User name: PepMer
-Password: 
-Email: pepe.mercado@gmail.com
-Movile: +34 672 001 953 
-Avataring: mK16B5dtFL2ruN
-Birthday date: 15/05/1971
-State: Offline
-Benefit: 10882.5
 Name: manolo
 Last name: Mercado Paz
 Age: 44 years old
@@ -95,18 +59,6 @@ DNI: 82831273-Q
 User name: UxiDeva
 Password: 
 Email: uxia.de@gmail.com
-Movile: +34 666 351 967 
-Avataring: e1206k6ik9rO137E
-Birthday date: 24/08/1985
-State: Offline
-Benefit: 1000.5
-Name: Uxia
-Last name: De Castro Callaú
-Age: 30 years old
-DNI: 82831273-Q
-User name: UxiDeva
-Password: 
-Email: uxia.de@gmail.com
 Phone: +34 666 351 967 
 Avataring: e1206k6ik9rO137E
 Birthday date: 24/08/1985
@@ -123,19 +75,7 @@ Last name: Ramone Callaú
 Age: 19 years old
 DNI: 64117068-Z
 User name: EmiRam
-Password: ***************
-Email: emilia.ramone@gmail.com
-Movile: +34 663 863 981 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-6.png
-Birthday date: 15/07/1996
-State: Online
-Benefit: 1489.5
-Name: Emilia
-Last name: Ramone Callaú
-Age: 19 years old
-DNI: 64117068-Z
-User name: EmiRam
-Password: ***************
+Password: BE91NkoibHf35F8
 Email: emilia.ramone@gmail.com
 Phone: +34 663 863 981 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-6.png
@@ -153,19 +93,7 @@ Last name: Millán Otero
 Age: 36 years old
 DNI: 85876067-R
 User name: SonMil
-Password: **********
-Email: sonia.millan@omail.com
-Movile: +34 650 673 080 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
-Birthday date: 04/06/1979
-State: Logged
-Benefit: 2995.5
-Name: Sonia
-Last name: Millán Otero
-Age: 36 years old
-DNI: 85876067-R
-User name: SonMil
-Password: **********
+Password: eF8f1DlL9j
 Email: sonia.millan@omail.com
 Phone: +34 650 673 080 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
@@ -183,19 +111,7 @@ Last name: Teruel Otero
 Age: 27 years old
 DNI: 67537872-M
 User name: JuaTer
-Password: ***********
-Email: juanjo.teruel@omail.com
-Movile: +34 642 960 330 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
-Birthday date: 04/03/1989
-State: Offline
-Benefit: 231.0
-Name: Juanjo
-Last name: Teruel Otero
-Age: 27 years old
-DNI: 67537872-M
-User name: JuaTer
-Password: ***********
+Password: 4Z3kn7lvi6B
 Email: juanjo.teruel@omail.com
 Phone: +34 642 960 330 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
@@ -213,19 +129,7 @@ Last name: Sanz Martínez
 Age: 43 years old
 DNI: 24677548-C
 User name: RosSan
-Password: ************
-Email: roser.sanz@gmail.com
-Movile: +34 600 585 814 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-6.png
-Birthday date: 01/02/1973
-State: Online
-Benefit: 8485.5
-Name: Roser
-Last name: Sanz Martínez
-Age: 43 years old
-DNI: 24677548-C
-User name: RosSan
-Password: ************
+Password: kgjZ23p75BVH
 Email: roser.sanz@gmail.com
 Phone: +34 600 585 814 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-6.png
@@ -243,19 +147,7 @@ Last name: Mercado Martínez
 Age: 64 years old
 DNI: 71635084-C
 User name: UxiMer
-Password: ****************
-Email: uxia.mercado@gmail.com
-Movile: +34 639 613 457 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
-Birthday date: 19/01/1952
-State: Offline
-Benefit: 25510.5
-Name: Uxia
-Last name: Mercado Martínez
-Age: 64 years old
-DNI: 71635084-C
-User name: UxiMer
-Password: ****************
+Password: 0pikNw87sRK19dGw
 Email: uxia.mercado@gmail.com
 Phone: +34 639 613 457 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
@@ -273,19 +165,7 @@ Last name: Martínez Otero
 Age: 64 years old
 DNI: 85603409-P
 User name: MicMar
-Password: ***********
-Email: michael.martinez@gmail.com
-Movile: +34 698 959 737 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
-Birthday date: 22/01/1952
-State: Logged
-Benefit: 10923.0
-Name: Michael
-Last name: Martínez Otero
-Age: 64 years old
-DNI: 85603409-P
-User name: MicMar
-Password: ***********
+Password: jw7r74CkuSk
 Email: michael.martinez@gmail.com
 Phone: +34 698 959 737 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-18.png
@@ -303,19 +183,7 @@ Last name: De Castro Zorrilla
 Age: 19 years old
 DNI: 58382300-C
 User name: EleDe 
-Password: *********
-Email: elena.de@omail.com
-Movile: +34 627 001 024 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
-Birthday date: 24/11/1996
-State: Online
-Benefit: 625.5
-Name: Elena
-Last name: De Castro Zorrilla
-Age: 19 years old
-DNI: 58382300-C
-User name: EleDe 
-Password: *********
+Password: 7we788O74
 Email: elena.de@omail.com
 Phone: +34 627 001 024 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
@@ -333,19 +201,7 @@ Last name: Marín Serrano
 Age: 26 years old
 DNI: 16765154-V
 User name: JoaMar
-Password: *********
-Email: joan.marin@omail.com
-Movile: +34 625 506 518 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-26.png
-Birthday date: 23/10/1989
-State: Logged
-Benefit: 6966.0
-Name: Joan
-Last name: Marín Serrano
-Age: 26 years old
-DNI: 16765154-V
-User name: JoaMar
-Password: *********
+Password: gTawujvmT
 Email: joan.marin@omail.com
 Phone: +34 625 506 518 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-26.png
@@ -358,18 +214,6 @@ Karma: high
 
 ----------------------------------------
 
-Name: Alfons
-Last name: Millán Teruel
-Age: 40 years old
-DNI: 60824523-B
-User name: AlfMil
-Password: 
-Email: alfons.millan@gmail.com
-Movile: +34 605 073 233 
-Avataring: 2R79TK90WnK3
-Birthday date: 05/03/1976
-State: Online
-Benefit: 14020.5
 Name: Alfons
 Last name: Millán Teruel
 Age: 40 years old
@@ -395,18 +239,6 @@ DNI: 89195693-Z
 User name: JoeReb
 Password: 
 Email: joey.rebate@gmail.com
-Movile: +34 601 881 157 
-Avataring: oM0b3F57M2oEw1
-Birthday date: 18/10/1977
-State: Online
-Benefit: 1107.0
-Name: Joey
-Last name: Rebate Martínez
-Age: 38 years old
-DNI: 89195693-Z
-User name: JoeReb
-Password: 
-Email: joey.rebate@gmail.com
 Phone: +34 601 881 157 
 Avataring: oM0b3F57M2oEw1
 Birthday date: 18/10/1977
@@ -423,19 +255,7 @@ Last name: Zorrilla Beltrán
 Age: 25 years old
 DNI: 32704251-E
 User name: AlbZor
-Password: ********
-Email: alba.zorrilla@gmail.com
-Movile: +34 678 850 217 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png
-Birthday date: 26/03/1991
-State: Online
-Benefit: 1143.0
-Name: Alba
-Last name: Zorrilla Beltrán
-Age: 25 years old
-DNI: 32704251-E
-User name: AlbZor
-Password: ********
+Password: 31VG9u0a
 Email: alba.zorrilla@gmail.com
 Phone: +34 678 850 217 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-16.png
@@ -453,19 +273,7 @@ Last name: Gayá Márquez
 Age: 57 years old
 DNI: 22574709-W
 User name: SarGay
-Password: ****************
-Email: sara.gaya@omail.com
-Movile: +34 699 864 056 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-13.png
-Birthday date: 11/06/1958
-State: Offline
-Benefit: 2544.0
-Name: Sara
-Last name: Gayá Márquez
-Age: 57 years old
-DNI: 22574709-W
-User name: SarGay
-Password: ****************
+Password: JaVz352758o1ehdR
 Email: sara.gaya@omail.com
 Phone: +34 699 864 056 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-13.png
@@ -483,19 +291,7 @@ Last name: Cobain Buenafuente
 Age: 59 years old
 DNI: 87113247-B
 User name: DamCob
-Password: *************
-Email: damian.cobain@gmail.com
-Movile: +34 618 853 784 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-10.png
-Birthday date: 04/02/1957
-State: Online
-Benefit: 1570.5
-Name: Damián
-Last name: Cobain Buenafuente
-Age: 59 years old
-DNI: 87113247-B
-User name: DamCob
-Password: *************
+Password: 2Fpkw80also5B
 Email: damian.cobain@gmail.com
 Phone: +34 618 853 784 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-10.png
@@ -513,19 +309,7 @@ Last name: De Las Mulas Millán
 Age: 49 years old
 DNI: 75015522-X
 User name: PepDe 
-Password: *********
-Email: pep.de@gmail.com
-Movile: +34 603 612 318 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-8.png
-Birthday date: 26/05/1966
-State: Offline
-Benefit: 4888.5
-Name: Pep
-Last name: De Las Mulas Millán
-Age: 49 years old
-DNI: 75015522-X
-User name: PepDe 
-Password: *********
+Password: P7IpEwAPn
 Email: pep.de@gmail.com
 Phone: +34 603 612 318 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-8.png
@@ -543,19 +327,7 @@ Last name: Pagés Giadas
 Age: 32 years old
 DNI: 56204143-D
 User name: ElePag
-Password: **********
-Email: elena.pages@gmail.com
-Movile: +34 613 483 299 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
-Birthday date: 26/03/1984
-State: Online
-Benefit: 2091.0
-Name: Elena
-Last name: Pagés Giadas
-Age: 32 years old
-DNI: 56204143-D
-User name: ElePag
-Password: **********
+Password: 1Oz6186nka
 Email: elena.pages@gmail.com
 Phone: +34 613 483 299 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
@@ -573,19 +345,7 @@ Last name: Pavía Martínez
 Age: 55 years old
 DNI: 99718444-N
 User name: DanPav
-Password: *************
-Email: daniel.pavia@gmail.com
-Movile: +34 621 437 465 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-19.png
-Birthday date: 19/08/1960
-State: Logged
-Benefit: 5524.5
-Name: Daniel
-Last name: Pavía Martínez
-Age: 55 years old
-DNI: 99718444-N
-User name: DanPav
-Password: *************
+Password: 2h4gd1wjz1a93
 Email: daniel.pavia@gmail.com
 Phone: +34 621 437 465 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-19.png
@@ -603,19 +363,7 @@ Last name: Ramone Puente
 Age: 20 years old
 DNI: 48910798-X
 User name: LolRam
-Password: **************
-Email: lola.ramone@omail.com
-Movile: +34 681 660 285 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
-Birthday date: 14/02/1996
-State: Logged
-Benefit: 298.5
-Name: Lola
-Last name: Ramone Puente
-Age: 20 years old
-DNI: 48910798-X
-User name: LolRam
-Password: **************
+Password: 94SJ1lGe62nNKu
 Email: lola.ramone@omail.com
 Phone: +34 681 660 285 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-21.png
@@ -633,19 +381,7 @@ Last name: Salvador Plaza
 Age: 60 years old
 DNI: 19728155-C
 User name: JuaSal
-Password: *********
-Email: juanjo.salvador@gmail.com
-Movile: +34 628 942 002 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png
-Birthday date: 21/10/1955
-State: Logged
-Benefit: 21462.0
-Name: Juanjo
-Last name: Salvador Plaza
-Age: 60 years old
-DNI: 19728155-C
-User name: JuaSal
-Password: *********
+Password: 0HLE0pUwt
 Email: juanjo.salvador@gmail.com
 Phone: +34 628 942 002 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-7.png
@@ -661,24 +397,12 @@ Karma: high
 Name: Marc
 Last name: Márquez Mercado
 Age: 62 years old
-DNI: 26897174-P
-User name: MarMár
-Password: ************
-Email: marc.marquez@omail.com
-Movile: +34 656 306 133 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-23.png
-Birthday date: 05/01/1954
-State: Offline
-Benefit: 8334.0
-Name: Marc
-Last name: Márquez Mercado
-Age: 62 years old
-DNI: 26897174-P
-User name: MarMár
-Password: ************
+DNI: 26897174P
+User name: MarMar
+Password: 
 Email: marc.marquez@omail.com
 Phone: +34 656 306 133 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-23.png
+Avataring: marcuS123
 Birthday date: 05/01/1954
 State: Offline
 Points: 8334.0
@@ -693,19 +417,7 @@ Last name: Rodríguez Mercado
 Age: 35 years old
 DNI: 84260867-E
 User name: AraRod
-Password: *************
-Email: araceli.rodriguez@omail.com
-Movile: +34 684 517 924 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
-Birthday date: 17/09/1980
-State: Logged
-Benefit: 5382.0
-Name: Araceli
-Last name: Rodríguez Mercado
-Age: 35 years old
-DNI: 84260867-E
-User name: AraRod
-Password: *************
+Password: FBLCSbO66AIZb
 Email: araceli.rodriguez@omail.com
 Phone: +34 684 517 924 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-22.png
@@ -723,19 +435,7 @@ Last name: Navarro Plaza
 Age: 23 years old
 DNI: 25719770-C
 User name: JoaNav
-Password: *********
-Email: joan.navarro@gmail.com
-Movile: +34 680 447 073 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
-Birthday date: 14/09/1992
-State: Logged
-Benefit: 2829.0
-Name: Joan
-Last name: Navarro Plaza
-Age: 23 years old
-DNI: 25719770-C
-User name: JoaNav
-Password: *********
+Password: C081Nd5j6
 Email: joan.navarro@gmail.com
 Phone: +34 680 447 073 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
@@ -753,19 +453,7 @@ Last name: Beltrán Gayá
 Age: 20 years old
 DNI: 28087359-N
 User name: JorBel
-Password: ****************
-Email: jorge.beltran@gmail.com
-Movile: +34 674 143 578 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
-Birthday date: 28/04/1995
-State: Offline
-Benefit: 2629.5
-Name: Jorge
-Last name: Beltrán Gayá
-Age: 20 years old
-DNI: 28087359-N
-User name: JorBel
-Password: ****************
+Password: demFs662c8bmR6j3
 Email: jorge.beltran@gmail.com
 Phone: +34 674 143 578 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-2.png
@@ -783,19 +471,7 @@ Last name: De Las Mulas Gayá
 Age: 41 years old
 DNI: 34860700-Z
 User name: JorDe 
-Password: ***********
-Email: jorge.de@omail.com
-Movile: +34 664 745 437 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-5.png
-Birthday date: 12/10/1974
-State: Offline
-Benefit: 681.0
-Name: Jorge
-Last name: De Las Mulas Gayá
-Age: 41 years old
-DNI: 34860700-Z
-User name: JorDe 
-Password: ***********
+Password: sk8OkEjKb5G
 Email: jorge.de@omail.com
 Phone: +34 664 745 437 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-5.png
@@ -813,19 +489,7 @@ Last name: Nebot Beltrán
 Age: 55 years old
 DNI: 95025187-C
 User name: JoaNeb
-Password: **************
-Email: joan.nebot@gmail.com
-Movile: +34 698 497 700 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-12.png
-Birthday date: 12/08/1960
-State: Online
-Benefit: 4413.0
-Name: Joan
-Last name: Nebot Beltrán
-Age: 55 years old
-DNI: 95025187-C
-User name: JoaNeb
-Password: **************
+Password: k9Z4Tpb2bWkblJ
 Email: joan.nebot@gmail.com
 Phone: +34 698 497 700 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-12.png
@@ -843,19 +507,7 @@ Last name: Sanz Serrano
 Age: 47 years old
 DNI: 23603922-B
 User name: MarSan
-Password: **********
-Email: marc.sanz@gmail.com
-Movile: +34 640 001 075 
-Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
-Birthday date: 08/07/1968
-State: Logged
-Benefit: 19854.0
-Name: Marc
-Last name: Sanz Serrano
-Age: 47 years old
-DNI: 23603922-B
-User name: MarSan
-Password: **********
+Password: DI84A3oCmM
 Email: marc.sanz@gmail.com
 Phone: +34 640 001 075 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-1.png
@@ -873,22 +525,10 @@ Last name: Otero
 Age: 29 years old
 DNI: 53382477y
 User name: osblue
-Password: 
-Email: osblue05@mail.com
-Movile: +34 666 555 444 
-Avataring: oreto05OT
-Birthday date: 05/05/1986
-State: Loged
-Benefit: 3510.0
-Name: Oscar
-Last name: Otero
-Age: 29 years old
-DNI: 53382477y
-User name: osblue
-Password: 
+Password: oreto05OT
 Email: osblue05@mail.com
 Phone: +34 666 555 444 
-Avataring: oreto05OT
+Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-10.png
 Birthday date: 05/05/1986
 State: Loged
 Points: 3510.0

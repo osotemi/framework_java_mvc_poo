@@ -6,6 +6,7 @@
 package framework.mod.user.registered.model.BLL;
 
 
+import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.registered.controler.Controler_mainReg;
 import framework.mod.user.registered.model.DAO.DAO_Registered;
 import framework.mod.user.registered.model.classes.RegisteredU;
@@ -366,7 +367,7 @@ public class BLL_Registered {
         return valid;
     }
 
-    /*
+    /**
     Search for an Admin on singleton array list and draws it
      */
     public static void BLL_ViewReg() {
@@ -389,6 +390,7 @@ public class BLL_Registered {
                 if (pos != -1) {
                     singletonReg.ephemeralReg = singletonReg.RegTableArray.get(pos);
                     DAO_Registered.formViewReg();
+                    JOptionPane.showMessageDialog(null, singletonReg.ephemeralReg.toString());
                 } else {
                     DAO_Registered.DAO_ERR_View();
                 }
@@ -398,13 +400,23 @@ public class BLL_Registered {
             JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("error_emptyList"), LanguageReg.getInstance().getProperty("error"), 2);
         }
     }
-
+    
+    /**
+     * Loads  singletonProfile.regu and draws it
+     */
+    public static void BLL_ViewRegProfile() {
+        singletonReg.ephemeralReg = singletonProfile.RegU;
+        JOptionPane.showMessageDialog(null, singletonReg.ephemeralReg.toString());
+        DAO_Registered.formViewReg();
+        
+    }
     /**
      * Creates an Admin when btn create of the form is click and saves it on
      * JSON file
      *
      * @throws InterruptedException
      */
+    
     public static void FORM_BTN_createRegistered() throws InterruptedException {
         boolean visible = true;
         ActionListener task = new ActionListener() {

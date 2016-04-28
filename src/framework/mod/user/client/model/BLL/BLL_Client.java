@@ -335,8 +335,8 @@ public class BLL_Client {
         return false;
     }
 
-    /**
-     * Function looks for an Admin to modify it and calls a DAO function to draw
+    /**BLL_ModifyClt
+     * Function looks for a Client to modify it and calls a DAO function to draw
      * modify form
      */
     public static boolean BLL_ModifyClt() {
@@ -369,7 +369,19 @@ public class BLL_Client {
         }
         return valid;
     }
-
+    
+    /**BLL_ModifyCltProfile
+     * Function looks loads the profile Client to modify it and calls a DAO function to draw
+     * modify form
+     */
+    public static boolean BLL_ModifyCltProfile() {
+        boolean valid = false;
+        
+        singletonClient.ephemeralClient= singletonProfile.clt;
+        DAO_Client.forModifyClient();
+        
+        return valid;
+    }
     /**
     Search for an Admin on singleton array list and draws it
      */

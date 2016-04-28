@@ -77,7 +77,7 @@ public class RegisteredU extends User implements Serializable{
 	
 	/**full constructor-->Generate an complete RegisteredU object*/
 	public RegisteredU( String avatar, DateO born_date, String DNI, String email, String movile, String name, String lastname, String password, String state, String user, int activity){
-		
+		//(String avatar, DateO birth_date, String DNI, String email, String movile, String name, String lastname, String password, String state, String user)
 		super( avatar, born_date, DNI, email, movile, name, lastname, password, state, user );
 		this.setActivity(activity);
 		this.setKarma(calculateKarma());
@@ -125,7 +125,7 @@ public class RegisteredU extends User implements Serializable{
 			outline.append("Age: " + format.formAge(this.getAge())+"\n");
 			outline.append("DNI: " + this.getDni() +"\n");
 			outline.append("User name: "+ this.getUser()+"\n");
-			outline.append("Password: "+ format.formPassCoverd(this.getPassword())+"\n");
+			outline.append("Password: "+ this.getPassword()+"\n");
 			outline.append("Email: " + this.getEmail()+"\n");
 			outline.append("Phone: "+ format.formPhone(this.getMovile())+"\n");
 			
@@ -143,7 +143,7 @@ public class RegisteredU extends User implements Serializable{
 			}
 		}
 		
-		return super.toString() + outline.toString();
+		return outline.toString();
 	}
 	
 	/**String toStringPK()-->return primary key value of an RegisteredU Object*/

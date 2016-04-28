@@ -552,7 +552,7 @@
   </RegU>
   <RegU>
     <age>62</age>
-    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-23.png</avataring>
+    <avataring>marcuS123</avataring>
     <born__date>
       <milsec>0</milsec>
       <second>0</second>
@@ -563,14 +563,14 @@
       <year>1954</year>
       <sdate>05/01/1954</sdate>
     </born__date>
-    <dni>26897174-P</dni>
+    <dni>26897174P</dni>
     <email>marc.marquez@omail.com</email>
     <movile>656306133</movile>
     <name>Marc</name>
     <lastname>Márquez Mercado</lastname>
-    <password>2bTH968LIkvv</password>
+    <password></password>
     <state>Offline</state>
-    <user>MarMár</user>
+    <user>MarMar</user>
     <benefit>8334.0</benefit>
     <activity>5556</activity>
     <karma>high</karma>
@@ -727,7 +727,7 @@
   </RegU>
   <RegU>
     <age>29</age>
-    <avataring>oreto05OT</avataring>
+    <avataring>/home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-10.png</avataring>
     <born__date>
       <milsec>0</milsec>
       <second>0</second>
@@ -743,7 +743,7 @@
     <movile>666555444</movile>
     <name>Oscar</name>
     <lastname>Otero</lastname>
-    <password></password>
+    <password>oreto05OT</password>
     <state>Loged</state>
     <user>osblue</user>
     <benefit>3510.0</benefit>

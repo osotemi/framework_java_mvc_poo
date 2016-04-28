@@ -8,6 +8,7 @@ package framework.mod.user.registered.model.DAO;
 import framework.clss.DateO;
 import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
+import framework.mod.settings.view.main_login;
 import static framework.mod.user.registered.controler.Controler_mainReg.MainReg;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.singletonReg;
@@ -44,12 +45,12 @@ public class DAO_Registered {
         boolean chkName = askName(), chkLastname = askLastname(), chkUsername = askUsername(), chkPhone = askPhone(), chkConfPass = askConfirmPassword(), chkDNI = askDNI(), chkEmail = askEmail(), chkActivity = askActivity(), chkBorndate = askBorndate(), chkAvatar = true;
         try {
             if(singletonReg.PATH_formReg.equals(""))
-            singletonReg.PATH_formReg = singletonReg.ephemeralReg.getAvataring();
+                singletonReg.PATH_formReg = singletonReg.ephemeralReg.getAvataring();
 
         } catch (Exception e) {
             singletonReg.PATH_formReg = dummieReg_gen.rdmAvatar();
         }
-        
+        //( String avatar, DateO born_date, String DNI, String email, String movile, String name, String lastname, String password, String state, String user, int activity)
         if (chkName && chkLastname && chkUsername && chkPhone && chkConfPass && chkDNI && chkEmail && chkActivity && chkBorndate && chkAvatar) {
             born = new DateO(main_Reg.DC_formReg_borndate.getCalendar());
             reg = new RegisteredU(singletonReg.PATH_formReg, born, main_Reg.txtf_formReg_dni.getText(), main_Reg.txtf_formReg_email.getText(), 
@@ -548,8 +549,7 @@ public class DAO_Registered {
             main_Reg.JPF_fromReg_pass.setBorder(null);
             main_Reg.lbl_formReg_passERR.setToolTipText("");
             main_Reg.lbl_formReg_passERR.setText("");
-            askConfirmPassword();
-            valid = true;
+            valid = askConfirmPassword();
         }
         return valid;
 
@@ -584,7 +584,7 @@ public class DAO_Registered {
             main_Reg.JPF_fromReg_passconf.setToolTipText("");
             main_Reg.lbl_formReg_passconfERR.setText("");
             main_Reg.lbl_formReg_passERR.setText("");
-            singletonReg.PATH_formReg = pass;
+            singletonReg.passwd_formReg = conf_pass;
             valid = true;
 
         }
@@ -779,7 +779,7 @@ public class DAO_Registered {
     
     public static void DAO_FR_mainBack() {
         MainReg.dispose();
-        new Controler_Main(new main(), 0).run(0);
+        new Controler_Main(new main_login(), 2).run(2);
     }
 
     public static void DAO_FR_hideFormPanel() {
