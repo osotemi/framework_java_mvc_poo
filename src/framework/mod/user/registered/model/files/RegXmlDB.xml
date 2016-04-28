@@ -725,4 +725,29 @@
     <activity>13236</activity>
     <karma>high</karma>
   </RegU>
+  <RegU>
+    <age>29</age>
+    <avataring>oreto05OT</avataring>
+    <born__date>
+      <milsec>0</milsec>
+      <second>0</second>
+      <minute>0</minute>
+      <hour>0</hour>
+      <day>5</day>
+      <month>5</month>
+      <year>1986</year>
+      <sdate>05/05/1986</sdate>
+    </born__date>
+    <dni>53382477y</dni>
+    <email>osblue05@mail.com</email>
+    <movile>666555444</movile>
+    <name>Oscar</name>
+    <lastname>Otero</lastname>
+    <password></password>
+    <state>Loged</state>
+    <user>osblue</user>
+    <benefit>3510.0</benefit>
+    <activity>2340</activity>
+    <karma>high</karma>
+  </RegU>
 </list>

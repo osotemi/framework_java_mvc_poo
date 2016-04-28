@@ -8,8 +8,12 @@ package framework.mod.settings.model.BLL;
 import framework.clss.ConnectionBD;
 import framework.mod.settings.model.DAO.DAO_login;
 import framework.mod.settings.model.clss.singletonProfile;
-import framework.mod.user.admin.model.DAO.DAO_DB_Admin;
+import framework.mod.settings.view.main_login;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -27,26 +31,26 @@ public class BLL_login {
         Connection _con;
         if(DAO_login.askUsername() && DAO_login.askPassword()){
             _con = ConnectionBD.getConexion();
-            int correcto = DAO_login.DAO_srcAdminBYname(_con);
+            valid = DAO_login.DAO_srcAdminBYname(_con);
+            
             ConnectionBD.liberaConexion(_con);
-            if(correcto == 0){
-               valid = true;
-            }
         }
         
         return valid;
     }
     public static boolean BLL_DB_searchClientBYname() {
-        if(DAO_login.askUsername() && DAO_login.askPassword())
+        if(DAO_login.askUsername() && DAO_login.askPassword()){
+           
             return DAO_login.DAO_searchONclient();
-                
+        }
         return false;
     }
     
     public static boolean BLL_DB_searchReguBYname() {
-        if(DAO_login.askUsername() && DAO_login.askPassword())      
+        if(DAO_login.askUsername() && DAO_login.askPassword()){
+            
             return DAO_login.DAO_searchONreg();
-        
+        }
         return false;
     }
     /**logIN()
@@ -59,16 +63,24 @@ public class BLL_login {
         boolean valid = false;
         
         if ( BLL_DB_srchAdminBYname() ){
+            main_login.lbl_admWelcome.setText("Sesiom: "+singletonProfile.adm.getUser());
             valid = true;
             singletonProfile.userType = "Admin";
         }
         else if( DAO_login.DAO_searchONclient() ){
+            System.out.println("Encontrado en client");
+            JOptionPane.showMessageDialog(null, singletonProfile.clt.toString());
             valid = true;
             singletonProfile.userType = "Client";
         } 
         else if( DAO_login.DAO_searchONreg() ){
+            System.out.println("Encontrado en regu");
+            JOptionPane.showMessageDialog(null, singletonProfile.RegU.toString());
             valid = true;
             singletonProfile.userType = "RegU";
+        }
+        else{
+            DAO_login.ntFound();
         }
         
         return valid;

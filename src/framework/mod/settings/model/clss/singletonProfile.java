@@ -31,4 +31,12 @@ public class singletonProfile {
     public static Admin adm;
     public static Client clt;
     public static RegisteredU RegU;
+
+    public static void loadProfile(){
+        adm = new Admin();
+        clt = new Client();
+        RegU = new RegisteredU();
+    }
 }
+
+

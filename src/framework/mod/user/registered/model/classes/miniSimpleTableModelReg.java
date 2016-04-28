@@ -6,6 +6,7 @@
 package framework.mod.user.registered.model.classes;
 
 import framework.clss.DateO;
+import framework.mod.user.registered.model.BLL.BLL_Registered;
 import framework.mod.user.registered.model.tools.LanguageReg;
 import framework.mod.user.registered.model.tools.pager.paginaReg;
 import framework.mod.user.registered.view.main_Reg;
@@ -103,15 +104,15 @@ public class miniSimpleTableModelReg extends AbstractTableModel{
         fireTableCellUpdated(row, col);
     }
 
-    public void addRow(RegisteredU adm) {
-        dataReg.add(adm);
+    public void addRow(RegisteredU regu) {
+        dataReg.add(regu);
         fireTableDataChanged();
     }
 
     public void cargar() {
         dataReg.clear();
         datosauxReg.clear();
-        
+        BLL_Registered.loadArray();
         RegisteredU _regu = null;
         java.util.Date date= new java.util.Date();
         for(int i=0; i<singletonReg.RegTableArray.size(); i++) {

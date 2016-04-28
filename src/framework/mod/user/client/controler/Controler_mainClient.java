@@ -5,6 +5,8 @@
  */
 package framework.mod.user.client.controler;
 
+import framework.clss.singletonGen;
+import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.client.model.BLL.BLL_Client;
 import framework.mod.user.client.model.classes.miniSimpleTableModel_Client;
 import framework.mod.user.client.model.classes.singletonClient;
@@ -97,12 +99,10 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         //Initializate components
         Image icono = null;
         MainClient.setVisible(true);
-        PNL_drawForm.setVisible(false);
         DC_formClt_borndate.getDateEditor().setEnabled(false);
-        DC_formClt_singdate.getDateEditor().setEnabled(false);
-
-        MainClient.setTitle(LanguageClt.getInstance().getProperty("adm_title"));
+        DC_formClt_singdate.getDateEditor().setEnabled(false);        
         MainClient.setLocationRelativeTo(null);//centrado
+        
         try {
             icono = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + "/src/framework/img/medical_help.png");
         } catch (IOException e) {
@@ -110,7 +110,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         }
         MainClient.setIconImage(icono);
         MainClient.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        runTABLE();
+        
 
         MainClient.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.MainClient.addWindowListener(new WindowAdapter() {
@@ -121,160 +121,206 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
             }
         });
 
-        //Inicia los componentes del menu de botones
-        MainClient.btn_createClient.setActionCommand("_BTN_create");
-        MainClient.btn_createClient.addActionListener(this);
-        //MainAdmin.btn_createAdmin.setIcon();
-        MainClient.btn_createDummies.setActionCommand("_BTN_createDummies");
-        MainClient.btn_createDummies.addActionListener(this);
+        switch(singletonProfile.userType){
+            case "Admin":
+                PNL_drawForm.setVisible(false);
+                MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));
+                runTABLE();
+                
+                //Inicia los componentes del menu de botones
+                MainClient.btn_createClient.setVisible(true);
+                MainClient.btn_createClient.setActionCommand("_BTN_create");
+                MainClient.btn_createClient.addActionListener(this);
+                //MainAdmin.btn_createAdmin.setIcon();
+                MainClient.btn_createDummies.setVisible(true);
+                MainClient.btn_createDummies.setActionCommand("_BTN_createDummies");
+                MainClient.btn_createDummies.addActionListener(this);
 
-        MainClient.btn_modifyClient.setActionCommand("_BTN_modify");
-        MainClient.btn_modifyClient.addActionListener(this);
+                MainClient.btn_modifyClient.setActionCommand("_BTN_modify");
+                MainClient.btn_modifyClient.addActionListener(this);
 
-        MainClient.btn_deleteClient.setActionCommand("_BTN_delete");
-        MainClient.btn_deleteClient.addActionListener(this);
+                MainClient.btn_deleteClient.setActionCommand("_BTN_delete");
+                MainClient.btn_deleteClient.addActionListener(this);
 
-        MainClient.btn_deleteAllClient.setActionCommand("_BTN_deleteALL");
-        MainClient.btn_deleteAllClient.addActionListener(this);
+                MainClient.btn_deleteAllClient.setVisible(true);
+                MainClient.btn_deleteAllClient.setActionCommand("_BTN_deleteALL");
+                MainClient.btn_deleteAllClient.addActionListener(this);
 
-        MainClient.btn_viewClient.setActionCommand("_BTN_view");
-        MainClient.btn_viewClient.addActionListener(this);
+                MainClient.btn_viewClient.setActionCommand("_BTN_view");
+                MainClient.btn_viewClient.addActionListener(this);
 
-        MainClient.btn_saveXML.setActionCommand("_BTN_saveXML");
-        MainClient.btn_saveXML.addActionListener(this);
-        MainClient.btn_saveXML.setText("XML");
+                MainClient.btn_saveXML.setVisible(true);
+                MainClient.btn_saveXML.setActionCommand("_BTN_saveXML");
+                MainClient.btn_saveXML.addActionListener(this);
+                MainClient.btn_saveXML.setText("XML");
 
-        MainClient.btn_saveTXT.setActionCommand("_BTN_saveTXT");
-        MainClient.btn_saveTXT.addActionListener(this);
-        MainClient.btn_saveTXT.setText("TXT");
+                MainClient.btn_saveTXT.setVisible(true);
+                MainClient.btn_saveTXT.setActionCommand("_BTN_saveTXT");
+                MainClient.btn_saveTXT.addActionListener(this);
+                MainClient.btn_saveTXT.setText("TXT");
 
-        MainClient.btn_saveJSON.setActionCommand("_BTN_saveJSON");
-        MainClient.btn_saveJSON.addActionListener(this);
-        MainClient.btn_saveJSON.setText("JSON");
+                MainClient.btn_saveJSON.setVisible(true);
+                MainClient.btn_saveJSON.setActionCommand("_BTN_saveJSON");
+                MainClient.btn_saveJSON.addActionListener(this);
+                MainClient.btn_saveJSON.setText("JSON");
 
-        MainClient.btn_backMain.setActionCommand("_BTN_back");
-        MainClient.btn_backMain.addActionListener(this);
-        MainClient.btn_backMain.setText(LanguageClt.getInstance().getProperty("DRW_btnMain"));// corregir
+                MainClient.btn_backMain.setActionCommand("_BTN_back");
+                MainClient.btn_backMain.addActionListener(this);
+                MainClient.btn_backMain.setText(LanguageClt.getInstance().getProperty("DRW_btnMain"));// corregir
 
-        //Inicia los componentes de la TABLA/pagina
-        MainClient.ANTERIOR.setActionCommand("_BTN_ANTERIOR");
-        MainClient.ANTERIOR.addActionListener(this);
-        MainClient.ANTERIOR.setText("<");
+                //Inicia los componentes de la TABLA/pagina
+                MainClient.ANTERIOR.setActionCommand("_BTN_ANTERIOR");
+                MainClient.ANTERIOR.addActionListener(this);
+                MainClient.ANTERIOR.setText("<");
 
-        MainClient.SIGUIENTE.setActionCommand("_BTN_SIGUIENTE");
-        MainClient.SIGUIENTE.addActionListener(this);
-        MainClient.SIGUIENTE.setText(">");
+                MainClient.SIGUIENTE.setActionCommand("_BTN_SIGUIENTE");
+                MainClient.SIGUIENTE.addActionListener(this);
+                MainClient.SIGUIENTE.setText(">");
 
-        MainClient.primero.setActionCommand("_BTN_primero");
-        MainClient.primero.addActionListener(this);
-        MainClient.primero.setText("|<");
+                MainClient.primero.setActionCommand("_BTN_primero");
+                MainClient.primero.addActionListener(this);
+                MainClient.primero.setText("|<");
 
-        MainClient.ultimo.setActionCommand("_BTN_ultimo");
-        MainClient.ultimo.addActionListener(this);
-        MainClient.ultimo.setText(">|");
+                MainClient.ultimo.setActionCommand("_BTN_ultimo");
+                MainClient.ultimo.addActionListener(this);
+                MainClient.ultimo.setText(">|");
 
-        MainClient.btn_tbl_back.setActionCommand("_BTN_TBL_back");
-        MainClient.btn_tbl_back.addActionListener(this);
-        MainClient.btn_tbl_back.setText(LanguageClt.getInstance().getProperty("DRW_btnBack"));//corregir
+                MainClient.btn_tbl_back.setActionCommand("_BTN_TBL_back");
+                MainClient.btn_tbl_back.addActionListener(this);
+                MainClient.btn_tbl_back.setText(LanguageClt.getInstance().getProperty("DRW_btnBack"));//corregir
 
-        MainClient.CB_tbl_entries.setActionCommand("_CB_TBL_entries");
-        MainClient.CB_tbl_entries.addActionListener(this);
+                MainClient.CB_tbl_entries.setActionCommand("_CB_TBL_entries");
+                MainClient.CB_tbl_entries.addActionListener(this);
 
-        MainClient.comboClt.setActionCommand("_combo");
-        MainClient.comboClt.addActionListener(this);
+                MainClient.comboClt.setActionCommand("_combo");
+                MainClient.comboClt.addActionListener(this);
 
-        MainClient.TABLA_CLT.setName("_TABLA");
-        MainClient.TABLA_CLT.addMouseListener(this);
+                MainClient.TABLA_CLT.setName("_TABLA");
+                MainClient.TABLA_CLT.addMouseListener(this);
 
-        //form Admin
-        MainClient.lbl_form_avatar.setText(LanguageClt.getInstance().getProperty("DRW_lblAvatar"));
-        MainClient.btn_formClt_Avatar.setActionCommand("_BTN_avatar");
-        MainClient.btn_formClt_Avatar.setName("_BTN_avatar");
-        MainClient.btn_formClt_Avatar.setText(LanguageClt.getInstance().getProperty("DRW_btnAvatar"));
-        MainClient.btn_formClt_Avatar.addActionListener(this);
+                //form Client
+                MainClient.lbl_form_avatar.setText(LanguageClt.getInstance().getProperty("DRW_lblAvatar"));
+                MainClient.btn_formClt_Avatar.setActionCommand("_BTN_avatar");
+                MainClient.btn_formClt_Avatar.setName("_BTN_avatar");
+                MainClient.btn_formClt_Avatar.setText(LanguageClt.getInstance().getProperty("DRW_btnAvatar"));
+                MainClient.btn_formClt_Avatar.addActionListener(this);
 
-        MainClient.btn_formCltCreate_create.setActionCommand("_BTN_formCreate");
-        MainClient.btn_formCltCreate_create.setName("_BTN_formCreate");
-        MainClient.btn_formCltCreate_create.setText("");
-        MainClient.btn_formCltCreate_create.addActionListener(this);
+                MainClient.btn_formCltCreate_create.setActionCommand("_BTN_formCreate");
+                MainClient.btn_formCltCreate_create.setName("_BTN_formCreate");
+                MainClient.btn_formCltCreate_create.setText("");
+                MainClient.btn_formCltCreate_create.addActionListener(this);
 
-        MainClient.btn_formCltCreate_back.setActionCommand("_BTN_formBack");
-        MainClient.btn_formCltCreate_back.setName("_BTN_formBack");
-        MainClient.btn_formCltCreate_back.addActionListener(this);
+                MainClient.btn_formCltCreate_back.setActionCommand("_BTN_formBack");
+                MainClient.btn_formCltCreate_back.setName("_BTN_formBack");
+                MainClient.btn_formCltCreate_back.addActionListener(this);
 
-        MainClient.lbl_form_state.setText(LanguageClt.getInstance().getProperty("DRW_lblState"));
-        MainClient.CB_formClt_state.setActionCommand("_CB_state");
-        MainClient.CB_formClt_state.setName("_CB_state");
-        MainClient.CB_formClt_state.addActionListener(this);
-        
-        MainClient.lbl_form_clType.setText(LanguageClt.getInstance().getProperty("DRW_lblClType"));
-        MainClient.CB_formCLT_type.setActionCommand("_CB_clType");
-        MainClient.CB_formClt_state.setName("_CB_clType");
-        MainClient.CB_formClt_state.addActionListener(this);
+                MainClient.lbl_form_state.setText(LanguageClt.getInstance().getProperty("DRW_lblState"));
+                MainClient.CB_formClt_state.setActionCommand("_CB_state");
+                MainClient.CB_formClt_state.setName("_CB_state");
+                MainClient.CB_formClt_state.addActionListener(this);
 
-        MainClient.lbl_form_bornDate.setText(LanguageClt.getInstance().getProperty("DRW_lblBornDate"));
-        MainClient.DC_formClt_borndate.setName("_DC_bornDate");
-        MainClient.DC_formClt_borndate.addKeyListener(this);
+                MainClient.lbl_form_clType.setText(LanguageClt.getInstance().getProperty("DRW_lblClType"));
+                MainClient.CB_formCLT_type.setActionCommand("_CB_clType");
+                MainClient.CB_formClt_state.setName("_CB_clType");
+                MainClient.CB_formClt_state.addActionListener(this);
 
-        MainClient.lbl_form_hireDate.setText(LanguageClt.getInstance().getProperty("DRW_lblSingDate"));
-        MainClient.DC_formClt_singdate.setName("_DC_singDate");
-        MainClient.DC_formClt_singdate.addKeyListener(this);
+                MainClient.lbl_form_bornDate.setText(LanguageClt.getInstance().getProperty("DRW_lblBornDate"));
+                MainClient.DC_formClt_borndate.setName("_DC_bornDate");
+                MainClient.DC_formClt_borndate.addKeyListener(this);
 
-        MainClient.lbl_form_pass.setText(LanguageClt.getInstance().getProperty("DRW_lblPass"));
-        MainClient.JPF_fromClt_pass.setName("_JPF_pass");
-        MainClient.JPF_fromClt_pass.addKeyListener(this);
+                MainClient.lbl_form_hireDate.setText(LanguageClt.getInstance().getProperty("DRW_lblSingDate"));
+                MainClient.DC_formClt_singdate.setName("_DC_singDate");
+                MainClient.DC_formClt_singdate.addKeyListener(this);
 
-        MainClient.lbl_form_passConf.setText(LanguageClt.getInstance().getProperty("DRW_lblPassConf"));
-        MainClient.JPF_fromClt_passconf.setName("_JPF_passConf");
-        MainClient.JPF_fromClt_passconf.addKeyListener(this);
+                MainClient.lbl_form_pass.setText(LanguageClt.getInstance().getProperty("DRW_lblPass"));
+                MainClient.JPF_fromClt_pass.setName("_JPF_pass");
+                MainClient.JPF_fromClt_pass.addKeyListener(this);
 
-        MainClient.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblShopAccount"));
-        MainClient.txt_formClt_shopAccount.setActionCommand("_TXT_activity");
-        MainClient.txt_formClt_shopAccount.setName("_TXT_activity");
-        MainClient.txt_formClt_shopAccount.addKeyListener(this);
-        MainClient.txt_formClt_shopAccount.addFocusListener(this);
+                MainClient.lbl_form_passConf.setText(LanguageClt.getInstance().getProperty("DRW_lblPassConf"));
+                MainClient.JPF_fromClt_passconf.setName("_JPF_passConf");
+                MainClient.JPF_fromClt_passconf.addKeyListener(this);
 
-        MainClient.lbl_form_dni.setText(LanguageClt.getInstance().getProperty("DRW_lblDni"));
-        MainClient.txtf_formClt_dni.setActionCommand("_TXT_dni");
-        MainClient.txtf_formClt_dni.setName("_TXT_dni");
-        MainClient.txtf_formClt_dni.addActionListener(this);
-        MainClient.txtf_formClt_dni.addKeyListener(this);
-        MainClient.txtf_formClt_dni.addFocusListener(this);
+                MainClient.lbl_form_shopAccount.setText(LanguageClt.getInstance().getProperty("DRW_lblShopAccount"));
+                MainClient.txt_formClt_shopAccount.setActionCommand("_TXT_activity");
+                MainClient.txt_formClt_shopAccount.setName("_TXT_activity");
+                MainClient.txt_formClt_shopAccount.addKeyListener(this);
+                MainClient.txt_formClt_shopAccount.addFocusListener(this);
 
-        MainClient.lbl_form_email.setText(LanguageClt.getInstance().getProperty("DRW_lblEmail"));
-        MainClient.txtf_formClt_email.setActionCommand("_TXT_email");
-        MainClient.txtf_formClt_email.setName("_TXT_email");
-        MainClient.txtf_formClt_email.addActionListener(this);
-        MainClient.txtf_formClt_email.addKeyListener(this);
-        MainClient.txtf_formClt_email.addFocusListener(this);
+                MainClient.lbl_form_dni.setText(LanguageClt.getInstance().getProperty("DRW_lblDni"));
+                MainClient.txtf_formClt_dni.setActionCommand("_TXT_dni");
+                MainClient.txtf_formClt_dni.setName("_TXT_dni");
+                MainClient.txtf_formClt_dni.addActionListener(this);
+                MainClient.txtf_formClt_dni.addKeyListener(this);
+                MainClient.txtf_formClt_dni.addFocusListener(this);
 
-        MainClient.lbl_form_lastName.setText(LanguageClt.getInstance().getProperty("DRW_lblLastName"));
-        MainClient.txtf_formClt_lastname.setActionCommand("_TXT_lastName");
-        MainClient.txtf_formClt_lastname.setName("_TXT_lastName");
-        MainClient.txtf_formClt_lastname.addActionListener(this);
-        MainClient.txtf_formClt_lastname.addKeyListener(this);
-        MainClient.txtf_formClt_lastname.addFocusListener(this);
+                MainClient.lbl_form_email.setText(LanguageClt.getInstance().getProperty("DRW_lblEmail"));
+                MainClient.txtf_formClt_email.setActionCommand("_TXT_email");
+                MainClient.txtf_formClt_email.setName("_TXT_email");
+                MainClient.txtf_formClt_email.addActionListener(this);
+                MainClient.txtf_formClt_email.addKeyListener(this);
+                MainClient.txtf_formClt_email.addFocusListener(this);
 
-        MainClient.lbl_form_name.setText(LanguageClt.getInstance().getProperty("DRW_lblName"));
-        MainClient.txtf_formClt_name.setActionCommand("_TXT_name");
-        MainClient.txtf_formClt_name.setName("_TXT_name");
-        MainClient.txtf_formClt_name.addActionListener(this);
-        MainClient.txtf_formClt_name.addKeyListener(this);
-        MainClient.txtf_formClt_name.addFocusListener(this);
+                MainClient.lbl_form_lastName.setText(LanguageClt.getInstance().getProperty("DRW_lblLastName"));
+                MainClient.txtf_formClt_lastname.setActionCommand("_TXT_lastName");
+                MainClient.txtf_formClt_lastname.setName("_TXT_lastName");
+                MainClient.txtf_formClt_lastname.addActionListener(this);
+                MainClient.txtf_formClt_lastname.addKeyListener(this);
+                MainClient.txtf_formClt_lastname.addFocusListener(this);
 
-        MainClient.lbl_form_phone.setText(LanguageClt.getInstance().getProperty("DRW_lblPhone"));
-        MainClient.txtf_formClt_phone.setActionCommand("_TXT_phone");
-        MainClient.txtf_formClt_phone.setName("_TXT_phone");
-        MainClient.txtf_formClt_phone.addActionListener(this);
-        MainClient.txtf_formClt_phone.addKeyListener(this);
-        MainClient.txtf_formClt_phone.addFocusListener(this);
+                MainClient.lbl_form_name.setText(LanguageClt.getInstance().getProperty("DRW_lblName"));
+                MainClient.txtf_formClt_name.setActionCommand("_TXT_name");
+                MainClient.txtf_formClt_name.setName("_TXT_name");
+                MainClient.txtf_formClt_name.addActionListener(this);
+                MainClient.txtf_formClt_name.addKeyListener(this);
+                MainClient.txtf_formClt_name.addFocusListener(this);
 
-        MainClient.lbl_form_userName.setText(LanguageClt.getInstance().getProperty("DRW_lblUserName"));
-        MainClient.txtf_formClt_username.setActionCommand("_TXT_userName");
-        MainClient.txtf_formClt_username.setName("_TXT_userName");
-        MainClient.txtf_formClt_username.addActionListener(this);
-        MainClient.txtf_formClt_username.addKeyListener(this);
-        MainClient.txtf_formClt_username.addFocusListener(this);
+                MainClient.lbl_form_phone.setText(LanguageClt.getInstance().getProperty("DRW_lblPhone"));
+                MainClient.txtf_formClt_phone.setActionCommand("_TXT_phone");
+                MainClient.txtf_formClt_phone.setName("_TXT_phone");
+                MainClient.txtf_formClt_phone.addActionListener(this);
+                MainClient.txtf_formClt_phone.addKeyListener(this);
+                MainClient.txtf_formClt_phone.addFocusListener(this);
+
+                MainClient.lbl_form_userName.setText(LanguageClt.getInstance().getProperty("DRW_lblUserName"));
+                MainClient.txtf_formClt_username.setActionCommand("_TXT_userName");
+                MainClient.txtf_formClt_username.setName("_TXT_userName");
+                MainClient.txtf_formClt_username.addActionListener(this);
+                MainClient.txtf_formClt_username.addKeyListener(this);
+                MainClient.txtf_formClt_username.addFocusListener(this);
+                break;
+            case "Client":
+                PNL_drawForm.setVisible(true);
+                MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));
+                
+                //Inicia los componentes del menu de botones
+                MainClient.btn_createClient.setVisible(false);
+                //MainAdmin.btn_createAdmin.setIcon();
+                MainClient.btn_createDummies.setVisible(false);
+
+                MainClient.btn_modifyClient.setActionCommand("_BTN_modify");
+                MainClient.btn_modifyClient.addActionListener(this);
+                
+                MainClient.btn_deleteClient.setActionCommand("_BTN_delete");
+                MainClient.btn_deleteClient.addActionListener(this);
+
+                MainClient.btn_deleteAllClient.setVisible(false);
+
+                MainClient.btn_viewClient.setActionCommand("_BTN_view");
+                MainClient.btn_viewClient.addActionListener(this);
+
+                MainClient.btn_saveXML.setVisible(false);
+
+                MainClient.btn_saveTXT.setVisible(false);
+
+                MainClient.btn_saveJSON.setVisible(false);
+
+                MainClient.btn_backMain.setActionCommand("_BTN_back");
+                MainClient.btn_backMain.addActionListener(this);
+                MainClient.btn_backMain.setText(LanguageClt.getInstance().getProperty("DRW_btnMain"));// corregir
+
+                BLL_Client.BLL_ViewProfileClt();
+                break;
+        }
     }
 
     public static void runTABLE() {

@@ -63,6 +63,7 @@ public class main_login extends javax.swing.JFrame {
         btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
         btn_ClientGOTO_mainClient = new javax.swing.JButton();
         btn_RegGOTO_mainReg = new javax.swing.JButton();
+        lbl_admWelcome = new javax.swing.JTextField();
         panelImage4 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -156,13 +157,13 @@ public class main_login extends javax.swing.JFrame {
                 .addComponent(lbl_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_passWord, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpf_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_singINerror, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(btn_sing, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,22 +221,27 @@ public class main_login extends javax.swing.JFrame {
         btn_RegGOTO_mainReg.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_RegGOTO_mainReg.setPreferredSize(new java.awt.Dimension(70, 25));
 
+        lbl_admWelcome.setForeground(new java.awt.Color(0, 153, 255));
+        lbl_admWelcome.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+
         javax.swing.GroupLayout pnl_userTypeLayout = new javax.swing.GroupLayout(pnl_userType);
         pnl_userType.setLayout(pnl_userTypeLayout);
         pnl_userTypeLayout.setHorizontalGroup(
             pnl_userTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_userTypeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnl_userTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                    .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnl_userTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lbl_admWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                    .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                    .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_userTypeLayout.setVerticalGroup(
             pnl_userTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_userTypeLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addComponent(lbl_admWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,9 +255,8 @@ public class main_login extends javax.swing.JFrame {
         panelImage1Layout.setHorizontalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(pnl_userType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1050, Short.MAX_VALUE))
+                .addGap(0, 1062, Short.MAX_VALUE))
         );
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,6 +344,7 @@ public class main_login extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JPasswordField jpf_pass;
+    public static javax.swing.JTextField lbl_admWelcome;
     public static javax.swing.JLabel lbl_passWord;
     public static javax.swing.JLabel lbl_singINerror;
     public static javax.swing.JLabel lbl_userName;

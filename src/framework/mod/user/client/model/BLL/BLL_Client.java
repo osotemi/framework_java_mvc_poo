@@ -5,6 +5,7 @@
  */
 package framework.mod.user.client.model.BLL;
 
+import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.client.controler.Controler_mainClient;
 import framework.mod.user.client.model.DAO.DAO_Client;
 import framework.mod.user.client.model.classes.Client;
@@ -369,7 +370,7 @@ public class BLL_Client {
         return valid;
     }
 
-    /*
+    /**
     Search for an Admin on singleton array list and draws it
      */
     public static void BLL_ViewClt() {
@@ -400,6 +401,20 @@ public class BLL_Client {
         } else {
             JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("error_emptyList"), LanguageClt.getInstance().getProperty("error"), 2);
         }
+    }
+    
+    /**
+    Search for an Admin on singleton array list and draws it
+     */
+    public static void BLL_ViewProfileClt() {
+
+        if (singletonProfile.clt != null) {
+            singletonClient.ephemeralClient = singletonProfile.clt;
+            DAO_Client.formViewClient();
+        } else {
+            DAO_Client.DAO_ERR_View();
+        }
+
     }
 
     /**
@@ -452,7 +467,7 @@ public class BLL_Client {
     public static void FORM_BTN_modifyClt() throws InterruptedException {      
         main_Client.lblMainform.setToolTipText("");
         boolean valid = false;
-        int pos, selec;
+        int pos;
         Client clt = new Client();
 
         ActionListener task = new ActionListener() {

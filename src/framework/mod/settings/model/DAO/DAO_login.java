@@ -13,8 +13,10 @@ import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main_login;
 import framework.mod.user.client.model.classes.Client;
+import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.singletonReg;
+import framework.mod.user.registered.model.tools.jsonReg;
 import framework.tools.validate;
 import java.awt.Color;
 import java.sql.Connection;
@@ -43,20 +45,51 @@ public class DAO_login {
      * @param con
      * @return boolean
      */
-    public static int DAO_srcAdminBYname(Connection con) {
+    public static boolean DAO_srcAdminBYname(Connection con) {
 
         ResultSet rs = null;
         PreparedStatement stmt = null;
-        int valid = 0;
+        boolean valid = false;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM db_framework.admin WHERE name=? AND pass=?");
+            stmt = con.prepareStatement("SELECT * FROM db_framework.admin WHERE user=?");
             stmt.setString(1, singletonProfile.userName);
-            stmt.setString(1, singletonProfile.userPass);
+            //stmt.setString(2, singletonProfile.userPass);
             rs = stmt.executeQuery();
-            getAdminRow(rs);
-
-            valid = 1;
+            
+            while(rs.next()){
+                
+                DateO birth_date = null;
+                DateO hire_date = null;
+                
+                //(age,avatar,date_birthday,dni,email,phone,name,lastname,password,state,user,benefit,activity,antiqueness,date_hiredate,salary)
+                try {
+                    birth_date = new DateO(rs.getString("date_birthday"));
+                    hire_date = new DateO(rs.getString("date_hiredate"));
+                    singletonProfile.adm.setAge(rs.getInt("age"));
+                    singletonProfile.adm.setLastname(rs.getString("lastname"));
+                    singletonProfile.adm.setBorn_date(birth_date);
+                    singletonProfile.adm.setDni(rs.getString("dni"));
+                    singletonProfile.adm.setEmail(rs.getString("email"));
+                    singletonProfile.adm.setMovile(rs.getString("phone"));
+                    singletonProfile.adm.setName(rs.getString("name"));
+                    singletonProfile.adm.setLastname(rs.getString("lastname"));
+                    singletonProfile.adm.setPassword(rs.getString("password"));
+                    singletonProfile.adm.setState(rs.getString("state"));
+                    singletonProfile.adm.setUser(rs.getString("user"));
+                    //benefit se autocalcula
+                    singletonProfile.adm.setActivity(rs.getInt("activity"));
+                    singletonProfile.adm.setContract_data(hire_date);
+                    singletonProfile.adm.setSalary(rs.getFloat("salary"));
+                    
+                    //if(singletonProfile.adm.getPassword().equals(singletonProfile.userPass))
+                        valid = true;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el Logger");
+                }
+            }
+            
+            
         } catch (SQLException ex) {
             System.out.println("Ha habido un problema al buscar el usuario por nombre y contraseña");
         } finally {
@@ -122,25 +155,22 @@ public class DAO_login {
         Client clt = new Client();
         try {
             BasicDBObject query = new BasicDBObject();
-            query.put("name", singletonProfile.userName);
+            query.put("user", singletonProfile.userName);
             
             cursor = singletonGen.collection.find(query);
             if(cursor.count()!=0){
-                if(cursor.count()==1){
-                    BasicDBObject document = (BasicDBObject) cursor.curr();
-                    clt = singletonProfile.clt.DB_to_Client(document);
-                    if(clt.getPassword().equals(singletonProfile.userPass)){
-                        valid=true;
-                    }
-                }
+                System.out.println("Hay count");
                 while(cursor.hasNext()){
+                    System.out.println("Hay next");
                     BasicDBObject document = (BasicDBObject) cursor.next();
                     clt = singletonProfile.clt.DB_to_Client(document);
+                    clt.toString();
                     if(clt.getPassword().equals(singletonProfile.userPass)){
                         valid=true;
                         System.out.println("ERROR Login for while!!!");
                     }
                 }
+                
             }else{
                 System.out.println("NOT DATA"); 
             }
@@ -157,8 +187,8 @@ public class DAO_login {
         boolean valid = false;
         singletonProfile.RegU.setUser(singletonProfile.userName);
         singletonProfile.RegU.setPassword(singletonProfile.userPass);
+        jsonReg.RegJson_Autoload();
         
-        int pos = -1;
         if (singletonReg.RegTableArray != null) {
             for (RegisteredU regu : singletonReg.RegTableArray) {
                 if (regu.getUser().equals(singletonProfile.RegU.getUser()) && regu.getPassword().equals(singletonProfile.RegU.getPassword())) {//search by username/password
@@ -234,5 +264,10 @@ public class DAO_login {
         }
         return valid;
 
+    }
+    
+    public static void ntFound(){
+        main_login.lbl_singINerror.setText("User not found");
+        main_login.lbl_singINerror.setForeground(Color.red);
     }
 }

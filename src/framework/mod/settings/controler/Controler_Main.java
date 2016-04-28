@@ -471,7 +471,10 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                             LoginLayout.pnl_userType.setVisible(true);
                             break;
                         case "Client":
-                            //ir a ver cliente con sus datos
+                            LanguageClt.getInstance().loadProperties();
+                            new Controler_mainClient(new main_Client()).run();
+                            //pintar usuario
+                            LoginLayout.dispose();
                             break;
                         case "RegU":
                             //ir a ver user Reg con sus datos

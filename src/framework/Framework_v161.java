@@ -50,7 +50,6 @@ public class Framework_v161 {
             public void run() {
                 Settings.getInstance();
                 ConnectionBD.inicializa_BasicDataSourceFactory();
-                
                 if (singletonGen.mongo.connect() == null){
                     System.out.println("ERROR al connectar mongoDB");
                 }

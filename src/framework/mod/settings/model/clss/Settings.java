@@ -10,7 +10,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import framework.clss.MongoDB;
 import framework.clss.singletonGen;
 import framework.mod.settings.model.tools.LooknFeel;
-import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.registered.model.classes.singletonReg;
@@ -88,6 +87,7 @@ public class Settings implements Serializable {
             singletonAdmin.loadSingletonAdmin();
             singletonClient.loadSingletonClient();
             singletonReg.loadSingletonReg();
+            singletonProfile.loadProfile();
             fdate = "dd/MM/yyyy";//Temporally
         }
         return instance;

@@ -196,13 +196,13 @@
                           <Component id="lbl_userName" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txt_userName" min="-2" pref="24" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lbl_passWord" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jpf_pass" min="-2" pref="24" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="lbl_singINerror" min="-2" pref="24" max="-2" attributes="0"/>
-                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                           <Component id="btn_sing" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_conf" min="-2" pref="51" max="-2" attributes="0"/>
@@ -290,9 +290,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnl_userType" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1050" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1062" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -324,8 +323,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="lbl_admWelcome" pref="212" max="32767" attributes="0"/>
                               <Component id="btn_ClientGOTO_mainClient" alignment="0" pref="212" max="32767" attributes="0"/>
                               <Component id="btn_RegGOTO_mainReg" alignment="0" max="32767" attributes="0"/>
                               <Component id="btn_AdminGOTO_mainAdmin" alignment="0" max="32767" attributes="0"/>
@@ -337,7 +337,8 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="lbl_admWelcome" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_AdminGOTO_mainAdmin" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_ClientGOTO_mainClient" max="-2" attributes="0"/>
@@ -415,6 +416,18 @@
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[70, 25]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="lbl_admWelcome">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder bevelType="0"/>
+                      </Border>
                     </Property>
                   </Properties>
                 </Component>
