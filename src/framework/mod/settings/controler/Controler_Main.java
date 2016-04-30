@@ -66,8 +66,6 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 System.err.println("Error controler main");
                 break;
         }
-        
-
     }
 
     public enum Accion {
@@ -288,7 +286,21 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 
                 LoginLayout.lbl_singINerror.setText("");
                 
-                LoginLayout.pnl_userType.setVisible(false);
+                if(singletonProfile.userType == "Admin"){
+                    LoginLayout.pnl_login.setVisible(true);
+                    
+                    LoginLayout.txt_userName.setText(singletonProfile.adm.getUser());
+                    LoginLayout.txt_userName.setEnabled(false);
+                    
+                    LoginLayout.jpf_pass.setEnabled(false);
+                    
+                    LoginLayout.btn_sing.setText("Log Out");
+                    
+                    LoginLayout.lbl_welcomAdm.setText("Sesion: "+singletonProfile.adm.getUser());
+                }
+                else{
+                    LoginLayout.pnl_userType.setVisible(false);
+                }
                 break;
             default:
                 break;
@@ -431,64 +443,72 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 break;
             case _BTN_Native:
                 BLL_settings.BLL_BTN_thm_native();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 Conf.dispose();
-                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new main_login(), 2).run(2);
                 new Controler_Main(new wdwSettings(), 1).run(1);
                 break;
             case _BTN_Nimbus:
                 BLL_settings.BLL_BTN_thm_nimbus();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 Conf.dispose();
-                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new main_login(), 2).run(2);
                 new Controler_Main(new wdwSettings(), 1).run(1);
                 break;
             case _BTN_Motif:
                 BLL_settings.BLL_BTN_thm_motif();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 Conf.dispose();
-                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new main_login(), 2).run(2);
                 new Controler_Main(new wdwSettings(), 1).run(1);
                 break;
             case _BTN_Windows:
                 BLL_settings.BLL_BTN_thm_win();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 Conf.dispose();
-                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new main_login(), 2).run(2);
                 new Controler_Main(new wdwSettings(), 1).run(1);
                 break;
             case _BTN_Win98:
                 BLL_settings.BLL_BTN_thm_win98();
-                MainMenu.dispose();
+                LoginLayout.dispose();
                 Conf.dispose();
-                new Controler_Main(new main(), 0).run(0);
+                new Controler_Main(new main_login(), 2).run(2);
                 new Controler_Main(new wdwSettings(), 1).run(1);
                 break;
             case _BTN_Login:
-                if(BLL_login.logIN()){
-                    switch (singletonProfile.userType){
-                        case "Admin":
-                            LoginLayout.pnl_userType.setVisible(true);
-                            break;
-                        case "Client":
-                            LanguageClt.getInstance().loadProperties();
-                            LoginLayout.dispose();
-                            new Controler_mainClient(new main_Client()).run();
-                            //pintar usuario
-                            
-                            break;
-                        case "RegU":
-                            LanguageReg.getInstance().loadProperties();
-                            LoginLayout.dispose();
-                            new Controler_mainReg(new main_Reg()).run();
-                            //ir a ver user Reg con sus datos
-                            break;
-                        default:
-                            
-                            break;
+                if(singletonProfile.userType.equals("Admin")){
+                    BLL_login.logOUT();
+                    LoginLayout.dispose();
+                    new Controler_Main(new main_login(), 2).run(2);
+                }
+                else{
+                    if(BLL_login.logIN()){
+                        switch (singletonProfile.userType){
+                            case "Admin":
+                                main_login.lbl_welcomAdm.setText("Sesion: "+singletonProfile.adm.getUser());
+                                LoginLayout.pnl_userType.setVisible(true);
+                                break;
+                            case "Client":
+                                LanguageClt.getInstance().loadProperties();
+                                LoginLayout.dispose();
+                                new Controler_mainClient(new main_Client()).run();
+                                //pintar usuario
+
+                                break;
+                            case "RegU":
+                                LanguageReg.getInstance().loadProperties();
+                                LoginLayout.dispose();
+                                new Controler_mainReg(new main_Reg()).run();
+                                //ir a ver user Reg con sus datos
+                                break;
+                            default:
+
+                                break;
+                        }
+                    }else{
+                        LoginLayout.lbl_singINerror.setText(Language.getInstance().getProperty("lbl_loginERR"));
                     }
-                }else{
-                    LoginLayout.lbl_singINerror.setText(Language.getInstance().getProperty("lbl_loginERR"));
                 }
                 break;
             default:

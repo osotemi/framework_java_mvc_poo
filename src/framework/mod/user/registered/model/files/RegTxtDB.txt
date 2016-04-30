@@ -521,13 +521,13 @@ Karma: high
 ----------------------------------------
 
 Name: Oscar
-Last name: Otero
+Last name: Otero Millán
 Age: 29 years old
 DNI: 53382477y
 User name: osblue
 Password: oreto05OT
 Email: osblue05@mail.com
-Phone: +34 666 555 444 
+Phone: +34 678 910 123 
 Avataring: /home/osotemi/NetBeansProjects/Framework_v1.6.3/src/framework/img/profile_pictures/people-10.png
 Birthday date: 05/05/1986
 State: Loged

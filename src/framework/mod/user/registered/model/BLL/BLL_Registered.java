@@ -335,6 +335,7 @@ public class BLL_Registered {
     /**
      * Function looks for an Admin to modify it and calls a DAO function to draw
      * modify form
+     * @return boolean
      */
     public static boolean BLL_ModifyReg() {
         singletonReg.currentRegForm = singletonReg.MODIFY_REG;
@@ -366,12 +367,39 @@ public class BLL_Registered {
         }
         return valid;
     }
+    
+    /**
+     * Function looks for an Admin to modify it and calls a DAO function to draw
+     * modify form
+     * @return boolean
+     */
+    public static boolean BLL_ModifyRegProf() {
+        singletonReg.currentRegForm = singletonReg.MODIFY_REG;
+        singletonReg.passRegModf = false;
+        int selec = -1, pos = 0;
+        String dni;
+        boolean valid = false;
 
+        int n = singletonReg.RegTableArray.size();
+        if (n != 0) {
+                singletonReg.ephemeralReg = singletonProfile.RegU;
+                pos = searchAL();
+                singletonReg.selectedPOSmodifyReg = pos;
+                singletonReg.PATH_formReg = singletonReg.ephemeralReg.getAvataring();
+
+                DAO_Registered.forModifyReg();
+                valid = true;
+        } else {
+            JOptionPane.showMessageDialog(null, LanguageReg.getInstance().getProperty("error_emptyList"), LanguageReg.getInstance().getProperty("error"), 2);
+        }
+        return valid;
+    }
+    
     /**
     Search for an Admin on singleton array list and draws it
      */
     public static void BLL_ViewReg() {
-        String dni, name, lastname;
+        String dni;
         int pos;
 
         int n = ((miniSimpleTableModelReg) main_Reg.TABLA_REG.getModel()).getRowCount();
@@ -406,7 +434,6 @@ public class BLL_Registered {
      */
     public static void BLL_ViewRegProfile() {
         singletonReg.ephemeralReg = singletonProfile.RegU;
-        JOptionPane.showMessageDialog(null, singletonReg.ephemeralReg.toString());
         DAO_Registered.formViewReg();
         
     }
@@ -469,6 +496,7 @@ public class BLL_Registered {
             public void actionPerformed(ActionEvent e) {
                 if (main_Reg.PNL_drawForm.isVisible()) {
                     main_Reg.PNL_drawForm.setVisible(false);
+                    BLL_Registered.BLL_ViewRegProfile();
                 }
             }
         };
@@ -494,10 +522,13 @@ public class BLL_Registered {
         DAO_Registered.DAO_ERR_Modify();
 
         }
+        
+        if(singletonProfile.userType.equals("RegU")){
+            singletonProfile.RegU=singletonReg.ephemeralReg;
+        }
 
         if (valid) {
             autosaveMultiformat();
-            Controler_mainReg.runTABLE();
             main_Reg.lblMainform.setOpaque(true);
             main_Reg.lblMainform.setBackground(Color.GREEN);
             main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("OK_modify"));
@@ -506,8 +537,8 @@ public class BLL_Registered {
             timer.setRepeats(false);
             timer.start();
         }
-}
-        /**
+    }
+    /**
          * Function that create an user object in his AdminTableArray Array list
          *
          * @param int

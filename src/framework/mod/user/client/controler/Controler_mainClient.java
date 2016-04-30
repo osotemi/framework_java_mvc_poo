@@ -117,8 +117,8 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         this.MainClient.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+                //panel salida
                 MainClient.dispose();
-                BLL_Client.BLL_FC_mainBack();
             }
         });
 

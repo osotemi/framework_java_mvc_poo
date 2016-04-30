@@ -5,6 +5,7 @@
  */
 package framework.mod.user.client.model.BLL;
 
+import framework.clss.singletonGen;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.client.controler.Controler_mainClient;
 import framework.mod.user.client.model.DAO.DAO_Client;
@@ -33,7 +34,7 @@ import javax.swing.Timer;
  * @author osotemi
  */
 public class BLL_Client {
-    
+
     public static void BLL_FC_mainBack() {
         DAO_Client.DAO_FC_mainBack();
     }
@@ -42,7 +43,7 @@ public class BLL_Client {
         DAO_Client.DAO_FC_hideFormPanel();
     }
 
-    public static void BLL_FC_formCreate(){
+    public static void BLL_FC_formCreate() {
         if (singletonClient.currentCltForm.equals(singletonClient.CREATE_CLT)) {
             try {
                 BLL_Client.FORM_BTN_createClient();
@@ -57,7 +58,7 @@ public class BLL_Client {
             }
         }
     }
-    
+
     public static void BLL_FC_CleanName() {
         if (singletonClient.currentCltForm.equals(singletonClient.CREATE_CLT)) {
             DAO_Client.DAO_cfName();
@@ -104,9 +105,6 @@ public class BLL_Client {
         } else {
             main_Client.txtf_formClt_dni.selectAll();
         }
-        
-        
-        
     }
 
     public static void BLL_FC_CleanPass() {
@@ -122,38 +120,38 @@ public class BLL_Client {
         }
     }
 
-    public static void BLL_TBL_Previous(){
+    public static void BLL_TBL_Previous() {
         paginaClt.currentPageIndex -= 1;
         paginaClt.initLinkBox();
     }
-    
-    public static void BLL_TBL_Next(){
+
+    public static void BLL_TBL_Next() {
         paginaClt.currentPageIndex += 1;
         paginaClt.initLinkBox();
     }
-    
-    public static void BLL_TBL_First(){
+
+    public static void BLL_TBL_First() {
         paginaClt.currentPageIndex = 1;
         paginaClt.initLinkBox();
     }
-    
-    public static void BLL_TBL_Last(){
+
+    public static void BLL_TBL_Last() {
         paginaClt.currentPageIndex = paginaClt.maxPageIndex;
         paginaClt.initLinkBox();
     }
-    
-    public static void BLL_TBL_CB_entries(){
+
+    public static void BLL_TBL_CB_entries() {
         paginaClt.itemsPerPage = Integer.parseInt(CB_tbl_entries.getSelectedItem().toString());
         paginaClt.currentPageIndex = 1;
         paginaClt.initLinkBox();
     }
-    
-    public static void BLL_TBL_combo(){
+
+    public static void BLL_TBL_combo() {
         paginaClt.currentPageIndex = 1;
         ((miniSimpleTableModel_Client) main_Client.TABLA_CLT.getModel()).filtrar();
         main_Client.comboClt.requestFocus();
     }
-    
+
     public static void BLL_txtName() {
         DAO_Client.askName();
     }
@@ -210,7 +208,6 @@ public class BLL_Client {
         DAO_Client.askAvatar();
     }
 
-    
     /**
      * FILE SAVE BLL FUNCTIONS
      */
@@ -241,10 +238,7 @@ public class BLL_Client {
     }
 
     /**
-     * C-R-U-D functions
-     */
-    /**
-     *
+     * Calls DAO_Client.formnew to draw an new empty form
      */
     public static void BLL_CreateClt() {
         singletonClient.currentCltForm = singletonClient.CREATE_CLT;
@@ -252,7 +246,7 @@ public class BLL_Client {
     }
 
     /**
-     * Deletes an Admin selected on the table and saves changes on JSON file
+     * Deletes a Client selected on the table and saves changes on DB
      *
      * @return
      */
@@ -274,7 +268,7 @@ public class BLL_Client {
             int selec = main_Client.TABLA_CLT.getSelectedRow();
             if (selec == -1) {
                 JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errTbl_selectUser"), LanguageClt.getInstance().getProperty("error"), 2);
-                
+
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
                 dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 4);
@@ -288,7 +282,7 @@ public class BLL_Client {
                 if (opc == 0) {
                     singletonClient.dniClt = dni;
                     BLL_DB_Client.BLL_DB_deleteClient();
-                    
+
                     Controler_mainClient.runTABLE();
                     main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_delok"));
                     main_Client.lblMainform.setOpaque(true);
@@ -307,6 +301,11 @@ public class BLL_Client {
         return false;
     }
 
+    /**
+     * Deletes all clients on collection client
+     *
+     * @return boolean
+     */
     public static boolean BLL_DeleteAllClt() {
         int pos = 0;
         ActionListener task = new ActionListener() {
@@ -323,6 +322,7 @@ public class BLL_Client {
         if (opc == 0) {
             singletonClient.ClienTableArray = new ArrayList<>();
             Controler_mainClient.runTABLE();
+            singletonGen.collection.drop();
             //autosaveMultiformat();
             main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_DeletAll"));
             main_Client.lblMainform.setBackground(Color.red);
@@ -335,9 +335,9 @@ public class BLL_Client {
         return false;
     }
 
-    /**BLL_ModifyClt
-     * Function looks for a Client to modify it and calls a DAO function to draw
-     * modify form
+    /**
+     * BLL_ModifyClt Function looks for a Client to modify it and calls a DAO
+     * function to draw modify form
      */
     public static boolean BLL_ModifyClt() {
         singletonClient.currentCltForm = singletonClient.MODIFY_CLT;
@@ -360,7 +360,7 @@ public class BLL_Client {
                 pos = searchAL();
                 singletonClient.selectedPOSmodifyClt = pos;
                 singletonClient.PATH_formClt = singletonClient.ephemeralClient.getAvataring();
-                singletonClient.ephemeralClient= singletonClient.ClienTableArray.get(selec);
+                singletonClient.ephemeralClient = singletonClient.ClienTableArray.get(selec);
                 DAO_Client.forModifyClient();
                 valid = true;
             }
@@ -369,21 +369,23 @@ public class BLL_Client {
         }
         return valid;
     }
-    
-    /**BLL_ModifyCltProfile
-     * Function looks loads the profile Client to modify it and calls a DAO function to draw
-     * modify form
+
+    /**
+     * BLL_ModifyCltProfile Function looks loads the profile Client to modify it
+     * and calls a DAO function to draw modify form
      */
     public static boolean BLL_ModifyCltProfile() {
         boolean valid = false;
-        
-        singletonClient.ephemeralClient= singletonProfile.clt;
+
+        singletonClient.ephemeralClient = singletonProfile.clt;
         DAO_Client.forModifyClient();
-        
+
         return valid;
     }
+
     /**
-    Search for an Admin on singleton array list and draws it
+     * BLL_ViewClt Search for an Admin on singleton array list and draws it on
+     * form
      */
     public static void BLL_ViewClt() {
         String dni, name, lastname;
@@ -414,9 +416,9 @@ public class BLL_Client {
             JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("error_emptyList"), LanguageClt.getInstance().getProperty("error"), 2);
         }
     }
-    
+
     /**
-    Search for an Admin on singleton array list and draws it
+     * Search for an Admin on singleton array list and draws it
      */
     public static void BLL_ViewProfileClt() {
 
@@ -431,7 +433,7 @@ public class BLL_Client {
 
     /**
      * Creates an Client when btn create of the form is click and saves it on
-     * JSON file
+     * MySQL DB
      *
      * @throws InterruptedException
      */
@@ -476,7 +478,7 @@ public class BLL_Client {
      * Modify an admin and overwrite-it on the ArrayList, save changes on Json,
      * draws it and returns
      */
-    public static void FORM_BTN_modifyClt() throws InterruptedException {      
+    public static void FORM_BTN_modifyClt() throws InterruptedException {
         main_Client.lblMainform.setToolTipText("");
         boolean valid = false;
         int pos;
@@ -509,8 +511,8 @@ public class BLL_Client {
                     valid = true;
                 }
             }
-        }else {
-        DAO_Client.DAO_ERR_Modify();
+        } else {
+            DAO_Client.DAO_ERR_Modify();
 
         }
 
@@ -525,14 +527,15 @@ public class BLL_Client {
             timer.setRepeats(false);
             timer.start();
         }
-}
-        /**
-         * Function that create an user object in his AdminTableArray Array list
-         *
-         * @param int
-         */
+    }
+
+    /**
+     * Function that create an user object in his AdminTableArray Array list
+     *
+     * @param int
+     */
     public static boolean createAdmAL() {
-        
+
         String dni = "";
         int pos = 0;
         boolean valid = false;
@@ -567,7 +570,7 @@ public class BLL_Client {
         }
         return pos;
     }
-    
+
     public static void loadArray() {
         singletonClient.loadSingletonClient();
         jsonClt.ClientJson_Autoload();
@@ -578,5 +581,5 @@ public class BLL_Client {
         xmlClt.ClientXml_Autosave();
         txtClt.ClienTxt_Autosave();
     }
-    */
+     */
 }

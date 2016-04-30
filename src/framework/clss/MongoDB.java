@@ -5,8 +5,6 @@
  */
 package framework.clss;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
 import java.io.FileInputStream;
 import java.io.IOException;

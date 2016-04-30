@@ -6,6 +6,7 @@
 package framework.mod.user.registered.controler;
 
 import framework.mod.settings.model.clss.singletonProfile;
+import framework.mod.settings.view.main_login;
 import framework.mod.user.registered.model.BLL.BLL_Registered;
 import framework.mod.user.registered.model.classes.miniSimpleTableModelReg;
 import framework.mod.user.registered.model.classes.singletonReg;
@@ -118,10 +119,91 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         this.MainReg.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+                //ventana salida
                 MainReg.dispose();
-                BLL_Registered.BLL_FR_mainBack();
             }
         });
+        
+        //form Admin
+        MainReg.lbl_form_avatar.setText(LanguageReg.getInstance().getProperty("DRW_lblAvatar"));
+        MainReg.btn_formReg_Avatar.setActionCommand("_BTN_avatar");
+        MainReg.btn_formReg_Avatar.setName("_BTN_avatar");
+        MainReg.btn_formReg_Avatar.setText(LanguageReg.getInstance().getProperty("DRW_btnAvatar"));
+        MainReg.btn_formReg_Avatar.addActionListener(this);
+
+        MainReg.btn_formRegCreate_create.setActionCommand("_BTN_formCreate");
+        MainReg.btn_formRegCreate_create.setName("_BTN_formCreate");
+        MainReg.btn_formRegCreate_create.setText("");
+        MainReg.btn_formRegCreate_create.addActionListener(this);
+
+        MainReg.btn_formRegCreate_back.setActionCommand("_BTN_formBack");
+        MainReg.btn_formRegCreate_back.setName("_BTN_formBack");
+        MainReg.btn_formRegCreate_back.addActionListener(this);
+
+        MainReg.lbl_form_state.setText(LanguageReg.getInstance().getProperty("DRW_lblState"));
+        MainReg.CB_formReg_state.setActionCommand("_CB_state");
+        MainReg.CB_formReg_state.setName("_CB_state");
+        MainReg.CB_formReg_state.addActionListener(this);
+
+        MainReg.lbl_form_bornDate.setText(LanguageReg.getInstance().getProperty("DRW_lblBornDate"));
+        MainReg.DC_formReg_borndate.setName("_DC_bornDate");
+        MainReg.DC_formReg_borndate.addKeyListener(this);
+
+        MainReg.lbl_form_pass.setText(LanguageReg.getInstance().getProperty("DRW_lblPass"));
+        MainReg.JPF_fromReg_pass.setName("_JPF_pass");
+        MainReg.JPF_fromReg_pass.addKeyListener(this);
+
+        MainReg.lbl_form_passConf.setText(LanguageReg.getInstance().getProperty("DRW_lblPassConf"));
+        MainReg.JPF_fromReg_passconf.setName("_JPF_passConf");
+        MainReg.JPF_fromReg_passconf.addKeyListener(this);
+
+        MainReg.lbl_form_activity.setText(LanguageReg.getInstance().getProperty("DRW_lblActivity"));
+        MainReg.txt_formReg_activity.setActionCommand("_TXT_activity");
+        MainReg.txt_formReg_activity.setName("_TXT_activity");
+        MainReg.txt_formReg_activity.addKeyListener(this);
+        MainReg.txt_formReg_activity.addFocusListener(this);
+
+        MainReg.lbl_form_dni.setText(LanguageReg.getInstance().getProperty("DRW_lblDni"));
+        MainReg.txtf_formReg_dni.setActionCommand("_TXT_dni");
+        MainReg.txtf_formReg_dni.setName("_TXT_dni");
+        MainReg.txtf_formReg_dni.addActionListener(this);
+        MainReg.txtf_formReg_dni.addKeyListener(this);
+        MainReg.txtf_formReg_dni.addFocusListener(this);
+
+        MainReg.lbl_form_email.setText(LanguageReg.getInstance().getProperty("DRW_lblEmail"));
+        MainReg.txtf_formReg_email.setActionCommand("_TXT_email");
+        MainReg.txtf_formReg_email.setName("_TXT_email");
+        MainReg.txtf_formReg_email.addActionListener(this);
+        MainReg.txtf_formReg_email.addKeyListener(this);
+        MainReg.txtf_formReg_email.addFocusListener(this);
+
+        MainReg.lbl_form_lastName.setText(LanguageReg.getInstance().getProperty("DRW_lblLastName"));
+        MainReg.txtf_formReg_lastname.setActionCommand("_TXT_lastName");
+        MainReg.txtf_formReg_lastname.setName("_TXT_lastName");
+        MainReg.txtf_formReg_lastname.addActionListener(this);
+        MainReg.txtf_formReg_lastname.addKeyListener(this);
+        MainReg.txtf_formReg_lastname.addFocusListener(this);
+
+        MainReg.lbl_form_name.setText(LanguageReg.getInstance().getProperty("DRW_lblName"));
+        MainReg.txtf_formReg_name.setActionCommand("_TXT_name");
+        MainReg.txtf_formReg_name.setName("_TXT_name");
+        MainReg.txtf_formReg_name.addActionListener(this);
+        MainReg.txtf_formReg_name.addKeyListener(this);
+        MainReg.txtf_formReg_name.addFocusListener(this);
+
+        MainReg.lbl_form_phone.setText(LanguageReg.getInstance().getProperty("DRW_lblPhone"));
+        MainReg.txtf_formReg_phone.setActionCommand("_TXT_phone");
+        MainReg.txtf_formReg_phone.setName("_TXT_phone");
+        MainReg.txtf_formReg_phone.addActionListener(this);
+        MainReg.txtf_formReg_phone.addKeyListener(this);
+        MainReg.txtf_formReg_phone.addFocusListener(this);
+
+        MainReg.lbl_form_userName.setText(LanguageReg.getInstance().getProperty("DRW_lblUserName"));
+        MainReg.txtf_formReg_username.setActionCommand("_TXT_userName");
+        MainReg.txtf_formReg_username.setName("_TXT_userName");
+        MainReg.txtf_formReg_username.addActionListener(this);
+        MainReg.txtf_formReg_username.addKeyListener(this);
+        MainReg.txtf_formReg_username.addFocusListener(this);
         
         switch (singletonProfile.userType){
             case "Admin":
@@ -198,88 +280,8 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
 
                 MainReg.TABLA_REG.setName("_TABLA");
                 MainReg.TABLA_REG.addMouseListener(this);
-
-                //form Admin
-                MainReg.lbl_form_avatar.setText(LanguageReg.getInstance().getProperty("DRW_lblAvatar"));
-                MainReg.btn_formReg_Avatar.setActionCommand("_BTN_avatar");
-                MainReg.btn_formReg_Avatar.setName("_BTN_avatar");
-                MainReg.btn_formReg_Avatar.setText(LanguageReg.getInstance().getProperty("DRW_btnAvatar"));
-                MainReg.btn_formReg_Avatar.addActionListener(this);
-
-                MainReg.btn_formRegCreate_create.setActionCommand("_BTN_formCreate");
-                MainReg.btn_formRegCreate_create.setName("_BTN_formCreate");
-                MainReg.btn_formRegCreate_create.setText("");
-                MainReg.btn_formRegCreate_create.addActionListener(this);
-
-                MainReg.btn_formRegCreate_back.setActionCommand("_BTN_formBack");
-                MainReg.btn_formRegCreate_back.setName("_BTN_formBack");
-                MainReg.btn_formRegCreate_back.addActionListener(this);
-
-                MainReg.lbl_form_state.setText(LanguageReg.getInstance().getProperty("DRW_lblState"));
-                MainReg.CB_formReg_state.setActionCommand("_CB_state");
-                MainReg.CB_formReg_state.setName("_CB_state");
-                MainReg.CB_formReg_state.addActionListener(this);
-
-                MainReg.lbl_form_bornDate.setText(LanguageReg.getInstance().getProperty("DRW_lblBornDate"));
-                MainReg.DC_formReg_borndate.setName("_DC_bornDate");
-                MainReg.DC_formReg_borndate.addKeyListener(this);
-
-                MainReg.lbl_form_pass.setText(LanguageReg.getInstance().getProperty("DRW_lblPass"));
-                MainReg.JPF_fromReg_pass.setName("_JPF_pass");
-                MainReg.JPF_fromReg_pass.addKeyListener(this);
-
-                MainReg.lbl_form_passConf.setText(LanguageReg.getInstance().getProperty("DRW_lblPassConf"));
-                MainReg.JPF_fromReg_passconf.setName("_JPF_passConf");
-                MainReg.JPF_fromReg_passconf.addKeyListener(this);
-
-                MainReg.lbl_form_activity.setText(LanguageReg.getInstance().getProperty("DRW_lblActivity"));
-                MainReg.txt_formReg_activity.setActionCommand("_TXT_activity");
-                MainReg.txt_formReg_activity.setName("_TXT_activity");
-                MainReg.txt_formReg_activity.addKeyListener(this);
-                MainReg.txt_formReg_activity.addFocusListener(this);
-
-                MainReg.lbl_form_dni.setText(LanguageReg.getInstance().getProperty("DRW_lblDni"));
-                MainReg.txtf_formReg_dni.setActionCommand("_TXT_dni");
-                MainReg.txtf_formReg_dni.setName("_TXT_dni");
-                MainReg.txtf_formReg_dni.addActionListener(this);
-                MainReg.txtf_formReg_dni.addKeyListener(this);
-                MainReg.txtf_formReg_dni.addFocusListener(this);
-
-                MainReg.lbl_form_email.setText(LanguageReg.getInstance().getProperty("DRW_lblEmail"));
-                MainReg.txtf_formReg_email.setActionCommand("_TXT_email");
-                MainReg.txtf_formReg_email.setName("_TXT_email");
-                MainReg.txtf_formReg_email.addActionListener(this);
-                MainReg.txtf_formReg_email.addKeyListener(this);
-                MainReg.txtf_formReg_email.addFocusListener(this);
-
-                MainReg.lbl_form_lastName.setText(LanguageReg.getInstance().getProperty("DRW_lblLastName"));
-                MainReg.txtf_formReg_lastname.setActionCommand("_TXT_lastName");
-                MainReg.txtf_formReg_lastname.setName("_TXT_lastName");
-                MainReg.txtf_formReg_lastname.addActionListener(this);
-                MainReg.txtf_formReg_lastname.addKeyListener(this);
-                MainReg.txtf_formReg_lastname.addFocusListener(this);
-
-                MainReg.lbl_form_name.setText(LanguageReg.getInstance().getProperty("DRW_lblName"));
-                MainReg.txtf_formReg_name.setActionCommand("_TXT_name");
-                MainReg.txtf_formReg_name.setName("_TXT_name");
-                MainReg.txtf_formReg_name.addActionListener(this);
-                MainReg.txtf_formReg_name.addKeyListener(this);
-                MainReg.txtf_formReg_name.addFocusListener(this);
-
-                MainReg.lbl_form_phone.setText(LanguageReg.getInstance().getProperty("DRW_lblPhone"));
-                MainReg.txtf_formReg_phone.setActionCommand("_TXT_phone");
-                MainReg.txtf_formReg_phone.setName("_TXT_phone");
-                MainReg.txtf_formReg_phone.addActionListener(this);
-                MainReg.txtf_formReg_phone.addKeyListener(this);
-                MainReg.txtf_formReg_phone.addFocusListener(this);
-
-                MainReg.lbl_form_userName.setText(LanguageReg.getInstance().getProperty("DRW_lblUserName"));
-                MainReg.txtf_formReg_username.setActionCommand("_TXT_userName");
-                MainReg.txtf_formReg_username.setName("_TXT_userName");
-                MainReg.txtf_formReg_username.addActionListener(this);
-                MainReg.txtf_formReg_username.addKeyListener(this);
-                MainReg.txtf_formReg_username.addFocusListener(this);
                 break;
+                
             case "RegU":
                 
                 PNL_drawForm.setVisible(true);
@@ -366,7 +368,11 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 BLL_Registered.BLL_DeleteAllRegistered();
                 break;
             case _BTN_modify:
-                BLL_Registered.BLL_ModifyReg();
+                if(singletonProfile.userType.equals("RegU")){
+                    BLL_Registered.BLL_ModifyRegProf();
+                }else{
+                    BLL_Registered.BLL_ModifyReg();
+                }
                 break;
             case _BTN_saveJSON:
                 BLL_Registered.BLL_UserSaveJSON();
@@ -378,7 +384,12 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 BLL_Registered.BLL_UserSaveXML();
                 break;
             case _BTN_view:
-                BLL_Registered.BLL_ViewReg();
+                if(singletonProfile.userType.equals("RegU")){
+                    BLL_Registered.BLL_ViewRegProfile();
+                }
+                else{
+                    BLL_Registered.BLL_ViewReg();
+                }
                 break;
             //BTNs of formAdmin
             case _BTN_avatar:
@@ -389,6 +400,9 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 break;
             case _BTN_formCreate:
                 BLL_Registered.BLL_FR_formCreate();
+                if(!singletonProfile.userType.equals("RegU")){
+                    Controler_mainReg.runTABLE();
+                }
                 break;
             //BTNs of TablePager
             case _BTN_ANTERIOR:

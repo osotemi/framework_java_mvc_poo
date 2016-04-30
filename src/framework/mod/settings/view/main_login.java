@@ -63,7 +63,7 @@ public class main_login extends javax.swing.JFrame {
         btn_AdminGOTO_mainAdmin = new javax.swing.JButton();
         btn_ClientGOTO_mainClient = new javax.swing.JButton();
         btn_RegGOTO_mainReg = new javax.swing.JButton();
-        lbl_admWelcome = new javax.swing.JTextField();
+        lbl_welcomAdm = new javax.swing.JLabel();
         panelImage4 = new org.edisoncor.gui.panel.PanelImage();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -221,9 +221,6 @@ public class main_login extends javax.swing.JFrame {
         btn_RegGOTO_mainReg.setMinimumSize(new java.awt.Dimension(70, 25));
         btn_RegGOTO_mainReg.setPreferredSize(new java.awt.Dimension(70, 25));
 
-        lbl_admWelcome.setForeground(new java.awt.Color(0, 153, 255));
-        lbl_admWelcome.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-
         javax.swing.GroupLayout pnl_userTypeLayout = new javax.swing.GroupLayout(pnl_userType);
         pnl_userType.setLayout(pnl_userTypeLayout);
         pnl_userTypeLayout.setHorizontalGroup(
@@ -231,7 +228,7 @@ public class main_login extends javax.swing.JFrame {
             .addGroup(pnl_userTypeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_userTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbl_admWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                    .addComponent(lbl_welcomAdm, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                     .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                     .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -240,14 +237,14 @@ public class main_login extends javax.swing.JFrame {
         pnl_userTypeLayout.setVerticalGroup(
             pnl_userTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_userTypeLayout.createSequentialGroup()
-                .addComponent(lbl_admWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(lbl_welcomAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_AdminGOTO_mainAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_ClientGOTO_mainClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_RegGOTO_mainReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
@@ -344,10 +341,10 @@ public class main_login extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JPasswordField jpf_pass;
-    public static javax.swing.JTextField lbl_admWelcome;
     public static javax.swing.JLabel lbl_passWord;
     public static javax.swing.JLabel lbl_singINerror;
     public static javax.swing.JLabel lbl_userName;
+    public static javax.swing.JLabel lbl_welcomAdm;
     public static org.edisoncor.gui.panel.PanelImage panelImage1;
     public static org.edisoncor.gui.panel.PanelImage panelImage2;
     public static org.edisoncor.gui.panel.PanelImage panelImage3;

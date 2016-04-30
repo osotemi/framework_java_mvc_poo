@@ -36,6 +36,8 @@ public class singletonProfile {
         adm = new Admin();
         clt = new Client();
         RegU = new RegisteredU();
+        loged=false;
+        userType = "none";
     }
 }
 

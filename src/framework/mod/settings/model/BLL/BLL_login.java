@@ -9,11 +9,8 @@ import framework.clss.ConnectionBD;
 import framework.mod.settings.model.DAO.DAO_login;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.view.main_login;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.sql.Connection;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 /**
  *
@@ -24,7 +21,7 @@ public class BLL_login {
      * Check LoginFrame txt_fields user and password 
      * ands looks for it on MySQL database admin table
      * 
-     * @return 
+     * @return boolean
      */
     public static boolean BLL_DB_srchAdminBYname() {
         boolean valid = false;
@@ -38,6 +35,12 @@ public class BLL_login {
         
         return valid;
     }
+    /**BLL_DB_searchClientBYname()
+     * Check LoginFrame txt_fields user and password 
+     * ands looks for it on Mongo DB table client
+     * 
+     * @return boolean
+     */
     public static boolean BLL_DB_searchClientBYname() {
         if(DAO_login.askUsername() && DAO_login.askPassword()){
            
@@ -45,7 +48,12 @@ public class BLL_login {
         }
         return false;
     }
-    
+    /**BLL_DB_searchReguBYname()
+     * Check LoginFrame txt_fields user and password 
+     * ands looks for it on registered user
+     * 
+     * @return boolean
+     */
     public static boolean BLL_DB_searchReguBYname() {
         if(DAO_login.askUsername() && DAO_login.askPassword()){
             
@@ -63,7 +71,7 @@ public class BLL_login {
         boolean valid = false;
         
         if ( BLL_DB_srchAdminBYname() ){
-            main_login.lbl_admWelcome.setText("Sesiom: "+singletonProfile.adm.getUser());
+            
             valid = true;
             singletonProfile.userType = "Admin";
         }
@@ -76,8 +84,21 @@ public class BLL_login {
             singletonProfile.userType = "RegU";
         }
         else{
-            DAO_login.ntFound();
+            main_login.lbl_singINerror.setText("User not found");
+            main_login.lbl_singINerror.setForeground(Color.red);
         }
+        
+        return valid;
+    }
+
+    /**
+     * 
+     */
+    public static boolean logOUT(){
+        boolean valid=true;
+        
+        singletonProfile.userType = "none";;
+        singletonProfile.loged = false;
         
         return valid;
     }

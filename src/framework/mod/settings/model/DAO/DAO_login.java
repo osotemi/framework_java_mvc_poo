@@ -8,13 +8,11 @@ package framework.mod.settings.model.DAO;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import framework.clss.DateO;
-import framework.clss.MongoDB;
 import framework.clss.singletonGen;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.model.tools.Language;
 import framework.mod.settings.view.main_login;
 import framework.mod.user.client.model.classes.Client;
-import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.singletonReg;
 import framework.mod.user.registered.model.tools.jsonReg;
@@ -31,14 +29,7 @@ import javax.swing.JOptionPane;
  * @author osotemi
  */
 public class DAO_login {
-
-    public static boolean DAO_searchONadmin(Connection con) {
-        boolean valid = false;
-        DAO_srcAdminBYname(con);
-
-        return valid;
-    }
-
+  
     /**
      * DAO_srcAdminBYname Makes SELECT * FROM db_framework.admin WHERE name =
      * singletonProfile.userName AND pass = singletonProfile.userPass
@@ -113,42 +104,11 @@ public class DAO_login {
         return valid;
     }
 
-    /**
-     * getAdminRow Saves and Admin on rs to singletonAdmin.ephemeralAdmin
-     *
-     * @param ResultSet rs
-     */
-    private static void getAdminRow(ResultSet rs) {
-        DateO birth_date = null;
-        DateO hire_date = null;
-        //(age,avatar,date_birthday,dni,email,phone,name,lastname,password,state,user,benefit,activity,antiqueness,date_hiredate,salary)
-        try {
-            birth_date = new DateO(rs.getString("date_birthday"));
-            hire_date = new DateO(rs.getString("date_hiredate"));
-            singletonProfile.adm.setAge(rs.getInt("age"));
-            singletonProfile.adm.setLastname(rs.getString("lastname"));
-            singletonProfile.adm.setBorn_date(birth_date);
-            singletonProfile.adm.setDni(rs.getString("dni"));
-            singletonProfile.adm.setEmail(rs.getString("email"));
-            singletonProfile.adm.setMovile(rs.getString("phone"));
-            singletonProfile.adm.setName(rs.getString("name"));
-            singletonProfile.adm.setLastname(rs.getString("lastname"));
-            singletonProfile.adm.setPassword(rs.getString("password"));
-            singletonProfile.adm.setState(rs.getString("state"));
-            singletonProfile.adm.setUser(rs.getString("user"));
-            //benefit se autocalcula
-            singletonProfile.adm.setActivity(rs.getInt("activity"));
-            singletonProfile.adm.setContract_data(hire_date);
-            singletonProfile.adm.setSalary(rs.getFloat("salary"));
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en el Logger");
-        }
-    }
-
-    /**Filtrar por
+    
+    /**Search on mongo client collection for a client with usernam and password 
+     * gived on main login
      * 
-     * @return 
+     * @return boolean
      */
     public static boolean DAO_searchONclient(){
         boolean valid=false;
@@ -181,7 +141,11 @@ public class DAO_login {
 	}
         return valid;
     }
-    
+    /**Look for a user reg on singletonReg.RegTableArray with usernam 
+     * and password gived on main login
+     * 
+     * @return boolean
+     */
 
     public static boolean DAO_searchONreg() {
         boolean valid = false;
@@ -201,7 +165,7 @@ public class DAO_login {
     }
 
     /**askUsername
-     * Check if the main_Login.txt_userName text field is valid
+     * Check if the main_Login.txt_userName text field is valid 
      *
      * @return boolean
      */
@@ -268,10 +232,5 @@ public class DAO_login {
         }
         return valid;
 
-    }
-    
-    public static void ntFound(){
-        main_login.lbl_singINerror.setText("User not found");
-        main_login.lbl_singINerror.setForeground(Color.red);
     }
 }
