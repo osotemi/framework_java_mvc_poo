@@ -290,7 +290,12 @@ public class dummieReg_gen {
     }
 
     public static String rdmUser(String name, String lastname) {
-        return "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+        String userName = "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+        singletonReg.ephemeralReg.setUser(userName);
+        while(BLL_Registered.BLL_searchUser()){
+            userName += (int) (Math.random() * 3);
+        }
+        return userName;
     }
 
     public static int rdmActivity(DateO singDate){

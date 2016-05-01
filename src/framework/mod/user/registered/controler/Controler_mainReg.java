@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
@@ -120,7 +121,9 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
             @Override
             public void windowClosing(WindowEvent e) {
                 //ventana salida
-                MainReg.dispose();
+                int opc = JOptionPane.showConfirmDialog(null, LanguageReg.getInstance().getProperty("askBye"), LanguageReg.getInstance().getProperty("mes_askBye"), JOptionPane.WARNING_MESSAGE);
+                if (opc == 0)
+                    MainReg.dispose();                    
             }
         });
         
@@ -208,7 +211,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         
         switch (singletonProfile.userType){
             case "Admin":
-                MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.adm.getUser());
+                MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblSession") + ": " + singletonProfile.adm.getUser());
                 PNL_drawForm.setVisible(false);
                 MainReg.PNL_mainTablePager.setVisible(true);
                 runTABLE();
@@ -285,7 +288,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 break;
                 
             case "RegU":
-                MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.RegU.getUser());
+                MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblSession") + ": " + singletonProfile.RegU.getUser());
                 PNL_drawForm.setVisible(true);
                 MainReg.PNL_mainTablePager.setVisible(false);
                 
@@ -313,7 +316,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
 
                 MainReg.btn_backMain.setActionCommand("_BTN_back");
                 MainReg.btn_backMain.addActionListener(this);
-                MainReg.btn_backMain.setText(LanguageReg.getInstance().getProperty("DRW_btnMain"));// corregir
+                MainReg.btn_backMain.setText(LanguageReg.getInstance().getProperty("DRW_btnLogout"));// corregir
 
                 BLL_Registered.BLL_ViewRegProfile(); 
                 break;

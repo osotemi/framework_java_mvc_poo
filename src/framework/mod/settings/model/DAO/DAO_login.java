@@ -225,13 +225,11 @@ public class DAO_login {
             main_login.lbl_singINerror.setForeground(Color.red);
         } else {
             singletonProfile.userPass = pass;
-            JOptionPane.showMessageDialog(null, singletonProfile.userPass);
             main_login.jpf_pass.setBorder(null);
             main_login.lbl_singINerror.setToolTipText("");
             main_login.lbl_singINerror.setText("");
             valid = true;
         }
         return valid;
-
     }
 }

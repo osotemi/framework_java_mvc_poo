@@ -41,6 +41,7 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import static framework.mod.user.admin.view.main_Admin.PNL_drawForm;
 import java.beans.PropertyChangeEvent;
 import static framework.mod.user.admin.view.main_Admin.lbl_entries;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -127,8 +128,9 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         this.MainAdmin.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                MainAdmin.dispose();
-                BLL_Admin.BLL_FA_mainBack();
+                int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("askBye"), LanguageAdm.getInstance().getProperty("mes_askBye"), JOptionPane.WARNING_MESSAGE);
+                if (opc == 0)
+                    MainAdmin.dispose();
             }
         });
         

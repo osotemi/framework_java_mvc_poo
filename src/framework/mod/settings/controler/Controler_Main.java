@@ -38,6 +38,7 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.TitledBorder;
 
@@ -258,8 +259,11 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 LoginLayout.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
                 this.LoginLayout.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
-                        LoginLayout.dispose();                        
-                        singletonGen.mongo.disconnect();
+                        int opc = JOptionPane.showConfirmDialog(null, LanguageAdm.getInstance().getProperty("askBye"), LanguageAdm.getInstance().getProperty("mes_askBye"), JOptionPane.WARNING_MESSAGE);
+                        if (opc == 0){
+                            LoginLayout.dispose();                        
+                            singletonGen.mongo.disconnect();
+                        }
                     }
                 });
                 drawLogin();
@@ -294,7 +298,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                     
                     LoginLayout.jpf_pass.setEnabled(false);
                     
-                    LoginLayout.btn_sing.setText("Log Out");
+                    LoginLayout.btn_sing.setText(Language.getInstance().getProperty("BTN_Login"));
                     
                     LoginLayout.lbl_welcomAdm.setText("Sesion: "+singletonProfile.adm.getUser());
                 }
@@ -363,8 +367,8 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
         LoginLayout.lbl_userName.setText(Language.getInstance().getProperty("lblUserName"));
         LoginLayout.lbl_passWord.setText(Language.getInstance().getProperty("lblPass"));
         LoginLayout.lbl_singINerror.setText("");
-        LoginLayout.btn_sing.setText(Language.getInstance().getProperty("lblLogin"));
-        LoginLayout.btn_conf.setText(Language.getInstance().getProperty("LBL_Config"));
+        LoginLayout.btn_sing.setText(Language.getInstance().getProperty("BTN_Login"));
+        LoginLayout.btn_conf.setText(Language.getInstance().getProperty("BTN_Config"));
         TitledBorder txtBorder = BorderFactory.createTitledBorder(Language.getInstance().getProperty("lbl_pnlLogin"));
         LoginLayout.pnl_login.setBorder(txtBorder);
         TitledBorder txtBorderBtn = BorderFactory.createTitledBorder(Language.getInstance().getProperty("lbl_pnlButtons"));

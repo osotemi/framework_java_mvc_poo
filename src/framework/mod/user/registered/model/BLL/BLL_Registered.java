@@ -223,7 +223,7 @@ public class BLL_Registered {
      * MTableMouse Clicked actions
      */
     public static void BLL_TableMouseClick(java.awt.event.MouseEvent evt) {
-        boolean modificar = false;
+        
 
         if (evt.getClickCount() == 2) {
             main_Reg.PNL_drawForm.setVisible(BLL_Registered.BLL_ModifyReg());
@@ -386,8 +386,7 @@ public class BLL_Registered {
     public static boolean BLL_ModifyRegProf() {
         singletonReg.currentRegForm = singletonReg.MODIFY_REG;
         singletonReg.passRegModf = false;
-        int selec = -1, pos = 0;
-        String dni;
+        int pos = 0;
         boolean valid = false;
 
         int n = singletonReg.RegTableArray.size();
@@ -428,7 +427,6 @@ public class BLL_Registered {
                 if (pos != -1) {
                     singletonReg.ephemeralReg = singletonReg.RegTableArray.get(pos);
                     DAO_Registered.formViewReg();
-                    JOptionPane.showMessageDialog(null, singletonReg.ephemeralReg.toString());
                 } else {
                     DAO_Registered.DAO_ERR_View();
                 }

@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
@@ -117,14 +118,15 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
         this.MainClient.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                //panel salida
-                MainClient.dispose();
+                int opc = JOptionPane.showConfirmDialog(null, LanguageClt.getInstance().getProperty("askBye"), LanguageClt.getInstance().getProperty("mes_askBye"), JOptionPane.WARNING_MESSAGE);
+                if (opc == 0)
+                    MainClient.dispose();
             }
         });
 
         switch(singletonProfile.userType){
             case "Admin":
-                MainClient.lbl_currprofile.setText(LanguageClt.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.adm.getUser());
+                MainClient.lbl_currprofile.setText(LanguageClt.getInstance().getProperty("DRW_lblSession") + ": " + singletonProfile.adm.getUser());
                 PNL_drawForm.setVisible(false);
                 MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));
                 runTABLE();
@@ -141,6 +143,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.btn_modifyClient.setActionCommand("_BTN_modify");
                 MainClient.btn_modifyClient.addActionListener(this);
 
+                MainClient.btn_deleteClient.setVisible(true);
                 MainClient.btn_deleteClient.setActionCommand("_BTN_delete");
                 MainClient.btn_deleteClient.addActionListener(this);
 
@@ -291,7 +294,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.txtf_formClt_username.addFocusListener(this);
                 break;
             case "Client":
-                MainClient.lbl_currprofile.setText(LanguageClt.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.clt.getUser());
+                MainClient.lbl_currprofile.setText(LanguageClt.getInstance().getProperty("DRW_lblSession") + ": " + singletonProfile.clt.getUser());
                 PNL_drawForm.setVisible(true);
                 MainClient.PNL_mainTablePager.setVisible(false);
                 MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));
@@ -304,8 +307,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.btn_modifyClient.setActionCommand("_BTN_modify");
                 MainClient.btn_modifyClient.addActionListener(this);
                 
-                MainClient.btn_deleteClient.setActionCommand("_BTN_delete");
-                MainClient.btn_deleteClient.addActionListener(this);
+                MainClient.btn_deleteClient.setVisible(false);
 
                 MainClient.btn_deleteAllClient.setVisible(false);
 
@@ -320,7 +322,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
 
                 MainClient.btn_backMain.setActionCommand("_BTN_back");
                 MainClient.btn_backMain.addActionListener(this);
-                MainClient.btn_backMain.setText(LanguageClt.getInstance().getProperty("DRW_btnMain"));// corregir
+                MainClient.btn_backMain.setText(LanguageClt.getInstance().getProperty("DRW_btnLogout"));// corregir
 
                 BLL_Client.BLL_ViewProfileClt();
                 break;
