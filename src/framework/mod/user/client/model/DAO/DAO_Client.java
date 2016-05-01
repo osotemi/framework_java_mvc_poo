@@ -10,6 +10,8 @@ import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
 import framework.mod.settings.view.main_login;
 import static framework.mod.user.client.controler.Controler_mainClient.MainClient;
+import framework.mod.user.client.model.BLL.BLL_Client;
+import framework.mod.user.client.model.BLL.BLL_DB_Client;
 import framework.mod.user.client.model.classes.Client;
 import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.client.model.tools.LanguageClt;
@@ -521,7 +523,14 @@ public class DAO_Client {
             main_Client.lbl_formClt_lusernameERR.setText(LanguageClt.getInstance().getProperty("error"));
             main_Client.lbl_formClt_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Client.lbl_formClt_lusernameERR.setForeground(Color.red);
-        } else {
+        } else if(BLL_DB_Client.BLL_DB_serachBYuserName()){
+            main_Client.txtf_formClt_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+            main_Client.txtf_formClt_username.setFont(new java.awt.Font("Dialog", 0, 12));
+            main_Client.txtf_formClt_username.setToolTipText(LanguageClt.getInstance().getProperty("errVal_user"));
+            main_Client.lbl_formClt_lusernameERR.setText(LanguageClt.getInstance().getProperty("error"));
+            main_Client.lbl_formClt_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
+            main_Client.lbl_formClt_lusernameERR.setForeground(Color.red);
+        }else {
             main_Client.txtf_formClt_username.setBorder(null);
             main_Client.txtf_formClt_username.setToolTipText("");
             main_Client.lbl_formClt_lusernameERR.setText("");

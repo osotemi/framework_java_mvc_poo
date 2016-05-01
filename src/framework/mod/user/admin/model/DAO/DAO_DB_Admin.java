@@ -275,4 +275,78 @@ public class DAO_DB_Admin {
             JOptionPane.showMessageDialog(null, "Error en el Logger");
         }
     }
+
+    /**
+     * DAO_srcAdminBYname Makes SELECT * FROM db_framework.admin WHERE name =
+     * singletonProfile.userName
+     *
+     * @param con
+     * @return boolean
+     */
+    public static boolean DAO_srcAdminBYname(Connection con, String strUserName) {
+
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        boolean valid = false;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM db_framework.admin WHERE user=?");
+            stmt.setString(1, strUserName);
+            //stmt.setString(2, singletonProfile.userPass);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                
+                DateO birth_date = null;
+                DateO hire_date = null;
+                
+                //(age,avatar,date_birthday,dni,email,phone,name,lastname,password,state,user,benefit,activity,antiqueness,date_hiredate,salary)
+                try {
+                    birth_date = new DateO(rs.getString("date_birthday"));
+                    hire_date = new DateO(rs.getString("date_hiredate"));
+                    singletonAdmin.ephemeralAdmin.setAge(rs.getInt("age"));
+                    singletonAdmin.ephemeralAdmin.setLastname(rs.getString("lastname"));
+                    singletonAdmin.ephemeralAdmin.setBorn_date(birth_date);
+                    singletonAdmin.ephemeralAdmin.setDni(rs.getString("dni"));
+                    singletonAdmin.ephemeralAdmin.setEmail(rs.getString("email"));
+                    singletonAdmin.ephemeralAdmin.setMovile(rs.getString("phone"));
+                    singletonAdmin.ephemeralAdmin.setName(rs.getString("name"));
+                    singletonAdmin.ephemeralAdmin.setLastname(rs.getString("lastname"));
+                    singletonAdmin.ephemeralAdmin.setPassword(rs.getString("password"));
+                    singletonAdmin.ephemeralAdmin.setState(rs.getString("state"));
+                    singletonAdmin.ephemeralAdmin.setUser(rs.getString("user"));
+                    //benefit se autocalcula
+                    singletonAdmin.ephemeralAdmin.setActivity(rs.getInt("activity"));
+                    singletonAdmin.ephemeralAdmin.setContract_data(hire_date);
+                    singletonAdmin.ephemeralAdmin.setSalary(rs.getFloat("salary"));
+                    
+                    //if(singletonProfile.adm.getPassword().equals(singletonProfile.userPass))
+                        valid = true;
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el Logger");
+                }
+            }
+            
+            
+        } catch (SQLException ex) {
+            System.out.println("Ha habido un problema al buscar el usuario por nombre y contraseña");
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    System.out.println("Error en el Logger");
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    System.out.println("Error en el Logger");
+                }
+            }
+        }
+
+        return valid;
+    }
 }

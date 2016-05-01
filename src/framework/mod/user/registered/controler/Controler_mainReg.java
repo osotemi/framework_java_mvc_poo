@@ -124,7 +124,8 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
             }
         });
         
-        //form Admin
+        
+        //form Reg
         MainReg.lbl_form_avatar.setText(LanguageReg.getInstance().getProperty("DRW_lblAvatar"));
         MainReg.btn_formReg_Avatar.setActionCommand("_BTN_avatar");
         MainReg.btn_formReg_Avatar.setName("_BTN_avatar");
@@ -207,6 +208,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         
         switch (singletonProfile.userType){
             case "Admin":
+                MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.adm.getUser());
                 PNL_drawForm.setVisible(false);
                 MainReg.PNL_mainTablePager.setVisible(true);
                 runTABLE();
@@ -283,7 +285,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 break;
                 
             case "RegU":
-                
+                MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.RegU.getUser());
                 PNL_drawForm.setVisible(true);
                 MainReg.PNL_mainTablePager.setVisible(false);
                 

@@ -5,6 +5,7 @@
  */
 package framework.mod.user.admin.controler;
 
+import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
@@ -130,7 +131,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
                 BLL_Admin.BLL_FA_mainBack();
             }
         });
-                
+        
         //Inicia los componentes del menu de botones
         MainAdmin.btn_createAdmin.setActionCommand("_BTN_create");
         MainAdmin.btn_createAdmin.addActionListener(this);
@@ -165,6 +166,9 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         MainAdmin.btn_backMain.setActionCommand("_BTN_back");
         MainAdmin.btn_backMain.addActionListener(this);
         MainAdmin.btn_backMain.setText(LanguageAdm.getInstance().getProperty("DRW_btnMain"));// corregir
+        
+        if(singletonProfile.userType.equals("Admin"))
+            MainAdmin.lbl_currprofile.setText(LanguageAdm.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.adm.getUser());
         
         //Inicia los componentes de la TABLA/pagina
         MainAdmin.ANTERIOR.setActionCommand("_BTN_ANTERIOR");

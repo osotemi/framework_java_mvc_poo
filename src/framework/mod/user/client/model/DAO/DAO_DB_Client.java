@@ -69,22 +69,24 @@ public class DAO_DB_Client {
         singletonGen.collection.updateMulti(searchById, updateAtribute);
     }
     
-        
+    /**
+     * Remove a Client dni gived from collection Client mongo DB
+     */   
     public static void delete_Client_by_dni() {
         singletonGen.collection.remove(new BasicDBObject().append("dni", singletonClient.dniClt));
     }
-    
-    /**Filtrar por
+    /**Search on mongo client collection for a client with usernam gived
      * 
-     * @return 
+     * @return boolean
      */
-    public static void filterBY(String alias, Object value){
+    public static boolean DAO_searchONclientBYuserName(){
+        boolean valid=false;
         DBCursor cursor = null;
-        String rdo = "";
         Client clt = new Client();
+        
         try {
             BasicDBObject query = new BasicDBObject();
-            query.put(alias, value);
+            query.put("user", singletonClient.userName);
             
             cursor = singletonGen.collection.find(query);
             if(cursor.count()!=0){
@@ -92,7 +94,12 @@ public class DAO_DB_Client {
                     BasicDBObject document = (BasicDBObject) cursor.next();
                     clt = singletonClient.ephemeralClient.DB_to_Client(document);
                     
+                    if(clt.getPassword().equals(singletonClient.ephemeralClient)){
+                        valid=true;
+                        System.out.println("ERROR Login for while!!!");
+                    }
                 }
+                
             }else{
                 System.out.println("NOT DATA"); 
             }
@@ -101,6 +108,7 @@ public class DAO_DB_Client {
 		cursor.close();
             }
 	}
+        return valid;
     }
     
     

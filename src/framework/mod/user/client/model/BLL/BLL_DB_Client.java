@@ -21,6 +21,10 @@ public class BLL_DB_Client {
         
     }
     
+    public static boolean BLL_DB_serachBYuserName(){
+        return DAO_DB_Client.DAO_searchONclientBYuserName();
+    }
+    
     public static void BLL_DB_modifyClient() {
         DAO_DB_Client.update_Client( );
     }

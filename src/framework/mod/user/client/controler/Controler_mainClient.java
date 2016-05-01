@@ -124,6 +124,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
 
         switch(singletonProfile.userType){
             case "Admin":
+                MainClient.lbl_currprofile.setText(LanguageClt.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.adm.getUser());
                 PNL_drawForm.setVisible(false);
                 MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));
                 runTABLE();
@@ -168,7 +169,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.btn_backMain.setActionCommand("_BTN_back");
                 MainClient.btn_backMain.addActionListener(this);
                 MainClient.btn_backMain.setText(LanguageClt.getInstance().getProperty("DRW_btnMain"));// corregir
-
+                
                 //Inicia los componentes de la TABLA/pagina
                 MainClient.ANTERIOR.setActionCommand("_BTN_ANTERIOR");
                 MainClient.ANTERIOR.addActionListener(this);
@@ -290,6 +291,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.txtf_formClt_username.addFocusListener(this);
                 break;
             case "Client":
+                MainClient.lbl_currprofile.setText(LanguageClt.getInstance().getProperty("DRW_lblUserName") + " " + singletonProfile.clt.getUser());
                 PNL_drawForm.setVisible(true);
                 MainClient.PNL_mainTablePager.setVisible(false);
                 MainClient.setTitle(LanguageClt.getInstance().getProperty("clt_title"));

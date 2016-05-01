@@ -10,6 +10,7 @@ import framework.mod.settings.controler.Controler_Main;
 import framework.mod.settings.view.main;
 import framework.mod.settings.view.main_login;
 import static framework.mod.user.registered.controler.Controler_mainReg.MainReg;
+import framework.mod.user.registered.model.BLL.BLL_Registered;
 import framework.mod.user.registered.model.classes.RegisteredU;
 import framework.mod.user.registered.model.classes.singletonReg;
 import framework.mod.user.registered.model.tools.LanguageReg;
@@ -492,7 +493,14 @@ public class DAO_Registered {
             main_Reg.lbl_formReg_usernameERR.setText(LanguageReg.getInstance().getProperty("error"));
             main_Reg.lbl_formReg_usernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Reg.lbl_formReg_usernameERR.setForeground(Color.red);
-        } else {
+        } else if(BLL_Registered.BLL_searchUser()){
+            main_Reg.txtf_formReg_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+            main_Reg.txtf_formReg_username.setFont(new java.awt.Font("Dialog", 0, 12));
+            main_Reg.txtf_formReg_username.setToolTipText(LanguageReg.getInstance().getProperty("errVal_user"));
+            main_Reg.lbl_formReg_usernameERR.setText(LanguageReg.getInstance().getProperty("error"));
+            main_Reg.lbl_formReg_usernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
+            main_Reg.lbl_formReg_usernameERR.setForeground(Color.red);
+        }else {
             main_Reg.txtf_formReg_username.setBorder(null);
             main_Reg.txtf_formReg_username.setToolTipText("");
             main_Reg.lbl_formReg_usernameERR.setText("");
@@ -708,38 +716,7 @@ public class DAO_Registered {
         }
         return valid;
     }
-/*
-    public static boolean askSingDate() {
-        boolean valid = false;
-        int day, month, year;
-        DateO singDate = new DateO("0/0/0000");
-        DateO bornDate = new DateO("0/0/0000");
-        try {
-            singDate = new DateO(main_Reg.DC_formClt_singdate.getCalendar());
-            bornDate = new DateO(main_Reg.DC_formClt_borndate.getCalendar());
 
-        } catch (Exception e) {
-            main_Reg.DC_formClt_singdate.setToolTipText(LanguageClt.getInstance().getProperty("errAsk_bornDate"));
-            main_Reg.lbl_formClt_singdateERR.setText(LanguageClt.getInstance().getProperty("error"));
-            main_Reg.lbl_formClt_singdateERR.setFont(new java.awt.Font("Dialog", 1, 12));
-            main_Reg.lbl_formClt_singdateERR.setForeground(Color.red);
-            return valid;
-        }
-        if (!singDate.isValid_singdate(bornDate)) {
-            main_Reg.DC_formReg_borndate.setToolTipText(LanguageReg.getInstance().getProperty("errVal_singDate"));
-            main_Reg.lbl_formReg_singdateERR.setFont(new java.awt.Font("Dialog", 1, 12));
-            main_Reg.lbl_formReg_singdateERR.setText(LanguageReg.getInstance().getProperty("error"));
-            main_Reg.lbl_formReg_singdateERR.setForeground(Color.red);
-        } else {
-            main_Reg.DC_formReg_singdate.setToolTipText("");
-            main_Reg.lbl_formReg_singdateERR.setText("");
-            singletonReg.born_dateReg = bornDate;
-            singletonReg.sing_dateReg = singDate;
-            valid = true;
-        }
-        return valid;
-    }
-*/
     public static boolean askAvatar() {
         boolean valid = false;
         File outputfile;

@@ -27,6 +27,7 @@ public class singletonClient {
     public static DateO sing_dateClt;
     public static String passwd_formClt;
     public static String dniClt;
+    public static String userName;
     public static String objtypeClt;//->admin ->client ->reg_u
     public static String PATH_formClt = "";
     public static boolean changesClt;

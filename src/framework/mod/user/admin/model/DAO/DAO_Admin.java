@@ -12,6 +12,7 @@ import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.view.main_login;
 import framework.mod.user.admin.controler.Controler_mainAdmin;
 import static framework.mod.user.admin.controler.Controler_mainAdmin.MainAdmin;
+import framework.mod.user.admin.model.BLL.BLL_DB_Admin;
 import framework.mod.user.admin.model.classes.Admin;
 import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
@@ -519,7 +520,14 @@ public class DAO_Admin {
             main_Admin.lbl_formAdm_lusernameERR.setText(LanguageAdm.getInstance().getProperty("error"));
             main_Admin.lbl_formAdm_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Admin.lbl_formAdm_lusernameERR.setForeground(Color.red);
-        } else {
+        } else if(!BLL_DB_Admin.BLL_DB_searchByUserName(main_Admin.txtf_formAdm_username.getText())){
+            main_Admin.txtf_formAdm_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+            main_Admin.txtf_formAdm_username.setFont(new java.awt.Font("Dialog", 0, 12));
+            main_Admin.txtf_formAdm_username.setToolTipText(LanguageAdm.getInstance().getProperty("errVal_user"));
+            main_Admin.lbl_formAdm_lusernameERR.setText(LanguageAdm.getInstance().getProperty("error"));
+            main_Admin.lbl_formAdm_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
+            main_Admin.lbl_formAdm_lusernameERR.setForeground(Color.red);
+        }else {
             main_Admin.txtf_formAdm_username.setBorder(null);
             main_Admin.txtf_formAdm_username.setToolTipText("");
             main_Admin.lbl_formAdm_lusernameERR.setText("");

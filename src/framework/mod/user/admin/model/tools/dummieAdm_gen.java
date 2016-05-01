@@ -348,7 +348,11 @@ public class dummieAdm_gen {
     }
 
     public static String rdmUser(String name, String lastname) {
-        return "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+        String userName = "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+        while(BLL_DB_Admin.BLL_DB_searchByUserName(userName)){
+            userName += (int) (Math.random() * 3);
+        }
+        return userName;
     }
 
     public static int rdmActivity(DateO singDate) {

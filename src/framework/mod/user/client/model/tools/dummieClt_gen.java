@@ -291,7 +291,12 @@ public class dummieClt_gen {
     }
 
     public static String rdmUser(String name, String lastname) {
-        return "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+        String userName = "" + name.charAt(0) + name.charAt(1) + name.charAt(2) + lastname.charAt(0) + lastname.charAt(1) + lastname.charAt(2);
+        singletonClient.userName = userName;
+        while(BLL_DB_Client.BLL_DB_serachBYuserName()){
+            userName += (int) (Math.random() * 3);
+        }
+        return userName;
     }
     //Client attributes
     public static int rdmShopAccount(DateO singDate){

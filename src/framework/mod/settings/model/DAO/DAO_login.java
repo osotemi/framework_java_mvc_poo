@@ -32,7 +32,8 @@ public class DAO_login {
   
     /**
      * DAO_srcAdminBYname Makes SELECT * FROM db_framework.admin WHERE name =
-     * singletonProfile.userName AND pass = singletonProfile.userPass
+     * singletonProfile.userName 
+     * AND then check if pass = singletonProfile.userPass
      *
      * @param con
      * @return boolean

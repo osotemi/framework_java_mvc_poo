@@ -331,7 +331,17 @@ public class BLL_Registered {
         }
         return false;
     }
-
+    /**
+     * Looks if singletoonReg.userName is already used as user name
+     * @return boolean
+     */
+    public static boolean BLL_searchUser(){
+        if (searchALbyUserName() != -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
     /**
      * Function looks for an Admin to modify it and calls a DAO function to draw
      * modify form
@@ -573,6 +583,23 @@ public class BLL_Registered {
         if (singletonReg.RegTableArray != null) {
             for (int i = 0; i < singletonReg.RegTableArray.size(); i++) {
                 if (singletonReg.RegTableArray.get(i).getDni().toUpperCase().equals(singletonReg.ephemeralReg.getDni().toUpperCase())) {//search by dni
+                    pos = i;
+                    i = singletonReg.RegTableArray.size();
+                }
+            }
+        }
+        return pos;
+    }
+    
+    /**
+     * Searchs for the actual singletonAdmin.ephemeral Admin on
+     * singletonU.Alist_adm
+     */
+    public static int searchALbyUserName() {
+        int pos = -1;
+        if (singletonReg.RegTableArray != null) {
+            for (int i = 0; i < singletonReg.RegTableArray.size(); i++) {
+                if (singletonReg.RegTableArray.get(i).getUser().equals(singletonReg.ephemeralReg.getUser())) {//search by dni
                     pos = i;
                     i = singletonReg.RegTableArray.size();
                 }

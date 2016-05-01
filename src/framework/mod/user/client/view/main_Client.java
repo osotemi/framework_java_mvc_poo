@@ -57,6 +57,7 @@ public class main_Client extends javax.swing.JFrame {
         panelImage3 = new org.edisoncor.gui.panel.PanelImage();
         btnGroupState = new javax.swing.ButtonGroup();
         PNL_title = new org.edisoncor.gui.panel.PanelImage();
+        lbl_currprofile = new javax.swing.JLabel();
         PNL_menuBtn = new org.edisoncor.gui.panel.PanelImage();
         btn_backMain = new org.edisoncor.gui.button.ButtonAero();
         btn_saveJSON = new org.edisoncor.gui.button.ButtonAero();
@@ -159,15 +160,26 @@ public class main_Client extends javax.swing.JFrame {
         PNL_title.setName(""); // NOI18N
         PNL_title.setPreferredSize(new java.awt.Dimension(0, 50));
 
+        lbl_currprofile.setFont(new java.awt.Font("DejaVu Serif", 1, 14)); // NOI18N
+        lbl_currprofile.setForeground(new java.awt.Color(0, 204, 51));
+        lbl_currprofile.setText("_");
+        lbl_currprofile.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout PNL_titleLayout = new javax.swing.GroupLayout(PNL_title);
         PNL_title.setLayout(PNL_titleLayout);
         PNL_titleLayout.setHorizontalGroup(
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1410, Short.MAX_VALUE)
+            .addGroup(PNL_titleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_currprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1034, Short.MAX_VALUE))
         );
         PNL_titleLayout.setVerticalGroup(
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(PNL_titleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_currprofile, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(PNL_title, java.awt.BorderLayout.NORTH);
@@ -907,6 +919,7 @@ public class main_Client extends javax.swing.JFrame {
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JLabel lblMainform;
+    public static javax.swing.JLabel lbl_currprofile;
     public static javax.swing.JLabel lbl_entries;
     public static javax.swing.JLabel lbl_filtBY;
     public static javax.swing.JLabel lbl_formClt_borndateERR;
