@@ -290,7 +290,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                 
                 LoginLayout.lbl_singINerror.setText("");
                 
-                if(singletonProfile.userType == "Admin"){
+                if(singletonProfile.userType.equals("Admin")){
                     LoginLayout.pnl_login.setVisible(true);
                     
                     LoginLayout.txt_userName.setText(singletonProfile.adm.getUser());
@@ -298,8 +298,7 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                     
                     LoginLayout.jpf_pass.setEnabled(false);
                     
-                    LoginLayout.btn_sing.setText(Language.getInstance().getProperty("BTN_Login"));
-                    
+                    LoginLayout.btn_sing.setText(Language.getInstance().getProperty("BTN_Logout"));
                     LoginLayout.lbl_welcomAdm.setText("Sesion: "+singletonProfile.adm.getUser());
                 }
                 else{
@@ -492,13 +491,13 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
                             case "Admin":
                                 main_login.lbl_welcomAdm.setText("Sesion: "+singletonProfile.adm.getUser());
                                 LoginLayout.pnl_userType.setVisible(true);
+                                LoginLayout.btn_sing.setText(Language.getInstance().getProperty("BTN_Logout"));
                                 break;
                             case "Client":
                                 LanguageClt.getInstance().loadProperties();
                                 LoginLayout.dispose();
                                 new Controler_mainClient(new main_Client()).run();
-                                //pintar usuario
-
+                                
                                 break;
                             case "RegU":
                                 LanguageReg.getInstance().loadProperties();

@@ -223,8 +223,6 @@ public class BLL_Registered {
      * MTableMouse Clicked actions
      */
     public static void BLL_TableMouseClick(java.awt.event.MouseEvent evt) {
-        
-
         if (evt.getClickCount() == 2) {
             main_Reg.PNL_drawForm.setVisible(BLL_Registered.BLL_ModifyReg());
         } else if ((evt.getModifiers() == InputEvent.BUTTON1_MASK)) {
@@ -238,7 +236,7 @@ public class BLL_Registered {
      * C-R-U-D functions
      */
     /**
-     *
+     *Draw User Registered form
      */
     public static void BLL_CreateReg() {
         singletonReg.currentRegForm = singletonReg.CREATE_REG;
@@ -271,7 +269,7 @@ public class BLL_Registered {
                 
             } else {
                 selec += (paginaReg.currentPageIndex - 1) * paginaReg.itemsPerPage;
-                dni = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 4);
+                dni = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 5);
                 name = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 0);
                 lastname = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 1);
                 RegisteredU regu = new RegisteredU(dni);

@@ -272,7 +272,7 @@ public class BLL_Admin {
                 
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
+                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 5);
                 name = (String) main_Admin.TABLA.getModel().getValueAt(selec, 0);
                 lastname = (String) main_Admin.TABLA.getModel().getValueAt(selec, 1);
                 singletonAdmin.ephemeralAdmin = new Admin(dni);
@@ -359,7 +359,7 @@ public class BLL_Admin {
                 JOptionPane.showMessageDialog(null, LanguageAdm.getInstance().getProperty("errTbl_selectUser"), "Error!", 2);
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
+                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 5);
                 singletonAdmin.dni = dni;
                 singletonAdmin.ephemeralAdmin = new Admin(dni);
                 pos = searchAL();
@@ -391,7 +391,7 @@ public class BLL_Admin {
                 return;
             } else {
                 selec += (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 4);
+                dni = (String) main_Admin.TABLA.getModel().getValueAt(selec, 5);
                 Admin adm = new Admin(dni);
                 singletonAdmin.ephemeralAdmin = adm;
                 pos = searchAL();

@@ -21,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
 public class miniSimpleTableModelReg extends AbstractTableModel{
     public static ArrayList<RegisteredU> dataReg = new ArrayList<RegisteredU>();
     public static ArrayList<RegisteredU> datosauxReg = new ArrayList<RegisteredU>();
-    String[] columns = {LanguageReg.getInstance().getProperty("col_name"), LanguageReg.getInstance().getProperty("col_lastName"), LanguageReg.getInstance().getProperty("col_hireDate"), LanguageReg.getInstance().getProperty("col_salary")};
+    String[] columns = {LanguageReg.getInstance().getProperty("col_name"), LanguageReg.getInstance().getProperty("col_lastName"), LanguageReg.getInstance().getProperty("col_hireDate"), LanguageReg.getInstance().getProperty("col_salary"), LanguageReg.getInstance().getProperty("col_Karma")};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override
@@ -64,8 +64,10 @@ public class miniSimpleTableModelReg extends AbstractTableModel{
             case 3:
                 dev = fila.getEmail();
                 break;
-            
             case 4:
+                dev = fila.getKarma();
+                break;
+            case 5:
                 dev = fila.getDni();
                 break;
         }

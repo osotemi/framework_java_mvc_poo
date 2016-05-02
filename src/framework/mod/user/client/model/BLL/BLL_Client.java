@@ -271,7 +271,7 @@ public class BLL_Client {
 
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
-                dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 4);
+                dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 5);
                 name = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 0);
                 lastname = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 1);
                 Client clt = new Client(dni);
@@ -354,7 +354,7 @@ public class BLL_Client {
                 JOptionPane.showMessageDialog(null, LanguageClt.getInstance().getProperty("errTbl_selectUser"), "Error!", 2);
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
-                dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 4);
+                dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 5);
                 singletonClient.dniClt = dni;
                 singletonClient.ephemeralClient = new Client(dni);
                 pos = searchAL();
@@ -388,7 +388,7 @@ public class BLL_Client {
      * form
      */
     public static void BLL_ViewClt() {
-        String dni, name, lastname;
+        String dni;
         int pos;
 
         int n = ((miniSimpleTableModel_Client) main_Client.TABLA_CLT.getModel()).getRowCount();

@@ -8,12 +8,9 @@ package framework.mod.user.admin.model.classes;
 import framework.mod.user.admin.model.tools.pager.pagina;
 import framework.clss.DateO;
 import framework.mod.user.admin.model.BLL.BLL_DB_Admin;
-import framework.mod.user.admin.model.classes.Admin;
-import framework.mod.user.admin.model.classes.singletonAdmin;
 import framework.mod.user.admin.model.tools.LanguageAdm;
 import framework.mod.user.admin.view.main_Admin;
 import framework.tools.format;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -25,7 +22,8 @@ import javax.swing.table.AbstractTableModel;
 public class miniSimpleTableModel_Admin extends AbstractTableModel{
     public static ArrayList<Admin> data = new ArrayList<Admin>();
     public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
-    String[] columns = {LanguageAdm.getInstance().getProperty("col_name"), LanguageAdm.getInstance().getProperty("col_lastName"), LanguageAdm.getInstance().getProperty("col_hireDate"), LanguageAdm.getInstance().getProperty("col_salary")};
+    String[] columns = {LanguageAdm.getInstance().getProperty("col_name"), LanguageAdm.getInstance().getProperty("col_lastName"), LanguageAdm.getInstance().getProperty("col_hireDate"), LanguageAdm.getInstance().getProperty("col_salary"), LanguageAdm.getInstance().getProperty("col_activity")};
+    
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override
@@ -45,7 +43,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
         return columns.length;
     }
 
-    //Devuelve el valor del objeto en la fila y columna
+    // Devuelve el valor del objeto en la fila y columna
     @Override
     public Object getValueAt(int row, int col) {
 
@@ -71,7 +69,12 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
                 break;
             
             case 4:
+                dev = fila.getActivity();
+                break;
+            case 5:
                 dev = fila.getDni();
+                break;
+            default:
                 break;
         }
         return dev;
@@ -104,7 +107,11 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel{
             case 3:
                 fila.setSalary(Integer.parseInt(value.toString()));
                 break;
-
+            case 4:
+                fila.setActivity(Integer.parseInt(value.toString()));
+                break;
+            default:
+                break;
         }
         fireTableCellUpdated(row, col);
     }

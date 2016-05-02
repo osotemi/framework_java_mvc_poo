@@ -7,10 +7,7 @@ package framework.mod.user.admin.model.DAO;
 
 import framework.clss.DateO;
 import framework.mod.settings.controler.Controler_Main;
-import framework.mod.settings.view.main;
-import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.view.main_login;
-import framework.mod.user.admin.controler.Controler_mainAdmin;
 import static framework.mod.user.admin.controler.Controler_mainAdmin.MainAdmin;
 import framework.mod.user.admin.model.BLL.BLL_DB_Admin;
 import framework.mod.user.admin.model.classes.Admin;
@@ -24,12 +21,8 @@ import framework.tools.imageSaver;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -719,7 +712,6 @@ public class DAO_Admin {
 
     public static boolean askBorndate() {
         boolean valid = false;
-        int day, month, year;
         DateO bornDate = new DateO("0/0/0000");
 
         try {
