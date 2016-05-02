@@ -23,6 +23,7 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -715,8 +716,10 @@ public class DAO_Admin {
         DateO bornDate = new DateO("0/0/0000");
 
         try {
+            
             bornDate = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
-
+            bornDate.setSdate(DateO.formDate(bornDate.toString()));
+            
         } catch (Exception e) {
             main_Admin.DC_formAdm_borndate.setToolTipText(LanguageAdm.getInstance().getProperty("errAsk_bornDate"));
             main_Admin.lbl_formAdm_borndateERR.setFont(new java.awt.Font("Dialog", 1, 12));
@@ -745,7 +748,9 @@ public class DAO_Admin {
         DateO bornDate = new DateO("0/0/0000");
         try {
             singDate = new DateO(main_Admin.DC_formAdm_singdate.getCalendar());
+            singDate.setSdate(DateO.formDate(singDate.toString()));
             bornDate = new DateO(main_Admin.DC_formAdm_borndate.getCalendar());
+            bornDate.setSdate(DateO.formDate(bornDate.toString()));
 
         } catch (Exception e) {
             main_Admin.DC_formAdm_singdate.setToolTipText(LanguageAdm.getInstance().getProperty("errAsk_bornDate"));

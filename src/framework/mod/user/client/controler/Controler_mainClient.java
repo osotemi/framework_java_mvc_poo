@@ -5,10 +5,9 @@
  */
 package framework.mod.user.client.controler;
 
-import framework.clss.singletonGen;
+import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.client.model.BLL.BLL_Client;
-import framework.mod.user.client.model.DAO.DAO_Client;
 import framework.mod.user.client.model.classes.miniSimpleTableModel_Client;
 import framework.mod.user.client.model.classes.singletonClient;
 import framework.mod.user.client.model.tools.LanguageClt;
@@ -214,7 +213,8 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.btn_formCltCreate_create.setName("_BTN_formCreate");
                 MainClient.btn_formCltCreate_create.setText("");
                 MainClient.btn_formCltCreate_create.addActionListener(this);
-
+                
+                MainClient.btn_formCltCreate_back.setVisible(true);
                 MainClient.btn_formCltCreate_back.setActionCommand("_BTN_formBack");
                 MainClient.btn_formCltCreate_back.setName("_BTN_formBack");
                 MainClient.btn_formCltCreate_back.addActionListener(this);
@@ -232,10 +232,12 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.lbl_form_bornDate.setText(LanguageClt.getInstance().getProperty("DRW_lblBornDate"));
                 MainClient.DC_formClt_borndate.setName("_DC_bornDate");
                 MainClient.DC_formClt_borndate.addKeyListener(this);
+                MainClient.DC_formClt_borndate.setDateFormatString(Settings.getInstance().getFdate());
 
                 MainClient.lbl_form_hireDate.setText(LanguageClt.getInstance().getProperty("DRW_lblSingDate"));
                 MainClient.DC_formClt_singdate.setName("_DC_singDate");
                 MainClient.DC_formClt_singdate.addKeyListener(this);
+                MainClient.DC_formClt_singdate.setDateFormatString(Settings.getInstance().getFdate());
 
                 MainClient.lbl_form_pass.setText(LanguageClt.getInstance().getProperty("DRW_lblPass"));
                 MainClient.JPF_fromClt_pass.setName("_JPF_pass");
@@ -303,7 +305,9 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.btn_createClient.setVisible(false);
                 //MainAdmin.btn_createAdmin.setIcon();
                 MainClient.btn_createDummies.setVisible(false);
-
+                
+                MainClient.btn_formCltCreate_back.setVisible(false);
+                
                 MainClient.btn_modifyClient.setActionCommand("_BTN_modify");
                 MainClient.btn_modifyClient.addActionListener(this);
                 

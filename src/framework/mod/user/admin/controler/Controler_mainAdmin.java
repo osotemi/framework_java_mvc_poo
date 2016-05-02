@@ -5,6 +5,7 @@
  */
 package framework.mod.user.admin.controler;
 
+import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.user.admin.model.BLL.BLL_Admin;
 import framework.mod.user.admin.model.classes.miniSimpleTableModel_Admin;
@@ -225,10 +226,12 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         MainAdmin.lbl_form_bornDate.setText(LanguageAdm.getInstance().getProperty("DRW_lblBornDate"));
         MainAdmin.DC_formAdm_borndate.setName("_DC_bornDate");
         MainAdmin.DC_formAdm_borndate.addKeyListener(this);
+        MainAdmin.DC_formAdm_borndate.setDateFormatString(Settings.getInstance().getFdate());
         
         MainAdmin.lbl_form_hireDate.setText(LanguageAdm.getInstance().getProperty("DRW_lblSingDate"));
         MainAdmin.DC_formAdm_singdate.setName("_DC_singDate");
         MainAdmin.DC_formAdm_singdate.addKeyListener(this);
+        MainAdmin.DC_formAdm_singdate.setDateFormatString(Settings.getInstance().getFdate());
         
         MainAdmin.lbl_form_pass.setText(LanguageAdm.getInstance().getProperty("DRW_lblPass"));
         MainAdmin.JPF_fromAdm_pass.setName("_JPF_pass");

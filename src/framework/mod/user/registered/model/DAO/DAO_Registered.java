@@ -695,6 +695,7 @@ public class DAO_Registered {
 
         try {
             bornDate = new DateO(main_Reg.DC_formReg_borndate.getCalendar());
+            bornDate.setSdate(bornDate.toString());
 
         } catch (Exception e) {
             main_Reg.DC_formReg_borndate.setToolTipText(LanguageReg.getInstance().getProperty("errAsk_bornDate"));

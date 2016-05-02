@@ -724,6 +724,7 @@ public class DAO_Client {
 
         try {
             bornDate = new DateO(main_Client.DC_formClt_borndate.getCalendar());
+            bornDate.setSdate(DateO.formDate(bornDate.getSdate()));
 
         } catch (Exception e) {
             main_Client.DC_formClt_borndate.setToolTipText(LanguageClt.getInstance().getProperty("errAsk_bornDate"));
@@ -753,7 +754,9 @@ public class DAO_Client {
         DateO bornDate = new DateO("0/0/0000");
         try {
             singDate = new DateO(main_Client.DC_formClt_singdate.getCalendar());
+            singDate.setSdate(DateO.formDate(singDate.getSdate()));
             bornDate = new DateO(main_Client.DC_formClt_borndate.getCalendar());
+            bornDate.setSdate(DateO.formDate(bornDate.getSdate()));
 
         } catch (Exception e) {
             main_Client.DC_formClt_singdate.setToolTipText(LanguageClt.getInstance().getProperty("errAsk_bornDate"));

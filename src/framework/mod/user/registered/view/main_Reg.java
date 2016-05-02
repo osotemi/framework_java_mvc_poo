@@ -152,8 +152,8 @@ public class main_Reg extends javax.swing.JFrame {
         PNL_title.setName(""); // NOI18N
         PNL_title.setPreferredSize(new java.awt.Dimension(0, 50));
 
-        lbl_currprofile.setFont(new java.awt.Font("DejaVu Serif", 1, 14)); // NOI18N
-        lbl_currprofile.setForeground(new java.awt.Color(0, 204, 51));
+        lbl_currprofile.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lbl_currprofile.setForeground(new java.awt.Color(153, 255, 153));
         lbl_currprofile.setText("_");
         lbl_currprofile.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
@@ -163,8 +163,8 @@ public class main_Reg extends javax.swing.JFrame {
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_titleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_currprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1034, Short.MAX_VALUE))
+                .addComponent(lbl_currprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(781, Short.MAX_VALUE))
         );
         PNL_titleLayout.setVerticalGroup(
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

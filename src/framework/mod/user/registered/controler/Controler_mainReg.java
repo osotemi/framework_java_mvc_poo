@@ -5,8 +5,8 @@
  */
 package framework.mod.user.registered.controler;
 
+import framework.mod.settings.model.clss.Settings;
 import framework.mod.settings.model.clss.singletonProfile;
-import framework.mod.settings.view.main_login;
 import framework.mod.user.registered.model.BLL.BLL_Registered;
 import framework.mod.user.registered.model.classes.miniSimpleTableModelReg;
 import framework.mod.user.registered.model.classes.singletonReg;
@@ -19,7 +19,6 @@ import framework.mod.user.registered.view.main_Reg;
 import static framework.mod.user.registered.view.main_Reg.PNL_drawForm;
 import static framework.mod.user.registered.view.main_Reg.TABLA_REG;
 import static framework.mod.user.registered.view.main_Reg.jPanel5;
-import static framework.mod.user.registered.view.main_Reg.lbl_entries;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -139,7 +138,8 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         MainReg.btn_formRegCreate_create.setName("_BTN_formCreate");
         MainReg.btn_formRegCreate_create.setText("");
         MainReg.btn_formRegCreate_create.addActionListener(this);
-
+        
+        MainReg.btn_formRegCreate_back.setVisible(true);
         MainReg.btn_formRegCreate_back.setActionCommand("_BTN_formBack");
         MainReg.btn_formRegCreate_back.setName("_BTN_formBack");
         MainReg.btn_formRegCreate_back.addActionListener(this);
@@ -152,6 +152,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
         MainReg.lbl_form_bornDate.setText(LanguageReg.getInstance().getProperty("DRW_lblBornDate"));
         MainReg.DC_formReg_borndate.setName("_DC_bornDate");
         MainReg.DC_formReg_borndate.addKeyListener(this);
+        MainReg.DC_formReg_borndate.setDateFormatString(Settings.getInstance().getFdate());
 
         MainReg.lbl_form_pass.setText(LanguageReg.getInstance().getProperty("DRW_lblPass"));
         MainReg.JPF_fromReg_pass.setName("_JPF_pass");
@@ -227,6 +228,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 MainReg.btn_modifyReg.setActionCommand("_BTN_modify");
                 MainReg.btn_modifyReg.addActionListener(this);
 
+                MainReg.btn_deleteReg.setVisible(true);
                 MainReg.btn_deleteReg.setActionCommand("_BTN_delete");
                 MainReg.btn_deleteReg.addActionListener(this);
 
@@ -288,20 +290,21 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 break;
                 
             case "RegU":
+                
                 MainReg.lbl_currprofile.setText(LanguageReg.getInstance().getProperty("DRW_lblSession") + ": " + singletonProfile.RegU.getUser());
                 PNL_drawForm.setVisible(true);
                 MainReg.PNL_mainTablePager.setVisible(false);
+                MainReg.btn_formRegCreate_back.setVisible(false);
                 
                 //Inicia los componentes del menu de botones
                 MainReg.btn_createReg.setVisible(false);
-                //MainAdmin.btn_createAdmin.setIcon();
+                
                 MainReg.btn_createDummies.setVisible(false);
 
                 MainReg.btn_modifyReg.setActionCommand("_BTN_modify");
                 MainReg.btn_modifyReg.addActionListener(this);
 
-                MainReg.btn_deleteReg.setActionCommand("_BTN_delete");
-                MainReg.btn_deleteReg.addActionListener(this);
+                MainReg.btn_deleteReg.setVisible(false);
 
                 MainReg.btn_deleteAllReg.setVisible(false);
 

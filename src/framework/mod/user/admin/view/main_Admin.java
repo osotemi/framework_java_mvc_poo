@@ -162,8 +162,8 @@ public class main_Admin extends javax.swing.JFrame {
         PNL_title.setName(""); // NOI18N
         PNL_title.setPreferredSize(new java.awt.Dimension(0, 50));
 
-        lbl_currprofile.setFont(new java.awt.Font("DejaVu Serif", 1, 14)); // NOI18N
-        lbl_currprofile.setForeground(new java.awt.Color(0, 204, 51));
+        lbl_currprofile.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lbl_currprofile.setForeground(new java.awt.Color(153, 255, 153));
         lbl_currprofile.setText("_");
         lbl_currprofile.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
@@ -173,8 +173,8 @@ public class main_Admin extends javax.swing.JFrame {
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_titleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_currprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1034, Short.MAX_VALUE))
+                .addComponent(lbl_currprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(792, Short.MAX_VALUE))
         );
         PNL_titleLayout.setVerticalGroup(
             PNL_titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +283,7 @@ public class main_Admin extends javax.swing.JFrame {
                 .addComponent(btn_createDummies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_deleteAllAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(btn_saveXML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(btn_saveTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -690,7 +690,7 @@ public class main_Admin extends javax.swing.JFrame {
             PNL_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE))
         );
 
         getContentPane().add(PNL_form, java.awt.BorderLayout.CENTER);
