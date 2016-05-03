@@ -21,7 +21,6 @@ public class ConnectionBD {
     /**
      * Open conection with Data Base
      *
-     * @return
      */
     
     public static void inicializa_BasicDataSourceFactory() {

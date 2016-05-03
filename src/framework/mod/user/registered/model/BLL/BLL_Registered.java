@@ -275,15 +275,15 @@ public class BLL_Registered {
                 RegisteredU regu = new RegisteredU(dni);
                 singletonReg.ephemeralReg = regu;
                 pos = searchAL();
-                int opc = JOptionPane.showConfirmDialog(null, LanguageReg.getInstance().getProperty("mes_askDelet_I") + lastname + ", " + name + LanguageReg.getInstance().getProperty("mes_askDelet_II") + dni, LanguageReg.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
+                int opc = JOptionPane.showConfirmDialog(null, LanguageReg.getInstance().getProperty("mes_askDelet_I") + lastname + ", " + name + LanguageReg.getInstance().getProperty("mes_askDelet_II") + " "  + dni, LanguageReg.getInstance().getProperty("warning"), JOptionPane.WARNING_MESSAGE);
 
                 if (opc == 0) {
                     ((miniSimpleTableModelReg) main_Reg.TABLA_REG.getModel()).removeRow(selec);
                     regu = singletonReg.RegTableArray.get(pos);
                     singletonReg.RegTableArray.remove(regu);
                     miniSimpleTableModelReg.datosauxReg.remove(regu);
-                    Controler_mainReg.runTABLE();
                     autosaveMultiformat();
+                    Controler_mainReg.runTABLE();
                     main_Reg.lblMainform.setText(LanguageReg.getInstance().getProperty("mes_delok"));
                     main_Reg.lblMainform.setOpaque(true);
                     main_Reg.lblMainform.setBackground(Color.red);
@@ -331,14 +331,12 @@ public class BLL_Registered {
     }
     /**
      * Looks if singletoonReg.userName is already used as user name
-     * @return boolean
+     * true if is used, false is not
+     * @return boolean 
      */
     public static boolean BLL_searchUser(){
-        if (searchALbyUserName() != -1){
-            return false;
-        }else{
-            return true;
-        }
+        return searchALbyUserName();
+        
     }
     /**
      * Function looks for an Admin to modify it and calls a DAO function to draw
@@ -418,7 +416,7 @@ public class BLL_Registered {
                 return;
             } else {
                 selec += (paginaReg.currentPageIndex - 1) * paginaReg.itemsPerPage;
-                dni = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 4);
+                dni = (String) main_Reg.TABLA_REG.getModel().getValueAt(selec, 5);
                 RegisteredU regu = new RegisteredU(dni);
                 singletonReg.ephemeralReg = regu;
                 pos = searchAL();
@@ -502,7 +500,6 @@ public class BLL_Registered {
             public void actionPerformed(ActionEvent e) {
                 if (main_Reg.PNL_drawForm.isVisible()) {
                     main_Reg.PNL_drawForm.setVisible(false);
-                    BLL_Registered.BLL_ViewRegProfile();
                 }
             }
         };
@@ -557,10 +554,29 @@ public class BLL_Registered {
 
         pos = searchAL();
         if (pos == -1) {
-            singletonReg.RegTableArray.add(singletonReg.ephemeralReg);
-            autosaveMultiformat();
-            Controler_mainReg.runTABLE();
-            valid = true;
+            if(BLL_Registered.BLL_searchUser() && singletonReg.currentRegForm.equals(singletonReg.CREATE_REG) ){
+                main_Reg.txtf_formReg_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+                main_Reg.txtf_formReg_username.setFont(new java.awt.Font("Dialog", 0, 12));
+                main_Reg.txtf_formReg_username.setToolTipText(LanguageReg.getInstance().getProperty("errVal_user"));
+                main_Reg.lbl_formReg_usernameERR.setText(LanguageReg.getInstance().getProperty("error"));
+                main_Reg.lbl_formReg_usernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
+                main_Reg.lbl_formReg_usernameERR.setForeground(Color.red);
+            }else {
+                if(singletonReg.RegTableArray.get(pos).getUser().equals(singletonReg.ephemeralReg.getUser())){
+                    singletonReg.RegTableArray.add(singletonReg.ephemeralReg);
+                    autosaveMultiformat();
+                    Controler_mainReg.runTABLE();
+                    valid = true;
+                }
+                else{
+                    main_Reg.txtf_formReg_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+                    main_Reg.txtf_formReg_username.setFont(new java.awt.Font("Dialog", 0, 12));
+                    main_Reg.txtf_formReg_username.setToolTipText(LanguageReg.getInstance().getProperty("errVal_user"));
+                    main_Reg.lbl_formReg_usernameERR.setText(LanguageReg.getInstance().getProperty("error"));
+                    main_Reg.lbl_formReg_usernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
+                    main_Reg.lbl_formReg_usernameERR.setForeground(Color.red);
+                }
+            }
         } else {
             main_Reg.lbl_formReg_dniERR.setText(LanguageReg.getInstance().getProperty("errVal_dni"));
             main_Reg.JPF_fromReg_pass.setToolTipText(LanguageReg.getInstance().getProperty("mes_dniAlreadyExist"));
@@ -591,17 +607,16 @@ public class BLL_Registered {
      * Searchs for the actual singletonAdmin.ephemeral Admin on
      * singletonU.Alist_adm
      */
-    public static int searchALbyUserName() {
-        int pos = -1;
+    public static boolean searchALbyUserName() {
         if (singletonReg.RegTableArray != null) {
-            for (int i = 0; i < singletonReg.RegTableArray.size(); i++) {
-                if (singletonReg.RegTableArray.get(i).getUser().equals(singletonReg.ephemeralReg.getUser())) {//search by dni
-                    pos = i;
-                    i = singletonReg.RegTableArray.size();
+            for (RegisteredU regu : singletonReg.RegTableArray) {
+                if (regu.getUser().equals(singletonReg.ephemeralReg.getUser())) {//search by user
+                    return true;
+                    
                 }
             }
         }
-        return pos;
+        return false;
     }
     /**
      * Initialite array list Admin and loads it from JSON file

@@ -148,6 +148,7 @@ public class Controler_mainAdmin implements ActionListener, KeyListener, MouseLi
         MainAdmin.btn_deleteAdmin.setActionCommand("_BTN_delete");
         MainAdmin.btn_deleteAdmin.addActionListener(this);
         
+        MainAdmin.btn_deleteAllAdmin.setVisible(false);
         MainAdmin.btn_deleteAllAdmin.setActionCommand("_BTN_deleteALL");
         MainAdmin.btn_deleteAllAdmin.addActionListener(this);
         

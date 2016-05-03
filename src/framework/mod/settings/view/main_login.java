@@ -126,6 +126,7 @@ public class main_login extends javax.swing.JFrame {
         btn_conf.setOpaque(false);
 
         lbl_singINerror.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_singINerror.setForeground(new java.awt.Color(255, 51, 51));
         lbl_singINerror.setText("_");
 
         btn_sing.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N

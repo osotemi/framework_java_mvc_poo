@@ -146,7 +146,7 @@ public class Controler_mainClient implements ActionListener, KeyListener, MouseL
                 MainClient.btn_deleteClient.setActionCommand("_BTN_delete");
                 MainClient.btn_deleteClient.addActionListener(this);
 
-                MainClient.btn_deleteAllClient.setVisible(true);
+                MainClient.btn_deleteAllClient.setVisible(false);
                 MainClient.btn_deleteAllClient.setActionCommand("_BTN_deleteALL");
                 MainClient.btn_deleteAllClient.addActionListener(this);
 

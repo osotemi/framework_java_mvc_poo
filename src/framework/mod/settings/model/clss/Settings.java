@@ -50,10 +50,10 @@ public class Settings implements Serializable {
     /**
      * Setting Constructor
      *
-     * @return initialization of Setting singleton object at decimal = 2/
+     *  initialization of Setting singleton object at decimal = 2/
      * language = "ES"/ fdate = "dd/MM/yyyy"/ currency = Locale.FRANCE/
      * file_type = ".xml"/ looknfeel = "Motif";
-     *
+     * 
      */
     protected Settings(){
             name = "Default";
@@ -64,12 +64,13 @@ public class Settings implements Serializable {
             file_type = ".json";
             looknfeel = "WindowsC";
     }
-    /*protected Settings() {
-
-    }*/
-
+    
     /**
-     * Gettes & Setters
+     * If instance == null; initiates the default values of settings
+     * Then, return settings
+     * If not null; return settings
+     * 
+     * @return Settings
      */
     public static Settings getInstance() {
         if (instance == null) {

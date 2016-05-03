@@ -493,14 +493,7 @@ public class DAO_Registered {
             main_Reg.lbl_formReg_usernameERR.setText(LanguageReg.getInstance().getProperty("error"));
             main_Reg.lbl_formReg_usernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Reg.lbl_formReg_usernameERR.setForeground(Color.red);
-        } else if(BLL_Registered.BLL_searchUser()){
-            main_Reg.txtf_formReg_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
-            main_Reg.txtf_formReg_username.setFont(new java.awt.Font("Dialog", 0, 12));
-            main_Reg.txtf_formReg_username.setToolTipText(LanguageReg.getInstance().getProperty("errVal_user"));
-            main_Reg.lbl_formReg_usernameERR.setText(LanguageReg.getInstance().getProperty("error"));
-            main_Reg.lbl_formReg_usernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
-            main_Reg.lbl_formReg_usernameERR.setForeground(Color.red);
-        }else {
+        } else {
             main_Reg.txtf_formReg_username.setBorder(null);
             main_Reg.txtf_formReg_username.setToolTipText("");
             main_Reg.lbl_formReg_usernameERR.setText("");
@@ -628,12 +621,13 @@ public class DAO_Registered {
                     main_Reg.lbl_formReg_dniERR.setForeground(Color.red);
                 } else {
                     main_Reg.txtf_formReg_dni.setBorder(null);
-                    main_Reg.txtf_formReg_dni.setToolTipText("");
+                    main_Reg.txtf_formReg_dni.setToolTipText("DNI no valido");
                     main_Reg.txtf_formReg_dni.setFont(new java.awt.Font("Dialog", 0, 12));
                     main_Reg.lbl_formReg_dniERR.setText("");
                     singletonReg.passRegModf = true;
                     valid = true;
                 }
+            
             }
             else{
                 main_Reg.txtf_formReg_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));

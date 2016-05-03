@@ -232,7 +232,7 @@ public class Controler_mainReg implements ActionListener, KeyListener, MouseList
                 MainReg.btn_deleteReg.setActionCommand("_BTN_delete");
                 MainReg.btn_deleteReg.addActionListener(this);
 
-                MainReg.btn_deleteAllReg.setVisible(true);
+                MainReg.btn_deleteAllReg.setVisible(false);
                 MainReg.btn_deleteAllReg.setActionCommand("_BTN_deleteALL");
                 MainReg.btn_deleteAllReg.addActionListener(this);
 

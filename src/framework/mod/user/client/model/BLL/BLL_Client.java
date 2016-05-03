@@ -321,8 +321,8 @@ public class BLL_Client {
 
         if (opc == 0) {
             singletonClient.ClienTableArray = new ArrayList<>();
-            Controler_mainClient.runTABLE();
             singletonGen.collection.drop();
+            Controler_mainClient.runTABLE();
             //autosaveMultiformat();
             main_Client.lblMainform.setText(LanguageClt.getInstance().getProperty("mes_DeletAll"));
             main_Client.lblMainform.setBackground(Color.red);
@@ -400,7 +400,7 @@ public class BLL_Client {
                 return;
             } else {
                 selec += (paginaClt.currentPageIndex - 1) * paginaClt.itemsPerPage;
-                dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 4);
+                dni = (String) main_Client.TABLA_CLT.getModel().getValueAt(selec, 5);
                 //usar funcion buscar por dni
                 singletonClient.ephemeralClient = new Client(dni);
                 pos = searchAL();

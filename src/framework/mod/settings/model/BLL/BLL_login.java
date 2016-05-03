@@ -6,11 +6,14 @@
 package framework.mod.settings.model.BLL;
 
 import framework.clss.ConnectionBD;
+import static framework.mod.settings.controler.Controler_Main.LoginLayout;
 import framework.mod.settings.model.DAO.DAO_login;
 import framework.mod.settings.model.clss.singletonProfile;
 import framework.mod.settings.view.main_login;
 import java.awt.Color;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
+import jdk.nashorn.internal.runtime.regexp.joni.exception.JOniException;
 
 /**
  *
@@ -84,8 +87,8 @@ public class BLL_login {
             singletonProfile.userType = "RegU";
         }
         else{
-            main_login.lbl_singINerror.setText("User not found");
-            main_login.lbl_singINerror.setForeground(Color.red);
+            //LoginLayout.lbl_singINerror.setText("User not found");
+            
         }
         
         return valid;

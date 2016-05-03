@@ -35,7 +35,7 @@ public class DAO_login {
      * singletonProfile.userName 
      * AND then check if pass = singletonProfile.userPass
      *
-     * @param con
+     * @param Connection con
      * @return boolean
      */
     public static boolean DAO_srcAdminBYname(Connection con) {

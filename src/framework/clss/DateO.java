@@ -52,7 +52,7 @@ public class DateO implements Serializable {
     /**
      * contructor of the Datecl string gived
      *
-     * @param date
+     * @param String
      */
     public DateO(String date) {//well format date dd/mm/yyyy
         String[] datedata = null;
@@ -67,9 +67,9 @@ public class DateO implements Serializable {
     /**
      * contructor of the Datecl int gived Fdate is recalculated on setters
      *
-     * @param int day
-     * @param int month
-     * @param int year
+     * @param int
+     * @param int
+     * @param int
      */
     public DateO(int day, int month, int year) {
 
@@ -180,9 +180,6 @@ public class DateO implements Serializable {
      * getTodaydate method An object called attribute that fields the object
      * with the data of today date
      *
-     * @param void
-     *
-     * @return void
      */
     public void getTodaydate() {
         GregorianCalendar dat = new GregorianCalendar();
@@ -202,9 +199,6 @@ public class DateO implements Serializable {
      * recalculate Sdate method when an int atribute change, recalculate Fdate
      * atributte
      *
-     * @param void
-     *
-     * @return void
      */
     public void recalDatestr() {
         String date = "";
@@ -228,9 +222,6 @@ public class DateO implements Serializable {
      * recalculate crono method when an int atribute change, recalculate Fdate
      * atributte
      *
-     * @param void
-     *
-     * @return void
      */
     public void recalCrono() {
         String time = "";
@@ -242,9 +233,6 @@ public class DateO implements Serializable {
     /**
      * recalculate attributes method when Sdate change, racalculate atributtes
      *
-     * @param void
-     *
-     * @return void
      */
     public void recalAttributes() {
         String date = this.getSdate();
@@ -261,8 +249,6 @@ public class DateO implements Serializable {
      */
     /**
      * toString
-     *
-     * @param void
      *
      * @return String
      */
@@ -304,7 +290,6 @@ public class DateO implements Serializable {
      *
      * @param String standard format date
      *
-     * @return Datecl type date
      */
     public void stringTODatecl(String strdate) {//A well format standard string
         DateO newdatecl = new DateO(strdate);
@@ -330,9 +315,9 @@ public class DateO implements Serializable {
      * Compare (is later) date where date1 is the caller object and date2 is the
      * string gived
      *
-     * @param string date2
+     * @param String date2
      *
-     * @return 0 if date2/cal2 is later, 1 if date1/cal1 is later, 2 if equals
+     * @return int 0 if date2/cal2 is later, 1 if date1/cal1 is later, 2 if equals
      */
     public int isLater(String date2) {
         int outline = 0;
@@ -356,9 +341,9 @@ public class DateO implements Serializable {
      * Compare (is later) date where date1 is the caller object and date2 is the
      * DateO gived
      *
-     * @param DateO 
+     * @param DateO date2
      *
-     * @return -1 if date2/cal2 is later, 1 if date1/cal1 is later, 0 if equals
+     * @return int -1 if date2/cal2 is later, 1 if date1/cal1 is later, 0 if equals
      */
     public int isLaterO(DateO date2) {
         int outline = 0;
@@ -384,9 +369,9 @@ public class DateO implements Serializable {
      * function string gived returns if contains a well format and real date
      * type string in 4 formats
      *
-     * @param string 
+     * @param String newdate
      *
-     * @return bool-> if is a valid date
+     * @return boolean-> if is a valid date
      */
     public boolean valDate(String newdate) {
         boolean valid = false;
@@ -410,8 +395,8 @@ public class DateO implements Serializable {
      * function string gived returns if contains a well format and real date
      * type string in 1 of the 4 valid format
      *
-     * @param string Date
-     * @param string format ==> 1->dd/MM/yyyy 2->dd-MM-yyyy 3->yyyy/MM/dd
+     * @param String Date
+     * @param String format ==> 1->dd/MM/yyyy 2->dd-MM-yyyy 3->yyyy/MM/dd
      * 4->yyyy-MM-dd
      *
      * @return bool-> if is a valid date
@@ -450,7 +435,8 @@ public class DateO implements Serializable {
     /**
      * isValid check if the input date is between actual year - 65 and today
      * year - 18
-     *
+     * @param DateO
+     * 
      * @return boolean valid
      */
     public boolean isValid_singdate(DateO bornDate) {
@@ -472,8 +458,8 @@ public class DateO implements Serializable {
     /**
      * Function date gived, compare with the caller method object
      *
-     * @param Datecl -> date to compare with
-     * @param integer unit of measure->0 = years, 1 = months, 2 = days, ->>>>
+     * @param DateO -> date to compare with
+     * @param int unit of measure->0 = years, 1 = months, 2 = days, ->>>>
      * NEXT>>>>>3 = hours, 4=minutes, 5= seconds, 6=miliseconds
      *
      *
@@ -541,7 +527,7 @@ public class DateO implements Serializable {
     /**
      * function int gived
      *
-     * @param indate
+     * @param DateO indate
      *
      * @return int [] split_time = { years, months, days, hours, minutes,
      * seconds}
@@ -619,7 +605,7 @@ public class DateO implements Serializable {
     /**
      * function formDate String gived returns DateO with Settings format
      *
-     * @param string date is a validated string date format (dd/MM/yyyy,
+     * @param String date is a validated string date format (dd/MM/yyyy,
      * yyyy/MM/dd, yyyy-MM-dd, dd-MM-yyyy)
      *
      * @return String standart dd/MM/yyyy format

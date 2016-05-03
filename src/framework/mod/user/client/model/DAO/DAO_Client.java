@@ -521,18 +521,29 @@ public class DAO_Client {
             main_Client.lbl_formClt_lusernameERR.setText(LanguageClt.getInstance().getProperty("error"));
             main_Client.lbl_formClt_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
             main_Client.lbl_formClt_lusernameERR.setForeground(Color.red);
-        } else if(!BLL_DB_Client.BLL_DB_serachBYuserName()){
-            main_Client.txtf_formClt_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
-            main_Client.txtf_formClt_username.setFont(new java.awt.Font("Dialog", 0, 12));
-            main_Client.txtf_formClt_username.setToolTipText(LanguageClt.getInstance().getProperty("errVal_user"));
-            main_Client.lbl_formClt_lusernameERR.setText(LanguageClt.getInstance().getProperty("error"));
-            main_Client.lbl_formClt_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
-            main_Client.lbl_formClt_lusernameERR.setForeground(Color.red);
-        }else {
-            main_Client.txtf_formClt_username.setBorder(null);
-            main_Client.txtf_formClt_username.setToolTipText("");
-            main_Client.lbl_formClt_lusernameERR.setText("");
-            valid = true;
+        } else {
+            if(singletonClient.currentCltForm.equals(singletonClient.CREATE_CLT)){
+                if(BLL_DB_Client.BLL_DB_serachBYuserName()){//A Client with that user name already exists
+                    main_Client.txtf_formClt_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 2));
+                    main_Client.txtf_formClt_username.setFont(new java.awt.Font("Dialog", 0, 12));
+                    main_Client.txtf_formClt_username.setToolTipText(LanguageClt.getInstance().getProperty("errVal_user"));
+                    main_Client.lbl_formClt_lusernameERR.setText(LanguageClt.getInstance().getProperty("error"));
+                    main_Client.lbl_formClt_lusernameERR.setFont(new java.awt.Font("Dialog", 1, 12));
+                    main_Client.lbl_formClt_lusernameERR.setForeground(Color.red);
+                }
+                else{
+                    main_Client.txtf_formClt_username.setBorder(null);
+                    main_Client.txtf_formClt_username.setToolTipText("");
+                    main_Client.lbl_formClt_lusernameERR.setText("");
+                    valid = true;
+                }
+            }
+            else{
+                main_Client.txtf_formClt_username.setBorder(null);
+                main_Client.txtf_formClt_username.setToolTipText("");
+                main_Client.lbl_formClt_lusernameERR.setText("");
+                valid = true;
+            }
         }
         return valid;
     }

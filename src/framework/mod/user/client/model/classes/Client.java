@@ -102,9 +102,6 @@ public class Client extends User implements Serializable{
 		this.setPremium(premium);	
 	}
 
-	/**
-	* <<<----------getters--------->>>
-	*/
 	
 	public int getAntiqueness() {
 		return antiqueness;
@@ -127,10 +124,13 @@ public class Client extends User implements Serializable{
 	}
 
 
-	/**
-	 * <<<----------setters--------->>>
-	 * */
 	
+	//----------setters--------->>>
+	
+	/**
+         * Set antiqueness and calculate benefit
+         * @param int antiqueness 
+         */
 	public void setAntiqueness(int antiqueness) {
 		this.antiqueness = antiqueness;
 		super.setBenefit(calculateBenefit());
@@ -159,7 +159,9 @@ public class Client extends User implements Serializable{
 	* <<<----------toString--------->>>
 	 * */
 	
-	/**String toString()-->return all the values of an Client Object*/
+	/**String toString()-->return all the values of an Client Object
+         * @return String
+         */
 	@Override
 	public String toString(){
 		StringBuffer outline = new StringBuffer();
@@ -244,7 +246,9 @@ public class Client extends User implements Serializable{
 		return outline;
 	}
 	*/
-	/**String toStringPK()-->return primary key value of an Client Object*/
+	/**String toStringPK()-->return primary key value of an Client Object
+         * @return  String
+         */
 	@Override
 	public String toStringPK(){
 		return "Primary key (DNI) -> " + format.formDni(super.getDni());
@@ -268,6 +272,8 @@ public class Client extends User implements Serializable{
 	 * 13->Client type
 	 * 14->premium
 	 * 15->register date
+         * @param int
+         * @return String
 	 *  */
 	@Override
 	public String toString( int choice ){
@@ -297,7 +303,7 @@ public class Client extends User implements Serializable{
 		}	
 		return outline;
 	}
-	/**calculateantiquieness -> returns the time that the client is registered in months
+	/**calculateantiquieness - returns the time that the client is registered in months
 	 * 
 	 * @return int in months
 	 */
@@ -309,7 +315,7 @@ public class Client extends User implements Serializable{
 				
 		return ant;
 	}
-	/**calculatebenefit -> returns the benefit that earns the client
+	/**calculatebenefit - returns the benefit that earns the client
 	 * 
 	 * @return float benefit
 	 */

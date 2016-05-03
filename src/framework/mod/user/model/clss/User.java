@@ -153,7 +153,7 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * <<<----------getters--------->>>
+     * ----------getters---------
      */
     public int getAge() {
         return age;
@@ -204,8 +204,8 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * <<<----------setters--------->>>
-	 *
+     * ----------setters---------
+    *
      */
 
     public void setAge(int age) {
@@ -262,7 +262,7 @@ public abstract class User implements Serializable {
 	 *
      */
     /**
-     * String toString()-->return all the values of an User Object
+     * String toString()-return all the values of an User Object
      */
     @Override
     public String toString() {
@@ -295,7 +295,7 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * String toString_PK()-->return primary key value of an User Object
+     * String toString_PK()-return primary key value of an User Object
      */
     public String toStringPK() {
         return this.getDni();
@@ -368,7 +368,7 @@ public abstract class User implements Serializable {
     /**
      * Function that compare two user objects by DNI
      *
-     * @param user
+     * @param User
      * @return int 1-> caller > param /$/ -1-> caller < param /$/ 0-> caller =
      * param
      */

@@ -103,8 +103,11 @@ public class Controler_Main implements ActionListener, KeyListener, MouseListene
     }
     /**run()
      * Runs optionFrame relative to int gived with specifications
+     * 0 = main; deprecated
+     * 1 = wdwSettings
+     * 2 = LoginLayout
      * 
-     * @param optionFrame 
+     * @param int optionFrame 
      */
     public void run(int optionFrame) {
         Image icono = null;

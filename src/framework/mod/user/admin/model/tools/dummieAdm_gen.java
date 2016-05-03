@@ -258,10 +258,10 @@ public class dummieAdm_gen {
     }
 
     /**
-     * Function that generates a valid date for user born date ((today date -65) <
-     * > (today date - 18))
+     * Function that generates a valid date for user born date bbetween 
+     * ((today date -65)  (today date - 18))
      *
-     * @return date ->
+     * @return DateO
      */
     public static DateO rdmBorndate() {
         DateO newdate = new DateO();

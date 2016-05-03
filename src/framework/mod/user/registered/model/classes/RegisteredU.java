@@ -167,6 +167,8 @@ public class RegisteredU extends User implements Serializable{
 	 * 
 	 * 11->activity
 	 * 12->karma
+         * @param int
+         * @return String
 	 *  */
 	@Override
 	public String toString( int choice ){

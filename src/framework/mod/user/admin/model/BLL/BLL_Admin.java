@@ -427,6 +427,7 @@ public class BLL_Admin {
         if (DAO_Admin.formCreateAdmin()) {
             if (createAdmAL()) {
 
+                JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
                 main_Admin.lblMainform.setOpaque(true);
                 main_Admin.lblMainform.setBackground(Color.green);
                 main_Admin.lblMainform.setText(LanguageAdm.getInstance().getProperty("OK"));
@@ -452,7 +453,7 @@ public class BLL_Admin {
     }
 
     /**FORM_BTN_modifyAdm
-     * Modify an admin and overwrite-it on the ArrayList, save changes on DB,
+     * Modify an admin and overwrite-it on the DB, save changes on DB,
      * draws it and returns
      */
     public static void FORM_BTN_modifyAdm() throws InterruptedException {      

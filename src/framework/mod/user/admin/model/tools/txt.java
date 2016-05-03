@@ -118,7 +118,6 @@ public class txt {
     /**
      * AdminTxt_load() function load from selected file to singletonU.Alist_adm
      *
-     * @return singletonU.Alist_adm
      */
     @SuppressWarnings({"unchecked"})
     public static void AdminTxt_load() {

@@ -55,7 +55,7 @@ public class MongoDB {
     /**connect
      * Open a client with mongo data base
      * 
-     * @return 
+     * @return Mongo
      */
     public static Mongo connect() {
         try {
